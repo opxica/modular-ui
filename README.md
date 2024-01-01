@@ -33,7 +33,11 @@ This project is licensed under the BSD-3.
 ## Get Started
 
 Explore the library and create stunning Flutter UIs with ease!
-`dart pub add modular_ui`
-`import 'package:modular_ui/modular_ui.dart';`
+```
+dart pub add modular_ui
+
+import 'package:modular_ui/modular_ui.dart';
+
+```
 
 

@@ -17,6 +17,7 @@ Thank you for your interest in contributing to Flutter's first UI library ~ Modu
 
 ### Requirements 
 1. Flutter SDK needs to be installed
+2. Run `flutter create . ` inside the project folder to generate necessary files
 
 ### Fork the Repository
 
