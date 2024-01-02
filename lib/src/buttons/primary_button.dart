@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-
 /// A customizable primary button by ModularUI
 class MUIPrimaryButton extends StatefulWidget {
-
   /// The Text to display inside the button
   final String text;
 
@@ -36,9 +34,13 @@ class MUIPrimaryButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when button is not pressed
   final double heightFactorUnPressed;
 
+  /// On Tap Function
+  final VoidCallback onTap;
+
   const MUIPrimaryButton({
     super.key,
     required this.text,
+    required this.onTap,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -66,6 +68,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
+        widget.onTap();
       },
       onTapUp: (_) {
         setState(() {
