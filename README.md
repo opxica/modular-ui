@@ -108,10 +108,11 @@ We welcome contributions! Please refer to our contribution guidelines for detail
 This project is licensed under the BSD-3.
 
 ### Series of events : How we began
-[I](https://twitter.com/twtutkarsh) was just scrolling twitter and found an interesting [tweet](https://x.com/luke_pighetti/status/1740122310714007820?s=20) from [Luke](https://twitter.com/luke_pighetti) 
-This was my inspiraton, I got inspired from there and out of curiosity I posted a [Poll](https://x.com/twtutkarsh/status/1740331978392809748?s=20) on Luke's original post where some of the folks showed interest, So I decided to let's do it, and then I got connected with [Yash](https://twitter.com/Yash_khattar73), who shared similar interest and we decided to go for it 🚀🚀🚀🚀🚀🚀🚀🚀.
 
-When I posted about it on twitter we got some cool impression, The tweet blew up atleast as of my expectations.
-[Tweet](https://x.com/twtutkarsh/status/1741548976892186718?s=20) 
+While casually scrolling through Twitter, [I](https://twitter.com/twtutkarsh) stumbled upon an intriguing [tweet](https://x.com/luke_pighetti/status/1740122310714007820?s=20) from [Luke](https://twitter.com/luke_pighetti) that sparked a burst of inspiration within me. Fueling my curiosity, I conducted a [Poll](https://x.com/twtutkarsh/status/1740331978392809748?s=20) on Luke's original post, and to my delight, several individuals expressed interest. Emboldened by this positive response, I decided to take the plunge.
 
-and here we are, we are finally making modular_ui repo public, we are hoping that it get adopted by a lot of flutter devs so that we can finally have a custom ui library for flutter. 
+Enter [Yash](https://twitter.com/Yash_khattar73), a kindred spirit who shared my enthusiasm. Together, we embraced the challenge with rocket-like enthusiasm 🚀🚀🚀🚀🚀🚀🚀🚀.
+
+Sharing our endeavor on Twitter garnered an impressive reception, surpassing even my own expectations. [Tweet link](https://x.com/twtutkarsh/status/1741548976892186718?s=20)
+
+And now, the moment has arrived—our modular_ui repository is officially public! We're optimistic that it will find a welcoming home among Flutter developers, paving the way for a custom UI library tailored for the Flutter community.
