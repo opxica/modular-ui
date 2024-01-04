@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-class LoadingButton extends StatefulWidget {
+class MUILoadingButton extends StatefulWidget {
   /// Text for Loading Button
   final String text;
 
@@ -43,7 +43,7 @@ class LoadingButton extends StatefulWidget {
 
   /// A double value which gets multiplied by the current screen height when button is not pressed
   final double heightFactorUnPressed;
-  const LoadingButton({
+  const MUILoadingButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -62,10 +62,10 @@ class LoadingButton extends StatefulWidget {
   });
 
   @override
-  State<LoadingButton> createState() => _LoadingButtonState();
+  State<MUILoadingButton> createState() => _MUILoadingButtonState();
 }
 
-class _LoadingButtonState extends State<LoadingButton> {
+class _MUILoadingButtonState extends State<MUILoadingButton> {
   bool _isLoadingButtonPressed = false;
 
   void _startLoading() {
