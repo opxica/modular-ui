@@ -86,7 +86,6 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
         ),
-        margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
         padding: EdgeInsets.symmetric(
           horizontal: _isPrimaryButtonPressed
               ? getScreenWidth(context) * widget.widthFactorPressed
