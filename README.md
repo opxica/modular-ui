@@ -14,7 +14,7 @@ Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 - [ ] Button
   - [x] Primary Button
   - [x] Loading Button
-  - [ ] Gradient Button
+  - [X] Gradient Button
   - [ ] Outlined Button
   - [ ] Text Button
   - [ ] Primary Block Level Button

@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable primary button by ModularUI
-class MUIPrimaryButton extends StatefulWidget {
+class MUIGradientButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Primary Button, dafault : black
-  final Color bgColor;
+  /// Background Gradient of The Gradient Button, dafault : black and grey
+  final Gradient bgGradient;
 
-  /// Text Color of the Primary Button, default : white
+  /// Text Color of the Gradient Button, default : white
   final Color textColor;
 
-  /// Border Radius for Primary Button, default : 10
+  /// Border Radius for Gradient Button, default : 10
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default : 250 ms
@@ -36,12 +35,11 @@ class MUIPrimaryButton extends StatefulWidget {
 
   /// On Tap Function
   final VoidCallback onTap;
-
-  const MUIPrimaryButton({
+  const MUIGradientButton({
     super.key,
     required this.text,
     required this.onTap,
-    this.bgColor = Colors.black,
+    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
     this.textColor = Colors.white,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
@@ -53,17 +51,17 @@ class MUIPrimaryButton extends StatefulWidget {
   });
 
   @override
-  State<MUIPrimaryButton> createState() => _PrimaryButtonState();
+  State<MUIGradientButton> createState() => _MUIGradientButtonState();
 }
 
-class _PrimaryButtonState extends State<MUIPrimaryButton> {
-  bool _isPrimaryButtonPressed = false;
+class _MUIGradientButtonState extends State<MUIGradientButton> {
+  bool _isGradientButtonPressed = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isPrimaryButtonPressed = true;
+          _isGradientButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -72,25 +70,25 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isPrimaryButtonPressed = false;
+          _isGradientButtonPressed = false;
         });
       },
       onTapCancel: () {
         setState(() {
-          _isPrimaryButtonPressed = false;
+          _isGradientButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuraton),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: widget.bgColor,
+          gradient: widget.bgGradient,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: _isPrimaryButtonPressed
+          horizontal: _isGradientButtonPressed
               ? getScreenWidth(context) * widget.widthFactorPressed
               : getScreenWidth(context) * widget.widthFactorUnpressed,
-          vertical: _isPrimaryButtonPressed
+          vertical: _isGradientButtonPressed
               ? getScreenWidth(context) * widget.heightFactorPressed
               : getScreenWidth(context) * widget.heightFactorUnPressed,
         ),
