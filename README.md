@@ -14,9 +14,14 @@ Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 - [ ] Button
   - [x] Primary Button
   - [x] Loading Button
-  - [ ] Button With Icon
-  - [ ] Block Level Button
-  - [ ] Rounded Button
+  - [ ] Gradient Button
+  - [ ] Outlined Button
+  - [ ] Text Button
+  - [ ] Primary Block Level Button
+  - [ ] Gradient Block Level Button
+  - [ ] Loading Block Level Button
+  - [ ] Outlined Block Level Button
+  - [ ] Text Block Level Button
   - [ ] Auth Buttons
 - [ ] Card
   - [ ] Card With Image 
