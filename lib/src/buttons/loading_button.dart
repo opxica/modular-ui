@@ -99,7 +99,6 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
               ? widget.bgColor
               : widget.loadingStateBackgroundColor,
         ),
-        margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
         padding: EdgeInsets.symmetric(
           horizontal: _isLoadingButtonPressed
               ? getScreenWidth(context) * widget.widthFactorPressed
@@ -121,8 +120,8 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                     Container(
                       margin: EdgeInsets.symmetric(
                           horizontal: getScreenWidth(context) * 0.02),
-                      width: getScreenWidth(context) * 0.05,
-                      height: getScreenWidth(context) * 0.05,
+                      width: getScreenWidth(context) * 0.04,
+                      height: getScreenWidth(context) * 0.04,
                       child: CircularProgressIndicator(
                         color: widget.loadingStateTextColor,
                       ),
