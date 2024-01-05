@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/buttons/primary_button.dart';
 
-class SimpleCard extends StatelessWidget {
+class MUISimpleCard extends StatelessWidget {
   /// The title of the card
   final String title;
 
@@ -25,7 +25,7 @@ class SimpleCard extends StatelessWidget {
 
   /// On Tap Function
   final VoidCallback onButtonTap;
-  const SimpleCard({
+  const MUISimpleCard({
     super.key,
     required this.title,
     required this.description,

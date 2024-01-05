@@ -6,7 +6,7 @@ Widget button() {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       MUIPrimaryButton(text: "Button 1", onTap: () {}),
-      LoadingButton(
+      MUILoadingButton(
         text: "Button 2",
         onPressed: () async {},
         loadingStateText: "hehe",

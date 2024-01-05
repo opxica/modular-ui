@@ -6,7 +6,7 @@ Widget card() {
     children: [
       Padding(
         padding: const EdgeInsets.all(16.0),
-        child: PrimaryCard(
+        child: MUIPrimaryCard(
           title: 'UI/UX Review Check',
           onButtonTap: () {},
           description:
@@ -18,7 +18,7 @@ Widget card() {
       ),
       Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SimpleCard(
+        child: MUISimpleCard(
           title: 'UI/UX Review Check',
           onButtonTap: () {},
           description:
