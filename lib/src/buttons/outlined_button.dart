@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable primary button by ModularUI
-class MUIPrimaryButton extends StatefulWidget {
+class MUIOutlinedButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Outlined Button, dafault : Transparent
+  /// Background Color of The Outlined Button, dafault : black
   final Color bgColor;
 
-  /// Border Width, default : 2
-  final double borderWidth;
+  /// Text Color of the Outlined Button, default : black
+  final Color textColor;
 
-  /// Border color, default : black
+  /// Border Color for the outlined Button
   final Color borderColor;
 
-  /// Text Color of the Outlined Button, default : white
-  final Color textColor;
+  /// Border width, default : 2
+  final double borderWidth;
 
   /// Border Radius for Outlined Button, default : 10
   final double borderRadius;
@@ -42,13 +41,14 @@ class MUIPrimaryButton extends StatefulWidget {
 
   /// On Tap Function
   final VoidCallback onTap;
-
-  const MUIPrimaryButton({
+  const MUIOutlinedButton({
     super.key,
     required this.text,
     required this.onTap,
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
+    this.bgColor = Colors.transparent,
+    this.borderColor = Colors.black,
+    this.borderWidth = 2,
+    this.textColor = Colors.black,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuraton = 250,
@@ -56,22 +56,20 @@ class MUIPrimaryButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.025,
-    this.borderColor = Colors.black,
-    this.borderWidth = 2,
   });
 
   @override
-  State<MUIPrimaryButton> createState() => _PrimaryButtonState();
+  State<MUIOutlinedButton> createState() => _MUIOutlinedButtonState();
 }
 
-class _PrimaryButtonState extends State<MUIPrimaryButton> {
-  bool _isPrimaryButtonPressed = false;
+class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
+  bool _isOutlinedButtonPressed = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isPrimaryButtonPressed = true;
+          _isOutlinedButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -80,29 +78,26 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isPrimaryButtonPressed = false;
+          _isOutlinedButtonPressed = false;
         });
       },
       onTapCancel: () {
         setState(() {
-          _isPrimaryButtonPressed = false;
+          _isOutlinedButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuraton),
         decoration: BoxDecoration(
-          border: Border.all(
-            color: widget.borderColor,
-            width: widget.borderWidth,
-          ),
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: widget.bgColor,
-        ),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            color: widget.bgColor,
+            border: Border.all(
+                color: widget.borderColor, width: widget.borderWidth)),
         padding: EdgeInsets.symmetric(
-          horizontal: _isPrimaryButtonPressed
+          horizontal: _isOutlinedButtonPressed
               ? getScreenWidth(context) * widget.widthFactorPressed
               : getScreenWidth(context) * widget.widthFactorUnpressed,
-          vertical: _isPrimaryButtonPressed
+          vertical: _isOutlinedButtonPressed
               ? getScreenWidth(context) * widget.heightFactorPressed
               : getScreenWidth(context) * widget.heightFactorUnPressed,
         ),
