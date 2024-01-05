@@ -10,11 +10,6 @@ class MUIPrimaryButton extends StatefulWidget {
   /// Background Color of The Outlined Button, dafault : Transparent
   final Color bgColor;
 
-  /// Border Width, default : 2
-  final double borderWidth;
-
-  /// Border color, default : black
-  final Color borderColor;
 
   /// Text Color of the Outlined Button, default : white
   final Color textColor;
@@ -56,8 +51,6 @@ class MUIPrimaryButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.025,
-    this.borderColor = Colors.black,
-    this.borderWidth = 2,
   });
 
   @override
@@ -91,10 +84,6 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuraton),
         decoration: BoxDecoration(
-          border: Border.all(
-            color: widget.borderColor,
-            width: widget.borderWidth,
-          ),
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
         ),
