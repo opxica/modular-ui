@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/buttons/primary_button.dart';
 
-class PrimaryCard extends StatelessWidget {
+class MUIPrimaryCard extends StatelessWidget {
   /// The title of the card
   final String title;
 
@@ -23,12 +23,21 @@ class PrimaryCard extends StatelessWidget {
   /// The border radius of the card
   final double borderRadius;
 
+  /// Border Radius of the image
+  final double imageRadius;
+
   /// Text of the button
   final String buttonText;
 
+  /// Outer Horizontal Margin for card
+  final double horizontalMargin;
+
+  /// Outer Vertical Margin for card
+  final double verticalMargin;
+
   /// On Tap Function
   final VoidCallback onButtonTap;
-  const PrimaryCard({
+  const MUIPrimaryCard({
     super.key,
     required this.title,
     required this.description,
@@ -45,6 +54,9 @@ class PrimaryCard extends StatelessWidget {
     ),
     this.bgColor = Colors.white,
     this.borderRadius = 8,
+    this.imageRadius = 8,
+    this.horizontalMargin = 0,
+    this.verticalMargin = 0,
   });
 
   @override
@@ -61,7 +73,12 @@ class PrimaryCard extends StatelessWidget {
           ),
         ],
       ),
+      margin: EdgeInsets.symmetric(
+        vertical: verticalMargin,
+        horizontal: horizontalMargin,
+      ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -74,7 +91,7 @@ class PrimaryCard extends StatelessWidget {
                 ),
               ]),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(borderRadius),
+                borderRadius: BorderRadius.circular(imageRadius),
                 child: image,
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-class LoadingButton extends StatefulWidget {
+class MUILoadingButton extends StatefulWidget {
   /// Text for Loading Button
   final String text;
 
@@ -43,7 +43,7 @@ class LoadingButton extends StatefulWidget {
 
   /// A double value which gets multiplied by the current screen height when button is not pressed
   final double heightFactorUnPressed;
-  const LoadingButton({
+  const MUILoadingButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -62,10 +62,10 @@ class LoadingButton extends StatefulWidget {
   });
 
   @override
-  State<LoadingButton> createState() => _LoadingButtonState();
+  State<MUILoadingButton> createState() => _MUILoadingButtonState();
 }
 
-class _LoadingButtonState extends State<LoadingButton> {
+class _MUILoadingButtonState extends State<MUILoadingButton> {
   bool _isLoadingButtonPressed = false;
 
   void _startLoading() {
@@ -99,7 +99,6 @@ class _LoadingButtonState extends State<LoadingButton> {
               ? widget.bgColor
               : widget.loadingStateBackgroundColor,
         ),
-        margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
         padding: EdgeInsets.symmetric(
           horizontal: _isLoadingButtonPressed
               ? getScreenWidth(context) * widget.widthFactorPressed
@@ -121,8 +120,8 @@ class _LoadingButtonState extends State<LoadingButton> {
                     Container(
                       margin: EdgeInsets.symmetric(
                           horizontal: getScreenWidth(context) * 0.02),
-                      width: getScreenWidth(context) * 0.05,
-                      height: getScreenWidth(context) * 0.05,
+                      width: getScreenWidth(context) * 0.04,
+                      height: getScreenWidth(context) * 0.04,
                       child: CircularProgressIndicator(
                         color: widget.loadingStateTextColor,
                       ),
