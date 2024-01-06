@@ -34,6 +34,9 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height determines the height of the button
   final double heightFactor;
 
+  /// A double value which gets multiplied with current screen width when button is not pressed
+  final double widthFactor;
+
   /// On Tap Function
   final VoidCallback onTap;
 
@@ -62,6 +65,7 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,
+    this.widthFactor = 0.98,
   });
 
   @override
@@ -107,7 +111,7 @@ class _MUIOutlinedBlockLevelButtonState
         ),
         width: _isOutlinedBlockLevelButtonPressed
             ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context),
+            : getScreenWidth(context) * widget.widthFactor,
         height: getScreenHeight(context) * widget.heightFactor,
         child: Center(
           child: Row(
