@@ -21,7 +21,7 @@ Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
   - [X] Gradient Block Level Button
   - [X] Loading Block Level Button
   - [X] Outlined Block Level Button
-  - [ ] Text Block Level Button
+  - [X] Text Block Level Button
   - [ ] Auth Buttons
 - [ ] Card
   - [X] Simple Card
