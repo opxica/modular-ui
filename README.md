@@ -47,6 +47,9 @@ Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 - [ ] Icon Button
 - [ ] Image
 - [ ] Input Fields
+  - [X] Primary Input Field
+  - [ ] Input With Icon
+  - [ ] Input With Button
 - [ ] List Tile
 - [ ] Navbar
 - [ ] Popover
