@@ -5,6 +5,21 @@ Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design
 
 Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 
+## Here are some of the examples :
+
+
+https://github.com/opxica/modular-ui/assets/71646773/87a3783f-aa4e-4b7b-9ca4-8f29536ddfea
+
+
+
+https://github.com/opxica/modular-ui/assets/71646773/26d4b963-d562-4780-98ca-35d381b099e0
+
+
+
+https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a02b72f51e
+
+
+
 ## Current Status of Components/Widgets
 
 - [ ] Accordion
