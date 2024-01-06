@@ -6,7 +6,7 @@ class MUIOutlinedButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Outlined Button, dafault : black
+  /// Background Color of The Outlined Button, dafault : transparent
   final Color bgColor;
 
   /// Text Color of the Outlined Button, default : black
