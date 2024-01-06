@@ -95,7 +95,7 @@ dependencies:
 
 ## Design Language :
 ModularUI Design language is inspired by [Material Tailwind](https://www.material-tailwind.com/) and [shadcn/ui](https://ui.shadcn.com/) 
-Our current goal is to make as much components as possible and shit this asap, so we might merge any widget that looks like them or if they are consistent with our theme, obviously the future goal would be to make them perfect and consistent.
+Our current goal is to make as much components as possible and ship this asap, so we might merge any widget that looks like them or if they are consistent with our theme, obviously the future goal would be to make them perfect and consistent.
 
 ## Widget Naming Convention :
 any widget of ModularUI must follow this naming convention : `MUI<widget_name>` e.g. `MUIPrimaryButton`
