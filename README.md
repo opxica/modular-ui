@@ -17,13 +17,14 @@ Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
   - [X] Gradient Button
   - [X] Outlined Button
   - [X] Text Button
-  - [ ] Primary Block Level Button
-  - [ ] Gradient Block Level Button
-  - [ ] Loading Block Level Button
-  - [ ] Outlined Block Level Button
-  - [ ] Text Block Level Button
+  - [X] Primary Block Level Button
+  - [X] Gradient Block Level Button
+  - [X] Loading Block Level Button
+  - [X] Outlined Block Level Button
+  - [X] Text Block Level Button
   - [ ] Auth Buttons
 - [ ] Card
+  - [X] Simple Card
   - [ ] Card With Image 
   - [x] Primary Card
   - [ ] Profile Card
@@ -59,7 +60,7 @@ Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 
 ## Goals
 - [ ] Ship ModularUI to Pub
-- [ ]  Landing Page
+- [ ] Landing Page
 - [ ] A Flutter webapp to test every widget.
 - [ ] CLI tool.
 

@@ -6,16 +6,16 @@ class MUITextButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color when the text button is pressed, default : grey
+  /// Background Color when the text button is pressed, default: grey
   final Color bgColor;
 
-  /// Text Color of the Text Button, default : black
+  /// Text Color of the Text Button, default: black
   final Color textColor;
 
-  /// Border Radius for Text Button, default : 10
+  /// Border Radius for Text Button, default: 10
   final double borderRadius;
 
-  /// Animation Duration in Milliseconds, default : 250 ms
+  /// Animation Duration in Milliseconds, default: 250 ms
   final int animationDuraton;
 
   /// Enables Light Haptic Feedback
@@ -27,8 +27,18 @@ class MUITextButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when button is pressed
   final double heightFactor;
 
+  /// Optional leading icon for the button.
+  final IconData? leadingIcon;
+
+  /// Optional action icon for the button.
+  final IconData? actionIcon;
+
+  /// Icon color for both leading and action icons, default: white.
+  final Color iconColor;
+
   /// On Tap Function
   final VoidCallback onTap;
+
   const MUITextButton({
     super.key,
     required this.text,
@@ -40,6 +50,9 @@ class MUITextButton extends StatefulWidget {
     this.animationDuraton = 250,
     this.widthFactor = 0.04,
     this.heightFactor = 0.03,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.black,
   });
 
   @override
@@ -48,6 +61,7 @@ class MUITextButton extends StatefulWidget {
 
 class _MUITextButtonState extends State<MUITextButton> {
   bool _isTextButtonPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -80,10 +94,31 @@ class _MUITextButtonState extends State<MUITextButton> {
           horizontal: getScreenWidth(context) * widget.widthFactor,
           vertical: getScreenWidth(context) * widget.heightFactor,
         ),
-        child: Text(
-          widget.text,
-          style:
-              TextStyle(color: widget.textColor, fontWeight: FontWeight.bold),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (widget.leadingIcon != null)
+              Icon(
+                widget.leadingIcon,
+                color: widget.iconColor,
+                size: getScreenWidth(context) * 0.05,
+              ),
+            SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
+            Text(
+              widget.text,
+              style: TextStyle(
+                color: widget.textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
+            if (widget.actionIcon != null)
+              Icon(
+                widget.actionIcon,
+                color: widget.iconColor,
+                size: getScreenWidth(context) * 0.05,
+              ),
+          ],
         ),
       ),
     );

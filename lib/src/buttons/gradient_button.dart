@@ -33,8 +33,18 @@ class MUIGradientButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when button is not pressed
   final double heightFactorUnPressed;
 
+  /// Optional leading icon for the button.
+  final IconData? leadingIcon;
+
+  /// Optional action icon for the button.
+  final IconData? actionIcon;
+
+  /// Icon color for both leading and action icons, default: white.
+  final Color iconColor;
+
   /// On Tap Function
   final VoidCallback onTap;
+
   const MUIGradientButton({
     super.key,
     required this.text,
@@ -48,6 +58,9 @@ class MUIGradientButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.025,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
   });
 
   @override
@@ -56,6 +69,7 @@ class MUIGradientButton extends StatefulWidget {
 
 class _MUIGradientButtonState extends State<MUIGradientButton> {
   bool _isGradientButtonPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -92,9 +106,29 @@ class _MUIGradientButtonState extends State<MUIGradientButton> {
               ? getScreenWidth(context) * widget.heightFactorPressed
               : getScreenWidth(context) * widget.heightFactorUnPressed,
         ),
-        child: Text(
-          widget.text,
-          style: TextStyle(color: widget.textColor, fontWeight: FontWeight.bold),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (widget.leadingIcon != null)
+              Icon(
+                widget.leadingIcon,
+                color: widget.iconColor,
+                size: getScreenWidth(context) * 0.05,
+              ),
+            SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
+            Text(
+              widget.text,
+              style: TextStyle(
+                  color: widget.textColor, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
+            if (widget.actionIcon != null)
+              Icon(
+                widget.actionIcon,
+                color: widget.iconColor,
+                size: getScreenWidth(context) * 0.05,
+              ),
+          ],
         ),
       ),
     );
