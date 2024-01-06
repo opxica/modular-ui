@@ -5,22 +5,22 @@ class MUILoadingButton extends StatefulWidget {
   /// Text for Loading Button
   final String text;
 
-  /// Future Function to be passed, must be a awaited
+  /// Future Function to be passed, must be awaited
   final Future Function() onPressed;
 
-  /// Text to be shown when widget is in loading state, empty string by default
+  /// Text to be shown when the widget is in the loading state, empty string by default
   final String loadingStateText;
 
-  /// Background color of loading button
+  /// Background color of the loading button
   final Color bgColor;
 
-  /// Text color of loading button
+  /// Text color of the loading button
   final Color textColor;
 
-  /// Background Color when button is in loading state
+  /// Background Color when the button is in the loading state
   final Color loadingStateBackgroundColor;
 
-  /// Text Color when button is in loading state
+  /// Text Color when the button is in the loading state
   final Color loadingStateTextColor;
 
   /// Border radius, default value is 10
@@ -32,17 +32,27 @@ class MUILoadingButton extends StatefulWidget {
   /// Enables light haptic feedback
   final bool hapticsEnabled;
 
-  /// A double value which gets multiplied by the current screen width when button is not pressed
+  /// A double value which gets multiplied by the current screen width when the button is not pressed
   final double widthFactorUnpressed;
 
-  /// A double value which gets multiplied by the current screen width when button is pressed
+  /// A double value which gets multiplied by the current screen width when the button is pressed
   final double widthFactorPressed;
 
-  /// A double value which gets multiplied by the current screen height when button is  pressed
+  /// A double value which gets multiplied by the current screen height when the button is pressed
   final double heightFactorPressed;
 
-  /// A double value which gets multiplied by the current screen height when button is not pressed
+  /// A double value which gets multiplied by the current screen height when the button is not pressed
   final double heightFactorUnPressed;
+
+  /// Optional leading icon for the button.
+  final IconData? leadingIcon;
+
+  /// Optional action icon for the button.
+  final IconData? actionIcon;
+
+  /// Icon color for both leading and action icons, default: white.
+  final Color iconColor;
+
   const MUILoadingButton({
     super.key,
     required this.text,
@@ -59,6 +69,9 @@ class MUILoadingButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.025,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
   });
 
   @override
@@ -110,9 +123,28 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 250),
           child: !_isLoadingButtonPressed
-              ? Text(
-                  widget.text,
-                  style: TextStyle(color: widget.textColor),
+              ? Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (widget.leadingIcon != null)
+                      Icon(
+                        widget.leadingIcon,
+                        color: widget.iconColor,
+                        size: getScreenWidth(context) * 0.05,
+                      ),
+                    SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
+                    Text(
+                      widget.text,
+                      style: TextStyle(color: widget.textColor),
+                    ),
+                    SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
+                    if (widget.actionIcon != null)
+                      Icon(
+                        widget.actionIcon,
+                        color: widget.iconColor,
+                        size: getScreenWidth(context) * 0.05,
+                      ),
+                  ],
                 )
               : Row(
                   mainAxisSize: MainAxisSize.min,

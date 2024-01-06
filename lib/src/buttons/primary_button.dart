@@ -2,56 +2,67 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable primary button by ModularUI
+/// A customizable primary button by ModularUI with optional icons.
 class MUIPrimaryButton extends StatefulWidget {
-  /// The Text to display inside the button
+  /// The Text to display inside the button.
   final String text;
 
-  /// Background Color of The Primary Button, dafault : black
+  /// Background Color of The Primary Button, default: black.
   final Color bgColor;
 
-
-  /// Text Color of the Primary Button, default : white
+  /// Text Color of the Primary Button, default: white.
   final Color textColor;
 
-  /// Border Radius for Primary Button, default : 10
+  /// Border Radius for Primary Button, default: 10.
   final double borderRadius;
 
-  /// Animation Duration in Milliseconds, default : 250 ms
-  final int animationDuraton;
+  /// Animation Duration in Milliseconds, default: 250 ms.
+  final int animationDuration;
 
-  /// Enables Light Haptic Feedback
+  /// Enables Light Haptic Feedback.
   final bool hapticsEnabled;
 
-  /// A double value which gets multiplied by the current screen width when button is not pressed
+  /// A double value which gets multiplied by the current screen width when the button is not pressed.
   final double widthFactorUnpressed;
 
-  /// A double value which gets multiplied by the current screen width when button is pressed
+  /// A double value which gets multiplied by the current screen width when the button is pressed.
   final double widthFactorPressed;
 
-  /// A double value which gets multiplied by the current screen height when button is  pressed
+  /// A double value which gets multiplied by the current screen height when the button is pressed.
   final double heightFactorPressed;
 
-  /// A double value which gets multiplied by the current screen height when button is not pressed
+  /// A double value which gets multiplied by the current screen height when the button is not pressed.
   final double heightFactorUnPressed;
 
-  /// On Tap Function
+  /// Optional leading icon for the button.
+  final IconData? leadingIcon;
+
+  /// Optional action icon for the button.
+  final IconData? actionIcon;
+
+  /// Icon color for both leading and action icons, default: white.
+  final Color iconColor;
+
+  /// On Tap Function.
   final VoidCallback onTap;
 
   const MUIPrimaryButton({
-    super.key,
+    Key? key,
     required this.text,
     required this.onTap,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
-    this.animationDuraton = 250,
+    this.animationDuration = 250,
     this.widthFactorUnpressed = 0.04,
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.025,
-  });
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
+  }) : super(key: key);
 
   @override
   State<MUIPrimaryButton> createState() => _PrimaryButtonState();
@@ -59,6 +70,7 @@ class MUIPrimaryButton extends StatefulWidget {
 
 class _PrimaryButtonState extends State<MUIPrimaryButton> {
   bool _isPrimaryButtonPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -82,7 +94,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
@@ -95,10 +107,31 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
               ? getScreenWidth(context) * widget.heightFactorPressed
               : getScreenWidth(context) * widget.heightFactorUnPressed,
         ),
-        child: Text(
-          widget.text,
-          style:
-              TextStyle(color: widget.textColor, fontWeight: FontWeight.bold),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (widget.leadingIcon != null)
+              Icon(
+                widget.leadingIcon,
+                color: widget.iconColor,
+                size: getScreenWidth(context) * 0.05,
+              ),
+            SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
+            Text(
+              widget.text,
+              style: TextStyle(
+                color: widget.textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
+            if (widget.actionIcon != null)
+              Icon(
+                widget.actionIcon,
+                color: widget.iconColor,
+                size: getScreenWidth(context) * 0.05,
+              ),
+          ],
         ),
       ),
     );
