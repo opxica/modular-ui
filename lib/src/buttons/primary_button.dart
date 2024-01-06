@@ -7,14 +7,14 @@ class MUIPrimaryButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Outlined Button, dafault : Transparent
+  /// Background Color of The Primary Button, dafault : black
   final Color bgColor;
 
 
-  /// Text Color of the Outlined Button, default : white
+  /// Text Color of the Primary Button, default : white
   final Color textColor;
 
-  /// Border Radius for Outlined Button, default : 10
+  /// Border Radius for Primary Button, default : 10
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default : 250 ms
