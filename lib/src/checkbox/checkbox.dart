@@ -6,6 +6,11 @@ class MUICheckBox extends StatefulWidget {
     required this.onChanged,
     required this.child,
     required this.checked,
+    this.fillColor = Colors.black,
+    this.iconColor = Colors.white,
+    this.size = 14,
+    this.borderRadius = 4,
+    this.animationDuration = 100,
   });
 
   /// The state of the checkbox, its either checked or not.
@@ -17,6 +22,21 @@ class MUICheckBox extends StatefulWidget {
   /// Callback for when either the checkbox or the child got pressed.
   final Function(bool)? onChanged;
 
+  /// The fill color of the checkbox. Shown when checked = true
+  final Color fillColor;
+
+  /// The color of the check icon inside the checkbox.
+  final Color iconColor;
+
+  /// The size of the checkbox.
+  final double size;
+
+  /// The border radius of the checkbox.
+  final double borderRadius;
+
+  /// How long the duration between checked and unchecked state is. The duration is in ms.
+  final int animationDuration;
+
   @override
   State<MUICheckBox> createState() => _MUICheckBoxState();
 }
@@ -25,12 +45,6 @@ class _MUICheckBoxState extends State<MUICheckBox> {
   MouseCursor cursor = SystemMouseCursors.basic;
   @override
   Widget build(BuildContext context) {
-    Color fillColor = Theme.of(context).brightness == Brightness.dark
-        ? Colors.white
-        : Colors.black;
-    Color iconColor = Theme.of(context).brightness == Brightness.dark
-        ? Colors.black
-        : Colors.white;
     return MouseRegion(
       cursor: cursor,
       onEnter: (_) {
@@ -51,20 +65,20 @@ class _MUICheckBoxState extends State<MUICheckBox> {
               widget.onChanged?.call(widget.checked ? false : true);
             },
             child: AnimatedContainer(
-              width: 14,
-              height: 14,
-              duration: const Duration(milliseconds: 100),
+              width: widget.size,
+              height: widget.size,
+              duration: Duration(milliseconds: widget.animationDuration),
               decoration: BoxDecoration(
-                color: widget.checked ? fillColor : null,
-                borderRadius: BorderRadius.circular(4),
-                border: Border.all(color: fillColor),
+                color: widget.checked ? widget.fillColor : null,
+                borderRadius: BorderRadius.circular(widget.borderRadius),
+                border: Border.all(color: widget.fillColor),
               ),
               child: (widget.checked)
                   ? Center(
                       child: Icon(
                         Icons.check,
-                        color: iconColor,
-                        size: 12,
+                        color: widget.iconColor,
+                        size: widget.size - 2,
                       ),
                     )
                   : null,
