@@ -43,22 +43,22 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   /// On Tap Function
   final VoidCallback onTap;
 
-  const MUIGradientBlockLevelButton({
-    super.key,
-    required this.text,
-    required this.onTap,
-    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuraton = 250,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-    this.widthFactor = 0.98
-  });
+  const MUIGradientBlockLevelButton(
+      {super.key,
+      required this.text,
+      required this.onTap,
+      this.bgGradient =
+          const LinearGradient(colors: [Colors.black, Colors.grey]),
+      this.textColor = Colors.white,
+      this.borderRadius = 10,
+      this.hapticsEnabled = false,
+      this.animationDuraton = 250,
+      this.widthFactorPressed = 0.95,
+      this.heightFactor = 0.05,
+      this.leadingIcon,
+      this.actionIcon,
+      this.iconColor = Colors.white,
+      this.widthFactor = 0.98});
 
   @override
   State<MUIGradientBlockLevelButton> createState() =>
@@ -98,9 +98,9 @@ class _MUIGradientBlockLevelButtonState
           gradient: widget.bgGradient,
         ),
         width: _isGradientBlockLevelButtonPressed
-            ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context) * widget.widthFactor,
-        height: getScreenHeight(context) * widget.heightFactor,
+            ? widget.widthFactorPressed.sw(context)
+            : widget.widthFactor.sw(context),
+        height: widget.heightFactor.sh(context),
         child: Center(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -109,7 +109,7 @@ class _MUIGradientBlockLevelButtonState
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               Text(
@@ -124,7 +124,7 @@ class _MUIGradientBlockLevelButtonState
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
             ],
           ),

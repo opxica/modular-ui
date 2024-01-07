@@ -43,22 +43,21 @@ class MUIPrimaryBlockButton extends StatefulWidget {
   /// On Tap Function
   final VoidCallback onTap;
 
-  const MUIPrimaryBlockButton({
-    super.key,
-    required this.text,
-    required this.onTap,
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuraton = 250,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-    this.widthFactor = 0.98
-  });
+  const MUIPrimaryBlockButton(
+      {super.key,
+      required this.text,
+      required this.onTap,
+      this.bgColor = Colors.black,
+      this.textColor = Colors.white,
+      this.borderRadius = 10,
+      this.hapticsEnabled = false,
+      this.animationDuraton = 250,
+      this.widthFactorPressed = 0.95,
+      this.heightFactor = 0.05,
+      this.leadingIcon,
+      this.actionIcon,
+      this.iconColor = Colors.white,
+      this.widthFactor = 0.98});
 
   @override
   State<MUIPrimaryBlockButton> createState() => _MUIPrimaryBlockButtonState();
@@ -96,9 +95,9 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
           color: widget.bgColor,
         ),
         width: _isPrimaryBlockLevelButtonPressed
-            ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context) * widget.widthFactor,
-        height: getScreenHeight(context) * widget.heightFactor,
+            ? widget.widthFactorPressed.sw(context)
+            : widget.widthFactor.sw(context),
+        height: widget.heightFactor.sh(context),
         child: Center(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -107,7 +106,7 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               Text(
@@ -122,7 +121,7 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
             ],
           ),

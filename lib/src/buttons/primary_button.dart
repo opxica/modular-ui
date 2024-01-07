@@ -101,11 +101,11 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isPrimaryButtonPressed
-              ? getScreenWidth(context) * widget.widthFactorPressed
-              : getScreenWidth(context) * widget.widthFactorUnpressed,
+              ? widget.widthFactorPressed.sw(context)
+              : widget.widthFactorUnpressed.sw(context),
           vertical: _isPrimaryButtonPressed
-              ? getScreenWidth(context) * widget.heightFactorPressed
-              : getScreenWidth(context) * widget.heightFactorUnPressed,
+              ? widget.heightFactorPressed.sw(context)
+              : widget.heightFactorUnPressed.sw(context),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -114,7 +114,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
               Icon(
                 widget.leadingIcon,
                 color: widget.iconColor,
-                size: getScreenWidth(context) * 0.05,
+                size: 0.05.sw(context),
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
             Text(
@@ -129,7 +129,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
               Icon(
                 widget.actionIcon,
                 color: widget.iconColor,
-                size: getScreenWidth(context) * 0.05,
+                size: 0.05.sw(context),
               ),
           ],
         ),

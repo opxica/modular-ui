@@ -91,8 +91,8 @@ class _MUITextButtonState extends State<MUITextButton> {
           color: _isTextButtonPressed ? widget.bgColor : Colors.transparent,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: getScreenWidth(context) * widget.widthFactor,
-          vertical: getScreenWidth(context) * widget.heightFactor,
+          horizontal: widget.widthFactor.sw(context),
+          vertical: widget.heightFactor.sw(context),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -101,7 +101,7 @@ class _MUITextButtonState extends State<MUITextButton> {
               Icon(
                 widget.leadingIcon,
                 color: widget.iconColor,
-                size: getScreenWidth(context) * 0.05,
+                size: 0.05.sw(context),
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
             Text(
@@ -116,7 +116,7 @@ class _MUITextButtonState extends State<MUITextButton> {
               Icon(
                 widget.actionIcon,
                 color: widget.iconColor,
-                size: getScreenWidth(context) * 0.05,
+                size: 0.05.sw(context),
               ),
           ],
         ),
