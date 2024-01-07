@@ -3,7 +3,6 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A Basic Input Text Field Widget provided by ModularUI
 class MUIPrimaryInputField extends StatefulWidget {
-
   /// A double value which gets multiplied with current screen width determines the width of text field
   final double widthFactor;
 
@@ -18,6 +17,12 @@ class MUIPrimaryInputField extends StatefulWidget {
 
   /// Text style for text field
   final TextStyle textStyle;
+
+  /// hint style for text field
+  final TextStyle hintStyle;
+
+  /// Is obscure ?
+  final bool isObscure;
 
   /// Border color  when text field is selected
   final Color enabledBorderColor;
@@ -45,6 +50,8 @@ class MUIPrimaryInputField extends StatefulWidget {
     this.enabledBorderColor = Colors.black,
     this.cursorColor = Colors.black,
     this.textStyle = const TextStyle(),
+    this.hintStyle = const TextStyle(fontWeight: FontWeight.w400),
+    this.isObscure = false,
   });
 
   @override
@@ -66,9 +73,9 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
           filled: true,
           fillColor: widget.filledColor,
           hintText: widget.hintText,
-          hintStyle: const TextStyle(fontWeight: FontWeight.w400),
+          hintStyle: widget.hintStyle,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             borderSide: BorderSide.none,
