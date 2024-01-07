@@ -14,3 +14,4 @@ export 'src/cards/primary_card.dart';
 export 'src/cards/simple_card.dart';
 export 'src/cards/sign_in_card.dart';
 export 'src/input_fields/primary_input_field.dart';
+export 'src/ratingbar/ratingbar.dart';
