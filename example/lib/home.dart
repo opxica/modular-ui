@@ -4,6 +4,8 @@ import 'package:example/components/empty.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
