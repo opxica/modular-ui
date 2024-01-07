@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PrimaryDialog extends StatefulWidget {
-  const PrimaryDialog({
+class MUIPrimaryDialog extends StatefulWidget {
+  const MUIPrimaryDialog({
     super.key,
     required this.ctaText,
     required this.titleText,
@@ -69,10 +69,10 @@ class PrimaryDialog extends StatefulWidget {
   final Color? secondaryCtaBorderColor;
 
   @override
-  State<PrimaryDialog> createState() => _PrimaryDialogState();
+  State<MUIPrimaryDialog> createState() => _MUIPrimaryDialogState();
 }
 
-class _PrimaryDialogState extends State<PrimaryDialog> {
+class _MUIPrimaryDialogState extends State<MUIPrimaryDialog> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

@@ -5,7 +5,7 @@ Widget dialog(BuildContext context) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      PrimaryDialog(
+      MUIPrimaryDialog(
         buttonBackgroundColor: Colors.white,
         buttonRadius: 5,
         buttonBorderWidth: 1,
