@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIBlogCard extends StatelessWidget {
   const MUIBlogCard({
@@ -7,9 +8,14 @@ class MUIBlogCard extends StatelessWidget {
     required this.description,
     required this.onBlogCardTap,
     required this.imagelink,
+    required this.date,
+    this.avatarRad = 16,
+    this.minWidth = 350,
     this.onMoreTap,
     this.cardWidth,
     this.morebtnStyle,
+    this.elevation,
+    this.avatarSpacing,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
       color: Colors.grey,
@@ -23,7 +29,6 @@ class MUIBlogCard extends StatelessWidget {
       color: Colors.black87,
     ),
     required this.circularAvatarImages,
-    required this.date,
   }) : super(key: key);
 
   /// The line `final String title;` is declaring a final variable named `title` of type `String`. This
@@ -81,15 +86,33 @@ class MUIBlogCard extends StatelessWidget {
   /// text in the blog card. If no value is provided, the default text styles will be used.
   final TextStyle descriptionStyle, titleStyle, dateStyle;
 
+  /// Sets the elevation of the MUIBlogCard
+  final double? elevation;
+
+  ///Sets the spacing between circular avatars
+  final double? avatarSpacing;
+
+  /// Sets the radius of the circular avatar
+  final double avatarRad;
+
+  /// If the available screen width is less than the specified `minWidth`, the blog card will be rendered with a
+  /// width equal to the available screen width. If no value is provided for `minWidth`, the default
+  /// width of 350 will be used.
+  final double minWidth;
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onBlogCardTap,
-      child: Material(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-        elevation: 5,
-        child: SizedBox(
-          width: cardWidth ?? 350,
+    return SizedBox(
+      /// The line `width: getScreenHeight(context) >= minWidth ? minWidth : getScreenHeight(context)` is
+      /// setting the width of the `SizedBox` widget that contains the `MUIBlogCard`.
+      width: getScreenHeight(context) >= minWidth
+          ? minWidth
+          : getScreenHeight(context),
+      child: GestureDetector(
+        onTap: onBlogCardTap,
+        child: Material(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+          elevation: elevation ?? 5,
           child: Column(
             children: [
               /// The `ClipRRect` widget is used to clip the child widget, in this case, an
@@ -143,12 +166,12 @@ class MUIBlogCard extends StatelessWidget {
                                 i < circularAvatarImages.length;
                                 i++)
                               Align(
-                                widthFactor: 0.7,
+                                widthFactor: avatarSpacing ?? 0.7,
                                 child: CircleAvatar(
-                                  radius: 17,
+                                  radius: avatarRad + 1,
                                   backgroundColor: Colors.white,
                                   child: CircleAvatar(
-                                    radius: 16,
+                                    radius: avatarRad,
                                     backgroundImage:
                                         NetworkImage(circularAvatarImages[i]),
                                   ),
