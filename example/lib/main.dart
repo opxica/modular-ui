@@ -1,24 +1,31 @@
-import 'package:example/home.dart';
+import 'package:example/components/buttons.dart';
+import 'package:example/components/cards.dart';
+import 'package:example/components/input_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:widgetbook/next.dart' as next;
+import 'package:widgetbook/widgetbook.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WidgetbookApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WidgetbookApp extends StatelessWidget {
+  const WidgetbookApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Example',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Color(0xFFa2d2ff),
-        useMaterial3: true,
-      ),
-      home: Home(),
+    return Widgetbook.material(
+      directories: [
+        buttonComponent,
+        cardsComponent,
+        inputFieldsComponent,
+      ],
+      addons: [
+        next.MaterialThemeAddon({
+          'Light': ThemeData.light(),
+          'Dark': ThemeData.dark(),
+        }),
+      ],
     );
   }
 }
