@@ -1,3 +1,4 @@
+import 'package:example/components/avatar.dart';
 import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
 import 'package:example/components/checkbox.dart';
@@ -61,6 +62,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       {
         'name': 'Switch',
         'route': switchComponent(),
+      },
+      {
+        'name': 'Avatar',
+        'route': avatarComponent(),
       },
     ];
     _tabController = TabController(length: components.length, vsync: this);
