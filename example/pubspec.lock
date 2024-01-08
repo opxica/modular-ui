@@ -110,8 +110,8 @@ packages:
   modular_ui:
     dependency: "direct main"
     description:
-      path: "/home/utkarsh/contribute/modular-ui"
-      relative: false
+      path: ".."
+      relative: true
     source: path
     version: "0.0.1"
   path:
