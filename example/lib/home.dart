@@ -1,5 +1,6 @@
 import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
+import 'package:example/components/checkbox.dart';
 import 'package:example/components/empty.dart';
 import 'package:flutter/material.dart';
 
