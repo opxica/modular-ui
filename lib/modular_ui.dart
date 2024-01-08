@@ -43,3 +43,5 @@ export 'src/ratingbar/ratingbar.dart';
 /// Switch
 export 'src/switch/switch.dart';
 export 'src/avatar/avatar.dart';
+// Tabs
+export 'src/tabs/tabs.dart';
