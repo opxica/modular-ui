@@ -4,6 +4,17 @@ import 'package:modular_ui/modular_ui.dart';
 Widget card() {
   return ListView(
     children: [
+      const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: MUIProfileCard(
+          name: 'John Doe',
+          designation: 'UI/UX Designer',
+          url: 'https://docs.material-tailwind.com/img/team-3.jpg',
+          socialIcons: [
+            Icon(Icons.facebook),
+          ],
+        ),
+      ),
       Padding(
         padding: const EdgeInsets.all(16.0),
         child: MUIPrimaryCard(
