@@ -25,7 +25,7 @@ class MUISignInCard extends StatefulWidget {
   /// Border Radius for card
   final double borderRadius;
 
-  /// Future Function to be passed on sign in, must be awaited
+  /// Future Function to be passed on sign in, must be an awaited function
   final Future Function() onSigninPressed;
 
   /// Function when first auth button is presssed
@@ -54,6 +54,15 @@ class MUISignInCard extends StatefulWidget {
 
   /// On register now clicked
   final VoidCallback onRegisterNow;
+
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
+
+  /// Overall height of this widget, It has a fixed value by default
+  /// You can provide a dynamic height to this widget or leave it as it is.
+  final double widgetHeight;
   const MUISignInCard({
     super.key,
     required this.emailController,
@@ -66,6 +75,8 @@ class MUISignInCard extends StatefulWidget {
     this.borderRadius = 12,
     this.authButtonIconColor = Colors.white,
     this.authButtonTextColor = Colors.white,
+    this.maxWidth = 430,
+    this.widgetHeight = 550,
     required this.firstAuthButtonText,
     required this.secondAuthButtonText,
     required this.firstAuthIcon,
@@ -84,8 +95,10 @@ class _MUISignInCardState extends State<MUISignInCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(25),
-      width: getScreenWidth(context) * 0.9,
-      height: getScreenHeight(context) * 0.6,
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
+      height: widget.widgetHeight,
       decoration: BoxDecoration(
         color: widget.bgColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
@@ -94,13 +107,16 @@ class _MUISignInCardState extends State<MUISignInCard> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Sign in',
             style: TextStyle(
                 color: widget.accentColor,
                 fontWeight: FontWeight.bold,
-                fontSize: getScreenWidth(context) * 0.08),
+                fontSize: getScreenWidth(context) <= widget.maxWidth
+                    ? getScreenWidth(context) * 0.08
+                    : 32),
           ),
           Text('Enter your email & password to sign in',
               style: TextStyle(
