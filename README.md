@@ -24,7 +24,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 
 - [ ] Accordion
 - [ ] Alert Boxes
-- [ ] Avatar
+- [] Avatar
 - [ ] Breadcrumbs
 - [ ] Button
   - [x] Primary Button
@@ -42,22 +42,22 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
   - [X] Simple Card
   - [ ] Card With Image 
   - [x] Primary Card
-  - [ ] Profile Card
+  - [X] Profile Card
   - [X] Sign in Card
   - [ ] Sign up Card
   - [ ] Pricing Card
-  - [ ] Blog Card
+  - [X] Blog Card
   - [ ] Blog Card With Background
   - [ ] Booking Card
   - [ ] Testimonial Card
   - [ ] E-commerce Card
-- [ ] Checkbox
+- [X] Checkbox
 - [ ] Chip
 - [ ] Collapse
 - [ ] Carousel
-- [ ] Dialog
+- [X] Dialog
 - [ ] Drawer
-- [ ] Footer
+- [X] Footer
 - [ ] Form
 - [ ] Gallery
 - [ ] Icon Button
@@ -70,12 +70,12 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [ ] Navbar
 - [ ] Popover
 - [ ] Progress Bar
-- [ ] Radio Button
-- [ ] Rating Bar
+- [X] Radio Button
+- [X] Rating Bar
 - [ ] Select
 - [ ] Slider
 - [ ] Tab View
-- [ ] Switch
+- [X] Switch
 
 ## Goals
 - [ ] Ship ModularUI to Pub
