@@ -4,6 +4,8 @@ import 'package:example/components/checkbox.dart';
 import 'package:example/components/empty.dart';
 import 'package:flutter/material.dart';
 
+import 'components/dialog.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -13,10 +15,49 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  List<Map> components = [];
 
   @override
   void initState() {
     super.initState();
+    components = [
+      {
+        'name': 'Button',
+        'route': button(),
+      },
+      {
+        'name': 'Card',
+        'route': card(),
+      },
+      {
+        'name': 'Checkbox',
+        'route': empty(),
+      },
+      {
+        'name': 'Chip',
+        'route': empty(),
+      },
+      {
+        'name': 'Dialog',
+        'route': dialog(context),
+      },
+      {
+        'name': 'Drawer',
+        'route': empty(),
+      },
+      {
+        'name': 'Floating Action Button',
+        'route': empty(),
+      },
+      {
+        'name': 'List Tile',
+        'route': empty(),
+      },
+      {
+        'name': 'Radio',
+        'route': empty(),
+      },
+    ];
     _tabController = TabController(length: components.length, vsync: this);
   }
 
@@ -25,45 +66,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _tabController.dispose();
     super.dispose();
   }
-
-  List<Map> components = [
-    {
-      'name': 'Button',
-      'route': button(),
-    },
-    {
-      'name': 'Card',
-      'route': card(),
-    },
-    {
-      'name': 'Checkbox',
-      'route': checkbox(),
-    },
-    {
-      'name': 'Chip',
-      'route': empty(),
-    },
-    {
-      'name': 'Dialog',
-      'route': empty(),
-    },
-    {
-      'name': 'Drawer',
-      'route': empty(),
-    },
-    {
-      'name': 'Floating Action Button',
-      'route': empty(),
-    },
-    {
-      'name': 'List Tile',
-      'route': empty(),
-    },
-    {
-      'name': 'Radio',
-      'route': empty(),
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {

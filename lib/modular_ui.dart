@@ -15,3 +15,4 @@ export 'src/cards/simple_card.dart';
 export 'src/cards/sign_in_card.dart';
 export 'src/input_fields/primary_input_field.dart';
 export 'src/checkbox/checkbox.dart';
+export 'src/dialog/primary_dialog.dart';
