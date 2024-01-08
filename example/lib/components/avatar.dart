@@ -35,8 +35,7 @@ class __AvatarsState extends State<_Avatars> {
           text("Avatar with url and default size"),
           const SizedBox(height: 5),
           MUIAvatar(
-            imageUrl:
-                "https://resizing.flixster.com/53NK516H_a-Skf-avRo-jhIMSQo=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10376284_b_v13_aa.jpg",
+            imageUrl: "https://github.com/shadcn.png",
             fallbackText: "ABCD",
             onTap: () {},
             textColor: Colors.blue,
@@ -64,8 +63,7 @@ class __AvatarsState extends State<_Avatars> {
           text("Avatar with user defined size and url"),
           const SizedBox(height: 5),
           MUIAvatar(
-            imageUrl:
-                "https://resizing.flixster.com/53NK516H_a-Skf-avRo-jhIMSQo=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10376284_b_v13_aa.jpg",
+            imageUrl: "https://github.com/shadcn.png",
             fallbackText: "AB",
             size: 50,
             onTap: () {},
