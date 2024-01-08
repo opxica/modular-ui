@@ -110,7 +110,7 @@ packages:
   modular_ui:
     dependency: "direct main"
     description:
-      path: "/home/utkarsh/contribute/modular-ui"
+      path: "/Users/pranavmasekar/Flutter_projects/modular_ui/"
       relative: false
     source: path
     version: "0.0.1"
