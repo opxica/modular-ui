@@ -2,6 +2,7 @@ import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
 import 'package:example/components/checkbox.dart';
 import 'package:example/components/empty.dart';
+import 'package:example/components/switch.dart';
 import 'package:flutter/material.dart';
 
 import 'components/dialog.dart';
@@ -56,6 +57,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       {
         'name': 'Radio',
         'route': empty(),
+      },
+      {
+        'name': 'Switch',
+        'route': switchComponent(),
       },
     ];
     _tabController = TabController(length: components.length, vsync: this);
