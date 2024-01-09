@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUIProfileCard extends StatelessWidget {
+class MUIProfileCard extends StatefulWidget {
   const MUIProfileCard({
     super.key,
     required this.name,
-    required this.url,
+    required this.imageUrl,
     required this.designation,
+    this.maxWidth = 430,
+    this.widgetHeight = 550,
     this.socialIcons = const [],
     this.borderRadius = 16,
     this.bgColor = Colors.white,
@@ -22,7 +24,7 @@ class MUIProfileCard extends StatelessWidget {
   });
 
   /// Url for profile image
-  final String url;
+  final String imageUrl;
 
   /// Name of the person
   final String name;
@@ -45,14 +47,31 @@ class MUIProfileCard extends StatelessWidget {
   /// Background color of the card
   final Color bgColor;
 
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
+
+  /// Overall height of this widget, It has a fixed value by default
+  /// You can provide a dynamic height to this widget or leave it as it is.
+  final double widgetHeight;
+
+  @override
+  State<MUIProfileCard> createState() => _MUIProfileCardState();
+}
+
+class _MUIProfileCardState extends State<MUIProfileCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(borderRadius),
-      width: getScreenWidth(context) * 0.9,
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
+      height: widget.widgetHeight,
+      padding: EdgeInsets.all(widget.borderRadius),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
-        color: bgColor,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
+        color: widget.bgColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -76,9 +95,9 @@ class MUIProfileCard extends StatelessWidget {
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(borderRadius),
+                borderRadius: BorderRadius.circular(widget.borderRadius),
                 child: Image.network(
-                  url,
+                  widget.imageUrl,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -86,18 +105,18 @@ class MUIProfileCard extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            name,
-            style: nameStyle,
+            widget.name,
+            style: widget.nameStyle,
           ),
           const SizedBox(height: 12),
           Text(
-            designation,
-            style: designationStyle,
+            widget.designation,
+            style: widget.designationStyle,
           ),
           const SizedBox(height: 25),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: socialIcons,
+            children: widget.socialIcons,
           ),
         ],
       ),
