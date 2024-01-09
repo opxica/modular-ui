@@ -110,9 +110,9 @@ class _MUIOutlinedBlockLevelButtonState
           ),
         ),
         width: _isOutlinedBlockLevelButtonPressed
-            ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context) * widget.widthFactor,
-        height: getScreenHeight(context) * widget.heightFactor,
+            ? widget.widthFactorPressed.sw(context)
+            : widget.widthFactor.sw(context),
+        height: widget.heightFactor.sw(context),
         child: Center(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -121,7 +121,7 @@ class _MUIOutlinedBlockLevelButtonState
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               Text(
@@ -136,7 +136,7 @@ class _MUIOutlinedBlockLevelButtonState
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
             ],
           ),

@@ -84,8 +84,8 @@ class _MUISignInCardState extends State<MUISignInCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(25),
-      width: getScreenWidth(context) * 0.9,
-      height: getScreenHeight(context) * 0.6,
+      width: 9.swPer(context),
+      height: 6.shPer(context),
       decoration: BoxDecoration(
         color: widget.bgColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
@@ -100,16 +100,16 @@ class _MUISignInCardState extends State<MUISignInCard> {
             style: TextStyle(
                 color: widget.accentColor,
                 fontWeight: FontWeight.bold,
-                fontSize: getScreenWidth(context) * 0.08),
+                fontSize: 8.swPer(context)),
           ),
           Text('Enter your email & password to sign in',
               style: TextStyle(
                   color: widget.accentColor, fontWeight: FontWeight.w300)),
-          SizedBox(height: getScreenHeight(context) * 0.03),
+          SizedBox(height: 3.shPer(context)),
           Text(' Email',
               style: TextStyle(
                   color: widget.accentColor, fontWeight: FontWeight.bold)),
-          SizedBox(height: getScreenHeight(context) * 0.01),
+          SizedBox(height: 1.shPer(context)),
           MUIPrimaryInputField(
             isObscure: false,
             hintText: 'me@example.com',
@@ -123,11 +123,11 @@ class _MUISignInCardState extends State<MUISignInCard> {
             controller: widget.emailController,
             filledColor: widget.bgColor,
           ),
-          SizedBox(height: getScreenHeight(context) * 0.02),
+          SizedBox(height: 2.shPer(context)),
           Text(' Password',
               style: TextStyle(
                   color: widget.accentColor, fontWeight: FontWeight.bold)),
-          SizedBox(height: getScreenHeight(context) * 0.01),
+          SizedBox(height: 1.shPer(context)),
           MUIPrimaryInputField(
             isObscure: true,
             hintText: 'password',
@@ -141,7 +141,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
             controller: widget.passwordController,
             filledColor: widget.bgColor,
           ),
-          SizedBox(height: getScreenHeight(context) * 0.03),
+          SizedBox(height: 3.shPer(context)),
           Center(
             child: MUILoadingBlockLevelButton(
                 text: 'Sign in',
@@ -154,27 +154,26 @@ class _MUISignInCardState extends State<MUISignInCard> {
                 }),
           ),
           Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: getScreenWidth(context) * 0.02),
+            margin: EdgeInsets.symmetric(horizontal: 2.sw(context)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: getScreenWidth(context) * 0.23,
+                  width: 23.swPer(context),
                   child: Divider(
                     color: widget.accentColor,
                     thickness: 0.35,
                   ),
                 ),
-                SizedBox(height: getScreenHeight(context) * 0.05),
+                SizedBox(height: 5.shPer(context)),
                 Text('OR CONTINUE WITH',
                     style: TextStyle(
                       color: widget.accentColor,
-                      fontSize: getScreenWidth(context) * 0.02,
+                      fontSize: 2.swPer(context),
                       fontWeight: FontWeight.w200,
                     )),
                 SizedBox(
-                  width: getScreenWidth(context) * 0.23,
+                  width: 23.sw(context),
                   child: Divider(
                     color: widget.accentColor,
                     thickness: 0.35,

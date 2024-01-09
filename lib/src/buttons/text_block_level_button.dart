@@ -94,8 +94,8 @@ class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
               ? widget.bgColor
               : Colors.transparent,
         ),
-        width: getScreenWidth(context) * widget.widthFactor,
-        height: getScreenHeight(context) * widget.heightFactor,
+        width: widget.widthFactor.sw(context),
+        height: widget.heightFactor.sh(context),
         child: Center(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -104,7 +104,7 @@ class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               Text(
@@ -119,7 +119,7 @@ class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
             ],
           ),

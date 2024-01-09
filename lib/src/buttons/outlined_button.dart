@@ -113,11 +113,11 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isOutlinedButtonPressed
-              ? getScreenWidth(context) * widget.widthFactorPressed
-              : getScreenWidth(context) * widget.widthFactorUnpressed,
+              ? widget.widthFactorPressed.sw(context)
+              : widget.widthFactorUnpressed.sw(context),
           vertical: _isOutlinedButtonPressed
-              ? getScreenWidth(context) * widget.heightFactorPressed
-              : getScreenWidth(context) * widget.heightFactorUnPressed,
+              ? widget.heightFactorPressed.sw(context)
+              : widget.heightFactorUnPressed.sw(context),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -126,20 +126,20 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
               Icon(
                 widget.leadingIcon,
                 color: widget.iconColor,
-                size: getScreenWidth(context) * 0.05,
+                size: 0.05.sw(context),
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
             Text(
               widget.text,
-              style:
-                  TextStyle(color: widget.textColor, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: widget.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)
               Icon(
                 widget.actionIcon,
                 color: widget.iconColor,
-                size: getScreenWidth(context) * 0.05,
+                size: 0.05.sw(context),
               ),
           ],
         ),

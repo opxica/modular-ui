@@ -105,9 +105,7 @@ class MUIBlogCard extends StatelessWidget {
     return SizedBox(
       /// The line `width: getScreenHeight(context) >= minWidth ? minWidth : getScreenHeight(context)` is
       /// setting the width of the `SizedBox` widget that contains the `MUIBlogCard`.
-      width: getScreenHeight(context) >= minWidth
-          ? minWidth
-          : getScreenHeight(context),
+      width: 100.shPer(context) >= minWidth ? minWidth : 100.shPer(context),
       child: GestureDetector(
         onTap: onBlogCardTap,
         child: Material(

@@ -52,25 +52,24 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  const MUILoadingBlockLevelButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.loadingStateText = '',
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
-    this.loadingStateBackgroundColor = Colors.grey,
-    this.loadingStateTextColor = Colors.white,
-    this.borderRadius = 10,
-    this.animationDuraton = 250,
-    this.hapticsEnabled = false,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-        this.widthFactor = 0.98
-  });
+  const MUILoadingBlockLevelButton(
+      {super.key,
+      required this.text,
+      required this.onPressed,
+      this.loadingStateText = '',
+      this.bgColor = Colors.black,
+      this.textColor = Colors.white,
+      this.loadingStateBackgroundColor = Colors.grey,
+      this.loadingStateTextColor = Colors.white,
+      this.borderRadius = 10,
+      this.animationDuraton = 250,
+      this.hapticsEnabled = false,
+      this.widthFactorPressed = 0.95,
+      this.heightFactor = 0.05,
+      this.leadingIcon,
+      this.actionIcon,
+      this.iconColor = Colors.white,
+      this.widthFactor = 0.98});
 
   @override
   State<MUILoadingBlockLevelButton> createState() =>
@@ -113,9 +112,9 @@ class _MUILoadingBlockLevelButtonState
               : widget.loadingStateBackgroundColor,
         ),
         width: _isLoadingBlockLevelButtonPressed
-            ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context) * widget.widthFactor,
-        height: getScreenHeight(context) * widget.heightFactor,
+            ? widget.widthFactorPressed.sw(context)
+            : widget.widthFactor.sw(context),
+        height: widget.heightFactor.sh(context),
         child: Center(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -124,7 +123,7 @@ class _MUILoadingBlockLevelButtonState
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               AnimatedContainer(
@@ -139,9 +138,9 @@ class _MUILoadingBlockLevelButtonState
                         children: [
                           Container(
                             margin: EdgeInsets.symmetric(
-                                horizontal: getScreenWidth(context) * 0.02),
-                            width: getScreenWidth(context) * 0.04,
-                            height: getScreenWidth(context) * 0.04,
+                                horizontal: 0.02.sw(context)),
+                            width: 0.04.sw(context),
+                            height: 0.04.sw(context),
                             child: CircularProgressIndicator(
                               color: widget.loadingStateTextColor,
                             ),
@@ -159,7 +158,7 @@ class _MUILoadingBlockLevelButtonState
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  size: 0.05.sw(context),
                 ),
             ],
           ),

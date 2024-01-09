@@ -114,11 +114,11 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isLoadingButtonPressed
-              ? getScreenWidth(context) * widget.widthFactorPressed
-              : getScreenWidth(context) * widget.widthFactorUnpressed,
+              ? widget.widthFactorPressed.sw(context)
+              : widget.widthFactorUnpressed.sw(context),
           vertical: _isLoadingButtonPressed
-              ? getScreenWidth(context) * widget.heightFactorPressed
-              : getScreenWidth(context) * widget.heightFactorUnPressed,
+              ? widget.heightFactorPressed.sw(context)
+              : widget.heightFactorUnPressed.sw(context),
         ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 250),
@@ -130,7 +130,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                       Icon(
                         widget.leadingIcon,
                         color: widget.iconColor,
-                        size: getScreenWidth(context) * 0.05,
+                        size: 0.05.sw(context),
                       ),
                     SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
                     Text(
@@ -142,7 +142,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                       Icon(
                         widget.actionIcon,
                         color: widget.iconColor,
-                        size: getScreenWidth(context) * 0.05,
+                        size: 0.05.sw(context),
                       ),
                   ],
                 )
@@ -150,10 +150,10 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(
-                          horizontal: getScreenWidth(context) * 0.02),
-                      width: getScreenWidth(context) * 0.04,
-                      height: getScreenWidth(context) * 0.04,
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 0.02.sw(context)),
+                      width: 0.04.sw(context),
+                      height: 0.04.sw(context),
                       child: CircularProgressIndicator(
                         color: widget.loadingStateTextColor,
                       ),

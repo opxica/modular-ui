@@ -62,7 +62,7 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: getScreenWidth(context) * widget.widthFactor,
+      width: widget.widthFactor.sw(context),
       child: TextFormField(
         controller: widget.controller,
         onTapOutside: (event) {
