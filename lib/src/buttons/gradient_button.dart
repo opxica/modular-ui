@@ -105,6 +105,15 @@ class _MUIGradientButtonState extends State<MUIGradientButton> {
           vertical: _isGradientButtonPressed
               ? getScreenWidth(context) * widget.heightFactorPressed
               : getScreenWidth(context) * widget.heightFactorUnPressed,
+        ).clamp(
+          const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 8,
+          ),
+          const EdgeInsets.symmetric(
+            horizontal: 40,
+            vertical: 16,
+          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

@@ -119,6 +119,15 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
           vertical: _isLoadingButtonPressed
               ? getScreenWidth(context) * widget.heightFactorPressed
               : getScreenWidth(context) * widget.heightFactorUnPressed,
+        ).clamp(
+          const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 8,
+          ),
+          const EdgeInsets.symmetric(
+            horizontal: 40,
+            vertical: 16,
+          ),
         ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 250),
