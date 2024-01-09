@@ -93,6 +93,15 @@ class _MUITextButtonState extends State<MUITextButton> {
         padding: EdgeInsets.symmetric(
           horizontal: getScreenWidth(context) * widget.widthFactor,
           vertical: getScreenWidth(context) * widget.heightFactor,
+        ).clamp(
+          const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 8,
+          ),
+          const EdgeInsets.symmetric(
+            horizontal: 40,
+            vertical: 16,
+          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
