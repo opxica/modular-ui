@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUIBlogCard extends StatelessWidget {
+class MUIBlogCard extends StatefulWidget {
   const MUIBlogCard({
     Key? key,
     required this.title,
@@ -10,10 +10,11 @@ class MUIBlogCard extends StatelessWidget {
     required this.imagelink,
     required this.date,
     this.avatarRad = 16,
-    this.minWidth = 350,
+    this.maxWidth = 430,
+    this.widgetHeight = 550,
     this.onMoreTap,
-    this.cardWidth,
     this.morebtnStyle,
+    this.bgColor = Colors.white,
     this.elevation,
     this.avatarSpacing,
     this.descriptionStyle = const TextStyle(
@@ -49,12 +50,6 @@ class MUIBlogCard extends StatelessWidget {
   /// the blog card is tapped. A `VoidCallback` is a function that takes no arguments and returns no
   /// value.
   final VoidCallback onBlogCardTap;
-
-  /// The line `final double? cardWidth;` is declaring a final variable named `cardWidth` of type
-  /// `double?`. The `?` indicates that the variable can be nullable, meaning it can have a value of
-  /// `null`. This variable is optional and can be used to specify the width of the blog card. If no
-  /// value is provided, the default width of 350 will be used.
-  final double? cardWidth;
 
   /// The line `final VoidCallback? onMoreTap;` is declaring a final variable named `onMoreTap` of type
   /// `VoidCallback?`. The `?` indicates that the variable can be nullable, meaning it can have a value
@@ -95,24 +90,36 @@ class MUIBlogCard extends StatelessWidget {
   /// Sets the radius of the circular avatar
   final double avatarRad;
 
-  /// If the available screen width is less than the specified `minWidth`, the blog card will be rendered with a
-  /// width equal to the available screen width. If no value is provided for `minWidth`, the default
-  /// width of 350 will be used.
-  final double minWidth;
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
 
+  /// Overall height of this widget, It has a fixed value by default
+  /// You can provide a dynamic height to this widget or leave it as it is.
+  final double widgetHeight;
+
+  /// Background color of card
+  final Color bgColor;
+
+  @override
+  State<MUIBlogCard> createState() => _MUIBlogCardState();
+}
+
+class _MUIBlogCardState extends State<MUIBlogCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      /// The line `width: getScreenHeight(context) >= minWidth ? minWidth : getScreenHeight(context)` is
-      /// setting the width of the `SizedBox` widget that contains the `MUIBlogCard`.
-      width: getScreenHeight(context) >= minWidth
-          ? minWidth
-          : getScreenHeight(context),
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
+      height: widget.widgetHeight,
       child: GestureDetector(
-        onTap: onBlogCardTap,
+        onTap: widget.onBlogCardTap,
         child: Material(
+          color: widget.bgColor,
           borderRadius: const BorderRadius.all(Radius.circular(16)),
-          elevation: elevation ?? 5,
+          elevation: widget.elevation ?? 5,
           child: Column(
             children: [
               /// The `ClipRRect` widget is used to clip the child widget, in this case, an
@@ -122,7 +129,7 @@ class MUIBlogCard extends StatelessWidget {
               ClipRRect(
                 borderRadius:
                     const BorderRadius.vertical(top: Radius.circular(16)),
-                child: Image.network(imagelink),
+                child: Image.network(widget.imagelink),
               ),
               const SizedBox(height: 12),
               Padding(
@@ -133,7 +140,7 @@ class MUIBlogCard extends StatelessWidget {
                     /// The line `Text(title, style: titleStyle)` is creating a `Text` widget with the
                     /// `title` as its text content and `titleStyle` as its style. This widget is used
                     /// to display the title of the blog card with the specified text style.
-                    Text(title, style: titleStyle),
+                    Text(widget.title, style: widget.titleStyle),
 
                     /// `const SizedBox(height: 12)` is creating a `SizedBox` widget with a fixed height
                     /// of 12 pixels. This widget is used to add vertical spacing between the
@@ -147,7 +154,7 @@ class MUIBlogCard extends StatelessWidget {
                     /// widget with the `description` as its text content and `descriptionStyle` as its
                     /// style. This widget is used to display the description of the blog card with the
                     /// specified text style.
-                    Text(description, style: descriptionStyle),
+                    Text(widget.description, style: widget.descriptionStyle),
                     const SizedBox(height: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -163,17 +170,17 @@ class MUIBlogCard extends StatelessWidget {
                             /// length of the `circularAvatarImages` list. On each iteration, it
                             /// executes the code inside the loop.
                             for (int i = 0;
-                                i < circularAvatarImages.length;
+                                i < widget.circularAvatarImages.length;
                                 i++)
                               Align(
-                                widthFactor: avatarSpacing ?? 0.7,
+                                widthFactor: widget.avatarSpacing ?? 0.7,
                                 child: CircleAvatar(
-                                  radius: avatarRad + 1,
+                                  radius: widget.avatarRad + 1,
                                   backgroundColor: Colors.white,
                                   child: CircleAvatar(
-                                    radius: avatarRad,
-                                    backgroundImage:
-                                        NetworkImage(circularAvatarImages[i]),
+                                    radius: widget.avatarRad,
+                                    backgroundImage: NetworkImage(
+                                        widget.circularAvatarImages[i]),
                                   ),
                                 ),
                               ),
@@ -182,12 +189,12 @@ class MUIBlogCard extends StatelessWidget {
                             /// the `circularAvatarImages` list is greater than or equal to 7. If this
                             /// condition is true, it adds a `Padding` widget with a left padding of 7
                             /// pixels, followed by a `TextButton` widget.
-                            if (circularAvatarImages.length >= 7)
+                            if (widget.circularAvatarImages.length >= 7)
                               Padding(
                                 padding: const EdgeInsets.only(left: 7),
                                 child: TextButton(
-                                  onPressed: onMoreTap,
-                                  style: morebtnStyle,
+                                  onPressed: widget.onMoreTap,
+                                  style: widget.morebtnStyle,
                                   child: const Text('More...'),
                                 ),
                               ),
@@ -198,7 +205,7 @@ class MUIBlogCard extends StatelessWidget {
                         /// specified text style. The `dateStyle` variable is optional and can be used to
                         /// customize the style of the date text. If no value is provided, the default
                         /// text style will be used.
-                        Text(date, style: dateStyle),
+                        Text(widget.date, style: widget.dateStyle),
                       ],
                     ),
                   ],
