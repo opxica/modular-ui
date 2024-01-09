@@ -27,7 +27,7 @@ class MUILoadingButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation duration in milliseconds, default value is 250ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables light haptic feedback
   final bool hapticsEnabled;
@@ -63,7 +63,7 @@ class MUILoadingButton extends StatefulWidget {
     this.loadingStateBackgroundColor = Colors.grey,
     this.loadingStateTextColor = Colors.white,
     this.borderRadius = 10,
-    this.animationDuraton = 250,
+    this.animationDuration = 250,
     this.hapticsEnabled = false,
     this.widthFactorUnpressed = 0.04,
     this.widthFactorPressed = 0.035,
@@ -105,7 +105,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
         }
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: !_isLoadingButtonPressed
