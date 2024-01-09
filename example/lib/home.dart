@@ -1,4 +1,3 @@
-import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
 import 'package:example/components/empty.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +25,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   List<Map> components = [
     {
       'name': 'Button',
-      'route': button(),
+      'route': card(), // TODO: Updated button() to card()
     },
     {
       'name': 'Card',

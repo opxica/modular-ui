@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable loading block level button by ModularUI with optional icons.

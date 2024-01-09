@@ -17,7 +17,7 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
@@ -51,7 +51,7 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
     this.textColor = Colors.white,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
-    this.animationDuraton = 250,
+    this.animationDuration = 250,
     this.widthFactorPressed = 0.95,
     this.heightFactor = 0.05,
     this.leadingIcon,
@@ -92,7 +92,7 @@ class _MUIGradientBlockLevelButtonState
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           gradient: widget.bgGradient,
