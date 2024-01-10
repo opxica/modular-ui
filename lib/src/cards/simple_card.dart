@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/buttons/primary_button.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUISimpleCard extends StatelessWidget {
+class MUISimpleCard extends StatefulWidget {
   /// The title of the card
   final String title;
 
@@ -25,12 +26,23 @@ class MUISimpleCard extends StatelessWidget {
 
   /// On Tap Function
   final VoidCallback onButtonTap;
+
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
+
+  /// Overall height of this widget, It has a fixed value by default
+  /// You can provide a dynamic height to this widget or leave it as it is.
+  final double widgetHeight;
   const MUISimpleCard({
     super.key,
     required this.title,
     required this.description,
     required this.onButtonTap,
     required this.buttonText,
+    this.maxWidth = 430,
+    this.widgetHeight = 550,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
       color: Colors.grey,
@@ -44,11 +56,20 @@ class MUISimpleCard extends StatelessWidget {
   });
 
   @override
+  State<MUISimpleCard> createState() => _MUISimpleCardState();
+}
+
+class _MUISimpleCardState extends State<MUISimpleCard> {
+  @override
   Widget build(BuildContext context) {
     return Container(
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
+      height: widget.widgetHeight,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
-        color: bgColor,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
+        color: widget.bgColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -62,16 +83,16 @@ class MUISimpleCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: titleStyle),
-            const SizedBox(height: 8),
+            Text(widget.title, style: widget.titleStyle),
+            SizedBox(height: getScreenHeight(context) * 0.02),
             Text(
-              description,
-              style: descriptionStyle,
+              widget.description,
+              style: widget.descriptionStyle,
             ),
-            const SizedBox(height: 8),
+            const Spacer(),
             MUIPrimaryButton(
-              text: buttonText,
-              onTap: onButtonTap,
+              text: widget.buttonText,
+              onTap: widget.onButtonTap,
             ),
           ],
         ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/src/buttons/primary_button.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUIPrimaryCard extends StatelessWidget {
+class MUIPrimaryCard extends StatefulWidget {
   /// The title of the card
   final String title;
 
@@ -37,6 +38,16 @@ class MUIPrimaryCard extends StatelessWidget {
 
   /// On Tap Function
   final VoidCallback onButtonTap;
+
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
+
+  /// Overall height of this widget, It has a fixed value by default
+  /// You can provide a dynamic height to this widget or leave it as it is.
+  final double widgetHeight;
+
   const MUIPrimaryCard({
     super.key,
     required this.title,
@@ -57,14 +68,25 @@ class MUIPrimaryCard extends StatelessWidget {
     this.imageRadius = 8,
     this.horizontalMargin = 0,
     this.verticalMargin = 0,
+    this.maxWidth = 430,
+    this.widgetHeight = 550,
   });
 
   @override
+  State<MUIPrimaryCard> createState() => _MUIPrimaryCardState();
+}
+
+class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
+  @override
   Widget build(BuildContext context) {
     return Container(
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
+      height: widget.widgetHeight,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
-        color: bgColor,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
+        color: widget.bgColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -74,8 +96,8 @@ class MUIPrimaryCard extends StatelessWidget {
         ],
       ),
       margin: EdgeInsets.symmetric(
-        vertical: verticalMargin,
-        horizontal: horizontalMargin,
+        vertical: widget.verticalMargin,
+        horizontal: widget.horizontalMargin,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,8 +113,8 @@ class MUIPrimaryCard extends StatelessWidget {
                 ),
               ]),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(imageRadius),
-                child: image,
+                borderRadius: BorderRadius.circular(widget.imageRadius),
+                child: widget.image,
               ),
             ),
           ),
@@ -101,16 +123,16 @@ class MUIPrimaryCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: titleStyle),
+                Text(widget.title, style: widget.titleStyle),
                 const SizedBox(height: 8),
                 Text(
-                  description,
-                  style: descriptionStyle,
+                  widget.description,
+                  style: widget.descriptionStyle,
                 ),
                 const SizedBox(height: 8),
                 MUIPrimaryButton(
-                  text: buttonText,
-                  onTap: onButtonTap,
+                  text: widget.buttonText,
+                  onTap: widget.onButtonTap,
                 ),
               ],
             ),

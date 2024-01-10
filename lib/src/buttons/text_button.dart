@@ -16,7 +16,7 @@ class MUITextButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
@@ -47,7 +47,7 @@ class MUITextButton extends StatefulWidget {
     this.textColor = Colors.black,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
-    this.animationDuraton = 250,
+    this.animationDuration = 250,
     this.widthFactor = 0.04,
     this.heightFactor = 0.03,
     this.leadingIcon,
@@ -85,7 +85,7 @@ class _MUITextButtonState extends State<MUITextButton> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: _isTextButtonPressed ? widget.bgColor : Colors.transparent,
@@ -93,6 +93,15 @@ class _MUITextButtonState extends State<MUITextButton> {
         padding: EdgeInsets.symmetric(
           horizontal: getScreenWidth(context) * widget.widthFactor,
           vertical: getScreenWidth(context) * widget.heightFactor,
+        ).clamp(
+          const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 8,
+          ),
+          const EdgeInsets.symmetric(
+            horizontal: 40,
+            vertical: 16,
+          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
