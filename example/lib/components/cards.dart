@@ -9,7 +9,7 @@ Widget card() {
         child: MUIProfileCard(
           name: 'John Doe',
           designation: 'UI/UX Designer',
-          url: 'https://docs.material-tailwind.com/img/team-3.jpg',
+          imageUrl: 'https://docs.material-tailwind.com/img/team-3.jpg',
           socialIcons: [
             Icon(Icons.facebook),
           ],
