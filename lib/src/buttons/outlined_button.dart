@@ -22,7 +22,7 @@ class MUIOutlinedButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default : 250 ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
@@ -61,7 +61,7 @@ class MUIOutlinedButton extends StatefulWidget {
     this.textColor = Colors.black,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
-    this.animationDuraton = 250,
+    this.animationDuration = 250,
     this.widthFactorUnpressed = 0.04,
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
@@ -100,7 +100,7 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
@@ -140,8 +140,8 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
             Text(
               widget.text,
-              style:
-                  TextStyle(color: widget.textColor, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: widget.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)
