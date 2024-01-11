@@ -29,7 +29,7 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
@@ -52,8 +52,9 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  const MUILoadingBlockLevelButton(
-      {super.key,
+ development
+  const MUILoadingBlockLevelButton({
+      super.key,
       required this.text,
       required this.onPressed,
       this.loadingStateText = '',
@@ -69,8 +70,9 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
       this.leadingIcon,
       this.actionIcon,
       this.iconColor = Colors.white,
-      this.widthFactor = 0.98});
-
+          this.widthFactor = 0.98
+    });
+  
   @override
   State<MUILoadingBlockLevelButton> createState() =>
       _MUILoadingBlockLevelButtonState();
@@ -104,7 +106,7 @@ class _MUILoadingBlockLevelButtonState
         }
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: !_isLoadingBlockLevelButtonPressed

@@ -17,7 +17,7 @@ class MUIPrimaryBlockButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
@@ -43,22 +43,21 @@ class MUIPrimaryBlockButton extends StatefulWidget {
   /// On Tap Function
   final VoidCallback onTap;
 
-  const MUIPrimaryBlockButton({
-    super.key,
-    required this.text,
-    required this.onTap,
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuraton = 250,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-    this.widthFactor = 0.98
-  });
+  const MUIPrimaryBlockButton(
+      {super.key,
+      required this.text,
+      required this.onTap,
+      this.bgColor = Colors.black,
+      this.textColor = Colors.white,
+      this.borderRadius = 10,
+      this.hapticsEnabled = false,
+      this.animationDuration = 250,
+      this.widthFactorPressed = 0.95,
+      this.heightFactor = 0.05,
+      this.leadingIcon,
+      this.actionIcon,
+      this.iconColor = Colors.white,
+      this.widthFactor = 0.98});
 
   @override
   State<MUIPrimaryBlockButton> createState() => _MUIPrimaryBlockButtonState();
@@ -90,7 +89,7 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,

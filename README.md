@@ -20,11 +20,11 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 
 
 
-## Current Status of Components/Widgets
+## Current Status of Components/Widgets (might be on development branch)
 
 - [ ] Accordion
 - [ ] Alert Boxes
-- [ ] Avatar
+- [] Avatar
 - [ ] Breadcrumbs
 - [ ] Button
   - [x] Primary Button

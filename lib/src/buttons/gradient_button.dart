@@ -16,7 +16,7 @@ class MUIGradientButton extends StatefulWidget {
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default : 250 ms
-  final int animationDuraton;
+  final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
@@ -53,7 +53,7 @@ class MUIGradientButton extends StatefulWidget {
     this.textColor = Colors.white,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
-    this.animationDuraton = 250,
+    this.animationDuration = 250,
     this.widthFactorUnpressed = 0.04,
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
@@ -93,7 +93,7 @@ class _MUIGradientButtonState extends State<MUIGradientButton> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: widget.animationDuraton),
+        duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           gradient: widget.bgGradient,
