@@ -176,7 +176,9 @@ class _MUISignInCardState extends State<MUISignInCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: getScreenWidth(context) * 0.23,
+                  width: getScreenWidth(context) <= widget.maxWidth
+                      ? getScreenWidth(context) * 0.23
+                      : 100,
                   child: Divider(
                     color: widget.accentColor,
                     thickness: 0.35,
@@ -186,11 +188,15 @@ class _MUISignInCardState extends State<MUISignInCard> {
                 Text('OR CONTINUE WITH',
                     style: TextStyle(
                       color: widget.accentColor,
-                      fontSize: getScreenWidth(context) * 0.02,
+                      fontSize: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.02
+                          : 12,
                       fontWeight: FontWeight.w200,
                     )),
                 SizedBox(
-                  width: getScreenWidth(context) * 0.23,
+                  width: getScreenWidth(context) <= widget.maxWidth
+                      ? getScreenWidth(context) * 0.23
+                      : 100,
                   child: Divider(
                     color: widget.accentColor,
                     thickness: 0.35,
@@ -200,49 +206,70 @@ class _MUISignInCardState extends State<MUISignInCard> {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MUIOutlinedButton(
-                borderColor: widget.borderColor,
-                leadingIcon: widget.firstAuthIcon,
-                iconColor: widget.authButtonIconColor,
-                widthFactorUnpressed: 0.07,
-                widthFactorPressed: 0.06,
-                borderRadius: 5,
-                borderWidth: 1,
                 text: widget.firstAuthButtonText,
-                textColor: widget.accentColor,
                 onTap: () {
                   widget.onFirstAuthButtonPressed();
                 },
-              ),
-              MUIOutlinedButton(
                 borderColor: widget.borderColor,
-                leadingIcon: widget.secondAuthIcon,
+                leadingIcon: widget.firstAuthIcon,
                 iconColor: widget.authButtonIconColor,
-                widthFactorUnpressed: 0.07,
-                widthFactorPressed: 0.06,
                 borderRadius: 5,
                 borderWidth: 1,
-                text: widget.secondAuthButtonText,
                 textColor: widget.accentColor,
+              ),
+              MUIOutlinedButton(
+                text: widget.secondAuthButtonText,
                 onTap: () {
                   widget.onSecondAuthButtonPressed();
                 },
+                borderColor: widget.borderColor,
+                leadingIcon: widget.secondAuthIcon,
+                iconColor: widget.authButtonIconColor,
+                borderRadius: 5,
+                borderWidth: 1,
+                textColor: widget.accentColor,
               ),
+              // MUIOutlinedButton(
+              //   borderColor: widget.borderColor,
+              //   leadingIcon: widget.firstAuthIcon,
+              //   iconColor: widget.authButtonIconColor,
+              //   borderRadius: 5,
+              //   borderWidth: 1,
+              //   text: widget.firstAuthButtonText,
+              //   textColor: widget.accentColor,
+              //   onTap: () {
+              //     widget.onFirstAuthButtonPressed();
+              //   },
+              // ),
+              // MUIOutlinedButton(
+              //   borderColor: widget.borderColor,
+              //   leadingIcon: widget.secondAuthIcon,
+              //   iconColor: widget.authButtonIconColor,
+              //   borderRadius: 5,
+              //   borderWidth: 1,
+              //   text: widget.secondAuthButtonText,
+              //   textColor: widget.accentColor,
+              //   onTap: () {
+              //     widget.onSecondAuthButtonPressed();
+              //   },
+              // ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Don't have an account ? ",
-                  style: TextStyle(color: widget.accentColor)),
+                  style: TextStyle(color: widget.accentColor, fontSize: 12)),
               TextButton(
                   onPressed: () {
                     widget.onRegisterNow();
                   },
                   child: Text('Register now',
-                      style: TextStyle(color: widget.borderColor)))
+                      style:
+                          TextStyle(color: widget.borderColor, fontSize: 12)))
             ],
           )
         ],

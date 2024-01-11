@@ -69,6 +69,7 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
           FocusScope.of(context).unfocus();
         },
         style: widget.textStyle,
+        obscureText: widget.isObscure,
         decoration: InputDecoration(
           filled: true,
           fillColor: widget.filledColor,
