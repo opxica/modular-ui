@@ -109,7 +109,8 @@ class _MUIGradientBlockLevelButtonState
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  // size: getScreenWidth(context) * 0.05,
+                  size: 12,
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               Text(
@@ -124,7 +125,8 @@ class _MUIGradientBlockLevelButtonState
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  // size: getScreenWidth(context) * 0.05,
+                  size: 12,
                 ),
             ],
           ),

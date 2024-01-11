@@ -11,7 +11,6 @@ class MUIBlogCard extends StatefulWidget {
     required this.date,
     this.avatarRad = 16,
     this.maxWidth = 430,
-    this.widgetHeight = 550,
     this.onMoreTap,
     this.morebtnStyle,
     this.bgColor = Colors.white,
@@ -95,10 +94,6 @@ class MUIBlogCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  /// Overall height of this widget, It has a fixed value by default
-  /// You can provide a dynamic height to this widget or leave it as it is.
-  final double widgetHeight;
-
   /// Background color of card
   final Color bgColor;
 
@@ -113,105 +108,106 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
       width: getScreenWidth(context) <= widget.maxWidth
           ? getScreenWidth(context) * 0.88
           : widget.maxWidth,
-      height: widget.widgetHeight,
       child: GestureDetector(
         onTap: widget.onBlogCardTap,
         child: Material(
           color: widget.bgColor,
           borderRadius: const BorderRadius.all(Radius.circular(16)),
           elevation: widget.elevation ?? 5,
-          child: Column(
-            children: [
-              /// The `ClipRRect` widget is used to clip the child widget, in this case, an
-              /// `Image.network` widget, with rounded corners. The `borderRadius` property is set to
-              /// `BorderRadius.vertical(top: Radius.circular(16))`, which creates rounded corners only
-              /// on the top of the image. This gives the image a visually appealing shape.
-              ClipRRect(
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(16)),
-                child: Image.network(widget.imagelink),
-              ),
-              const SizedBox(height: 12),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 20, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    /// The line `Text(title, style: titleStyle)` is creating a `Text` widget with the
-                    /// `title` as its text content and `titleStyle` as its style. This widget is used
-                    /// to display the title of the blog card with the specified text style.
-                    Text(widget.title, style: widget.titleStyle),
-
-                    /// `const SizedBox(height: 12)` is creating a `SizedBox` widget with a fixed height
-                    /// of 12 pixels. This widget is used to add vertical spacing between the
-                    /// `ClipRRect` widget (which displays the image) and the `Padding` widget (which
-                    /// contains the title, description, and other elements of the blog card). The
-                    /// `SizedBox` widget ensures that there is a consistent vertical spacing between
-                    /// these two widgets.
-                    const SizedBox(height: 12),
-
-                    /// The line `Text(description, style: descriptionStyle)` is creating a `Text`
-                    /// widget with the `description` as its text content and `descriptionStyle` as its
-                    /// style. This widget is used to display the description of the blog card with the
-                    /// specified text style.
-                    Text(widget.description, style: widget.descriptionStyle),
-                    const SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        /// The `Row` widget is used to display a row of widgets horizontally. In this
-                        /// case, the `Row` widget is used to display a row of circular avatars and a
-                        /// "More" button.
-                        Row(
-                          children: [
-                            /// The code `for (int i = 0; i < circularAvatarImages.length; i++)` is a
-                            /// for loop that iterates over the `circularAvatarImages` list. It starts
-                            /// with `i` equal to 0, and continues as long as `i` is less than the
-                            /// length of the `circularAvatarImages` list. On each iteration, it
-                            /// executes the code inside the loop.
-                            for (int i = 0;
-                                i < widget.circularAvatarImages.length;
-                                i++)
-                              Align(
-                                widthFactor: widget.avatarSpacing ?? 0.7,
-                                child: CircleAvatar(
-                                  radius: widget.avatarRad + 1,
-                                  backgroundColor: Colors.white,
+          child: IntrinsicHeight(
+            child: Column(
+              children: [
+                /// The `ClipRRect` widget is used to clip the child widget, in this case, an
+                /// `Image.network` widget, with rounded corners. The `borderRadius` property is set to
+                /// `BorderRadius.vertical(top: Radius.circular(16))`, which creates rounded corners only
+                /// on the top of the image. This gives the image a visually appealing shape.
+                ClipRRect(
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(16)),
+                  child: Image.network(widget.imagelink),
+                ),
+                const SizedBox(height: 12),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, bottom: 20, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      /// The line `Text(title, style: titleStyle)` is creating a `Text` widget with the
+                      /// `title` as its text content and `titleStyle` as its style. This widget is used
+                      /// to display the title of the blog card with the specified text style.
+                      Text(widget.title, style: widget.titleStyle),
+            
+                      /// `const SizedBox(height: 12)` is creating a `SizedBox` widget with a fixed height
+                      /// of 12 pixels. This widget is used to add vertical spacing between the
+                      /// `ClipRRect` widget (which displays the image) and the `Padding` widget (which
+                      /// contains the title, description, and other elements of the blog card). The
+                      /// `SizedBox` widget ensures that there is a consistent vertical spacing between
+                      /// these two widgets.
+                      const SizedBox(height: 12),
+            
+                      /// The line `Text(description, style: descriptionStyle)` is creating a `Text`
+                      /// widget with the `description` as its text content and `descriptionStyle` as its
+                      /// style. This widget is used to display the description of the blog card with the
+                      /// specified text style.
+                      Text(widget.description, style: widget.descriptionStyle),
+                      const SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          /// The `Row` widget is used to display a row of widgets horizontally. In this
+                          /// case, the `Row` widget is used to display a row of circular avatars and a
+                          /// "More" button.
+                          Row(
+                            children: [
+                              /// The code `for (int i = 0; i < circularAvatarImages.length; i++)` is a
+                              /// for loop that iterates over the `circularAvatarImages` list. It starts
+                              /// with `i` equal to 0, and continues as long as `i` is less than the
+                              /// length of the `circularAvatarImages` list. On each iteration, it
+                              /// executes the code inside the loop.
+                              for (int i = 0;
+                                  i < widget.circularAvatarImages.length;
+                                  i++)
+                                Align(
+                                  widthFactor: widget.avatarSpacing ?? 0.7,
                                   child: CircleAvatar(
-                                    radius: widget.avatarRad,
-                                    backgroundImage: NetworkImage(
-                                        widget.circularAvatarImages[i]),
+                                    radius: widget.avatarRad + 1,
+                                    backgroundColor: Colors.white,
+                                    child: CircleAvatar(
+                                      radius: widget.avatarRad,
+                                      backgroundImage: NetworkImage(
+                                          widget.circularAvatarImages[i]),
+                                    ),
                                   ),
                                 ),
-                              ),
-
-                            /// The code `if (circularAvatarImages.length >= 7)` checks if the length of
-                            /// the `circularAvatarImages` list is greater than or equal to 7. If this
-                            /// condition is true, it adds a `Padding` widget with a left padding of 7
-                            /// pixels, followed by a `TextButton` widget.
-                            if (widget.circularAvatarImages.length >= 7)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 7),
-                                child: TextButton(
-                                  onPressed: widget.onMoreTap,
-                                  style: widget.morebtnStyle,
-                                  child: const Text('More...'),
+            
+                              /// The code `if (circularAvatarImages.length >= 7)` checks if the length of
+                              /// the `circularAvatarImages` list is greater than or equal to 7. If this
+                              /// condition is true, it adds a `Padding` widget with a left padding of 7
+                              /// pixels, followed by a `TextButton` widget.
+                              if (widget.circularAvatarImages.length >= 7)
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 7),
+                                  child: TextButton(
+                                    onPressed: widget.onMoreTap,
+                                    style: widget.morebtnStyle,
+                                    child: const Text('More...'),
+                                  ),
                                 ),
-                              ),
-                          ],
-                        ),
-
-                        /// This widget is used to display the date of the blog card with the
-                        /// specified text style. The `dateStyle` variable is optional and can be used to
-                        /// customize the style of the date text. If no value is provided, the default
-                        /// text style will be used.
-                        Text(widget.date, style: widget.dateStyle),
-                      ],
-                    ),
-                  ],
+                            ],
+                          ),
+            
+                          /// This widget is used to display the date of the blog card with the
+                          /// specified text style. The `dateStyle` variable is optional and can be used to
+                          /// customize the style of the date text. If no value is provided, the default
+                          /// text style will be used.
+                          Text(widget.date, style: widget.dateStyle),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

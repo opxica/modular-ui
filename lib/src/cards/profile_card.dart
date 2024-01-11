@@ -8,7 +8,6 @@ class MUIProfileCard extends StatefulWidget {
     required this.imageUrl,
     required this.designation,
     this.maxWidth = 430,
-    this.widgetHeight = 550,
     this.socialIcons = const [],
     this.borderRadius = 16,
     this.bgColor = Colors.white,
@@ -52,9 +51,7 @@ class MUIProfileCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  /// Overall height of this widget, It has a fixed value by default
-  /// You can provide a dynamic height to this widget or leave it as it is.
-  final double widgetHeight;
+
 
   @override
   State<MUIProfileCard> createState() => _MUIProfileCardState();
@@ -67,7 +64,6 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
       width: getScreenWidth(context) <= widget.maxWidth
           ? getScreenWidth(context) * 0.88
           : widget.maxWidth,
-      height: widget.widgetHeight,
       padding: EdgeInsets.all(widget.borderRadius),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
@@ -80,45 +76,47 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
           ),
         ],
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.4),
-                    blurRadius: 12,
-                    offset: const Offset(2, 4),
+      child: IntrinsicHeight(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.4),
+                      blurRadius: 12,
+                      offset: const Offset(2, 4),
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(widget.borderRadius),
+                  child: Image.network(
+                    widget.imageUrl,
+                    fit: BoxFit.cover,
                   ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(widget.borderRadius),
-                child: Image.network(
-                  widget.imageUrl,
-                  fit: BoxFit.cover,
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            widget.name,
-            style: widget.nameStyle,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            widget.designation,
-            style: widget.designationStyle,
-          ),
-          const SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: widget.socialIcons,
-          ),
-        ],
+            const SizedBox(height: 16),
+            Text(
+              widget.name,
+              style: widget.nameStyle,
+            ),
+            const SizedBox(height: 12),
+            Text(
+              widget.designation,
+              style: widget.designationStyle,
+            ),
+            const SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: widget.socialIcons,
+            ),
+          ],
+        ),
       ),
     );
   }

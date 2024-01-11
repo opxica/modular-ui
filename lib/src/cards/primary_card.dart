@@ -44,10 +44,6 @@ class MUIPrimaryCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  /// Overall height of this widget, It has a fixed value by default
-  /// You can provide a dynamic height to this widget or leave it as it is.
-  final double widgetHeight;
-
   const MUIPrimaryCard({
     super.key,
     required this.title,
@@ -69,7 +65,6 @@ class MUIPrimaryCard extends StatefulWidget {
     this.horizontalMargin = 0,
     this.verticalMargin = 0,
     this.maxWidth = 430,
-    this.widgetHeight = 550,
   });
 
   @override
@@ -83,7 +78,6 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
       width: getScreenWidth(context) <= widget.maxWidth
           ? getScreenWidth(context) * 0.88
           : widget.maxWidth,
-      height: widget.widgetHeight,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
@@ -99,45 +93,47 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
         vertical: widget.verticalMargin,
         horizontal: widget.horizontalMargin,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: DecoratedBox(
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.4),
-                  blurRadius: 12,
-                  offset: const Offset(2, 4),
+      child: IntrinsicHeight(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: DecoratedBox(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.4),
+                    blurRadius: 12,
+                    offset: const Offset(2, 4),
+                  ),
+                ]),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(widget.imageRadius),
+                  child: widget.image,
                 ),
-              ]),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(widget.imageRadius),
-                child: widget.image,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(widget.title, style: widget.titleStyle),
-                const SizedBox(height: 8),
-                Text(
-                  widget.description,
-                  style: widget.descriptionStyle,
-                ),
-                const SizedBox(height: 8),
-                MUIPrimaryButton(
-                  text: widget.buttonText,
-                  onTap: widget.onButtonTap,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(widget.title, style: widget.titleStyle),
+                  const SizedBox(height: 8),
+                  Text(
+                    widget.description,
+                    style: widget.descriptionStyle,
+                  ),
+                  const SizedBox(height: 8),
+                  MUIPrimaryButton(
+                    text: widget.buttonText,
+                    onTap: widget.onButtonTap,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

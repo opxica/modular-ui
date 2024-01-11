@@ -1,7 +1,6 @@
 import 'package:example/components/avatar.dart';
 import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
-import 'package:example/components/checkbox.dart';
 import 'package:example/components/empty.dart';
 import 'package:example/components/switch.dart';
 import 'package:example/components/tabs.dart';

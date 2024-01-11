@@ -139,7 +139,8 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                       Icon(
                         widget.leadingIcon,
                         color: widget.iconColor,
-                        size: getScreenWidth(context) * 0.05,
+                        // size: getScreenWidth(context) * 0.05,
+                        size: 12,
                       ),
                     SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
                     Text(
@@ -151,7 +152,8 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                       Icon(
                         widget.actionIcon,
                         color: widget.iconColor,
-                        size: getScreenWidth(context) * 0.05,
+                        // size: getScreenWidth(context) * 0.05,
+                        size: 12,
                       ),
                   ],
                 )
@@ -161,8 +163,8 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                     Container(
                       margin: EdgeInsets.symmetric(
                           horizontal: getScreenWidth(context) * 0.02),
-                      width: getScreenWidth(context) * 0.04,
-                      height: getScreenWidth(context) * 0.04,
+                      width: 18,
+                      height: 18,
                       child: CircularProgressIndicator(
                         color: widget.loadingStateTextColor,
                       ),

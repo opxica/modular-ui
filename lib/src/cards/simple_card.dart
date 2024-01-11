@@ -32,9 +32,6 @@ class MUISimpleCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  /// Overall height of this widget, It has a fixed value by default
-  /// You can provide a dynamic height to this widget or leave it as it is.
-  final double widgetHeight;
   const MUISimpleCard({
     super.key,
     required this.title,
@@ -42,7 +39,6 @@ class MUISimpleCard extends StatefulWidget {
     required this.onButtonTap,
     required this.buttonText,
     this.maxWidth = 430,
-    this.widgetHeight = 550,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
       color: Colors.grey,
@@ -66,7 +62,7 @@ class _MUISimpleCardState extends State<MUISimpleCard> {
       width: getScreenWidth(context) <= widget.maxWidth
           ? getScreenWidth(context) * 0.88
           : widget.maxWidth,
-      height: widget.widgetHeight,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
@@ -78,8 +74,7 @@ class _MUISimpleCardState extends State<MUISimpleCard> {
           ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
+      child: IntrinsicHeight(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
