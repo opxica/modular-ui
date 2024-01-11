@@ -60,9 +60,6 @@ class MUISignInCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  /// Overall height of this widget, It has a fixed value by default
-  /// You can provide a dynamic height to this widget or leave it as it is.
-  final double widgetHeight;
   const MUISignInCard({
     super.key,
     required this.emailController,
@@ -76,7 +73,6 @@ class MUISignInCard extends StatefulWidget {
     this.authButtonIconColor = Colors.white,
     this.authButtonTextColor = Colors.white,
     this.maxWidth = 430,
-    this.widgetHeight = 550,
     required this.firstAuthButtonText,
     required this.secondAuthButtonText,
     required this.firstAuthIcon,
@@ -98,181 +94,182 @@ class _MUISignInCardState extends State<MUISignInCard> {
       width: getScreenWidth(context) <= widget.maxWidth
           ? getScreenWidth(context) * 0.88
           : widget.maxWidth,
-      height: widget.widgetHeight,
       decoration: BoxDecoration(
         color: widget.bgColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
         border:
             Border.all(color: widget.borderColor, width: widget.borderWidth),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Sign in',
-            style: TextStyle(
-                color: widget.accentColor,
-                fontWeight: FontWeight.bold,
-                fontSize: getScreenWidth(context) <= widget.maxWidth
-                    ? getScreenWidth(context) * 0.08
-                    : 32),
-          ),
-          Text('Enter your email & password to sign in',
+      child: IntrinsicHeight(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Sign in',
               style: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.w300)),
-          SizedBox(height: getScreenHeight(context) * 0.03),
-          Text(' Email',
-              style: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.bold)),
-          SizedBox(height: getScreenHeight(context) * 0.01),
-          MUIPrimaryInputField(
-            isObscure: false,
-            hintText: 'me@example.com',
-            hintStyle: TextStyle(color: widget.borderColor),
-            enabledBorderColor: widget.accentColor,
-            disabledBorderColor: widget.borderColor,
-            borderWidth: 1,
-            borderRadius: 10,
-            textStyle: TextStyle(
-                color: widget.accentColor, fontWeight: FontWeight.w300),
-            controller: widget.emailController,
-            filledColor: widget.bgColor,
-          ),
-          SizedBox(height: getScreenHeight(context) * 0.02),
-          Text(' Password',
-              style: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.bold)),
-          SizedBox(height: getScreenHeight(context) * 0.01),
-          MUIPrimaryInputField(
-            isObscure: true,
-            hintText: 'password',
-            hintStyle: TextStyle(color: widget.borderColor),
-            enabledBorderColor: widget.accentColor,
-            disabledBorderColor: widget.borderColor,
-            borderWidth: 1,
-            borderRadius: 10,
-            textStyle: TextStyle(
-                color: widget.accentColor, fontWeight: FontWeight.w300),
-            controller: widget.passwordController,
-            filledColor: widget.bgColor,
-          ),
-          SizedBox(height: getScreenHeight(context) * 0.03),
-          Center(
-            child: MUILoadingBlockLevelButton(
-                text: 'Sign in',
-                bgColor: widget.accentColor,
-                textColor: widget.bgColor,
-                loadingStateTextColor: widget.bgColor,
-                loadingStateText: 'Loading',
-                onPressed: () async {
-                  await widget.onSigninPressed();
-                }),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: getScreenWidth(context) * 0.02),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: getScreenWidth(context) <= widget.maxWidth
-                      ? getScreenWidth(context) * 0.23
-                      : 95,
-                  child: Divider(
-                    color: widget.accentColor,
-                    thickness: 0.35,
-                  ),
-                ),
-                SizedBox(height: getScreenHeight(context) * 0.05),
-                Text(' OR CONTINUE WITH ',
-                    style: TextStyle(
+                  color: widget.accentColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: getScreenWidth(context) <= widget.maxWidth
+                      ? getScreenWidth(context) * 0.08
+                      : 32),
+            ),
+            Text('Enter your email & password to sign in',
+                style: TextStyle(
+                    color: widget.accentColor, fontWeight: FontWeight.w300)),
+            SizedBox(height: getScreenHeight(context) * 0.03),
+            Text(' Email',
+                style: TextStyle(
+                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            SizedBox(height: getScreenHeight(context) * 0.01),
+            MUIPrimaryInputField(
+              isObscure: false,
+              hintText: 'me@example.com',
+              hintStyle: TextStyle(color: widget.borderColor),
+              enabledBorderColor: widget.accentColor,
+              disabledBorderColor: widget.borderColor,
+              borderWidth: 1,
+              borderRadius: 10,
+              textStyle: TextStyle(
+                  color: widget.accentColor, fontWeight: FontWeight.w300),
+              controller: widget.emailController,
+              filledColor: widget.bgColor,
+            ),
+            SizedBox(height: getScreenHeight(context) * 0.02),
+            Text(' Password',
+                style: TextStyle(
+                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            SizedBox(height: getScreenHeight(context) * 0.01),
+            MUIPrimaryInputField(
+              isObscure: true,
+              hintText: 'password',
+              hintStyle: TextStyle(color: widget.borderColor),
+              enabledBorderColor: widget.accentColor,
+              disabledBorderColor: widget.borderColor,
+              borderWidth: 1,
+              borderRadius: 10,
+              textStyle: TextStyle(
+                  color: widget.accentColor, fontWeight: FontWeight.w300),
+              controller: widget.passwordController,
+              filledColor: widget.bgColor,
+            ),
+            SizedBox(height: getScreenHeight(context) * 0.03),
+            Center(
+              child: MUILoadingBlockLevelButton(
+                  text: 'Sign in',
+                  bgColor: widget.accentColor,
+                  textColor: widget.bgColor,
+                  loadingStateTextColor: widget.bgColor,
+                  loadingStateText: 'Loading',
+                  onPressed: () async {
+                    await widget.onSigninPressed();
+                  }),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                  horizontal: getScreenWidth(context) * 0.02),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: getScreenWidth(context) <= widget.maxWidth
+                        ? getScreenWidth(context) * 0.23
+                        : 95,
+                    child: Divider(
                       color: widget.accentColor,
-                      fontSize: getScreenWidth(context) <= widget.maxWidth
-                          ? getScreenWidth(context) * 0.02
-                          : 10,
-                      fontWeight: FontWeight.w200,
-                    )),
-                SizedBox(
-                  width: getScreenWidth(context) <= widget.maxWidth
-                      ? getScreenWidth(context) * 0.23
-                      : 95,
-                  child: Divider(
-                    color: widget.accentColor,
-                    thickness: 0.35,
+                      thickness: 0.35,
+                    ),
                   ),
+                  SizedBox(height: getScreenHeight(context) * 0.05),
+                  Text(' OR CONTINUE WITH ',
+                      style: TextStyle(
+                        color: widget.accentColor,
+                        fontSize: getScreenWidth(context) <= widget.maxWidth
+                            ? getScreenWidth(context) * 0.02
+                            : 10,
+                        fontWeight: FontWeight.w200,
+                      )),
+                  SizedBox(
+                    width: getScreenWidth(context) <= widget.maxWidth
+                        ? getScreenWidth(context) * 0.23
+                        : 95,
+                    child: Divider(
+                      color: widget.accentColor,
+                      thickness: 0.35,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MUIOutlinedButton(
+                  text: widget.firstAuthButtonText,
+                  onTap: () {
+                    widget.onFirstAuthButtonPressed();
+                  },
+                  borderColor: widget.borderColor,
+                  leadingIcon: widget.firstAuthIcon,
+                  iconColor: widget.authButtonIconColor,
+                  borderRadius: 5,
+                  borderWidth: 1,
+                  textColor: widget.accentColor,
                 ),
+                MUIOutlinedButton(
+                  text: widget.secondAuthButtonText,
+                  onTap: () {
+                    widget.onSecondAuthButtonPressed();
+                  },
+                  borderColor: widget.borderColor,
+                  leadingIcon: widget.secondAuthIcon,
+                  iconColor: widget.authButtonIconColor,
+                  borderRadius: 5,
+                  borderWidth: 1,
+                  textColor: widget.accentColor,
+                ),
+                // MUIOutlinedButton(
+                //   borderColor: widget.borderColor,
+                //   leadingIcon: widget.firstAuthIcon,
+                //   iconColor: widget.authButtonIconColor,
+                //   borderRadius: 5,
+                //   borderWidth: 1,
+                //   text: widget.firstAuthButtonText,
+                //   textColor: widget.accentColor,
+                //   onTap: () {
+                //     widget.onFirstAuthButtonPressed();
+                //   },
+                // ),
+                // MUIOutlinedButton(
+                //   borderColor: widget.borderColor,
+                //   leadingIcon: widget.secondAuthIcon,
+                //   iconColor: widget.authButtonIconColor,
+                //   borderRadius: 5,
+                //   borderWidth: 1,
+                //   text: widget.secondAuthButtonText,
+                //   textColor: widget.accentColor,
+                //   onTap: () {
+                //     widget.onSecondAuthButtonPressed();
+                //   },
+                // ),
               ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              MUIOutlinedButton(
-                text: widget.firstAuthButtonText,
-                onTap: () {
-                  widget.onFirstAuthButtonPressed();
-                },
-                borderColor: widget.borderColor,
-                leadingIcon: widget.firstAuthIcon,
-                iconColor: widget.authButtonIconColor,
-                borderRadius: 5,
-                borderWidth: 1,
-                textColor: widget.accentColor,
-              ),
-              MUIOutlinedButton(
-                text: widget.secondAuthButtonText,
-                onTap: () {
-                  widget.onSecondAuthButtonPressed();
-                },
-                borderColor: widget.borderColor,
-                leadingIcon: widget.secondAuthIcon,
-                iconColor: widget.authButtonIconColor,
-                borderRadius: 5,
-                borderWidth: 1,
-                textColor: widget.accentColor,
-              ),
-              // MUIOutlinedButton(
-              //   borderColor: widget.borderColor,
-              //   leadingIcon: widget.firstAuthIcon,
-              //   iconColor: widget.authButtonIconColor,
-              //   borderRadius: 5,
-              //   borderWidth: 1,
-              //   text: widget.firstAuthButtonText,
-              //   textColor: widget.accentColor,
-              //   onTap: () {
-              //     widget.onFirstAuthButtonPressed();
-              //   },
-              // ),
-              // MUIOutlinedButton(
-              //   borderColor: widget.borderColor,
-              //   leadingIcon: widget.secondAuthIcon,
-              //   iconColor: widget.authButtonIconColor,
-              //   borderRadius: 5,
-              //   borderWidth: 1,
-              //   text: widget.secondAuthButtonText,
-              //   textColor: widget.accentColor,
-              //   onTap: () {
-              //     widget.onSecondAuthButtonPressed();
-              //   },
-              // ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Don't have an account ? ",
-                  style: TextStyle(color: widget.accentColor, fontSize: 12)),
-              TextButton(
-                  onPressed: () {
-                    widget.onRegisterNow();
-                  },
-                  child: Text('Register now',
-                      style:
-                          TextStyle(color: widget.borderColor, fontSize: 12)))
-            ],
-          )
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account ? ",
+                    style: TextStyle(color: widget.accentColor, fontSize: 12)),
+                TextButton(
+                    onPressed: () {
+                      widget.onRegisterNow();
+                    },
+                    child: Text('Register now',
+                        style:
+                            TextStyle(color: widget.borderColor, fontSize: 12)))
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
