@@ -104,7 +104,8 @@ class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  // size: getScreenWidth(context) * 0.05,
+                  size: 12,
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
               Text(
@@ -119,7 +120,8 @@ class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  size: getScreenWidth(context) * 0.05,
+                  // size: getScreenWidth(context) * 0.05,
+                  size: 12,
                 ),
             ],
           ),

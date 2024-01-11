@@ -178,25 +178,25 @@ class _MUISignInCardState extends State<MUISignInCard> {
                 SizedBox(
                   width: getScreenWidth(context) <= widget.maxWidth
                       ? getScreenWidth(context) * 0.23
-                      : 100,
+                      : 95,
                   child: Divider(
                     color: widget.accentColor,
                     thickness: 0.35,
                   ),
                 ),
                 SizedBox(height: getScreenHeight(context) * 0.05),
-                Text('OR CONTINUE WITH',
+                Text(' OR CONTINUE WITH ',
                     style: TextStyle(
                       color: widget.accentColor,
                       fontSize: getScreenWidth(context) <= widget.maxWidth
                           ? getScreenWidth(context) * 0.02
-                          : 12,
+                          : 10,
                       fontWeight: FontWeight.w200,
                     )),
                 SizedBox(
                   width: getScreenWidth(context) <= widget.maxWidth
                       ? getScreenWidth(context) * 0.23
-                      : 100,
+                      : 95,
                   child: Divider(
                     color: widget.accentColor,
                     thickness: 0.35,
