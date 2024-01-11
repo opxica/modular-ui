@@ -52,7 +52,7 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
- development
+ 
   const MUILoadingBlockLevelButton({
       super.key,
       required this.text,
@@ -63,7 +63,7 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
       this.loadingStateBackgroundColor = Colors.grey,
       this.loadingStateTextColor = Colors.white,
       this.borderRadius = 10,
-      this.animationDuraton = 250,
+      this.animationDuration = 250,
       this.hapticsEnabled = false,
       this.widthFactorPressed = 0.95,
       this.heightFactor = 0.05,
