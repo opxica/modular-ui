@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 
-Widget avatarComponent() {
+Widget avatar() {
   return const _Avatars();
 }
 

@@ -26,7 +26,7 @@ class _ButtonsViewState extends State<ButtonsView> {
         MUILoadingButton(
           text: "Button 2",
           onPressed: () async {},
-          loadingStateText: "hehe",
+          loadingStateText: "loading...",
         ),
         const SizedBox(height: 5),
         Row(

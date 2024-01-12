@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFa2d2ff),
         useMaterial3: true,
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
