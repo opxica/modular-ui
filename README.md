@@ -24,8 +24,8 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 
 - [ ] Accordion
 - [ ] Alert Boxes
-- [] Avatar
-- [ ] Breadcrumbs
+- [X] Avatar
+- [X] Breadcrumbs
 - [ ] Button
   - [x] Primary Button
   - [x] Loading Button
@@ -60,7 +60,6 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [X] Footer
 - [ ] Form
 - [ ] Gallery
-- [ ] Icon Button
 - [ ] Image
 - [ ] Input Fields
   - [X] Primary Input Field
@@ -74,7 +73,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [X] Rating Bar
 - [ ] Select
 - [ ] Slider
-- [ ] Tab View
+- [X] Tab View
 - [X] Switch
 
 ## Goals
