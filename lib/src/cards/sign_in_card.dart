@@ -201,58 +201,61 @@ class _MUISignInCardState extends State<MUISignInCard> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MUIOutlinedButton(
-                  text: widget.firstAuthButtonText,
-                  onTap: () {
-                    widget.onFirstAuthButtonPressed();
-                  },
-                  borderColor: widget.borderColor,
-                  leadingIcon: widget.firstAuthIcon,
-                  iconColor: widget.authButtonIconColor,
-                  borderRadius: 5,
-                  borderWidth: 1,
-                  textColor: widget.accentColor,
-                ),
-                MUIOutlinedButton(
-                  text: widget.secondAuthButtonText,
-                  onTap: () {
-                    widget.onSecondAuthButtonPressed();
-                  },
-                  borderColor: widget.borderColor,
-                  leadingIcon: widget.secondAuthIcon,
-                  iconColor: widget.authButtonIconColor,
-                  borderRadius: 5,
-                  borderWidth: 1,
-                  textColor: widget.accentColor,
-                ),
-                // MUIOutlinedButton(
-                //   borderColor: widget.borderColor,
-                //   leadingIcon: widget.firstAuthIcon,
-                //   iconColor: widget.authButtonIconColor,
-                //   borderRadius: 5,
-                //   borderWidth: 1,
-                //   text: widget.firstAuthButtonText,
-                //   textColor: widget.accentColor,
-                //   onTap: () {
-                //     widget.onFirstAuthButtonPressed();
-                //   },
-                // ),
-                // MUIOutlinedButton(
-                //   borderColor: widget.borderColor,
-                //   leadingIcon: widget.secondAuthIcon,
-                //   iconColor: widget.authButtonIconColor,
-                //   borderRadius: 5,
-                //   borderWidth: 1,
-                //   text: widget.secondAuthButtonText,
-                //   textColor: widget.accentColor,
-                //   onTap: () {
-                //     widget.onSecondAuthButtonPressed();
-                //   },
-                // ),
-              ],
+            Container(
+              alignment: Alignment.center,
+              child: Wrap(
+                spacing: 30,
+                children: [
+                  MUIOutlinedButton(
+                    text: widget.firstAuthButtonText,
+                    onTap: () {
+                      widget.onFirstAuthButtonPressed();
+                    },
+                    borderColor: widget.borderColor,
+                    leadingIcon: widget.firstAuthIcon,
+                    iconColor: widget.authButtonIconColor,
+                    borderRadius: 5,
+                    borderWidth: 1,
+                    textColor: widget.accentColor,
+                  ),
+                  MUIOutlinedButton(
+                    text: widget.secondAuthButtonText,
+                    onTap: () {
+                      widget.onSecondAuthButtonPressed();
+                    },
+                    borderColor: widget.borderColor,
+                    leadingIcon: widget.secondAuthIcon,
+                    iconColor: widget.authButtonIconColor,
+                    borderRadius: 5,
+                    borderWidth: 1,
+                    textColor: widget.accentColor,
+                  ),
+                  // MUIOutlinedButton(
+                  //   borderColor: widget.borderColor,
+                  //   leadingIcon: widget.firstAuthIcon,
+                  //   iconColor: widget.authButtonIconColor,
+                  //   borderRadius: 5,
+                  //   borderWidth: 1,
+                  //   text: widget.firstAuthButtonText,
+                  //   textColor: widget.accentColor,
+                  //   onTap: () {
+                  //     widget.onFirstAuthButtonPressed();
+                  //   },
+                  // ),
+                  // MUIOutlinedButton(
+                  //   borderColor: widget.borderColor,
+                  //   leadingIcon: widget.secondAuthIcon,
+                  //   iconColor: widget.authButtonIconColor,
+                  //   borderRadius: 5,
+                  //   borderWidth: 1,
+                  //   text: widget.secondAuthButtonText,
+                  //   textColor: widget.accentColor,
+                  //   onTap: () {
+                  //     widget.onSecondAuthButtonPressed();
+                  //   },
+                  // ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
