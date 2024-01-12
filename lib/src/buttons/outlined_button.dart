@@ -39,6 +39,10 @@ class MUIOutlinedButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when button is not pressed
   final double heightFactorUnPressed;
 
+  /// A double value which determines maximum horizontal padding a button can accumulate
+  /// Play with this value if you want to use the button on a larger screen size
+  final double maxHorizontalPadding;
+
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
 
@@ -66,6 +70,7 @@ class MUIOutlinedButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.03,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,
@@ -123,8 +128,8 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
             horizontal: 10,
             vertical: 8,
           ),
-          const EdgeInsets.symmetric(
-            horizontal: 40,
+           EdgeInsets.symmetric(
+            horizontal: widget.maxHorizontalPadding,
             vertical: 16,
           ),
         ),
@@ -141,8 +146,8 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
             Text(
               widget.text,
-              style:
-                  TextStyle(color: widget.textColor, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: widget.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)

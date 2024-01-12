@@ -27,6 +27,10 @@ class MUITextButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when button is pressed
   final double heightFactor;
 
+  /// A double value which determines maximum horizontal padding a button can accumulate
+  /// Play with this value if you want to use the button on a larger screen size
+  final double maxHorizontalPadding;
+
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
 
@@ -50,6 +54,7 @@ class MUITextButton extends StatefulWidget {
     this.animationDuraton = 250,
     this.widthFactor = 0.04,
     this.heightFactor = 0.03,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,
@@ -98,8 +103,8 @@ class _MUITextButtonState extends State<MUITextButton> {
             horizontal: 10,
             vertical: 8,
           ),
-          const EdgeInsets.symmetric(
-            horizontal: 40,
+           EdgeInsets.symmetric(
+            horizontal: widget.maxHorizontalPadding,
             vertical: 16,
           ),
         ),
