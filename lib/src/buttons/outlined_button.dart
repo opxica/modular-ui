@@ -52,13 +52,13 @@ class MUIOutlinedButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   const MUIOutlinedButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.transparent,
     this.borderColor = Colors.black,
     this.borderWidth = 2,
@@ -92,7 +92,7 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

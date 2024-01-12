@@ -208,7 +208,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
                 children: [
                   MUIOutlinedButton(
                     text: widget.firstAuthButtonText,
-                    onTap: () {
+                    onPressed: () {
                       widget.onFirstAuthButtonPressed();
                     },
                     borderColor: widget.borderColor,
@@ -220,7 +220,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
                   ),
                   MUIOutlinedButton(
                     text: widget.secondAuthButtonText,
-                    onTap: () {
+                    onPressed: () {
                       widget.onSecondAuthButtonPressed();
                     },
                     borderColor: widget.borderColor,

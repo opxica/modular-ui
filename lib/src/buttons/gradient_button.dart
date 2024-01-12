@@ -46,13 +46,13 @@ class MUIGradientButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   const MUIGradientButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -85,7 +85,7 @@ class _MUIGradientButtonState extends State<MUIGradientButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

@@ -37,13 +37,13 @@ class MUITextBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   const MUITextBlockLevelButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.grey,
     this.textColor = Colors.black,
     this.borderRadius = 10,
@@ -74,7 +74,7 @@ class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

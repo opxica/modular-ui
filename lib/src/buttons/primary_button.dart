@@ -47,13 +47,13 @@ class MUIPrimaryButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function.
-  final VoidCallback onTap;
+  /// On Pressed Function.
+  final VoidCallback onPressed;
 
   const MUIPrimaryButton({
     Key? key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -86,7 +86,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

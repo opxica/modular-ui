@@ -36,8 +36,8 @@ class MUIPrimaryCard extends StatefulWidget {
   /// Outer Vertical Margin for card
   final double verticalMargin;
 
-  /// On Tap Function
-  final VoidCallback onButtonTap;
+  /// On Button Function
+  final VoidCallback onButtonPressed;
 
   /// max width of the card, width of the card can not exceed this value
   /// If the screen width is less than this value then the widget will be responsive to the screen size
@@ -49,7 +49,7 @@ class MUIPrimaryCard extends StatefulWidget {
     required this.title,
     required this.description,
     required this.image,
-    required this.onButtonTap,
+    required this.onButtonPressed,
     required this.buttonText,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
@@ -127,7 +127,7 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
                   const SizedBox(height: 8),
                   MUIPrimaryButton(
                     text: widget.buttonText,
-                    onTap: widget.onButtonTap,
+                    onPressed: widget.onButtonPressed,
                   ),
                 ],
               ),
