@@ -22,7 +22,7 @@ class _ButtonsViewState extends State<ButtonsView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        MUIPrimaryButton(text: "Button 1", onTap: () {}),
+        MUIPrimaryButton(text: "Button 1", onPressed: () {}),
         MUILoadingButton(
           text: "Button 2",
           onPressed: () async {},
