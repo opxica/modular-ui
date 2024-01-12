@@ -26,50 +26,45 @@ class _SwitchesState extends State<_Switches> {
       return Text(
         text,
         style: TextStyle(
-          color: Colors.white,
           fontSize: 16,
         ),
       );
     }
 
-    return Container(
-      color: Color.fromARGB(255, 9, 9, 11),
-      padding: EdgeInsets.all(200),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          text("Custom Switch"),
-          SizedBox(height: 5),
-          MUISwitch(
-            width: 200,
-            height: 50,
-            circleSize: 40,
-            checked: value0,
-            animationDuration: Duration(milliseconds: 500),
-            onChanged: (value) => setState(() {
-              value0 = value;
-            }),
-          ),
-          SizedBox(height: 5),
-          text("Default Switch"),
-          SizedBox(height: 5),
-          MUISwitch(
-            checked: value1,
-            onChanged: (value) => setState(() {
-              value1 = value;
-            }),
-          ),
-          SizedBox(height: 5),
-          text("New York Switch"),
-          SizedBox(height: 5),
-          MUISwitch.newYork(
-            checked: value2,
-            onChanged: (value) => setState(() {
-              value2 = value;
-            }),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        text("Custom Switch"),
+        SizedBox(height: 5),
+        MUISwitch(
+          width: 150,
+          height: 50,
+          circleSize: 45,
+          checked: value0,
+          animationDuration: Duration(milliseconds: 500),
+          onChanged: (value) => setState(() {
+            value0 = value;
+          }),
+        ),
+        SizedBox(height: 5),
+        text("Default Switch"),
+        SizedBox(height: 5),
+        MUISwitch(
+          checked: value1,
+          onChanged: (value) => setState(() {
+            value1 = value;
+          }),
+        ),
+        SizedBox(height: 5),
+        text("New York Switch"),
+        SizedBox(height: 5),
+        MUISwitch.newYork(
+          checked: value2,
+          onChanged: (value) => setState(() {
+            value2 = value;
+          }),
+        ),
+      ],
     );
   }
 }
