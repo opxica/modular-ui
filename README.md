@@ -5,6 +5,9 @@ Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design
 
 Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 
+See our cards creation [guide](https://utkarshs-organization-1.gitbook.io/simple-guide-to-create-modularui-widgets/)
+
+
 ## Here are some of the examples :
 
 
