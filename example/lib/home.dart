@@ -3,7 +3,6 @@ import 'package:example/components/breadcrumbs.dart';
 import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
 import 'package:example/components/checkbox.dart';
-import 'package:example/components/empty.dart';
 import 'package:example/components/footer.dart';
 import 'package:example/components/ratingbar.dart';
 import 'package:example/components/switch.dart';
@@ -60,7 +59,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         'name': 'Switch',
         'route': switchComponent(),
       },
-       {
+      {
         'name': 'Rating Bar',
         'route': ratingbar(),
       },
