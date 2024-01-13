@@ -1,9 +1,14 @@
 import 'package:example/components/avatar.dart';
+import 'package:example/components/breadcrumbs.dart';
 import 'package:example/components/buttons.dart';
 import 'package:example/components/cards.dart';
-import 'package:example/components/empty.dart';
+import 'package:example/components/checkbox.dart';
+import 'package:example/components/footer.dart';
+import 'package:example/components/listtile.dart';
+import 'package:example/components/ratingbar.dart';
 import 'package:example/components/switch.dart';
 import 'package:example/components/tabs.dart';
+import 'package:example/components/textfield.dart';
 import 'package:flutter/material.dart';
 
 import 'components/dialog.dart';
@@ -32,45 +37,45 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         'route': card(),
       },
       {
-        'name': 'Checkbox',
-        'route': empty(),
-      },
-      {
-        'name': 'Chip',
-        'route': empty(),
+        "name": "Tabs",
+        "route": tabsComponent(),
       },
       {
         'name': 'Dialog',
         'route': dialog(context),
       },
       {
-        'name': 'Drawer',
-        'route': empty(),
+        'name': 'Checkbox',
+        'route': checkbox(),
       },
       {
-        'name': 'Floating Action Button',
-        'route': empty(),
+        'name': 'Breadcrumbs',
+        'route': breadcrumbs(),
       },
       {
-        'name': 'List Tile',
-        'route': empty(),
-      },
-      {
-        'name': 'Radio',
-        'route': empty(),
+        'name': 'Avatar',
+        'route': avatar(),
       },
       {
         'name': 'Switch',
         'route': switchComponent(),
       },
       {
-        'name': 'Avatar',
-        'route': avatarComponent(),
+        'name': 'Rating Bar',
+        'route': ratingbar(),
       },
       {
-        "name": "Tabs",
-        "route": tabsComponent(),
-      }
+        'name': 'List Tile',
+        'route': listtile(),
+      },
+      {
+        'name': 'Footer',
+        'route': footer(),
+      },
+      {
+        'name': 'textfield',
+        'route': textfield(),
+      },
     ];
     _tabController = TabController(length: components.length, vsync: this);
   }

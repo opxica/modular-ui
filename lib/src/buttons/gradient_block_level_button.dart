@@ -57,8 +57,8 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   @override
   State<MUIGradientBlockLevelButton> createState() =>
@@ -79,7 +79,7 @@ class _MUIGradientBlockLevelButtonState
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

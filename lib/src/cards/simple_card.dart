@@ -44,7 +44,7 @@ class MUISimpleCard extends StatefulWidget {
   final String buttonText;
 
   /// On Tap Function
-  final VoidCallback onButtonTap;
+  final VoidCallback onButtonPressed;
 
   /// max width of the card, width of the card can not exceed this value
   /// If the screen width is less than this value then the widget will be responsive to the screen size
@@ -87,7 +87,7 @@ class _MUISimpleCardState extends State<MUISimpleCard> {
             const Spacer(),
             MUIPrimaryButton(
               text: widget.buttonText,
-              onTap: widget.onButtonTap,
+              onPressed: widget.onButtonPressed,
             ),
           ],
         ),

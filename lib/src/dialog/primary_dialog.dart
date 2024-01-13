@@ -16,8 +16,8 @@ class MUIPrimaryDialog extends StatefulWidget {
     this.dialogBackgroundColor,
     this.titleStyle,
     this.contentStyle,
-    required this.primaryOnTap,
-    required this.secondaryOnTap,
+    required this.primaryOnPressed,
+    required this.secondaryOnPressed,
     this.primaryCtaBackgroundColor,
     this.primaryCtaForegroundColor,
     this.primaryCtaBorderColor,
@@ -63,13 +63,13 @@ class MUIPrimaryDialog extends StatefulWidget {
   final String primaryCta;
 
 // onTap functionality of the primary button
-  final Function()? primaryOnTap;
+  final Function()? primaryOnPressed;
 
 // text on the secondary button
   final String secondaryCta;
 
 // onTap functionality of the secondary button
-  final Function()? secondaryOnTap;
+  final Function()? secondaryOnPressed;
 
 // background color of the primary button [default: black]
   final Color? primaryCtaBackgroundColor;
@@ -150,7 +150,7 @@ class _MUIPrimaryDialogState extends State<MUIPrimaryDialog> {
               ),
 
               // secondary onTap
-              onPressed: widget.secondaryOnTap,
+              onPressed: widget.secondaryOnPressed,
               // secondary cta text
               child: Text(widget.secondaryCta),
             ),
@@ -176,7 +176,7 @@ class _MUIPrimaryDialogState extends State<MUIPrimaryDialog> {
               ),
 
               // primary onTap
-              onPressed: widget.primaryOnTap,
+              onPressed: widget.primaryOnPressed,
               // primary cta text
               child: Text(widget.primaryCta),
             )

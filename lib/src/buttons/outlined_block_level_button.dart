@@ -56,8 +56,8 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
   /// A double value which gets multiplied with current screen width when button is not pressed
   final double widthFactor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
@@ -87,7 +87,7 @@ class _MUIOutlinedBlockLevelButtonState
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

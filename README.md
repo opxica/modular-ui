@@ -5,6 +5,9 @@ Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design
 
 Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 
+See our cards creation [guide](https://utkarshs-organization-1.gitbook.io/simple-guide-to-create-modularui-widgets/)
+
+
 ## Here are some of the examples :
 
 
@@ -24,8 +27,8 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 
 - [ ] Accordion
 - [ ] Alert Boxes
-- [] Avatar
-- [ ] Breadcrumbs
+- [X] Avatar
+- [X] Breadcrumbs
 - [ ] Button
   - [x] Primary Button
   - [x] Loading Button
@@ -60,7 +63,6 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [X] Footer
 - [ ] Form
 - [ ] Gallery
-- [ ] Icon Button
 - [ ] Image
 - [ ] Input Fields
   - [X] Primary Input Field
@@ -74,7 +76,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [X] Rating Bar
 - [ ] Select
 - [ ] Slider
-- [ ] Tab View
+- [X] Tab View
 - [X] Switch
 
 ## Goals

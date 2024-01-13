@@ -52,6 +52,10 @@ class MUIPrimaryButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when the button is not pressed.
   final double heightFactorUnPressed;
 
+  /// A double value which determines maximum horizontal padding a button can accumulate
+  /// Play with this value if you want to use the button on a larger screen size
+  final double maxHorizontalPadding;
+
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
 
@@ -61,8 +65,8 @@ class MUIPrimaryButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function.
-  final VoidCallback onTap;
+  /// On Pressed Function.
+  final VoidCallback onPressed;
 
   @override
   State<MUIPrimaryButton> createState() => _PrimaryButtonState();
@@ -81,7 +85,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
@@ -111,8 +115,8 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
             horizontal: 10,
             vertical: 8,
           ),
-          const EdgeInsets.symmetric(
-            horizontal: 40,
+          EdgeInsets.symmetric(
+            horizontal: widget.maxHorizontalPadding,
             vertical: 16,
           ),
         ),
@@ -123,7 +127,6 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
               Icon(
                 widget.leadingIcon,
                 color: widget.iconColor,
-                // size: getScreenWidth(context) * 0.05,
                 size: 12,
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
@@ -139,7 +142,6 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
               Icon(
                 widget.actionIcon,
                 color: widget.iconColor,
-                // size: getScreenWidth(context) * 0.05,
                 size: 12,
               ),
           ],

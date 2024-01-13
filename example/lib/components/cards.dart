@@ -19,7 +19,7 @@ Widget card() {
         padding: const EdgeInsets.all(16.0),
         child: MUIPrimaryCard(
           title: 'UI/UX Review Check',
-          onButtonTap: () {},
+          onButtonPressed: () {},
           description:
               'The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona',
           image: Image.network(
@@ -31,7 +31,7 @@ Widget card() {
         padding: const EdgeInsets.all(16.0),
         child: MUISimpleCard(
           title: 'UI/UX Review Check',
-          onButtonTap: () {},
+          onButtonPressed: () {},
           description:
               'The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona',
           buttonText: 'Read more',

@@ -57,8 +57,8 @@ class MUIPrimaryBlockButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   @override
   State<MUIPrimaryBlockButton> createState() => _MUIPrimaryBlockButtonState();
@@ -77,7 +77,7 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {

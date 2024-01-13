@@ -59,6 +59,10 @@ class MUIOutlinedButton extends StatefulWidget {
   /// A double value which gets multiplied by the current screen height when button is not pressed
   final double heightFactorUnPressed;
 
+  /// A double value which determines maximum horizontal padding a button can accumulate
+  /// Play with this value if you want to use the button on a larger screen size
+  final double maxHorizontalPadding;
+
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
 
@@ -68,8 +72,8 @@ class MUIOutlinedButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-  /// On Tap Function
-  final VoidCallback onTap;
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   @override
   State<MUIOutlinedButton> createState() => _MUIOutlinedButtonState();
@@ -87,7 +91,7 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onTap();
+        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
@@ -123,8 +127,8 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
             horizontal: 10,
             vertical: 8,
           ),
-          const EdgeInsets.symmetric(
-            horizontal: 40,
+           EdgeInsets.symmetric(
+            horizontal: widget.maxHorizontalPadding,
             vertical: 16,
           ),
         ),
