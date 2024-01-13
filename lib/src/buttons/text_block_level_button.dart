@@ -4,6 +4,22 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable text block level button by ModularUI with optional icons.
 class MUITextBlockLevelButton extends StatefulWidget {
+  const MUITextBlockLevelButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.bgColor = Colors.grey,
+    this.textColor = Colors.black,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactor = 0.95,
+    this.heightFactor = 0.05,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.black,
+  });
+
   /// The Text to display inside the button
   final String text;
 
@@ -39,22 +55,6 @@ class MUITextBlockLevelButton extends StatefulWidget {
 
   /// On Pressed Function
   final VoidCallback onPressed;
-
-  const MUITextBlockLevelButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgColor = Colors.grey,
-    this.textColor = Colors.black,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactor = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.black,
-  });
 
   @override
   State<MUITextBlockLevelButton> createState() =>

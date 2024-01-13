@@ -4,6 +4,25 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable primary button by ModularUI with optional icons.
 class MUIPrimaryButton extends StatefulWidget {
+  const MUIPrimaryButton({
+    Key? key,
+    required this.text,
+    required this.onPressed,
+    this.bgColor = Colors.black,
+    this.textColor = Colors.white,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactorUnpressed = 0.04,
+    this.widthFactorPressed = 0.035,
+    this.heightFactorUnPressed = 0.03,
+    this.heightFactorPressed = 0.03,
+    this.maxHorizontalPadding = 50,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
+  }) : super(key: key);
+  
   /// The Text to display inside the button.
   final String text;
 
@@ -49,25 +68,6 @@ class MUIPrimaryButton extends StatefulWidget {
 
   /// On Pressed Function.
   final VoidCallback onPressed;
-
-  const MUIPrimaryButton({
-    Key? key,
-    required this.text,
-    required this.onPressed,
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactorUnpressed = 0.04,
-    this.widthFactorPressed = 0.035,
-    this.heightFactorUnPressed = 0.03,
-    this.heightFactorPressed = 0.03,
-    this.maxHorizontalPadding = 70,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-  }) : super(key: key);
 
   @override
   State<MUIPrimaryButton> createState() => _PrimaryButtonState();

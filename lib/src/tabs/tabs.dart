@@ -30,7 +30,7 @@ class MUITabs extends StatefulWidget {
   }) : assert((underline != true || axis == Axis.horizontal),
             "Underline is not supported for the vertical tabs.");
 
-  /// The tabs to display in the tabbar.
+  /// The tabs to display in the tab bar.
   final List<MUITab> tabs;
 
   /// The color to display behind the bar.
@@ -59,16 +59,16 @@ class MUITabs extends StatefulWidget {
   /// can't exceed the given `maxTabSize`.
   final double maxTabSize;
 
-  /// The border radius of the container that is wrapped around the tapbar and gives it the background color.
+  /// The border radius of the container that is wrapped around the tab bar and gives it the background color.
   final double borderRadius;
 
   /// The style of the tab labels.
   final TextStyle labelStyle;
 
-  /// The axis in which the tabbar should be. Horizontal/Vertical.
+  /// The axis in which the tab bar should be. Horizontal/Vertical.
   final Axis axis;
 
-  /// Whetever the tabs are indicated with an underline or not.
+  /// Whatever the tabs are indicated with an underline or not.
   final bool underline;
 
   /// If underline == true, defines the height of the underline.
@@ -186,7 +186,8 @@ class _MUITabsState extends State<MUITabs> {
                             decoration: BoxDecoration(
                               color: widget.indicatorColor,
                               borderRadius: BorderRadius.circular(
-                                  widget.indicatorBorderRadius),
+                                widget.indicatorBorderRadius,
+                              ),
                             ),
                           ),
                         ],
@@ -226,7 +227,10 @@ class _MUITabsState extends State<MUITabs> {
                                     height: 30,
                                     color: Colors.white.withOpacity(0),
                                     child: Center(
-                                        child: Text(widget.tabs[i].label)),
+                                      child: Text(
+                                        widget.tabs[i].label,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               )
@@ -265,7 +269,10 @@ class _MUITabsState extends State<MUITabs> {
                                     height: 30,
                                     color: Colors.white.withOpacity(0),
                                     child: Center(
-                                        child: Text(widget.tabs[i].label)),
+                                      child: Text(
+                                        widget.tabs[i].label,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),

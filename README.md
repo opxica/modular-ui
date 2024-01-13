@@ -47,7 +47,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
   - [x] Primary Card
   - [X] Profile Card
   - [X] Sign in Card
-  - [ ] Sign up Card
+  - [X] Sign up Card
   - [ ] Pricing Card
   - [X] Blog Card
   - [ ] Blog Card With Background

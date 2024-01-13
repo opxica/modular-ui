@@ -87,10 +87,11 @@ class _MUICheckBoxState extends State<MUICheckBox> {
           Padding(
             padding: const EdgeInsets.only(left: 8),
             child: GestureDetector(
-                onTap: () {
-                  widget.onChanged?.call(widget.checked ? false : true);
-                },
-                child: widget.child),
+              onTap: () {
+                widget.onChanged?.call(widget.checked ? false : true);
+              },
+              child: widget.child,
+            ),
           ),
         ],
       ),

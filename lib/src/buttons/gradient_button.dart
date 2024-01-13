@@ -3,10 +3,29 @@ import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIGradientButton extends StatefulWidget {
+  const MUIGradientButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.bgGradient = const LinearGradient(colors: [Colors.black, Color.fromARGB(255, 61, 61, 61)]),
+    this.textColor = Colors.white,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactorUnpressed = 0.04,
+    this.widthFactorPressed = 0.035,
+    this.heightFactorUnPressed = 0.03,
+    this.heightFactorPressed = 0.03,
+    this.maxHorizontalPadding = 50,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
+  });
+
   /// The Text to display inside the button
   final String text;
 
-  /// Background Gradient of The Gradient Button, dafault : black and grey
+  /// Background Gradient of The Gradient Button, default : black and grey
   final Gradient bgGradient;
 
   /// Text Color of the Gradient Button, default : white
@@ -48,25 +67,6 @@ class MUIGradientButton extends StatefulWidget {
 
   /// On Pressed Function
   final VoidCallback onPressed;
-
-  const MUIGradientButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactorUnpressed = 0.04,
-    this.widthFactorPressed = 0.035,
-    this.heightFactorUnPressed = 0.03,
-    this.heightFactorPressed = 0.03,
-    this.maxHorizontalPadding = 70,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-  });
 
   @override
   State<MUIGradientButton> createState() => _MUIGradientButtonState();

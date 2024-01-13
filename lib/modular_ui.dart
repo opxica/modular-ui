@@ -22,6 +22,7 @@ export 'src/cards/primary_card.dart';
 export 'src/cards/profile_card.dart';
 export 'src/cards/sign_in_card.dart';
 export 'src/cards/simple_card.dart';
+export 'src/cards/sign_up_card.dart';
 
 /// checkbox
 export 'src/checkbox/checkbox.dart';
