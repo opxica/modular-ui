@@ -16,7 +16,7 @@ Widget dialog(BuildContext context) {
             "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
         primaryCta: "Continue",
         primaryOnTap: () => Navigator.pop(context),
-        secondaryonTap: () => Navigator.pop(context),
+        secondaryOnTap: () => Navigator.pop(context),
         secondaryCta: "Cancel",
       )
     ],

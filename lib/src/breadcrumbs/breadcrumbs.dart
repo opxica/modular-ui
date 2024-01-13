@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class MUIBreadcrumbItem {
+  MUIBreadcrumbItem({
+    required this.label,
+    this.icon,
+  });
+
   /// The label of the breadcrumb.
   final String label;
 
   /// An possible icon to display in front of the label.
   final Widget? icon;
-
-  MUIBreadcrumbItem({
-    required this.label,
-    this.icon,
-  });
 }
 
 /// A Breadcrumb Item to display to the user where he is.
@@ -48,7 +48,7 @@ class MUIBreadcrumbs extends StatefulWidget {
   /// The color of the text.
   final Color textColor;
 
-  /// The borderradius for the container around the breadcrumbs.
+  /// The border radius for the container around the breadcrumbs.
   final double borderRadius;
 
   /// The color of the container behind the breadcrumbs;
@@ -70,11 +70,11 @@ class _MUIBreadcrumbsState extends State<MUIBreadcrumbs> {
       ),
       child: Wrap(
         children: [
-          for (int i = 0; i < widget.crumbs.length; i++)
+          for (int crumb = 0; crumb < widget.crumbs.length; crumb++)
             Row(
               mainAxisSize: MainAxisSize.min,
-              children: [
-                if (i != 0)
+              children: <Widget>[
+                if (crumb != 0)
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Text(
@@ -85,21 +85,21 @@ class _MUIBreadcrumbsState extends State<MUIBreadcrumbs> {
                       ),
                     ),
                   ),
-                if (widget.crumbs[i].icon != null)
+                if (widget.crumbs[crumb].icon != null)
                   GestureDetector(
                       onTap: () {
-                        widget.onTap?.call(i);
+                        widget.onTap?.call(crumb);
                       },
-                      child: widget.crumbs[i].icon!),
+                      child: widget.crumbs[crumb].icon!),
                 GestureDetector(
                   onTap: () {
-                    widget.onTap?.call(i);
+                    widget.onTap?.call(crumb);
                   },
                   child: MouseRegion(
                     cursor: cursor,
                     onEnter: (_) {
                       setState(() {
-                        hoverIndex = i;
+                        hoverIndex = crumb;
                         cursor = SystemMouseCursors.click;
                       });
                     },
@@ -111,15 +111,15 @@ class _MUIBreadcrumbsState extends State<MUIBreadcrumbs> {
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
-                          right: (i + 1 == widget.crumbs.length) ? 0 : 8.0),
+                          right: (crumb + 1 == widget.crumbs.length) ? 0 : 8.0),
                       child: Text(
-                        widget.crumbs[i].label,
+                        widget.crumbs[crumb].label,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 14,
-                          color: (i == hoverIndex)
+                          color: (crumb == hoverIndex)
                               ? widget.hoverColor
-                              : (i + 1 == widget.crumbs.length)
+                              : (crumb + 1 == widget.crumbs.length)
                                   ? widget.currentColor
                                   : widget.textColor,
                         ),

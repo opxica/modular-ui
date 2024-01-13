@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 
 /// A Basic Radio provided by ModularUI
 class MUIRadioButton extends StatelessWidget {
+  const MUIRadioButton({
+    super.key,
+    this.color = Colors.black,
+    this.checked = false,
+    this.onChanged,
+    this.size = 20,
+    this.fillWidget,
+  });
+
   ///Color of the radio button defaults to black
   final Color? color;
 
@@ -16,16 +25,6 @@ class MUIRadioButton extends StatelessWidget {
 
   ///The widget to fill the radio button with defaults to a circle with the color of the radio button
   final Widget? fillWidget;
-
-  /// A Basic Radio provided by ModularUI
-  const MUIRadioButton({
-    super.key,
-    this.color = Colors.black,
-    this.checked = false,
-    this.onChanged,
-    this.size = 20,
-    this.fillWidget,
-  });
 
   static Widget newYork({
     Color? color,

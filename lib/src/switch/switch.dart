@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 
 /// A Basic Switch provided by ModularUI
 class MUISwitch extends StatelessWidget {
+  const MUISwitch({
+    super.key,
+    this.checked = false,
+    this.onChanged,
+    this.width = 40,
+    this.height = 20,
+    this.circleSize = 18,
+    this.animationDuration = Durations.short3,
+    this.animationCurve = Curves.easeInOut,
+  });
+
   /// The value to use for the underlying checkbox widget.
   final bool checked;
 
@@ -22,18 +33,6 @@ class MUISwitch extends StatelessWidget {
 
   /// The curve of the animation. Defaults to [Curves.easeInOut].
   final Curve animationCurve;
-
-  /// Creates a basic switch.
-  const MUISwitch({
-    super.key,
-    this.checked = false,
-    this.onChanged,
-    this.width = 40,
-    this.height = 20,
-    this.circleSize = 18,
-    this.animationDuration = Durations.short3,
-    this.animationCurve = Curves.easeInOut,
-  });
 
   static Widget newYork({
     bool checked = false,

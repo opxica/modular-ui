@@ -17,7 +17,7 @@ class MUIPrimaryDialog extends StatefulWidget {
     this.titleStyle,
     this.contentStyle,
     required this.primaryOnTap,
-    required this.secondaryonTap,
+    required this.secondaryOnTap,
     this.primaryCtaBackgroundColor,
     this.primaryCtaForegroundColor,
     this.primaryCtaBorderColor,
@@ -41,7 +41,7 @@ class MUIPrimaryDialog extends StatefulWidget {
 // Text that appears on the initial button that open the dialog
   final String ctaText;
 
-// Title of the dialog box thart appears on the top
+// Title of the dialog box that appears on the top
   final String titleText;
 
 // The main content of the dialog box
@@ -69,7 +69,7 @@ class MUIPrimaryDialog extends StatefulWidget {
   final String secondaryCta;
 
 // onTap functionality of the secondary button
-  final Function()? secondaryonTap;
+  final Function()? secondaryOnTap;
 
 // background color of the primary button [default: black]
   final Color? primaryCtaBackgroundColor;
@@ -132,24 +132,25 @@ class _MUIPrimaryDialogState extends State<MUIPrimaryDialog> {
             // secondary button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 20,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 20,
+                ),
+                elevation: 0,
+                backgroundColor:
+                    widget.secondaryCtaBackgroundColor ?? Colors.white,
+                foregroundColor:
+                    widget.secondaryCtaForegroundColor ?? Colors.black,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: widget.secondaryCtaBorderColor ?? Colors.black38,
                   ),
-                  elevation: 0,
-                  backgroundColor:
-                      widget.secondaryCtaBackgroundColor ?? Colors.white,
-                  foregroundColor:
-                      widget.secondaryCtaForegroundColor ?? Colors.black,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                        color:
-                            widget.secondaryCtaBorderColor ?? Colors.black38),
-                    borderRadius: BorderRadius.circular(5),
-                  )),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
 
               // secondary onTap
-              onPressed: widget.secondaryonTap,
+              onPressed: widget.secondaryOnTap,
               // secondary cta text
               child: Text(widget.secondaryCta),
             ),
@@ -157,21 +158,22 @@ class _MUIPrimaryDialogState extends State<MUIPrimaryDialog> {
             // primary button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 20,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 20,
+                ),
+                elevation: 0,
+                backgroundColor:
+                    widget.primaryCtaForegroundColor ?? Colors.black,
+                foregroundColor:
+                    widget.primaryCtaForegroundColor ?? Colors.white,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: widget.primaryCtaBorderColor ?? Colors.black,
                   ),
-                  elevation: 0,
-                  backgroundColor:
-                      widget.primaryCtaForegroundColor ?? Colors.black,
-                  foregroundColor:
-                      widget.primaryCtaForegroundColor ?? Colors.white,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: widget.primaryCtaBorderColor ?? Colors.black,
-                    ),
-                    borderRadius: BorderRadius.circular(5),
-                  )),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
 
               // primary onTap
               onPressed: widget.primaryOnTap,

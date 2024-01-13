@@ -51,8 +51,6 @@ class MUIProfileCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-
-
   @override
   State<MUIProfileCard> createState() => _MUIProfileCardState();
 }

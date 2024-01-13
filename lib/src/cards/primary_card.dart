@@ -3,6 +3,29 @@ import 'package:modular_ui/src/buttons/primary_button.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIPrimaryCard extends StatefulWidget {
+  const MUIPrimaryCard({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.image,
+    required this.onButtonTap,
+    required this.buttonText,
+    this.bgColor = Colors.white,
+    this.borderRadius = 8,
+    this.imageRadius = 8,
+    this.horizontalMargin = 0,
+    this.verticalMargin = 0,
+    this.maxWidth = 430,
+    this.descriptionStyle = const TextStyle(
+      fontSize: 16,
+      color: Colors.grey,
+    ),
+    this.titleStyle = const TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+    ),
+  });
+
   /// The title of the card
   final String title;
 
@@ -43,29 +66,6 @@ class MUIPrimaryCard extends StatefulWidget {
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
-
-  const MUIPrimaryCard({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.image,
-    required this.onButtonTap,
-    required this.buttonText,
-    this.descriptionStyle = const TextStyle(
-      fontSize: 16,
-      color: Colors.grey,
-    ),
-    this.titleStyle = const TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-    ),
-    this.bgColor = Colors.white,
-    this.borderRadius = 8,
-    this.imageRadius = 8,
-    this.horizontalMargin = 0,
-    this.verticalMargin = 0,
-    this.maxWidth = 430,
-  });
 
   @override
   State<MUIPrimaryCard> createState() => _MUIPrimaryCardState();
