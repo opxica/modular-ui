@@ -23,6 +23,10 @@ class MUISwitch extends StatelessWidget {
   /// The curve of the animation. Defaults to [Curves.easeInOut].
   final Curve animationCurve;
 
+  final Color onStateCol;
+
+  final Color offStateCol;
+
   /// Creates a basic switch.
   const MUISwitch({
     super.key,
@@ -33,6 +37,8 @@ class MUISwitch extends StatelessWidget {
     this.circleSize = 18,
     this.animationDuration = Durations.short3,
     this.animationCurve = Curves.easeInOut,
+    this.onStateCol = Colors.white,
+    this.offStateCol = const Color.fromARGB(255, 39, 39, 42),
   });
 
   static Widget newYork({
@@ -41,6 +47,8 @@ class MUISwitch extends StatelessWidget {
     double width = 38,
     double height = 18,
     double circleSize = 16,
+    Color onStateCol = Colors.white,
+    Color offStateCol = const Color.fromARGB(255, 39, 39, 42),
   }) {
     return MUISwitch(
       checked: checked,
@@ -48,6 +56,8 @@ class MUISwitch extends StatelessWidget {
       width: width,
       height: height,
       circleSize: circleSize,
+      onStateCol: onStateCol,
+      offStateCol: offStateCol,
     );
   }
 
@@ -59,7 +69,7 @@ class MUISwitch extends StatelessWidget {
       duration: animationDuration,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(width),
-        color: checked ? Colors.white : const Color.fromARGB(255, 39, 39, 42),
+        color: checked ? onStateCol : offStateCol,
       ),
       child: Material(
         color: Colors.transparent,
