@@ -18,6 +18,7 @@ class MUILoadingButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.025,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,

@@ -7,7 +7,7 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   const MUIGradientBlockLevelButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
     this.textColor = Colors.white,
     this.borderRadius = 10,

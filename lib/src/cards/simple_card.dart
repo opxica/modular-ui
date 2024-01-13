@@ -7,7 +7,7 @@ class MUISimpleCard extends StatefulWidget {
     super.key,
     required this.title,
     required this.description,
-    required this.onButtonTap,
+    required this.onButtonPressed,
     required this.buttonText,
     this.maxWidth = 430,
     this.descriptionStyle = const TextStyle(

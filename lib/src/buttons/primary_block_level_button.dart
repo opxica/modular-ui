@@ -7,7 +7,7 @@ class MUIPrimaryBlockButton extends StatefulWidget {
   const MUIPrimaryBlockButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,

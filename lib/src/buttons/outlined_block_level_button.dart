@@ -7,7 +7,7 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
   const MUIOutlinedBlockLevelButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.transparent,
     this.textColor = Colors.black,
     this.borderColor = Colors.black,

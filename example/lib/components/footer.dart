@@ -8,7 +8,7 @@ Widget footer() {
       children: [
         MUILogoFooter(
             logo: const Icon(Icons.abc),
-            items: [
+            footerItems: [
               MUIFooterItem(
                 label: "Home",
               ),

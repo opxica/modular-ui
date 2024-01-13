@@ -7,7 +7,7 @@ class MUITextBlockLevelButton extends StatefulWidget {
   const MUITextBlockLevelButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.grey,
     this.textColor = Colors.black,
     this.borderRadius = 10,

@@ -8,7 +8,7 @@ class MUIPrimaryCard extends StatefulWidget {
     required this.title,
     required this.description,
     required this.image,
-    required this.onButtonTap,
+    required this.onButtonPressed,
     required this.buttonText,
     this.bgColor = Colors.white,
     this.borderRadius = 8,

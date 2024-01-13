@@ -6,7 +6,7 @@ class MUITextButton extends StatefulWidget {
   const MUITextButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.grey,
     this.textColor = Colors.black,
     this.borderRadius = 10,
@@ -14,6 +14,7 @@ class MUITextButton extends StatefulWidget {
     this.animationDuration = 250,
     this.widthFactor = 0.04,
     this.heightFactor = 0.03,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,

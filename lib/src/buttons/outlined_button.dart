@@ -6,7 +6,7 @@ class MUIOutlinedButton extends StatefulWidget {
   const MUIOutlinedButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.transparent,
     this.borderColor = Colors.black,
     this.borderWidth = 2,
@@ -18,6 +18,7 @@ class MUIOutlinedButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.03,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,

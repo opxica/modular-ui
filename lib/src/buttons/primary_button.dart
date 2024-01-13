@@ -7,7 +7,7 @@ class MUIPrimaryButton extends StatefulWidget {
   const MUIPrimaryButton({
     Key? key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -17,6 +17,7 @@ class MUIPrimaryButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.03,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,

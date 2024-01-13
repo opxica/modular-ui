@@ -6,7 +6,7 @@ class MUIGradientButton extends StatefulWidget {
   const MUIGradientButton({
     super.key,
     required this.text,
-    required this.onTap,
+    required this.onPressed,
     this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -16,6 +16,7 @@ class MUIGradientButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.03,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,
