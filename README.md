@@ -68,7 +68,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
   - [X] Primary Input Field
   - [ ] Input With Icon
   - [ ] Input With Button
-- [ ] List Tile
+- [X] List Tile
 - [ ] Navbar
 - [ ] Popover
 - [ ] Progress Bar
