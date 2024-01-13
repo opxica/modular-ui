@@ -166,8 +166,8 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(
-                          horizontal: getScreenWidth(context) * 0.02),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 15),
                       width: 18,
                       height: 18,
                       child: CircularProgressIndicator(
