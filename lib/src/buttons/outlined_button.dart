@@ -18,7 +18,7 @@ class MUIOutlinedButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.03,
-    this.maxHorizontalPadding = 70,
+    this.maxHorizontalPadding = 50,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,

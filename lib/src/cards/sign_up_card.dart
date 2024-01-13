@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A sign in card with OAuth support provided by ModularUI
-class MUISignInCard extends StatefulWidget {
+/// A sign up card with OAuth support provided by ModularUI
+class MUISignUpCard extends StatefulWidget {
   /// Text Editing Controller for email
   final TextEditingController emailController;
 
   /// Text Editing Controller for password
   final TextEditingController passwordController;
+
+  /// Text Editing Controller for password
+  final TextEditingController confirmPasswordController;
 
   /// Background color of card
   final Color bgColor;
@@ -25,8 +28,8 @@ class MUISignInCard extends StatefulWidget {
   /// Border Radius for card
   final double borderRadius;
 
-  /// Future Function to be passed on sign in, must be an awaited function
-  final Future Function() onSigninPressed;
+  /// Future Function to be passed on sign up, must be an awaited function
+  final Future Function() onSignUpPressed;
 
   /// Function when first auth button is presssed
   final VoidCallback onFirstAuthButtonPressed;
@@ -52,19 +55,20 @@ class MUISignInCard extends StatefulWidget {
   /// Auth button text color
   final Color authButtonTextColor;
 
-  /// On register now clicked
-  final VoidCallback onRegisterNow;
+  /// On Login now clicked
+  final VoidCallback onLogInNowPressed;
 
   /// max width of the card, width of the card can not exceed this value
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  const MUISignInCard({
+  const MUISignUpCard({
     super.key,
     required this.emailController,
     required this.passwordController,
-    required this.onSigninPressed,
+    required this.confirmPasswordController,
+    required this.onSignUpPressed,
     this.bgColor = Colors.black,
     this.borderColor = Colors.grey,
     this.accentColor = Colors.white,
@@ -79,14 +83,14 @@ class MUISignInCard extends StatefulWidget {
     required this.secondAuthIcon,
     required this.onFirstAuthButtonPressed,
     required this.onSecondAuthButtonPressed,
-    required this.onRegisterNow,
+    required this.onLogInNowPressed,
   });
 
   @override
-  State<MUISignInCard> createState() => _MUISignInCardState();
+  State<MUISignUpCard> createState() => _MUISignUpCardState();
 }
 
-class _MUISignInCardState extends State<MUISignInCard> {
+class _MUISignUpCardState extends State<MUISignUpCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,7 +110,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Sign in',
+              'Sign up',
               style: TextStyle(
                   color: widget.accentColor,
                   fontWeight: FontWeight.bold,
@@ -114,7 +118,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
                       ? getScreenWidth(context) * 0.08
                       : 32),
             ),
-            Text('Enter your email & password to sign in',
+            Text('Enter your email & password to sign up',
                 style: TextStyle(
                     color: widget.accentColor, fontWeight: FontWeight.w300)),
             SizedBox(height: getScreenHeight(context) * 0.03),
@@ -153,16 +157,37 @@ class _MUISignInCardState extends State<MUISignInCard> {
               controller: widget.passwordController,
               filledColor: widget.bgColor,
             ),
+            SizedBox(height: getScreenHeight(context) * 0.02),
+            Text(' Confirm Password',
+                style: TextStyle(
+                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            SizedBox(height: getScreenHeight(context) * 0.01),
+            MUIPrimaryInputField(
+              isObscure: true,
+              hintText: 'confirm password',
+              hintStyle: TextStyle(color: widget.borderColor),
+              enabledBorderColor: widget.accentColor,
+              disabledBorderColor: widget.borderColor,
+              borderWidth: 1,
+              borderRadius: 10,
+              textStyle: TextStyle(
+                  color: widget.accentColor, fontWeight: FontWeight.w300),
+              controller: widget.confirmPasswordController,
+              filledColor: widget.bgColor,
+            ),
             SizedBox(height: getScreenHeight(context) * 0.03),
             Center(
               child: MUILoadingBlockLevelButton(
-                  text: 'Sign in',
+                  text: 'Sign up',
                   bgColor: widget.accentColor,
                   textColor: widget.bgColor,
                   loadingStateTextColor: widget.bgColor,
                   loadingStateText: 'Loading',
                   onPressed: () async {
-                    await widget.onSigninPressed();
+                    if (widget.passwordController.text ==
+                        widget.confirmPasswordController.text) {
+                      await widget.onSignUpPressed();
+                    }
                   }),
             ),
             Container(
@@ -230,45 +255,21 @@ class _MUISignInCardState extends State<MUISignInCard> {
                     borderWidth: 1,
                     textColor: widget.accentColor,
                   ),
-                  // MUIOutlinedButton(
-                  //   borderColor: widget.borderColor,
-                  //   leadingIcon: widget.firstAuthIcon,
-                  //   iconColor: widget.authButtonIconColor,
-                  //   borderRadius: 5,
-                  //   borderWidth: 1,
-                  //   text: widget.firstAuthButtonText,
-                  //   textColor: widget.accentColor,
-                  //   onTap: () {
-                  //     widget.onFirstAuthButtonPressed();
-                  //   },
-                  // ),
-                  // MUIOutlinedButton(
-                  //   borderColor: widget.borderColor,
-                  //   leadingIcon: widget.secondAuthIcon,
-                  //   iconColor: widget.authButtonIconColor,
-                  //   borderRadius: 5,
-                  //   borderWidth: 1,
-                  //   text: widget.secondAuthButtonText,
-                  //   textColor: widget.accentColor,
-                  //   onTap: () {
-                  //     widget.onSecondAuthButtonPressed();
-                  //   },
-                  // ),
                 ],
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account ? ",
-                    style: TextStyle(color: widget.accentColor, fontSize: 12)),
+                Text("Already have an account ? ",
+                    style: TextStyle(color: widget.accentColor, fontSize: 11)),
                 TextButton(
                     onPressed: () {
-                      widget.onRegisterNow();
+                      widget.onLogInNowPressed();
                     },
-                    child: Text('Register now',
+                    child: Text('Login now',
                         style:
-                            TextStyle(color: widget.borderColor, fontSize: 12)))
+                            TextStyle(color: widget.borderColor, fontSize: 11)))
               ],
             )
           ],
