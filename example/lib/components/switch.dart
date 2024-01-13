@@ -38,6 +38,8 @@ class _SwitchesState extends State<_Switches> {
         SizedBox(height: 5),
         MUISwitch(
           width: 150,
+          onStateCol: Colors.green,
+          offStateCol: Colors.blue,
           height: 50,
           circleSize: 45,
           checked: value0,
