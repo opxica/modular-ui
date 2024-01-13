@@ -11,21 +11,6 @@ class MUIFooterItem {
 }
 
 class MUISimpleFooter extends StatefulWidget {
-  /// The Items to display. eg. About Us, License, Contact Us, License
-  final List<MUIFooterItem> items;
-
-  /// The name of the company to display.
-  final String companyName;
-
-  /// The style for the name of the company.
-  final TextStyle companyNameStyle;
-
-  /// The style of the items.
-  final TextStyle itemsStyle;
-
-  /// How the items look when hovered.
-  final TextStyle hoverStyle;
-
   const MUISimpleFooter({
     super.key,
     required this.items,
@@ -45,6 +30,21 @@ class MUISimpleFooter extends StatefulWidget {
     ),
   });
 
+  /// The Items to display. eg. About Us, License, Contact Us, License
+  final List<MUIFooterItem> items;
+
+  /// The name of the company to display.
+  final String companyName;
+
+  /// The style for the name of the company.
+  final TextStyle companyNameStyle;
+
+  /// The style of the items.
+  final TextStyle itemsStyle;
+
+  /// How the items look when hovered.
+  final TextStyle hoverStyle;
+
   @override
   State<MUISimpleFooter> createState() => _MUISimpleFooterState();
 }
@@ -58,63 +58,66 @@ class _MUISimpleFooterState extends State<MUISimpleFooter> {
       padding: const EdgeInsets.all(24),
       child: Column(
         children: [
-          Divider(),
+          const Divider(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
-            child: LayoutBuilder(builder: (context, constraints) {
-              return SizedBox(
-                width: constraints.maxWidth,
-                child: Wrap(
-                  runAlignment: WrapAlignment.spaceBetween,
-                  alignment: WrapAlignment.spaceBetween,
-                  runSpacing: 24,
-                  children: [
-                    Text(
-                      "© ${DateTime.now().year} ${widget.companyName}",
-                      style: widget.companyNameStyle,
-                    ),
-                    const SizedBox(
-                      width: 100,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        for (int i = 0; i < widget.items.length; i++)
-                          Padding(
-                            padding: EdgeInsets.only(left: (i == 0) ? 0 : 16.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                widget.items[i].onTap?.call();
-                              },
-                              child: MouseRegion(
-                                cursor: cursor,
-                                onEnter: (_) {
-                                  setState(() {
-                                    hoverIndex = i;
-                                    cursor = SystemMouseCursors.click;
-                                  });
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SizedBox(
+                  width: constraints.maxWidth,
+                  child: Wrap(
+                    runAlignment: WrapAlignment.spaceBetween,
+                    alignment: WrapAlignment.spaceBetween,
+                    runSpacing: 24,
+                    children: [
+                      Text(
+                        "© ${DateTime.now().year} ${widget.companyName}",
+                        style: widget.companyNameStyle,
+                      ),
+                      const SizedBox(
+                        width: 100,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          for (int i = 0; i < widget.items.length; i++)
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(left: (i == 0) ? 0 : 16.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  widget.items[i].onTap?.call();
                                 },
-                                onExit: (_) {
-                                  setState(() {
-                                    hoverIndex = -1;
-                                    cursor = SystemMouseCursors.basic;
-                                  });
-                                },
-                                child: Text(
-                                  widget.items[i].label,
-                                  style: i == hoverIndex
-                                      ? widget.hoverStyle
-                                      : widget.itemsStyle,
+                                child: MouseRegion(
+                                  cursor: cursor,
+                                  onEnter: (_) {
+                                    setState(() {
+                                      hoverIndex = i;
+                                      cursor = SystemMouseCursors.click;
+                                    });
+                                  },
+                                  onExit: (_) {
+                                    setState(() {
+                                      hoverIndex = -1;
+                                      cursor = SystemMouseCursors.basic;
+                                    });
+                                  },
+                                  child: Text(
+                                    widget.items[i].label,
+                                    style: i == hoverIndex
+                                        ? widget.hoverStyle
+                                        : widget.itemsStyle,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                      ],
-                    )
-                  ],
-                ),
-              );
-            }),
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),

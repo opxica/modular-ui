@@ -3,6 +3,22 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A Basic Input Text Field Widget provided by ModularUI
 class MUIPrimaryInputField extends StatefulWidget {
+  const MUIPrimaryInputField({
+    super.key,
+    this.widthFactor = 0.95,
+    required this.hintText,
+    required this.controller,
+    required this.filledColor,
+    this.borderRadius = 12,
+    this.borderWidth = 1.5,
+    this.disabledBorderColor = Colors.grey,
+    this.enabledBorderColor = Colors.black,
+    this.cursorColor = Colors.black,
+    this.textStyle = const TextStyle(),
+    this.hintStyle = const TextStyle(fontWeight: FontWeight.w400),
+    this.isObscure = false,
+  });
+
   /// A double value which gets multiplied with current screen width determines the width of text field
   final double widthFactor;
 
@@ -38,21 +54,6 @@ class MUIPrimaryInputField extends StatefulWidget {
 
   /// Cursor Color for text field
   final Color cursorColor;
-  const MUIPrimaryInputField({
-    super.key,
-    this.widthFactor = 0.95,
-    required this.hintText,
-    required this.controller,
-    required this.filledColor,
-    this.borderRadius = 12,
-    this.borderWidth = 1.5,
-    this.disabledBorderColor = Colors.grey,
-    this.enabledBorderColor = Colors.black,
-    this.cursorColor = Colors.black,
-    this.textStyle = const TextStyle(),
-    this.hintStyle = const TextStyle(fontWeight: FontWeight.w400),
-    this.isObscure = false,
-  });
 
   @override
   State<MUIPrimaryInputField> createState() => _MUIPrimaryInputField();
@@ -75,21 +76,27 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
           fillColor: widget.filledColor,
           hintText: widget.hintText,
           hintStyle: widget.hintStyle,
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 8,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             borderSide: BorderSide.none,
           ),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(widget.borderRadius),
-              borderSide: BorderSide(
-                  color: widget.disabledBorderColor,
-                  width: widget.borderWidth)),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            borderSide: BorderSide(
+              color: widget.disabledBorderColor,
+              width: widget.borderWidth,
+            ),
+          ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             borderSide: BorderSide(
-                color: widget.enabledBorderColor, width: widget.borderWidth),
+              color: widget.enabledBorderColor,
+              width: widget.borderWidth,
+            ),
           ),
         ),
         cursorColor: widget.cursorColor,

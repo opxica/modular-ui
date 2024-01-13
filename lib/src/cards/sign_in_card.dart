@@ -4,6 +4,28 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A sign in card with OAuth support provided by ModularUI
 class MUISignInCard extends StatefulWidget {
+  const MUISignInCard({
+    super.key,
+    required this.emailController,
+    required this.passwordController,
+    required this.onSignInPressed,
+    this.bgColor = Colors.black,
+    this.borderColor = Colors.grey,
+    this.accentColor = Colors.white,
+    this.borderWidth = 1.5,
+    this.borderRadius = 12,
+    this.authButtonIconColor = Colors.white,
+    this.authButtonTextColor = Colors.white,
+    this.maxWidth = 430,
+    required this.firstAuthButtonText,
+    required this.secondAuthButtonText,
+    required this.firstAuthIcon,
+    required this.secondAuthIcon,
+    required this.onFirstAuthButtonPressed,
+    required this.onSecondAuthButtonPressed,
+    required this.onRegisterNow,
+  });
+
   /// Text Editing Controller for email
   final TextEditingController emailController;
 
@@ -26,12 +48,12 @@ class MUISignInCard extends StatefulWidget {
   final double borderRadius;
 
   /// Future Function to be passed on sign in, must be an awaited function
-  final Future Function() onSigninPressed;
+  final Future Function() onSignInPressed;
 
-  /// Function when first auth button is presssed
+  /// Function when first auth button is pressed
   final VoidCallback onFirstAuthButtonPressed;
 
-  /// Function when second auth button is presssed
+  /// Function when second auth button is pressed
   final VoidCallback onSecondAuthButtonPressed;
 
   /// First auth button text
@@ -59,28 +81,6 @@ class MUISignInCard extends StatefulWidget {
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
-
-  const MUISignInCard({
-    super.key,
-    required this.emailController,
-    required this.passwordController,
-    required this.onSigninPressed,
-    this.bgColor = Colors.black,
-    this.borderColor = Colors.grey,
-    this.accentColor = Colors.white,
-    this.borderWidth = 1.5,
-    this.borderRadius = 12,
-    this.authButtonIconColor = Colors.white,
-    this.authButtonTextColor = Colors.white,
-    this.maxWidth = 430,
-    required this.firstAuthButtonText,
-    required this.secondAuthButtonText,
-    required this.firstAuthIcon,
-    required this.secondAuthIcon,
-    required this.onFirstAuthButtonPressed,
-    required this.onSecondAuthButtonPressed,
-    required this.onRegisterNow,
-  });
 
   @override
   State<MUISignInCard> createState() => _MUISignInCardState();
@@ -114,14 +114,24 @@ class _MUISignInCardState extends State<MUISignInCard> {
                       ? getScreenWidth(context) * 0.08
                       : 32),
             ),
-            Text('Enter your email & password to sign in',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.w300)),
+            Text(
+              'Enter your email & password to sign in',
+              style: TextStyle(
+                color: widget.accentColor,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
             SizedBox(height: getScreenHeight(context) * 0.03),
-            Text(' Email',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.bold)),
-            SizedBox(height: getScreenHeight(context) * 0.01),
+            Text(
+              ' Email',
+              style: TextStyle(
+                color: widget.accentColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: getScreenHeight(context) * 0.01,
+            ),
             MUIPrimaryInputField(
               isObscure: false,
               hintText: 'me@example.com',
@@ -131,14 +141,20 @@ class _MUISignInCardState extends State<MUISignInCard> {
               borderWidth: 1,
               borderRadius: 10,
               textStyle: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.w300),
+                color: widget.accentColor,
+                fontWeight: FontWeight.w300,
+              ),
               controller: widget.emailController,
               filledColor: widget.bgColor,
             ),
             SizedBox(height: getScreenHeight(context) * 0.02),
-            Text(' Password',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            Text(
+              ' Password',
+              style: TextStyle(
+                color: widget.accentColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             SizedBox(height: getScreenHeight(context) * 0.01),
             MUIPrimaryInputField(
               isObscure: true,
@@ -149,25 +165,29 @@ class _MUISignInCardState extends State<MUISignInCard> {
               borderWidth: 1,
               borderRadius: 10,
               textStyle: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.w300),
+                color: widget.accentColor,
+                fontWeight: FontWeight.w300,
+              ),
               controller: widget.passwordController,
               filledColor: widget.bgColor,
             ),
             SizedBox(height: getScreenHeight(context) * 0.03),
             Center(
               child: MUILoadingBlockLevelButton(
-                  text: 'Sign in',
-                  bgColor: widget.accentColor,
-                  textColor: widget.bgColor,
-                  loadingStateTextColor: widget.bgColor,
-                  loadingStateText: 'Loading',
-                  onPressed: () async {
-                    await widget.onSigninPressed();
-                  }),
+                text: 'Sign in',
+                bgColor: widget.accentColor,
+                textColor: widget.bgColor,
+                loadingStateTextColor: widget.bgColor,
+                loadingStateText: 'Loading',
+                onPressed: () async {
+                  await widget.onSignInPressed();
+                },
+              ),
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: getScreenWidth(context) * 0.02),
+                horizontal: getScreenWidth(context) * 0.02,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -260,15 +280,25 @@ class _MUISignInCardState extends State<MUISignInCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account ? ",
-                    style: TextStyle(color: widget.accentColor, fontSize: 12)),
+                Text(
+                  "Don't have an account ? ",
+                  style: TextStyle(
+                    color: widget.accentColor,
+                    fontSize: 12,
+                  ),
+                ),
                 TextButton(
-                    onPressed: () {
-                      widget.onRegisterNow();
-                    },
-                    child: Text('Register now',
-                        style:
-                            TextStyle(color: widget.borderColor, fontSize: 12)))
+                  onPressed: () {
+                    widget.onRegisterNow();
+                  },
+                  child: Text(
+                    'Register now',
+                    style: TextStyle(
+                      color: widget.borderColor,
+                      fontSize: 12,
+                    ),
+                  ),
+                )
               ],
             )
           ],

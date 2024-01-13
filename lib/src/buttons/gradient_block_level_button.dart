@@ -4,6 +4,23 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable gradient block level button by ModularUI with optional icons.
 class MUIGradientBlockLevelButton extends StatefulWidget {
+  const MUIGradientBlockLevelButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
+    this.textColor = Colors.white,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactorPressed = 0.95,
+    this.heightFactor = 0.05,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
+    this.widthFactor = 0.98
+  });
+  
   /// The Text to display inside the button
   final String text;
 
@@ -42,23 +59,6 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
 
   /// On Pressed Function
   final VoidCallback onPressed;
-
-  const MUIGradientBlockLevelButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-    this.widthFactor = 0.98
-  });
 
   @override
   State<MUIGradientBlockLevelButton> createState() =>

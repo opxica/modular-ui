@@ -3,10 +3,30 @@ import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIOutlinedButton extends StatefulWidget {
+  const MUIOutlinedButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.bgColor = Colors.transparent,
+    this.borderColor = Colors.black,
+    this.borderWidth = 2,
+    this.textColor = Colors.black,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactorUnpressed = 0.04,
+    this.widthFactorPressed = 0.035,
+    this.heightFactorUnPressed = 0.03,
+    this.heightFactorPressed = 0.03,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.black,
+  });
+
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Outlined Button, dafault : transparent
+  /// Background Color of The Outlined Button, default : transparent
   final Color bgColor;
 
   /// Text Color of the Outlined Button, default : black
@@ -54,27 +74,6 @@ class MUIOutlinedButton extends StatefulWidget {
 
   /// On Pressed Function
   final VoidCallback onPressed;
-
-  const MUIOutlinedButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgColor = Colors.transparent,
-    this.borderColor = Colors.black,
-    this.borderWidth = 2,
-    this.textColor = Colors.black,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactorUnpressed = 0.04,
-    this.widthFactorPressed = 0.035,
-    this.heightFactorUnPressed = 0.03,
-    this.heightFactorPressed = 0.03,
-    this.maxHorizontalPadding = 70,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.black,
-  });
 
   @override
   State<MUIOutlinedButton> createState() => _MUIOutlinedButtonState();

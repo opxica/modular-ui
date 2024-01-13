@@ -2,6 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUILoadingButton extends StatefulWidget {
+  const MUILoadingButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.loadingStateText = '',
+    this.bgColor = Colors.black,
+    this.textColor = Colors.white,
+    this.loadingStateBackgroundColor = Colors.grey,
+    this.loadingStateTextColor = Colors.white,
+    this.borderRadius = 10,
+    this.animationDuration = 250,
+    this.hapticsEnabled = false,
+    this.widthFactorUnpressed = 0.04,
+    this.widthFactorPressed = 0.035,
+    this.heightFactorUnPressed = 0.03,
+    this.heightFactorPressed = 0.025,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
+  });
+
   /// Text for Loading Button
   final String text;
 
@@ -56,28 +77,6 @@ class MUILoadingButton extends StatefulWidget {
 
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
-
-  const MUILoadingButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.loadingStateText = '',
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
-    this.loadingStateBackgroundColor = Colors.grey,
-    this.loadingStateTextColor = Colors.white,
-    this.borderRadius = 10,
-    this.animationDuration = 250,
-    this.hapticsEnabled = false,
-    this.widthFactorUnpressed = 0.04,
-    this.widthFactorPressed = 0.035,
-    this.heightFactorUnPressed = 0.03,
-    this.heightFactorPressed = 0.025,
-    this.maxHorizontalPadding = 70,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-  });
 
   @override
   State<MUILoadingButton> createState() => _MUILoadingButtonState();

@@ -3,6 +3,25 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable loading block level button by ModularUI with optional icons.
 class MUILoadingBlockLevelButton extends StatefulWidget {
+  const MUILoadingBlockLevelButton(
+      {super.key,
+      required this.text,
+      required this.onPressed,
+      this.loadingStateText = '',
+      this.bgColor = Colors.black,
+      this.textColor = Colors.white,
+      this.loadingStateBackgroundColor = Colors.grey,
+      this.loadingStateTextColor = Colors.white,
+      this.borderRadius = 10,
+      this.animationDuration = 250,
+      this.hapticsEnabled = false,
+      this.widthFactorPressed = 0.95,
+      this.heightFactor = 0.05,
+      this.leadingIcon,
+      this.actionIcon,
+      this.iconColor = Colors.white,
+      this.widthFactor = 0.98});
+
   /// The Text to display inside the button
   final String text;
 
@@ -51,27 +70,6 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
 
-
-  const MUILoadingBlockLevelButton({
-      super.key,
-      required this.text,
-      required this.onPressed,
-      this.loadingStateText = '',
-      this.bgColor = Colors.black,
-      this.textColor = Colors.white,
-      this.loadingStateBackgroundColor = Colors.grey,
-      this.loadingStateTextColor = Colors.white,
-      this.borderRadius = 10,
-      this.animationDuration = 250,
-      this.hapticsEnabled = false,
-      this.widthFactorPressed = 0.95,
-      this.heightFactor = 0.05,
-      this.leadingIcon,
-      this.actionIcon,
-      this.iconColor = Colors.white,
-          this.widthFactor = 0.98
-    });
-  
   @override
   State<MUILoadingBlockLevelButton> createState() =>
       _MUILoadingBlockLevelButtonState();

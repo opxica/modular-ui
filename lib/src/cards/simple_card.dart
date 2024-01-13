@@ -3,6 +3,25 @@ import 'package:modular_ui/src/buttons/primary_button.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUISimpleCard extends StatefulWidget {
+  const MUISimpleCard({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.onButtonTap,
+    required this.buttonText,
+    this.maxWidth = 430,
+    this.descriptionStyle = const TextStyle(
+      fontSize: 16,
+      color: Colors.grey,
+    ),
+    this.titleStyle = const TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+    ),
+    this.bgColor = Colors.white,
+    this.borderRadius = 8,
+  });
+
   /// The title of the card
   final String title;
 
@@ -31,25 +50,6 @@ class MUISimpleCard extends StatefulWidget {
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
-
-  const MUISimpleCard({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.onButtonPressed,
-    required this.buttonText,
-    this.maxWidth = 430,
-    this.descriptionStyle = const TextStyle(
-      fontSize: 16,
-      color: Colors.grey,
-    ),
-    this.titleStyle = const TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-    ),
-    this.bgColor = Colors.white,
-    this.borderRadius = 8,
-  });
 
   @override
   State<MUISimpleCard> createState() => _MUISimpleCardState();

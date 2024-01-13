@@ -4,6 +4,25 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable outlined block level button by ModularUI with optional icons.
 class MUIOutlinedBlockLevelButton extends StatefulWidget {
+  const MUIOutlinedBlockLevelButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.bgColor = Colors.transparent,
+    this.textColor = Colors.black,
+    this.borderColor = Colors.black,
+    this.borderWidth = 2,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactorPressed = 0.95,
+    this.heightFactor = 0.05,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.black,
+    this.widthFactor = 0.98,
+  });
+
   /// The Text to display inside the button
   final String text;
 
@@ -48,25 +67,6 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
 
   /// Icon color for both leading and action icons, default: black.
   final Color iconColor;
-
-  const MUIOutlinedBlockLevelButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgColor = Colors.transparent,
-    this.textColor = Colors.black,
-    this.borderColor = Colors.black,
-    this.borderWidth = 2,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.black,
-    this.widthFactor = 0.98,
-  });
 
   @override
   State<MUIOutlinedBlockLevelButton> createState() =>

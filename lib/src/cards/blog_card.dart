@@ -7,12 +7,12 @@ class MUIBlogCard extends StatefulWidget {
     required this.title,
     required this.description,
     required this.onBlogCardTap,
-    required this.imagelink,
+    required this.imageLink,
     required this.date,
     this.avatarRad = 16,
     this.maxWidth = 430,
     this.onMoreTap,
-    this.morebtnStyle,
+    this.moreButtonStyle,
     this.bgColor = Colors.white,
     this.elevation,
     this.avatarSpacing,
@@ -57,16 +57,16 @@ class MUIBlogCard extends StatefulWidget {
   /// displayed.
   final VoidCallback? onMoreTap;
 
-  /// The line `final ButtonStyle? morebtnStyle;` is declaring a final variable named `morebtnStyle` of
+  /// The line `final ButtonStyle? moreButtonStyle;` is declaring a final variable named `moreButtonStyle` of
   /// type `ButtonStyle?`. The `?` indicates that the variable can be nullable, meaning it can have a
   /// value of `null`. This variable is optional and can be used to specify the style of the "More"
   /// button on the blog card. If no value is provided, the default button style will be used.
-  final ButtonStyle? morebtnStyle;
+  final ButtonStyle? moreButtonStyle;
 
-  /// The line `final String imagelink;` is declaring a final variable named `imagelink` of type
+  /// The line `final String imageLink;` is declaring a final variable named `imageLink` of type
   /// `String`. This variable is required and will be used as the link to the image that will be
   /// displayed on the blog card.
-  final String imagelink;
+  final String imageLink;
 
   /// The line `final List<String> circularAvatarImages;` is declaring a final variable named
   /// `circularAvatarImages` of type `List<String>`. This variable is required and will be used to
@@ -124,11 +124,12 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
                 ClipRRect(
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(16)),
-                  child: Image.network(widget.imagelink),
+                  child: Image.network(widget.imageLink),
                 ),
                 const SizedBox(height: 12),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, bottom: 20, right: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20, bottom: 20, right: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -136,7 +137,7 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
                       /// `title` as its text content and `titleStyle` as its style. This widget is used
                       /// to display the title of the blog card with the specified text style.
                       Text(widget.title, style: widget.titleStyle),
-            
+
                       /// `const SizedBox(height: 12)` is creating a `SizedBox` widget with a fixed height
                       /// of 12 pixels. This widget is used to add vertical spacing between the
                       /// `ClipRRect` widget (which displays the image) and the `Padding` widget (which
@@ -144,7 +145,7 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
                       /// `SizedBox` widget ensures that there is a consistent vertical spacing between
                       /// these two widgets.
                       const SizedBox(height: 12),
-            
+
                       /// The line `Text(description, style: descriptionStyle)` is creating a `Text`
                       /// widget with the `description` as its text content and `descriptionStyle` as its
                       /// style. This widget is used to display the description of the blog card with the
@@ -164,9 +165,9 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
                               /// with `i` equal to 0, and continues as long as `i` is less than the
                               /// length of the `circularAvatarImages` list. On each iteration, it
                               /// executes the code inside the loop.
-                              for (int i = 0;
-                                  i < widget.circularAvatarImages.length;
-                                  i++)
+                              for (int cAvatarImage = 0;
+                                  cAvatarImage < widget.circularAvatarImages.length;
+                                  cAvatarImage++)
                                 Align(
                                   widthFactor: widget.avatarSpacing ?? 0.7,
                                   child: CircleAvatar(
@@ -175,11 +176,11 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
                                     child: CircleAvatar(
                                       radius: widget.avatarRad,
                                       backgroundImage: NetworkImage(
-                                          widget.circularAvatarImages[i]),
+                                          widget.circularAvatarImages[cAvatarImage]),
                                     ),
                                   ),
                                 ),
-            
+
                               /// The code `if (circularAvatarImages.length >= 7)` checks if the length of
                               /// the `circularAvatarImages` list is greater than or equal to 7. If this
                               /// condition is true, it adds a `Padding` widget with a left padding of 7
@@ -189,13 +190,13 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
                                   padding: const EdgeInsets.only(left: 7),
                                   child: TextButton(
                                     onPressed: widget.onMoreTap,
-                                    style: widget.morebtnStyle,
+                                    style: widget.moreButtonStyle,
                                     child: const Text('More...'),
                                   ),
                                 ),
                             ],
                           ),
-            
+
                           /// This widget is used to display the date of the blog card with the
                           /// specified text style. The `dateStyle` variable is optional and can be used to
                           /// customize the style of the date text. If no value is provided, the default

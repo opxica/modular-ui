@@ -3,6 +3,22 @@ import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUITextButton extends StatefulWidget {
+  const MUITextButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.bgColor = Colors.grey,
+    this.textColor = Colors.black,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactor = 0.04,
+    this.heightFactor = 0.03,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.black,
+  });
+  
   /// The Text to display inside the button
   final String text;
 
@@ -42,23 +58,6 @@ class MUITextButton extends StatefulWidget {
 
   /// On Pressed Function
   final VoidCallback onPressed;
-
-  const MUITextButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgColor = Colors.grey,
-    this.textColor = Colors.black,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactor = 0.04,
-    this.heightFactor = 0.03,
-    this.maxHorizontalPadding = 70,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.black,
-  });
 
   @override
   State<MUITextButton> createState() => _MUITextButtonState();
