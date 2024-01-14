@@ -6,6 +6,21 @@ enum CarouselIndicatorType { dot, line }
 enum CarouselButtonType { iconOnly, rounded }
 
 class MUICarousel extends StatefulWidget {
+  const MUICarousel(
+      {super.key,
+      required this.images,
+      this.height = 200,
+      this.duration = const Duration(seconds: 5),
+      this.borderRadius = 8,
+      this.padding = const EdgeInsets.all(8),
+      this.indicatorType = CarouselIndicatorType.dot,
+      this.curve = Curves.easeInOut,
+      this.swipeDuration = const Duration(milliseconds: 500),
+      this.showIndicator = true,
+      this.showButtons = true,
+      this.buttonType = CarouselButtonType.iconOnly,
+      this.maxWidth = 430});
+
   /// ImageUrls for  Carousel
   final List<String> images;
 
@@ -38,20 +53,10 @@ class MUICarousel extends StatefulWidget {
 
   /// Carousel Button Types
   final CarouselButtonType? buttonType;
-  const MUICarousel(
-      {super.key,
-      required this.images,
-      this.height = 200,
-      this.duration = const Duration(seconds: 5),
-      this.borderRadius = 8,
-      this.padding = const EdgeInsets.all(8),
-      this.indicatorType = CarouselIndicatorType.dot,
-      this.curve = Curves.easeInOut,
-      this.swipeDuration = const Duration(milliseconds: 500),
-      this.showIndicator = true,
-      this.showButtons = true,
-      this.buttonType = CarouselButtonType.iconOnly});
 
+  /// Max Width for Carousel ; default: 430
+  final double? maxWidth;
+  
   @override
   State<MUICarousel> createState() => _MUICarouselState();
 }
@@ -94,6 +99,7 @@ class _MUICarouselState extends State<MUICarousel> {
       padding: widget.padding!,
       child: SizedBox(
         height: widget.height,
+        width: widget.maxWidth,
         child: Stack(
           children: [
             PageView(
@@ -107,7 +113,7 @@ class _MUICarouselState extends State<MUICarousel> {
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: SizedBox(
                         height: widget.height,
-                        width: MediaQuery.of(context).size.width,
+                        width: widget.maxWidth,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(widget.borderRadius!),
                           child: image.startsWith("http")
