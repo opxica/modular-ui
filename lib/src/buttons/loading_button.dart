@@ -85,6 +85,7 @@ class MUILoadingButton extends StatefulWidget {
 
 class _MUILoadingButtonState extends State<MUILoadingButton> {
   bool _isLoadingButtonPressed = false;
+  bool isShadowEnabled = false;
 
   void _startLoading() {
     setState(() {
@@ -101,6 +102,13 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onDoubleTap: () {
+        setState(
+          () {
+            isShadowEnabled = !isShadowEnabled;
+          },
+        );
+      },
       onTapDown: (_) async {
         _startLoading();
         try {
@@ -113,6 +121,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
+          boxShadow: isShadowEnabled ? [const BoxShadow(blurRadius: 5)] : [],
           color: !_isLoadingButtonPressed
               ? widget.bgColor
               : widget.loadingStateBackgroundColor,
@@ -166,8 +175,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 15),
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
                       width: 18,
                       height: 18,
                       child: CircularProgressIndicator(

@@ -5,7 +5,7 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 /// A customizable primary button by ModularUI with optional icons.
 class MUIPrimaryButton extends StatefulWidget {
   const MUIPrimaryButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.bgColor = Colors.black,
@@ -21,8 +21,8 @@ class MUIPrimaryButton extends StatefulWidget {
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,
-  }) : super(key: key);
-  
+  });
+
   /// The Text to display inside the button.
   final String text;
 
@@ -75,6 +75,7 @@ class MUIPrimaryButton extends StatefulWidget {
 
 class _PrimaryButtonState extends State<MUIPrimaryButton> {
   bool _isPrimaryButtonPressed = false;
+  bool isShadowEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +94,11 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
           _isPrimaryButtonPressed = false;
         });
       },
+      onDoubleTap: () {
+        setState(() {
+          isShadowEnabled = !isShadowEnabled;
+        });
+      },
       onTapCancel: () {
         setState(() {
           _isPrimaryButtonPressed = false;
@@ -103,6 +109,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
+          boxShadow: isShadowEnabled ? [const BoxShadow(blurRadius: 5)] : [],
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isPrimaryButtonPressed

@@ -23,12 +23,15 @@ class _ButtonsViewState extends State<ButtonsView> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MUIPrimaryButton(text: "Button 1", onPressed: () {}),
+        const SizedBox(
+          height: 10,
+        ),
         MUILoadingButton(
           text: "Button 2",
           onPressed: () async {},
           loadingStateText: "loading...",
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
