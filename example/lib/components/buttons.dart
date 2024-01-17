@@ -1,3 +1,4 @@
+import 'package:example/widgets/custom_snackbar.dart';
 import 'package:modular_ui/modular_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -17,21 +18,42 @@ class ButtonsView extends StatefulWidget {
 class _ButtonsViewState extends State<ButtonsView> {
   bool radioButton = false;
 
+  void onButtonPressed(String button) {
+    final snackBar = SnackBar(
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      content: CustomSnackbar(
+        title: 'Pressed!',
+        message: 'You just pressed $button!',
+        color: Theme.of(context).primaryColor,
+      ),
+    );
+
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        MUIPrimaryButton(text: "Button 1", onPressed: () {}),
+      children: <Widget>[
+        MUIPrimaryButton(
+          text: "Primary Button",
+          onPressed: () => onButtonPressed("Primary Button"),
+        ),
+        const SizedBox(height: 10.0),
         MUILoadingButton(
-          text: "Button 2",
+          text: "Loading Button",
           onPressed: () async {},
           loadingStateText: "loading...",
         ),
         const SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             MUIRadioButton(
               checked: radioButton,
               onChanged: (value) {

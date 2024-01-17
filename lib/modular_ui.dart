@@ -26,6 +26,8 @@ export 'src/cards/sign_up_card.dart';
 
 /// Carousels
 export 'src/carousel/carousel.dart';
+export 'enums/carousel_button_type.dart';
+export 'enums/carousel_indicator_type.dart';
 
 /// checkbox
 export 'src/checkbox/checkbox.dart';

@@ -1,25 +1,26 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
-enum CarouselIndicatorType { dot, line }
-
-enum CarouselButtonType { iconOnly, rounded }
+import 'package:modular_ui/enums/carousel_button_type.dart';
+import 'package:modular_ui/enums/carousel_indicator_type.dart';
+import 'package:modular_ui/src/carousel/components/indicator_dot.dart';
+import 'package:modular_ui/src/carousel/components/indicator_line.dart';
 
 class MUICarousel extends StatefulWidget {
-  const MUICarousel(
-      {super.key,
-      required this.images,
-      this.height = 200,
-      this.duration = const Duration(seconds: 5),
-      this.borderRadius = 8,
-      this.padding = const EdgeInsets.all(8),
-      this.indicatorType = CarouselIndicatorType.dot,
-      this.curve = Curves.easeInOut,
-      this.swipeDuration = const Duration(milliseconds: 500),
-      this.showIndicator = true,
-      this.showButtons = true,
-      this.buttonType = CarouselButtonType.iconOnly,
-      this.maxWidth = 430});
+  const MUICarousel({
+    super.key,
+    required this.images,
+    this.height = 200,
+    this.duration = const Duration(seconds: 5),
+    this.borderRadius = 8,
+    this.padding = const EdgeInsets.all(8),
+    this.indicatorType = CarouselIndicatorType.dot,
+    this.curve = Curves.easeInOut,
+    this.swipeDuration = const Duration(milliseconds: 500),
+    this.showIndicator = true,
+    this.showButtons = true,
+    this.buttonType = CarouselButtonType.iconOnly,
+    this.maxWidth = 430,
+  });
 
   /// ImageUrls for  Carousel
   final List<String> images;
@@ -33,7 +34,7 @@ class MUICarousel extends StatefulWidget {
   /// Border Radius for Carousel ; default: 8
   final double? borderRadius;
 
-  /// Padding Around Carousel ; deault : All : 8
+  /// Padding Around Carousel ; default : All : 8
   final EdgeInsetsGeometry? padding;
 
   /// Indicator Type for Carousel ; default: dot
@@ -56,7 +57,7 @@ class MUICarousel extends StatefulWidget {
 
   /// Max Width for Carousel ; default: 430
   final double? maxWidth;
-  
+
   @override
   State<MUICarousel> createState() => _MUICarouselState();
 }
@@ -103,48 +104,58 @@ class _MUICarouselState extends State<MUICarousel> {
         child: Stack(
           children: [
             PageView(
-                controller: _pageController,
-                onPageChanged: onChangedFunction,
-                physics: const BouncingScrollPhysics(),
-                allowImplicitScrolling: true,
-                children: List.generate(widget.images.length, (index) {
+              controller: _pageController,
+              onPageChanged: onChangedFunction,
+              physics: const BouncingScrollPhysics(),
+              allowImplicitScrolling: true,
+              children: List.generate(
+                widget.images.length,
+                (index) {
                   final image = widget.images[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: SizedBox(
-                        height: widget.height,
-                        width: widget.maxWidth,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(widget.borderRadius!),
-                          child: image.startsWith("http")
-                              ? FadeInImage(
-                                  placeholder: const AssetImage(""),
-                                  image: NetworkImage(image),
-                                  fit: BoxFit.cover,
-                                  fadeInDuration: const Duration(milliseconds: 300),
-                                  fadeOutDuration: const Duration(milliseconds: 100),
-                                  imageErrorBuilder: (context, error, stackTrace) {
-                                    return const Center(
-                                      child: Icon(
-                                        Icons.error,
-                                        color: Colors.red,
-                                      ),
-                                    );
-                                  },
-                                  placeholderErrorBuilder: (context, error, stackTrace) {
-                                    return const Center(
-                                      child:
-                                          CircularProgressIndicator(), // Circular loader for placeholder
-                                    );
-                                  },
-                                )
-                              : Image.asset(
-                                  image,
-                                  fit: BoxFit.cover,
-                                ),
-                        )),
+                      height: widget.height,
+                      width: widget.maxWidth,
+                      child: ClipRRect(
+                        borderRadius:
+                            BorderRadius.circular(widget.borderRadius!),
+                        child: image.startsWith("http")
+                            ? FadeInImage(
+                                placeholder: const AssetImage(""),
+                                image: NetworkImage(image),
+                                fit: BoxFit.cover,
+                                fadeInDuration:
+                                    const Duration(milliseconds: 300),
+                                fadeOutDuration:
+                                    const Duration(milliseconds: 100),
+                                imageErrorBuilder:
+                                    (context, error, stackTrace) {
+                                  return const Center(
+                                    child: Icon(
+                                      Icons.error,
+                                      color: Colors.red,
+                                    ),
+                                  );
+                                },
+                                placeholderErrorBuilder:
+                                    (context, error, stackTrace) {
+                                  return const Center(
+                                    child:
+                                        CircularProgressIndicator(), // Circular loader for placeholder
+                                  );
+                                },
+                              )
+                            : Image.asset(
+                                image,
+                                fit: BoxFit.cover,
+                              ),
+                      ),
+                    ),
                   );
-                })),
+                },
+              ),
+            ),
             widget.showButtons!
                 ? Align(
                     alignment: Alignment.center,
@@ -152,54 +163,59 @@ class _MUICarouselState extends State<MUICarousel> {
                       padding: const EdgeInsets.only(
                         bottom: 8,
                       ),
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                        IconButton(
-                          onPressed: () {
-                            if (currentIndex != 0) {
-                              currentIndex--;
-                            } else {
-                              currentIndex = widget.images.length - 1;
-                            }
-                            _pageController!.animateToPage(
-                              currentIndex,
-                              duration: widget.swipeDuration!,
-                              curve: widget.curve!,
-                            );
-                          },
-                          icon: CircleAvatar(
-                            backgroundColor: widget.buttonType == CarouselButtonType.iconOnly
-                                ? Colors.transparent
-                                : Colors.white.withOpacity(0.6),
-                            child: const Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.white,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              if (currentIndex != 0) {
+                                currentIndex--;
+                              } else {
+                                currentIndex = widget.images.length - 1;
+                              }
+                              _pageController!.animateToPage(
+                                currentIndex,
+                                duration: widget.swipeDuration!,
+                                curve: widget.curve!,
+                              );
+                            },
+                            icon: CircleAvatar(
+                              backgroundColor: widget.buttonType ==
+                                      CarouselButtonType.iconOnly
+                                  ? Colors.transparent
+                                  : Colors.white.withOpacity(0.6),
+                              child: const Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            if (currentIndex != widget.images.length - 1) {
-                              currentIndex++;
-                            } else {
-                              currentIndex = 0;
-                            }
-                            _pageController!.animateToPage(
-                              currentIndex,
-                              duration: widget.swipeDuration!,
-                              curve: widget.curve!,
-                            );
-                          },
-                          icon: CircleAvatar(
-                            backgroundColor: widget.buttonType == CarouselButtonType.iconOnly
-                                ? Colors.transparent
-                                : Colors.white.withOpacity(0.6),
-                            child: const Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.white,
+                          IconButton(
+                            onPressed: () {
+                              if (currentIndex != widget.images.length - 1) {
+                                currentIndex++;
+                              } else {
+                                currentIndex = 0;
+                              }
+                              _pageController!.animateToPage(
+                                currentIndex,
+                                duration: widget.swipeDuration!,
+                                curve: widget.curve!,
+                              );
+                            },
+                            icon: CircleAvatar(
+                              backgroundColor: widget.buttonType ==
+                                      CarouselButtonType.iconOnly
+                                  ? Colors.transparent
+                                  : Colors.white.withOpacity(0.6),
+                              child: const Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                      ]),
+                        ],
+                      ),
                     ),
                   )
                 : const SizedBox.shrink(),
@@ -214,9 +230,14 @@ class _MUICarouselState extends State<MUICarousel> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(
                           widget.images.length,
-                          (index) => widget.indicatorType == CarouselIndicatorType.dot
-                              ? IndicatorDot(currentIndex: currentIndex, positionIndex: index)
-                              : IndicatorLine(currentIndex: currentIndex, positionIndex: index),
+                          (index) =>
+                              widget.indicatorType == CarouselIndicatorType.dot
+                                  ? IndicatorDot(
+                                      currentIndex: currentIndex,
+                                      positionIndex: index)
+                                  : IndicatorLine(
+                                      currentIndex: currentIndex,
+                                      positionIndex: index),
                         ),
                       ),
                     ),
@@ -232,43 +253,5 @@ class _MUICarouselState extends State<MUICarousel> {
     setState(() {
       currentIndex = index;
     });
-  }
-}
-
-class IndicatorDot extends StatelessWidget {
-  final int positionIndex, currentIndex;
-  const IndicatorDot({Key? key, required this.currentIndex, required this.positionIndex})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: Container(
-        height: 10,
-        width: 10,
-        decoration: BoxDecoration(
-            color: positionIndex == currentIndex ? Colors.white : Colors.white.withOpacity(0.6),
-            borderRadius: BorderRadius.circular(6)),
-      ),
-    );
-  }
-}
-
-class IndicatorLine extends StatelessWidget {
-  final int positionIndex, currentIndex;
-  const IndicatorLine({Key? key, required this.currentIndex, required this.positionIndex})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: Container(
-        height: 4,
-        width: positionIndex == currentIndex ? 26 : 16,
-        decoration: BoxDecoration(
-            color: positionIndex == currentIndex ? Colors.white : Colors.white.withOpacity(0.6),
-            borderRadius: BorderRadius.circular(3)),
-      ),
-    );
   }
 }
