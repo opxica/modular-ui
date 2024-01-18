@@ -8,6 +8,7 @@ class MUIPrimaryButton extends StatefulWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    this.shadow = false,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -25,6 +26,9 @@ class MUIPrimaryButton extends StatefulWidget {
 
   /// The Text to display inside the button.
   final String text;
+
+  // optional shadow feature for buttom
+  final bool shadow;
 
   /// Background Color of The Primary Button, default: black.
   final Color bgColor;
@@ -75,7 +79,6 @@ class MUIPrimaryButton extends StatefulWidget {
 
 class _PrimaryButtonState extends State<MUIPrimaryButton> {
   bool _isPrimaryButtonPressed = false;
-  // bool isShadowEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +107,15 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
-          boxShadow: const [BoxShadow(blurRadius: 5)],
+          boxShadow: widget.shadow
+              ? const [
+                  BoxShadow(
+                    color: Color.fromRGBO(72, 76, 82, 0.16),
+                    offset: Offset(0, 12),
+                    blurRadius: 16.0,
+                  )
+                ]
+              : [],
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isPrimaryButtonPressed

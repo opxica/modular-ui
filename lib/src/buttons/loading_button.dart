@@ -7,6 +7,7 @@ class MUILoadingButton extends StatefulWidget {
     required this.text,
     required this.onPressed,
     this.loadingStateText = '',
+    this.shadow = false,
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.loadingStateBackgroundColor = Colors.grey,
@@ -26,6 +27,9 @@ class MUILoadingButton extends StatefulWidget {
 
   /// Text for Loading Button
   final String text;
+
+  // optional boxshadow for button
+  final bool shadow;
 
   /// Future Function to be passed, must be awaited
   final Future Function() onPressed;
@@ -85,7 +89,6 @@ class MUILoadingButton extends StatefulWidget {
 
 class _MUILoadingButtonState extends State<MUILoadingButton> {
   bool _isLoadingButtonPressed = false;
-  bool isShadowEnabled = false;
 
   void _startLoading() {
     setState(() {
@@ -102,13 +105,6 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: () {
-        setState(
-          () {
-            isShadowEnabled = !isShadowEnabled;
-          },
-        );
-      },
       onTapDown: (_) async {
         _startLoading();
         try {
@@ -121,7 +117,15 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          boxShadow: isShadowEnabled ? [const BoxShadow(blurRadius: 5)] : [],
+          boxShadow: widget.shadow
+              ? [
+                  const BoxShadow(
+                    color: Color.fromRGBO(72, 76, 82, 0.16),
+                    offset: Offset(0, 12),
+                    blurRadius: 16.0,
+                  )
+                ]
+              : [],
           color: !_isLoadingButtonPressed
               ? widget.bgColor
               : widget.loadingStateBackgroundColor,

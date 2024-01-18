@@ -40,7 +40,10 @@ class _ButtonsViewState extends State<ButtonsView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        MUIPrimaryButton(text: "Button 1", onPressed: () {}),
+        MUIPrimaryButton(
+          text: "Button 1",
+          onPressed: () {},
+        ),
         const SizedBox(
           height: 10,
         ),
