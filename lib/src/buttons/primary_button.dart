@@ -75,7 +75,7 @@ class MUIPrimaryButton extends StatefulWidget {
 
 class _PrimaryButtonState extends State<MUIPrimaryButton> {
   bool _isPrimaryButtonPressed = false;
-  bool isShadowEnabled = false;
+  // bool isShadowEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -94,11 +94,6 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
           _isPrimaryButtonPressed = false;
         });
       },
-      onDoubleTap: () {
-        setState(() {
-          isShadowEnabled = !isShadowEnabled;
-        });
-      },
       onTapCancel: () {
         setState(() {
           _isPrimaryButtonPressed = false;
@@ -109,7 +104,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
-          boxShadow: isShadowEnabled ? [const BoxShadow(blurRadius: 5)] : [],
+          boxShadow: const [BoxShadow(blurRadius: 5)],
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isPrimaryButtonPressed
