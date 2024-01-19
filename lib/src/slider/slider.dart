@@ -32,7 +32,7 @@ class MUISlider extends StatefulWidget {
   final Color? thumbColor;
 
   /// OnChanged for Slider
-  final void Function(double)? onChanged;
+  final void Function(double) onChanged;
 
   /// Value for Slider
   final double value;
@@ -56,14 +56,6 @@ class MUISlider extends StatefulWidget {
 }
 
 class _MUISliderState extends State<MUISlider> {
-  late double _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = widget.value;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SliderTheme(
@@ -76,12 +68,7 @@ class _MUISliderState extends State<MUISlider> {
         min: widget.min,
         max: widget.max,
         onChanged: (value) {
-          setState(() {
-            _value = value;
-          });
-          if (widget.onChanged != null) {
-            widget.onChanged!(_value);
-          }
+          widget.onChanged(value);
         },
         activeColor: widget.activeColor,
         inactiveColor: widget.inactiveColor,

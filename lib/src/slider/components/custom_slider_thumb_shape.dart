@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomSliderThumbShape extends SliderComponentShape {
-  final double thumbRadius;
-
   CustomSliderThumbShape({
     required this.thumbRadius,
   });
+
+  final double thumbRadius;
 
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
