@@ -15,6 +15,8 @@ export 'src/buttons/primary_button.dart';
 export 'src/buttons/text_block_level_button.dart';
 export 'src/buttons/text_button.dart';
 export 'src/buttons/radio_button.dart';
+export 'src/buttons/secondary_button.dart';
+export 'src/buttons/secondary_block_level_button.dart';
 
 /// Cards
 export 'src/cards/blog_card.dart';
