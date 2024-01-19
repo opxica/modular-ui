@@ -7,6 +7,7 @@ import 'package:example/components/checkbox.dart';
 import 'package:example/components/footer.dart';
 import 'package:example/components/listtile.dart';
 import 'package:example/components/ratingbar.dart';
+import 'package:example/components/slider.dart';
 import 'package:example/components/switch.dart';
 import 'package:example/components/tabs.dart';
 import 'package:example/components/textfield.dart';
@@ -80,6 +81,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       {
         'name': 'carousel',
         'route': carousel(),
+      },
+      {
+        'name': 'slider',
+        'route': slider(),
       },
     ];
     _tabController = TabController(length: components.length, vsync: this);
