@@ -57,13 +57,11 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [X] Checkbox
 - [ ] Chip
 - [ ] Collapse
-- [ ] Carousel
+- [X] Carousel
 - [X] Dialog
 - [ ] Drawer
 - [X] Footer
 - [ ] Form
-- [ ] Gallery
-- [ ] Image
 - [ ] Input Fields
   - [X] Primary Input Field
   - [ ] Input With Icon
@@ -75,7 +73,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [X] Radio Button
 - [X] Rating Bar
 - [ ] Select
-- [ ] Slider
+- [X] Slider
 - [X] Tab View
 - [X] Switch
 
