@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:modular_ui/src/slider/components/custom_slider_thumb_shape.dart';
 
 class MUISlider extends StatefulWidget {
   const MUISlider(
-      {super.key,
-      this.height,
-      this.inactiveColor = Colors.grey,
+      {Key? key,
+      this.height = 5,
+      this.inactiveColor = const Color(0xffECEFF1),
       this.activeColor = Colors.black,
-      this.thumbColor});
+      this.thumbColor = Colors.white,
+      required this.onChanged,
+      required this.value,
+      required this.min,
+      required this.max,
+      this.onChangeStart,
+      this.onChangeEnd})
+      : assert(min <= max),
+        assert(value >= min && value <= max,
+            'Value $value is not between minimum $min and maximum $max'),
+        super(key: key);
 
-  /// Height for Slider ; default: 200
+  /// Height for Slider ; default: 5
   final double? height;
 
   /// Inactive Color for Slider ; default: Colors.grey
@@ -20,23 +31,58 @@ class MUISlider extends StatefulWidget {
   /// Thumb Color for Slider ; default: Colors.black
   final Color? thumbColor;
 
+  /// OnChanged for Slider
+  final void Function(double)? onChanged;
+
+  /// Value for Slider
+  final double value;
+
+  /// Minimum Value for Slider ; default: 0
+  final double min;
+
+  /// Maximum Value for Slider ; default: 100
+  final double max;
+
+  /// OnChangedStart for Slider
+  final void Function(double)? onChangeStart;
+
+  /// OnChangedEnd for Slider
+  final void Function(double)? onChangeEnd;
+
+  /// Thumb Radius for Slider ; default: 10
+
   @override
   State<MUISlider> createState() => _MUISliderState();
 }
 
 class _MUISliderState extends State<MUISlider> {
+  late double _value;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.value;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
-        trackHeight: 4,
-        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
+        trackHeight: widget.height,
+        thumbShape: CustomSliderThumbShape(thumbRadius: widget.height! + 5),
       ),
       child: Slider(
-        value: 25,
-        min: 0,
-        max: 100,
-        onChanged: (value) {},
+        value: widget.value,
+        min: widget.min,
+        max: widget.max,
+        onChanged: (value) {
+          setState(() {
+            _value = value;
+          });
+          if (widget.onChanged != null) {
+            widget.onChanged!(_value);
+          }
+        },
         activeColor: widget.activeColor,
         inactiveColor: widget.inactiveColor,
         thumbColor: widget.thumbColor,

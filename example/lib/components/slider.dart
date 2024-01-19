@@ -31,84 +31,40 @@ class __SliderState extends State<_Slider> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          text("Carousel with default height and dot Indicator"),
+          text("Slider with different height from default"),
           const SizedBox(height: 5),
-          const MUICarousel(
-            images: [
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png"
-            ],
-            indicatorType: CarouselIndicatorType.dot,
-            duration: Duration(seconds: 2),
+          MUISlider(
+            value: 50,
+            height: 3,
+            min: 0,
+            max: 100,
+            thumbColor: Colors.white,
+            onChanged: (value) {
+              setState(() {
+                print(value);
+              });
+            },
           ),
           const SizedBox(height: 15),
-          text("Carousel with default height and line Indicator"),
+          text("Slider with default height and different Color"),
           const SizedBox(height: 5),
-          const MUICarousel(
-            images: [
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png"
-            ],
-            indicatorType: CarouselIndicatorType.line,
+          MUISlider(
+            value: 50,
+            min: 0,
+            max: 100,
+            onChanged: (value) {},
+            activeColor: Colors.red,
           ),
           const SizedBox(height: 15),
-          text("Carousel without buttons"),
+          text("Slider with bigger height"),
           const SizedBox(height: 5),
-          const MUICarousel(
-            images: [
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png"
-            ],
-            showButtons: false,
-          ),
-          const SizedBox(height: 15),
-          text("Carousel without indicator"),
-          const SizedBox(height: 5),
-          const MUICarousel(
-            images: [
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png"
-            ],
-            showIndicator: false,
-          ),
-          const SizedBox(height: 15),
-          text("Carousel with rounded Buttons"),
-          const SizedBox(height: 5),
-          const MUICarousel(
-            images: [
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png"
-            ],
-            showIndicator: false,
-            buttonType: CarouselButtonType.rounded,
-          ),
-          const SizedBox(height: 15),
-          text("Parallex Carousel and line Indicator"),
-          const SizedBox(height: 5),
-          const MUIParallexCarousal(
-            images: [
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png",
-              "https://github.com/shadcn.png"
-            ],
-            indicatorType: CarouselIndicatorType.line,
+          MUISlider(
+            value: 50,
+            height: 10,
+            min: 0,
+            max: 100,
+            activeColor: Colors.green,
+            onChanged: (value) {},
           ),
         ],
       ),
