@@ -8,7 +8,13 @@ class MUIPrimaryButton extends StatefulWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.shadow = false,
+    this.shadow = const [
+      BoxShadow(
+        color: Color.fromRGBO(72, 76, 82, 0.16),
+        offset: Offset(0, 12),
+        blurRadius: 16.0,
+      )
+    ],
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.borderRadius = 10,
@@ -28,7 +34,7 @@ class MUIPrimaryButton extends StatefulWidget {
   final String text;
 
   // optional shadow feature for buttom
-  final bool shadow;
+  final List<BoxShadow> shadow;
 
   /// Background Color of The Primary Button, default: black.
   final Color bgColor;
@@ -105,18 +111,9 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: widget.bgColor,
-          boxShadow: widget.shadow
-              ? const [
-                  BoxShadow(
-                    color: Color.fromRGBO(72, 76, 82, 0.16),
-                    offset: Offset(0, 12),
-                    blurRadius: 16.0,
-                  )
-                ]
-              : [],
-        ),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            color: widget.bgColor,
+            boxShadow: widget.shadow),
         padding: EdgeInsets.symmetric(
           horizontal: _isPrimaryButtonPressed
               ? getScreenWidth(context) * widget.widthFactorPressed

@@ -7,7 +7,11 @@ class MUILoadingButton extends StatefulWidget {
     required this.text,
     required this.onPressed,
     this.loadingStateText = '',
-    this.shadow = false,
+    this.shadow = const [BoxShadow(
+      color: Color.fromRGBO(72, 76, 82, 0.16),
+      offset: Offset(0, 12),
+      blurRadius: 16.0,
+    )],
     this.bgColor = Colors.black,
     this.textColor = Colors.white,
     this.loadingStateBackgroundColor = Colors.grey,
@@ -29,7 +33,7 @@ class MUILoadingButton extends StatefulWidget {
   final String text;
 
   // optional boxshadow for button
-  final bool shadow;
+  final List<BoxShadow> shadow;
 
   /// Future Function to be passed, must be awaited
   final Future Function() onPressed;
@@ -117,15 +121,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          boxShadow: widget.shadow
-              ? [
-                  const BoxShadow(
-                    color: Color.fromRGBO(72, 76, 82, 0.16),
-                    offset: Offset(0, 12),
-                    blurRadius: 16.0,
-                  )
-                ]
-              : [],
+          boxShadow: widget.shadow,
           color: !_isLoadingButtonPressed
               ? widget.bgColor
               : widget.loadingStateBackgroundColor,
