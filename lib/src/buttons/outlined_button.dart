@@ -22,6 +22,7 @@ class MUIOutlinedButton extends StatefulWidget {
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,
+    this.boxShadows,
   });
 
   /// The Text to display inside the button
@@ -76,6 +77,9 @@ class MUIOutlinedButton extends StatefulWidget {
   /// On Pressed Function
   final VoidCallback onPressed;
 
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUIOutlinedButton> createState() => _MUIOutlinedButtonState();
 }
@@ -109,6 +113,7 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
+          boxShadow: widget.boxShadows,
           border: Border.all(
             color: _isOutlinedButtonPressed
                 ? Colors.transparent
@@ -128,7 +133,7 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
             horizontal: 10,
             vertical: 8,
           ),
-           EdgeInsets.symmetric(
+          EdgeInsets.symmetric(
             horizontal: widget.maxHorizontalPadding,
             vertical: 16,
           ),

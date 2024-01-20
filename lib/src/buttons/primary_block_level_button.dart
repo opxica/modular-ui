@@ -19,6 +19,7 @@ class MUIPrimaryBlockButton extends StatefulWidget {
     this.actionIcon,
     this.iconColor = Colors.white,
     this.widthFactor = 0.98,
+    this.boxShadows
   });
 
   /// The Text to display inside the button
@@ -60,6 +61,9 @@ class MUIPrimaryBlockButton extends StatefulWidget {
   /// On Pressed Function
   final VoidCallback onPressed;
 
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUIPrimaryBlockButton> createState() => _MUIPrimaryBlockButtonState();
 }
@@ -94,6 +98,7 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
+          boxShadow: widget.boxShadows,
         ),
         width: _isPrimaryBlockLevelButtonPressed
             ? getScreenWidth(context) * widget.widthFactorPressed

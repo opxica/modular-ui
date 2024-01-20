@@ -21,6 +21,7 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
     this.actionIcon,
     this.iconColor = Colors.black,
     this.widthFactor = 0.98,
+    this.boxShadows,
   });
 
   /// The Text to display inside the button
@@ -68,6 +69,9 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
   /// Icon color for both leading and action icons, default: black.
   final Color iconColor;
 
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUIOutlinedBlockLevelButton> createState() =>
       _MUIOutlinedBlockLevelButtonState();
@@ -104,6 +108,7 @@ class _MUIOutlinedBlockLevelButtonState
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
+          boxShadow: widget.boxShadows,
           border: Border.all(
             color: widget.borderColor,
             width: widget.borderWidth,
