@@ -14,7 +14,7 @@ class MUITextButton extends StatefulWidget {
     this.animationDuration = 250,
     this.widthFactor = 0.04,
     this.heightFactor = 0.03,
-    this.maxHorizontalPadding = 50,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,
