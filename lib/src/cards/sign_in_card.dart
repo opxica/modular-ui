@@ -217,6 +217,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
                     borderRadius: 5,
                     borderWidth: 1,
                     textColor: widget.accentColor,
+                    maxHorizontalPadding: 50,
                   ),
                   MUIOutlinedButton(
                     text: widget.secondAuthButtonText,
@@ -229,6 +230,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
                     borderRadius: 5,
                     borderWidth: 1,
                     textColor: widget.accentColor,
+                    maxHorizontalPadding: 50,
                   ),
                   // MUIOutlinedButton(
                   //   borderColor: widget.borderColor,

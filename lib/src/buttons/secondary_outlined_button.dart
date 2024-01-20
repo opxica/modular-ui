@@ -1,48 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUITextButton extends StatefulWidget {
-  const MUITextButton({
+class MUISecondaryOutlinedButton extends StatefulWidget {
+  const MUISecondaryOutlinedButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = Colors.grey,
+    this.bgColor = Colors.transparent,
+    this.tappedBgColor =  Colors.grey,
+    this.borderColor = Colors.grey,
+    this.borderWidth = 2,
     this.textColor = Colors.black,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
-    this.widthFactor = 0.04,
-    this.heightFactor = 0.03,
-    this.maxHorizontalPadding = 70,
+    this.maxHorizontalPadding = 50,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.black,
+    this.boxShadows,
   });
-  
+
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color when the text button is pressed, default: grey
+  /// Background Color of The Secondary Outlined Button,
   final Color bgColor;
 
-  /// Text Color of the Text Button, default: black
+  /// Background Color of The Secondary Outlined Button when tapped
+  final Color tappedBgColor;
+
+  /// Text Color of the Secondary Outlined Button, default : black
   final Color textColor;
 
-  /// Border Radius for Text Button, default: 10
+  /// Border Color for the outlined Button
+  final Color borderColor;
+
+  /// Border width, default : 2
+  final double borderWidth;
+
+  /// Border Radius for Secondary Outlined Button, default : 10
   final double borderRadius;
 
-  /// Animation Duration in Milliseconds, default: 250 ms
+  /// Animation Duration in Milliseconds, default : 250 ms
   final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
-
-  /// A double value which gets multiplied by the current screen width when button is pressed
-  final double widthFactor;
-
-  /// A double value which gets multiplied by the current screen height when button is pressed
-  final double heightFactor;
 
   /// A double value which determines maximum horizontal padding a button can accumulate
   /// Play with this value if you want to use the button on a larger screen size
@@ -60,19 +64,23 @@ class MUITextButton extends StatefulWidget {
   /// On Pressed Function
   final VoidCallback onPressed;
 
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
+
   @override
-  State<MUITextButton> createState() => _MUITextButtonState();
+  State<MUISecondaryOutlinedButton> createState() =>
+      _MUISecondaryOutlinedButtonState();
 }
 
-class _MUITextButtonState extends State<MUITextButton> {
-  bool _isTextButtonPressed = false;
-
+class _MUISecondaryOutlinedButtonState
+    extends State<MUISecondaryOutlinedButton> {
+  bool _isOutlinedButtonPressed = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isTextButtonPressed = true;
+          _isOutlinedButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -81,33 +89,28 @@ class _MUITextButtonState extends State<MUITextButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isTextButtonPressed = false;
+          _isOutlinedButtonPressed = false;
         });
       },
       onTapCancel: () {
         setState(() {
-          _isTextButtonPressed = false;
+          _isOutlinedButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: _isTextButtonPressed ? widget.bgColor : Colors.transparent,
-        ),
-        padding: EdgeInsets.symmetric(
-          horizontal: getScreenWidth(context) * widget.widthFactor,
-          vertical: getScreenWidth(context) * widget.heightFactor,
-        ).clamp(
-          const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 8,
-          ),
-           EdgeInsets.symmetric(
-            horizontal: widget.maxHorizontalPadding,
-            vertical: 16,
+          color: _isOutlinedButtonPressed ? widget.tappedBgColor : widget.bgColor ,
+          boxShadow: widget.boxShadows,
+          border: Border.all(
+            color: _isOutlinedButtonPressed
+                ? Colors.transparent
+                : widget.borderColor,
+            width: widget.borderWidth,
           ),
         ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -122,9 +125,7 @@ class _MUITextButtonState extends State<MUITextButton> {
             Text(
               widget.text,
               style: TextStyle(
-                color: widget.textColor,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: widget.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)

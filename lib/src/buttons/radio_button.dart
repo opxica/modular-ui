@@ -9,6 +9,7 @@ class MUIRadioButton extends StatelessWidget {
     this.onChanged,
     this.size = 20,
     this.fillWidget,
+    this.boxShadows,
   });
 
   ///Color of the radio button defaults to black
@@ -25,6 +26,9 @@ class MUIRadioButton extends StatelessWidget {
 
   ///The widget to fill the radio button with defaults to a circle with the color of the radio button
   final Widget? fillWidget;
+
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
 
   static Widget newYork({
     Color? color,
@@ -57,6 +61,7 @@ class MUIRadioButton extends StatelessWidget {
           color: Colors.black,
           width: 1,
         ),
+        boxShadow: boxShadows
       ),
       child: Material(
         color: Colors.transparent,

@@ -2,37 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable gradient block level button by ModularUI with optional icons.
-class MUIGradientBlockLevelButton extends StatefulWidget {
-  const MUIGradientBlockLevelButton(
-      {super.key,
-      required this.text,
-      required this.onPressed,
-      this.bgGradient =
-          const LinearGradient(colors: [Colors.black, Colors.grey]),
-      this.textColor = Colors.white,
-      this.borderRadius = 10,
-      this.hapticsEnabled = false,
-      this.animationDuration = 250,
-      this.widthFactorPressed = 0.95,
-      this.heightFactor = 0.05,
-      this.leadingIcon,
-      this.actionIcon,
-      this.iconColor = Colors.white,
-      this.widthFactor = 0.98,
-      this.boxShadows,
-      });
+/// A customizable secondary outlined block level button by ModularUI with optional icons.
+class MUISecondaryOutlinedBlockButton extends StatefulWidget {
+  const MUISecondaryOutlinedBlockButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.bgColor = Colors.transparent,
+    this.textColor = Colors.black,
+    this.borderColor = Colors.grey,
+    this.tappedBgColor = Colors.grey,
+    this.borderWidth = 2,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.heightFactor = 0.05,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.black,
+    this.widthFactor = 0.98,
+    this.boxShadows,
+  });
 
   /// The Text to display inside the button
   final String text;
 
-  /// Background Gradient of The Gradient Block Button, default: Black and grey
-  final Gradient bgGradient;
+  /// Background Color of The Outlined Block Button
+  final Color bgColor;
 
-  /// Text Color of the Gradient Block Button, default: white
+  /// Background Color of The Outlined Block Button
+  final Color tappedBgColor;
+
+  /// Text Color of the Outlined Block Button
   final Color textColor;
 
-  /// Border Radius for Gradient Block Button, default: 10
+  /// Border Color for the outlined Button
+  final Color borderColor;
+
+  /// Border width, default: 2
+  final double borderWidth;
+
+  /// Border Radius for Outlined Block Button, default: 10
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
@@ -41,14 +51,14 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
 
-  /// A double value which gets multiplied by the current screen width when button is pressed
-  final double widthFactorPressed;
-
   /// A double value which gets multiplied by the current screen height determines the height of the button
   final double heightFactor;
 
   /// A double value which gets multiplied with current screen width when button is not pressed
   final double widthFactor;
+
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
@@ -56,30 +66,27 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   /// Optional action icon for the button.
   final IconData? actionIcon;
 
-  /// Icon color for both leading and action icons, default: white.
+  /// Icon color for both leading and action icons, default: black.
   final Color iconColor;
-
-  /// On Pressed Function
-  final VoidCallback onPressed;
 
   /// Box shadows for button
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIGradientBlockLevelButton> createState() =>
-      _MUIGradientBlockLevelButtonState();
+  State<MUISecondaryOutlinedBlockButton> createState() =>
+      _MUISecondaryOutlinedBlockLevelButtonState();
 }
 
-class _MUIGradientBlockLevelButtonState
-    extends State<MUIGradientBlockLevelButton> {
-  bool _isGradientBlockLevelButtonPressed = false;
+class _MUISecondaryOutlinedBlockLevelButtonState
+    extends State<MUISecondaryOutlinedBlockButton> {
+  bool _isOutlinedBlockLevelButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isGradientBlockLevelButtonPressed = true;
+          _isOutlinedBlockLevelButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -88,24 +95,28 @@ class _MUIGradientBlockLevelButtonState
       },
       onTapUp: (_) {
         setState(() {
-          _isGradientBlockLevelButtonPressed = false;
+          _isOutlinedBlockLevelButtonPressed = false;
         });
       },
       onTapCancel: () {
         setState(() {
-          _isGradientBlockLevelButtonPressed = false;
+          _isOutlinedBlockLevelButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          gradient: widget.bgGradient,
-          boxShadow: widget.boxShadows
+          color: _isOutlinedBlockLevelButtonPressed ? widget.tappedBgColor : widget.bgColor,
+          boxShadow: widget.boxShadows,
+          border: Border.all(
+            color: _isOutlinedBlockLevelButtonPressed
+                ? widget.tappedBgColor
+                : widget.borderColor,
+            width: widget.borderWidth,
+          ),
         ),
-        width: _isGradientBlockLevelButtonPressed
-            ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context) * widget.widthFactor,
+        width: getScreenWidth(context) * widget.widthFactor,
         height: getScreenHeight(context) * widget.heightFactor,
         child: Center(
           child: Row(

@@ -7,7 +7,8 @@ class MUIGradientButton extends StatefulWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgGradient = const LinearGradient(colors: [Colors.black, Color.fromARGB(255, 61, 61, 61)]),
+    this.bgGradient = const LinearGradient(
+        colors: [Colors.black, Color.fromARGB(255, 61, 61, 61)]),
     this.textColor = Colors.white,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
@@ -16,10 +17,11 @@ class MUIGradientButton extends StatefulWidget {
     this.widthFactorPressed = 0.035,
     this.heightFactorUnPressed = 0.03,
     this.heightFactorPressed = 0.03,
-    this.maxHorizontalPadding = 50,
+    this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,
+    this.boxShadows,
   });
 
   /// The Text to display inside the button
@@ -68,6 +70,9 @@ class MUIGradientButton extends StatefulWidget {
   /// On Pressed Function
   final VoidCallback onPressed;
 
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUIGradientButton> createState() => _MUIGradientButtonState();
 }
@@ -102,6 +107,7 @@ class _MUIGradientButtonState extends State<MUIGradientButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           gradient: widget.bgGradient,
+          boxShadow: widget.boxShadows,
         ),
         padding: EdgeInsets.symmetric(
           horizontal: _isGradientButtonPressed

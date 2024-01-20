@@ -87,11 +87,11 @@ class _MUISecondaryButtonState extends State<MUISeconaryButton> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          color:
-              _isSecondaryButtonPressed ? widget.tappedBgColor : widget.bgColor,
-          boxShadow: widget.boxShadows
-        ),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            color: _isSecondaryButtonPressed
+                ? widget.tappedBgColor
+                : widget.bgColor,
+            boxShadow: widget.boxShadows),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         child: Row(
           mainAxisSize: MainAxisSize.min,

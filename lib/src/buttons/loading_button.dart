@@ -22,6 +22,7 @@ class MUILoadingButton extends StatefulWidget {
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,
+    this.boxShadows,
   });
 
   /// Text for Loading Button
@@ -78,6 +79,9 @@ class MUILoadingButton extends StatefulWidget {
 
   /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
+
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
 
   @override
   State<MUILoadingButton> createState() => _MUILoadingButtonState();
@@ -166,8 +170,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 15),
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
                       width: 18,
                       height: 18,
                       child: CircularProgressIndicator(
