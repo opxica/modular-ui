@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable gradient block level button by ModularUI with optional icons.
-class MUIGradientBlockLevelButton extends StatefulWidget {
-  const MUIGradientBlockLevelButton(
+class MUIGradientBlockButton extends StatefulWidget {
+  const MUIGradientBlockButton(
       {super.key,
       required this.text,
       required this.onPressed,
@@ -66,12 +66,12 @@ class MUIGradientBlockLevelButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIGradientBlockLevelButton> createState() =>
-      _MUIGradientBlockLevelButtonState();
+  State<MUIGradientBlockButton> createState() =>
+      _MUIGradientBlockButtonState();
 }
 
-class _MUIGradientBlockLevelButtonState
-    extends State<MUIGradientBlockLevelButton> {
+class _MUIGradientBlockButtonState
+    extends State<MUIGradientBlockButton> {
   bool _isGradientBlockLevelButtonPressed = false;
 
   @override

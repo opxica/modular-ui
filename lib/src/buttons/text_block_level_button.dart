@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable text block level button by ModularUI with optional icons.
-class MUITextBlockLevelButton extends StatefulWidget {
-  const MUITextBlockLevelButton({
+class MUITextBlockButton extends StatefulWidget {
+  const MUITextBlockButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -57,11 +57,10 @@ class MUITextBlockLevelButton extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  State<MUITextBlockLevelButton> createState() =>
-      _MUITextBlockLevelButtonState();
+  State<MUITextBlockButton> createState() => _MUITextBlockButtonState();
 }
 
-class _MUITextBlockLevelButtonState extends State<MUITextBlockLevelButton> {
+class _MUITextBlockButtonState extends State<MUITextBlockButton> {
   bool _isTextBlockLevelButtonPressed = false;
 
   @override

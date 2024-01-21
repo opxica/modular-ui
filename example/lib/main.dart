@@ -15,7 +15,13 @@ class MyApp extends StatelessWidget {
       title: 'Example',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFFa2d2ff),
+        primaryColor: const Color(0xFFa2d2ff),
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
+        ),
         useMaterial3: true,
       ),
       home: const Home(),

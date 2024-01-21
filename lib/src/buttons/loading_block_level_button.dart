@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable loading block level button by ModularUI with optional icons.
-class MUILoadingBlockLevelButton extends StatefulWidget {
-  const MUILoadingBlockLevelButton({
+class MUILoadingBlockButton extends StatefulWidget {
+  const MUILoadingBlockButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -76,12 +76,12 @@ class MUILoadingBlockLevelButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUILoadingBlockLevelButton> createState() =>
-      _MUILoadingBlockLevelButtonState();
+  State<MUILoadingBlockButton> createState() =>
+      _MUILoadingBlockButtonState();
 }
 
-class _MUILoadingBlockLevelButtonState
-    extends State<MUILoadingBlockLevelButton> {
+class _MUILoadingBlockButtonState
+    extends State<MUILoadingBlockButton> {
   bool _isLoadingBlockLevelButtonPressed = false;
 
   void _startLoading() {
