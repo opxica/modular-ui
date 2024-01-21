@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /// A customizable Secondary button by ModularUI with optional icons.
-class MUISeconaryButton extends StatefulWidget {
-  const MUISeconaryButton({
+class MUISecondaryButton extends StatefulWidget {
+  const MUISecondaryButton({
     Key? key,
     required this.text,
     required this.onPressed,
@@ -56,10 +56,10 @@ class MUISeconaryButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUISeconaryButton> createState() => _MUISecondaryButtonState();
+  State<MUISecondaryButton> createState() => _MUISecondaryButtonState();
 }
 
-class _MUISecondaryButtonState extends State<MUISeconaryButton> {
+class _MUISecondaryButtonState extends State<MUISecondaryButton> {
   bool _isSecondaryButtonPressed = false;
 
   @override

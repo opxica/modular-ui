@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable outlined block level button by ModularUI with optional icons.
-class MUIOutlinedBlockLevelButton extends StatefulWidget {
-  const MUIOutlinedBlockLevelButton({
+class MUIOutlinedBlockButton extends StatefulWidget {
+  const MUIOutlinedBlockButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -73,12 +73,12 @@ class MUIOutlinedBlockLevelButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIOutlinedBlockLevelButton> createState() =>
-      _MUIOutlinedBlockLevelButtonState();
+  State<MUIOutlinedBlockButton> createState() =>
+      _MUIOutlinedBlockButtonState();
 }
 
-class _MUIOutlinedBlockLevelButtonState
-    extends State<MUIOutlinedBlockLevelButton> {
+class _MUIOutlinedBlockButtonState
+    extends State<MUIOutlinedBlockButton> {
   bool _isOutlinedBlockLevelButtonPressed = false;
 
   @override

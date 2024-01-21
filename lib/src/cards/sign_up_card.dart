@@ -177,7 +177,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
             ),
             SizedBox(height: getScreenHeight(context) * 0.03),
             Center(
-              child: MUILoadingBlockLevelButton(
+              child: MUILoadingBlockButton(
                   text: 'Sign up',
                   bgColor: widget.accentColor,
                   textColor: widget.bgColor,

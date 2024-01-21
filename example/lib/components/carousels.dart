@@ -1,3 +1,4 @@
+import 'package:example/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 
@@ -15,17 +16,6 @@ class _Carousels extends StatefulWidget {
 class __CarouselsState extends State<_Carousels> {
   @override
   Widget build(BuildContext context) {
-    Widget text(String text) {
-      return Text(
-        text,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-        ),
-        textAlign: TextAlign.center,
-      );
-    }
-
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
