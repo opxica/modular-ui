@@ -70,7 +70,7 @@ class _MUIParallexCarousalState extends State<MUIParallexCarousal> {
       } else {
         currentIndex = 0;
       }
-      _pageController!.animateToPage(
+      _pageController.animateToPage(
         currentIndex,
         duration: widget.swipeDuration!,
         curve: widget.curve!,
@@ -87,7 +87,7 @@ class _MUIParallexCarousalState extends State<MUIParallexCarousal> {
 
   @override
   void dispose() {
-    _pageController!.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -170,7 +170,7 @@ class _MUIParallexCarousalState extends State<MUIParallexCarousal> {
                                 } else {
                                   currentIndex = widget.images.length - 1;
                                 }
-                                _pageController!.animateToPage(
+                                _pageController.animateToPage(
                                   currentIndex,
                                   duration: widget.swipeDuration!,
                                   curve: widget.curve!,
@@ -194,7 +194,7 @@ class _MUIParallexCarousalState extends State<MUIParallexCarousal> {
                                 } else {
                                   currentIndex = 0;
                                 }
-                                _pageController!.animateToPage(
+                                _pageController.animateToPage(
                                   currentIndex,
                                   duration: widget.swipeDuration!,
                                   curve: widget.curve!,
