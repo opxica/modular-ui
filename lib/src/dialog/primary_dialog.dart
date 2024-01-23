@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MUIPrimaryDialog extends StatefulWidget {
+class MUIPrimaryDialog {
   const MUIPrimaryDialog({
-    super.key,
     required this.ctaText,
     required this.titleText,
     required this.contentText,
@@ -89,120 +88,85 @@ class MUIPrimaryDialog extends StatefulWidget {
 // border color of the secondary button [default: black54]
   final Color? secondaryCtaBorderColor;
 
-  @override
-  State<MUIPrimaryDialog> createState() => _MUIPrimaryDialogState();
-}
-
-class _MUIPrimaryDialogState extends State<MUIPrimaryDialog> {
-  @override
-  Widget build(BuildContext context) {
-    // inkwell to have add the onTap functionality to the button
-    return InkWell(
-      onTap: () => showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          // change the shape of the dialog box to bordered rect
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              widget.dialogRadius ?? 5,
-            ),
+  Future<dynamic> showDialogBox(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        // change the shape of the dialog box to bordered rect
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            dialogRadius ?? 5,
           ),
-          backgroundColor: widget.dialogBackgroundColor ?? Colors.white,
-          surfaceTintColor: widget.dialogBackgroundColor ?? Colors.white,
+        ),
+        backgroundColor: dialogBackgroundColor ?? Colors.white,
+        surfaceTintColor: dialogBackgroundColor ?? Colors.white,
 
-          // title text of the dialog
-          title: Text(
-            widget.titleText,
-            style: widget.titleStyle ??
-                const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                ),
-          ),
-
-          // content text of the dialog
-          content: Text(
-            widget.contentText,
-            style:
-                widget.contentStyle ?? const TextStyle(color: Colors.black54),
-          ),
-
-          // action buttons of the dialog
-          actions: [
-            // secondary button
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 20,
-                ),
-                elevation: 0,
-                backgroundColor:
-                    widget.secondaryCtaBackgroundColor ?? Colors.white,
-                foregroundColor:
-                    widget.secondaryCtaForegroundColor ?? Colors.black,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: widget.secondaryCtaBorderColor ?? Colors.black38,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
+        // title text of the dialog
+        title: Text(
+          titleText,
+          style: titleStyle ??
+              const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
               ),
+        ),
 
-              // secondary onTap
-              onPressed: widget.secondaryOnPressed,
-              // secondary cta text
-              child: Text(widget.secondaryCta),
+        // content text of the dialog
+        content: Text(
+          contentText,
+          style: contentStyle ?? const TextStyle(color: Colors.black54),
+        ),
+
+        // action buttons of the dialog
+        actions: [
+          // secondary button
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 20,
+              ),
+              elevation: 0,
+              backgroundColor: secondaryCtaBackgroundColor ?? Colors.white,
+              foregroundColor: secondaryCtaForegroundColor ?? Colors.black,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  color: secondaryCtaBorderColor ?? Colors.black38,
+                ),
+                borderRadius: BorderRadius.circular(5),
+              ),
             ),
 
-            // primary button
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 20,
-                ),
-                elevation: 0,
-                backgroundColor:
-                    widget.primaryCtaForegroundColor ?? Colors.black,
-                foregroundColor:
-                    widget.primaryCtaForegroundColor ?? Colors.white,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: widget.primaryCtaBorderColor ?? Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-
-              // primary onTap
-              onPressed: widget.primaryOnPressed,
-              // primary cta text
-              child: Text(widget.primaryCta),
-            )
-          ],
-        ),
-      ),
-
-      // button that opens the dialog
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
-        decoration: BoxDecoration(
-          color: widget.buttonBackgroundColor ?? Colors.white,
-          borderRadius: BorderRadius.circular(widget.buttonRadius ?? 0),
-          border: Border.all(
-            width: widget.buttonBorderWidth ?? 1,
-            color: widget.buttonBorderColor ?? Colors.black,
+            // secondary onTap
+            onPressed: secondaryOnPressed,
+            // secondary cta text
+            child: Text(secondaryCta),
           ),
-        ),
 
-        // cta text
-        child: Text(
-          widget.ctaText,
-        ),
+          // primary button
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 20,
+              ),
+              elevation: 0,
+              backgroundColor: primaryCtaForegroundColor ?? Colors.black,
+              foregroundColor: primaryCtaForegroundColor ?? Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  color: primaryCtaBorderColor ?? Colors.black,
+                ),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+
+            // primary onTap
+            onPressed: primaryOnPressed,
+            // primary cta text
+            child: Text(primaryCta),
+          )
+        ],
       ),
     );
   }
