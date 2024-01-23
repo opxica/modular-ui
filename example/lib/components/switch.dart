@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:example/widgets/text.dart';
 import 'package:modular_ui/modular_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -22,20 +23,12 @@ class _SwitchesState extends State<_Switches> {
   bool value2 = false;
   @override
   Widget build(BuildContext context) {
-    Widget text(String text) {
-      return Text(
-        text,
-        style: TextStyle(
-          fontSize: 16,
-        ),
-      );
-    }
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        /// Custom Switch
         text("Custom Switch"),
-        SizedBox(height: 5),
+        SizedBox(height: 6),
         MUISwitch(
           width: 150,
           onStateCol: Colors.green,
@@ -48,18 +41,22 @@ class _SwitchesState extends State<_Switches> {
             value0 = value;
           }),
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 16),
+
+        /// Default Switch
         text("Default Switch"),
-        SizedBox(height: 5),
+        SizedBox(height: 6),
         MUISwitch(
           checked: value1,
           onChanged: (value) => setState(() {
             value1 = value;
           }),
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 16),
+
+        /// New York Switch
         text("New York Switch"),
-        SizedBox(height: 5),
+        SizedBox(height: 6),
         MUISwitch.newYork(
           checked: value2,
           onChanged: (value) => setState(() {
