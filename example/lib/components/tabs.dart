@@ -7,11 +7,11 @@ Widget tabsComponent() {
   ValueNotifier<int> underlinedTabIndexNotifier = ValueNotifier(0);
   ValueNotifier<int> verticalTabIndexNotifier = ValueNotifier(0);
   return Container(
-    color: Color.fromARGB(255, 248, 250, 252),
+    color: const Color.fromARGB(255, 248, 250, 252),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Default"),
+        const Text("Default"),
         ValueListenableBuilder(
             valueListenable: tabIndexNotifier,
             builder: (context, tabIndex, child) {
@@ -29,10 +29,10 @@ Widget tabsComponent() {
                 ],
               );
             }),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Text("Transparent"),
+        const Text("Transparent"),
         ValueListenableBuilder(
             valueListenable: transparentTabIndexNotifier,
             builder: (context, tIndex, child) {
@@ -50,10 +50,10 @@ Widget tabsComponent() {
                 ],
               );
             }),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Text("Underlined"),
+        const Text("Underlined"),
         ValueListenableBuilder(
             valueListenable: underlinedTabIndexNotifier,
             builder: (context, tIndex, child) {
@@ -71,10 +71,10 @@ Widget tabsComponent() {
                 ],
               );
             }),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Text("Vertical"),
+        const Text("Vertical"),
         ValueListenableBuilder(
             valueListenable: verticalTabIndexNotifier,
             builder: (context, tabIndex, child) {
