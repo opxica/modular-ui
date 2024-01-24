@@ -110,7 +110,7 @@ class _MUISecondaryOutlinedButtonState
             width: widget.borderWidth,
           ),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
