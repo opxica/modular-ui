@@ -73,12 +73,12 @@ class _MUITextBlockButtonState extends State<MUITextBlockButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
           _isTextBlockLevelButtonPressed = false;
         });
+        widget.onPressed();
       },
       onTapCancel: () {
         setState(() {

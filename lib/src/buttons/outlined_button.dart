@@ -96,12 +96,12 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
           _isOutlinedButtonPressed = false;
         });
+        widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
