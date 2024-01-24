@@ -117,6 +117,7 @@ class _ButtonsViewState extends State<ButtonsView> {
           text("Secondary Outlined Button"),
           const SizedBox(height: 6),
           MUISecondaryOutlinedButton(
+            bgColor: Colors.white,
             text: "Secondary Outlined Button",
             onPressed: () => onButtonPressed("Secondary Outline Button"),
           ),

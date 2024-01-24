@@ -6,10 +6,9 @@ class MUISecondaryOutlinedButton extends StatefulWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = Colors.transparent,
-    this.tappedBgColor =  Colors.grey,
+    required this.bgColor,
     this.borderColor = Colors.grey,
-    this.borderWidth = 2,
+    this.borderWidth = 1.5,
     this.textColor = Colors.black,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
@@ -24,19 +23,16 @@ class MUISecondaryOutlinedButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Secondary Outlined Button,
-  final Color bgColor;
-
-  /// Background Color of The Secondary Outlined Button when tapped
-  final Color tappedBgColor;
-
   /// Text Color of the Secondary Outlined Button, default : black
   final Color textColor;
 
-  /// Border Color for the outlined Button
+  /// Border Color for the outlined Button also equals to background color when button is tapped
   final Color borderColor;
 
-  /// Border width, default : 2
+  /// Background color of secondary outlined button
+  final Color bgColor;
+
+  /// Border width, default : 1.5
   final double borderWidth;
 
   /// Border Radius for Secondary Outlined Button, default : 10
@@ -85,12 +81,12 @@ class _MUISecondaryOutlinedButtonState
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
           _isOutlinedButtonPressed = false;
         });
+        widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
@@ -101,12 +97,10 @@ class _MUISecondaryOutlinedButtonState
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: _isOutlinedButtonPressed ? widget.tappedBgColor : widget.bgColor ,
+          color: _isOutlinedButtonPressed ? widget.borderColor : widget.bgColor,
           boxShadow: widget.boxShadows,
           border: Border.all(
-            color: _isOutlinedButtonPressed
-                ? Colors.transparent
-                : widget.borderColor,
+            color: widget.borderColor,
             width: widget.borderWidth,
           ),
         ),
