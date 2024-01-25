@@ -80,6 +80,55 @@ Widget card() {
 
       const SizedBox(height: 16.0),
 
+      /// Pricing Card
+      text("Princing Card"),
+      const SizedBox(height: 6),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: MUIPricingCard(
+          title: "Standard",
+          duration: MUIPricingDuration.monthly,
+          currency: MUIPricingCurrency.dollar,
+          onPressed: () {},
+          bgColor: const Color(0xFF37373C),
+          amount: 29,
+          items: const [
+            MUIPricingCardItems(
+                icon: Icon(
+                  Icons.check_box_rounded,
+                  color: Colors.white,
+                ),
+                title: " 5 team members"),
+            MUIPricingCardItems(
+                icon: Icon(
+                  Icons.check_box_rounded,
+                  color: Colors.white,
+                ),
+                title: "200+ components"),
+            MUIPricingCardItems(
+                icon: Icon(
+                  Icons.check_box_rounded,
+                  color: Colors.white,
+                ),
+                title: "40+ built-in pages"),
+            MUIPricingCardItems(
+                icon: Icon(
+                  Icons.check_box_rounded,
+                  color: Colors.white,
+                ),
+                title: "1 year free updates"),
+            MUIPricingCardItems(
+                icon: Icon(
+                  Icons.check_box_rounded,
+                  color: Colors.white,
+                ),
+                title: "Life time technical support"),
+          ],
+        ),
+      ),
+
+      const SizedBox(height: 16.0),
+
       /// Sign in card
       text("Sign in card"),
       const SizedBox(height: 6),
