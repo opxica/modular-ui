@@ -6,22 +6,23 @@ Widget dialog(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       MUISecondaryOutlinedButton(
-        text: 'Secondary Outlined Button',
+        text: 'Show Dialog Box',
         borderColor: Colors.grey.shade300,
         bgColor: Colors.white,
         onPressed: () {
           MUIPrimaryDialog(
-              titleText: 'titleText',
-              contentText: 'contentText',
+              titleText: 'Alert Dialog',
+              contentText:
+                  'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
               buttonsAlignment: MainAxisAlignment.spaceEvenly,
               buttons: [
                 MUISecondaryButton(
-                    text: 'Button 1',
+                    text: 'Cancel',
                     onPressed: () {
                       Navigator.pop(context);
                     }),
                 MUISecondaryOutlinedButton(
-                  text: 'Button 2',
+                  text: 'Done',
                   onPressed: () {},
                   bgColor: Colors.grey.shade200,
                   borderColor: Colors.grey.shade300,
