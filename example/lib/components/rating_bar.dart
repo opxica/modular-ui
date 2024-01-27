@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 
-Widget ratingbar() {
-  return Column(
+Widget ratingBar() {
+  return const Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Row(
