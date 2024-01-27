@@ -18,7 +18,9 @@ Widget card() {
           description:
               'The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona',
           image: Image.network(
-              'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80'),
+            'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+            fit: BoxFit.cover,
+          ),
           buttonText: 'Read more',
         ),
       ),
@@ -73,15 +75,17 @@ Widget card() {
           onBlogCardTap: () {},
           description:
               "Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
-          imageLink:
+          image:Image.network(
               'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
+              fit: BoxFit.cover,
+          ),
         ),
       ),
 
       const SizedBox(height: 16.0),
 
       /// Pricing Card
-      text("Princing Card"),
+      text("Pricing Card"),
       const SizedBox(height: 6),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -140,7 +144,7 @@ Widget card() {
           onFirstAuthButtonPressed: () {},
           onSecondAuthButtonPressed: () {},
           onRegisterNow: () {},
-          onSigninPressed: () async {
+          onSignInPressed: () async {
             await Future.delayed(const Duration(seconds: 2));
           },
           firstAuthButtonText: 'Apple',

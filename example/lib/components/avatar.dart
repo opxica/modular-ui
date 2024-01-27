@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 
 Widget avatar() {
-  return const _Avatars();
+  return const Avatars();
 }
 
-class _Avatars extends StatefulWidget {
-  const _Avatars({super.key});
+class Avatars extends StatefulWidget {
+  const Avatars({super.key});
 
   @override
-  State<_Avatars> createState() => __AvatarsState();
+  State<Avatars> createState() => _AvatarsState();
 }
 
-class __AvatarsState extends State<_Avatars> {
+class _AvatarsState extends State<Avatars> {
   @override
   Widget build(BuildContext context) {
     Widget text(String text) {

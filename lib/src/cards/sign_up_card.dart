@@ -4,6 +4,29 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A sign up card with OAuth support provided by ModularUI
 class MUISignUpCard extends StatefulWidget {
+  const MUISignUpCard({
+    super.key,
+    required this.emailController,
+    required this.passwordController,
+    required this.confirmPasswordController,
+    required this.onSignUpPressed,
+    this.bgColor = Colors.black,
+    this.borderColor = Colors.grey,
+    this.accentColor = Colors.white,
+    this.borderWidth = 1.5,
+    this.borderRadius = 12,
+    this.authButtonIconColor = Colors.white,
+    this.authButtonTextColor = Colors.white,
+    this.maxWidth = 430,
+    required this.firstAuthButtonText,
+    required this.secondAuthButtonText,
+    required this.firstAuthIcon,
+    required this.secondAuthIcon,
+    required this.onFirstAuthButtonPressed,
+    required this.onSecondAuthButtonPressed,
+    required this.onLogInNowPressed,
+  });
+
   /// Text Editing Controller for email
   final TextEditingController emailController;
 
@@ -31,10 +54,10 @@ class MUISignUpCard extends StatefulWidget {
   /// Future Function to be passed on sign up, must be an awaited function
   final Future Function() onSignUpPressed;
 
-  /// Function when first auth button is presssed
+  /// Function when first auth button is pressed
   final VoidCallback onFirstAuthButtonPressed;
 
-  /// Function when second auth button is presssed
+  /// Function when second auth button is pressed
   final VoidCallback onSecondAuthButtonPressed;
 
   /// First auth button text
@@ -62,29 +85,6 @@ class MUISignUpCard extends StatefulWidget {
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
-
-  const MUISignUpCard({
-    super.key,
-    required this.emailController,
-    required this.passwordController,
-    required this.confirmPasswordController,
-    required this.onSignUpPressed,
-    this.bgColor = Colors.black,
-    this.borderColor = Colors.grey,
-    this.accentColor = Colors.white,
-    this.borderWidth = 1.5,
-    this.borderRadius = 12,
-    this.authButtonIconColor = Colors.white,
-    this.authButtonTextColor = Colors.white,
-    this.maxWidth = 430,
-    required this.firstAuthButtonText,
-    required this.secondAuthButtonText,
-    required this.firstAuthIcon,
-    required this.secondAuthIcon,
-    required this.onFirstAuthButtonPressed,
-    required this.onSecondAuthButtonPressed,
-    required this.onLogInNowPressed,
-  });
 
   @override
   State<MUISignUpCard> createState() => _MUISignUpCardState();
@@ -191,8 +191,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                   }),
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: getScreenWidth(context) * 0.02),
+              margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -205,7 +204,6 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                       thickness: 0.35,
                     ),
                   ),
-                  SizedBox(height: getScreenHeight(context) * 0.05),
                   Text(' OR CONTINUE WITH ',
                       style: TextStyle(
                         color: widget.accentColor,

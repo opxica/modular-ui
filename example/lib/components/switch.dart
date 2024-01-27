@@ -5,19 +5,19 @@ import 'package:modular_ui/modular_ui.dart';
 import 'package:flutter/material.dart';
 
 Widget switchComponent() {
-  return _Switches();
+  return Switches();
 }
 
-class _Switches extends StatefulWidget {
-  const _Switches({
+class Switches extends StatefulWidget {
+  const Switches({
     super.key,
   });
 
   @override
-  State<_Switches> createState() => _SwitchesState();
+  State<Switches> createState() => _SwitchesState();
 }
 
-class _SwitchesState extends State<_Switches> {
+class _SwitchesState extends State<Switches> {
   bool value0 = false;
   bool value1 = false;
   bool value2 = false;

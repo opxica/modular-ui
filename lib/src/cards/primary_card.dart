@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:modular_ui/constants/shadows.dart';
 import 'package:modular_ui/src/buttons/primary_button.dart';
-import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIPrimaryCard extends StatefulWidget {
   const MUIPrimaryCard({
@@ -15,7 +15,7 @@ class MUIPrimaryCard extends StatefulWidget {
     this.imageRadius = 8,
     this.horizontalMargin = 0,
     this.verticalMargin = 0,
-    this.maxWidth = 430,
+    this.aspectRatio = 16 / 9,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
       color: Colors.grey,
@@ -62,10 +62,8 @@ class MUIPrimaryCard extends StatefulWidget {
   /// On Button Function
   final VoidCallback onButtonPressed;
 
-  /// max width of the card, width of the card can not exceed this value
-  /// If the screen width is less than this value then the widget will be responsive to the screen size
-  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
-  final double maxWidth;
+  /// AspectRatio of Image to be shown
+  final double aspectRatio;
 
   @override
   State<MUIPrimaryCard> createState() => _MUIPrimaryCardState();
@@ -75,15 +73,12 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getScreenWidth(context) <= widget.maxWidth
-          ? getScreenWidth(context) * 0.88
-          : widget.maxWidth,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.green.withOpacity(0.1),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -93,44 +88,45 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
         vertical: widget.verticalMargin,
         horizontal: widget.horizontalMargin,
       ),
-      child: IntrinsicHeight(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: DecoratedBox(
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.4),
-                    blurRadius: 12,
-                    offset: const Offset(2, 4),
+          children: <Widget>[
+            IntrinsicHeight(
+              child: IntrinsicWidth(
+                child: DecoratedBox(
+                  decoration: const BoxDecoration(
+                    boxShadow: mUILightBigShadow,
                   ),
-                ]),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(widget.imageRadius),
-                  child: widget.image,
+                  child: AspectRatio(
+                    aspectRatio: widget.aspectRatio,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(widget.imageRadius),
+                      child: widget.image,
+                    ),
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(widget.title, style: widget.titleStyle),
-                  const SizedBox(height: 8),
-                  Text(
-                    widget.description,
-                    style: widget.descriptionStyle,
-                  ),
-                  const SizedBox(height: 8),
-                  MUIPrimaryButton(
-                    text: widget.buttonText,
-                    onPressed: widget.onButtonPressed,
-                  ),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  widget.title,
+                  style: widget.titleStyle,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  widget.description,
+                  style: widget.descriptionStyle,
+                ),
+                const SizedBox(height: 8),
+                MUIPrimaryButton(
+                  text: widget.buttonText,
+                  onPressed: widget.onButtonPressed,
+                ),
+              ],
             ),
           ],
         ),
