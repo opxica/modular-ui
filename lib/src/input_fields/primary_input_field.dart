@@ -20,7 +20,7 @@ class MUIPrimaryInputField extends StatefulWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.suffixIconOnPressed,
-    this.prefixIconPressed,
+    this.prefixIconOnPressed,
   });
 
   /// A double value which gets multiplied with current screen width determines the width of text field
@@ -69,7 +69,7 @@ class MUIPrimaryInputField extends StatefulWidget {
   final IconData? prefixIcon;
 
   /// Function for prefix icon if required
-  final VoidCallback? prefixIconPressed;
+  final VoidCallback? prefixIconOnPressed;
 
   @override
   State<MUIPrimaryInputField> createState() => _MUIPrimaryInputField();
@@ -93,7 +93,7 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
             icon: Icon(widget.suffixIcon),
           ),
           prefixIcon: IconButton(
-            onPressed: widget.prefixIconPressed,
+            onPressed: widget.prefixIconOnPressed,
             icon: Icon(widget.prefixIcon),
           ),
           filled: true,
