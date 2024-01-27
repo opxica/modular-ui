@@ -13,7 +13,7 @@ class MUIPrimaryInputField extends StatefulWidget {
     this.borderWidth = 1.5,
     this.disabledBorderColor = Colors.grey,
     this.enabledBorderColor = Colors.black,
-    this.cursorColor = Colors.black,
+    this.cursorColor = Colors.grey,
     this.textStyle = const TextStyle(),
     this.hintStyle = const TextStyle(fontWeight: FontWeight.w400),
     this.isObscure = false,
