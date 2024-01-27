@@ -41,6 +41,8 @@ class __SliderState extends State<_Slider> {
             thumbColor: Colors.white,
             onChanged: (value) {
               setState(() {
+                // IN_DEV_MODE: 
+                // ignore: avoid_print
                 print(value);
               });
             },

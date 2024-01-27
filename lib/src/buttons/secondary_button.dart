@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 /// A customizable Secondary button by ModularUI with optional icons.
 class MUISecondaryButton extends StatefulWidget {
   const MUISecondaryButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.boxShadows,
@@ -17,7 +17,7 @@ class MUISecondaryButton extends StatefulWidget {
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,
-  }) : super(key: key);
+  });
 
   /// The Text to display inside the button.
   final String text;
