@@ -52,7 +52,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
   - [X] Profile Card
   - [X] Sign in Card
   - [X] Sign up Card
-  - [ ] Pricing Card
+  - [X] Pricing Card
   - [X] Blog Card
   - [ ] Blog Card With Background
   - [ ] Booking Card
@@ -66,10 +66,8 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 - [ ] Drawer
 - [X] Footer
 - [ ] Form
-- [ ] Input Fields
+- [X] Input Fields
   - [X] Primary Input Field
-  - [ ] Input With Icon
-  - [ ] Input With Button
 - [X] List Tile
 - [ ] Navbar
 - [ ] Popover

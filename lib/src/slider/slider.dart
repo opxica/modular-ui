@@ -3,7 +3,7 @@ import 'package:modular_ui/src/slider/components/custom_slider_thumb_shape.dart'
 
 class MUISlider extends StatefulWidget {
   const MUISlider(
-      {Key? key,
+      {super.key,
       this.height = 5,
       this.inactiveColor = const Color(0xffECEFF1),
       this.activeColor = Colors.black,
@@ -15,9 +15,10 @@ class MUISlider extends StatefulWidget {
       this.onChangeStart,
       this.onChangeEnd})
       : assert(min <= max),
-        assert(value >= min && value <= max,
-            'Value $value is not between minimum $min and maximum $max'),
-        super(key: key);
+        assert(
+          value >= min && value <= max,
+          'Value $value is not between minimum $min and maximum $max',
+        );
 
   /// Height for Slider ; default: 5
   final double? height;

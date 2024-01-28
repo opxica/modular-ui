@@ -5,8 +5,8 @@ import 'package:example/components/cards.dart';
 import 'package:example/components/carousels.dart';
 import 'package:example/components/checkbox.dart';
 import 'package:example/components/footer.dart';
-import 'package:example/components/listtile.dart';
-import 'package:example/components/ratingbar.dart';
+import 'package:example/components/list_tile.dart';
+import 'package:example/components/rating_bar.dart';
 import 'package:example/components/slider.dart';
 import 'package:example/components/switch.dart';
 import 'package:example/components/tabs.dart';
@@ -19,7 +19,7 @@ class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  _HomeState createState() => _HomeState();
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
@@ -64,15 +64,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       },
       {
         'name': 'Rating Bar',
-        'route': ratingbar(),
+        'route': ratingBar(),
       },
       {
         'name': 'List Tile',
-        'route': listtile(),
-      },
-      {
-        'name': 'Footer',
-        'route': footer(),
+        'route': listTile(),
       },
       {
         'name': 'textfield',
@@ -85,6 +81,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       {
         'name': 'slider',
         'route': slider(),
+      },
+      {
+        'name': 'Footer',
+        'route': footer(),
       },
     ];
     _tabController = TabController(length: components.length, vsync: this);
@@ -99,11 +99,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text('Modular UI'),
         bottom: TabBar(
+          indicatorColor: Colors.black87,
+          labelColor: Colors.black87,
           isScrollable: true,
           controller: _tabController,
           tabs: components.map((e) => Tab(text: e['name'])).toList(),

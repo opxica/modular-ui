@@ -81,12 +81,12 @@ class _MUISecondaryBlockButtonState extends State<MUISecondaryBlockButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
           _isSecondaryBlockLevelButtonPressed = false;
         });
+        widget.onPressed();
       },
       onTapCancel: () {
         setState(() {

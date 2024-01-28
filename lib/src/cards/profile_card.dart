@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:modular_ui/constants/shadows.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIProfileCard extends StatefulWidget {
-  const MUIProfileCard({
-    super.key,
-    required this.name,
-    required this.imageUrl,
-    required this.designation,
-    this.maxWidth = 430,
-    this.socialIcons = const [],
-    this.borderRadius = 16,
-    this.bgColor = Colors.white,
-    this.nameStyle = const TextStyle(
-      fontSize: 18,
-      color: Colors.black,
-      fontWeight: FontWeight.bold,
-    ),
-    this.designationStyle = const TextStyle(
-      fontSize: 16,
-      color: Colors.black,
-    ),
-  });
+  const MUIProfileCard(
+      {super.key,
+      required this.name,
+      required this.image,
+      required this.designation,
+      this.socialIcons = const [],
+      this.borderRadius = 8,
+      this.bgColor = Colors.white,
+      this.nameStyle = const TextStyle(
+        fontSize: 18,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      ),
+      this.designationStyle = const TextStyle(
+        fontSize: 16,
+        color: Colors.black,
+      ),
+      this.maxWidth = 430});
 
-  /// Url for profile image
-  final String imageUrl;
+  /// Profile image
+  final Image image;
 
   /// Name of the person
   final String name;
@@ -58,43 +58,34 @@ class MUIProfileCard extends StatefulWidget {
 class _MUIProfileCardState extends State<MUIProfileCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: getScreenWidth(context) <= widget.maxWidth
-          ? getScreenWidth(context) * 0.88
-          : widget.maxWidth,
-      padding: EdgeInsets.all(widget.borderRadius),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(widget.borderRadius),
-        color: widget.bgColor,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: IntrinsicHeight(
+    return IntrinsicWidth(
+      child: Container(
+        padding: EdgeInsets.all(widget.borderRadius),
+        width: getScreenWidth(context) <= widget.maxWidth
+            ? getScreenWidth(context) * 0.88
+            : widget.maxWidth,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(widget.borderRadius),
+          color: widget.bgColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
         child: Column(
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DecoratedBox(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.4),
-                      blurRadius: 12,
-                      offset: const Offset(2, 4),
-                    ),
-                  ],
+                decoration: const BoxDecoration(
+                  boxShadow: mUILightSmallShadow,
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  child: Image.network(
-                    widget.imageUrl,
-                    fit: BoxFit.cover,
-                  ),
+                  child: widget.image
                 ),
               ),
             ),

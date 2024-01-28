@@ -1,3 +1,4 @@
+import 'package:example/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 
@@ -13,19 +14,11 @@ class _Slider extends StatefulWidget {
 }
 
 class __SliderState extends State<_Slider> {
+  double value1 = 70;
+  double value2 = 40;
+  double value3 = 80;
   @override
   Widget build(BuildContext context) {
-    Widget text(String text) {
-      return Text(
-        text,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 16,
-        ),
-        textAlign: TextAlign.center,
-      );
-    }
-
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
@@ -34,14 +27,14 @@ class __SliderState extends State<_Slider> {
           text("Slider with different height from default"),
           const SizedBox(height: 5),
           MUISlider(
-            value: 50,
+            value: value1,
             height: 3,
             min: 0,
             max: 100,
             thumbColor: Colors.white,
-            onChanged: (value) {
+            onChanged: (val) {
               setState(() {
-                print(value);
+                value1 = val;
               });
             },
           ),
@@ -49,22 +42,30 @@ class __SliderState extends State<_Slider> {
           text("Slider with default height and different Color"),
           const SizedBox(height: 5),
           MUISlider(
-            value: 50,
+            value: value2,
             min: 0,
             max: 100,
-            onChanged: (value) {},
+            onChanged: (val) {
+              setState(() {
+                value2 = val;
+              });
+            },
             activeColor: Colors.red,
           ),
           const SizedBox(height: 15),
           text("Slider with bigger height"),
           const SizedBox(height: 5),
           MUISlider(
-            value: 50,
+            value: value3,
             height: 10,
             min: 0,
             max: 100,
             activeColor: Colors.green,
-            onChanged: (value) {},
+            onChanged: (val) {
+              setState(() {
+                value3 = val;
+              });
+            },
           ),
         ],
       ),

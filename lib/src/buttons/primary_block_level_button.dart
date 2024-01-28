@@ -81,12 +81,12 @@ class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
         }
-        widget.onPressed();
       },
       onTapUp: (_) {
         setState(() {
           _isPrimaryBlockLevelButtonPressed = false;
         });
+        widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
