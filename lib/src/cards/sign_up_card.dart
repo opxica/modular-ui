@@ -198,9 +198,12 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                 ],
               ),
             ),
-            Container(
+           Container(
               alignment: Alignment.center,
-              child: Wrap(spacing: 30, children: widget.authButtons!),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: widget.authButtons!,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

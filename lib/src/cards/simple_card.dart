@@ -7,8 +7,6 @@ class MUISimpleCard extends StatefulWidget {
     super.key,
     required this.title,
     required this.description,
-    required this.onButtonPressed,
-    required this.buttonText,
     this.maxWidth = 430,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
@@ -20,6 +18,7 @@ class MUISimpleCard extends StatefulWidget {
     ),
     this.bgColor = Colors.white,
     this.borderRadius = 8,
+    this.buttons = const [],
   });
 
   /// The title of the card
@@ -40,16 +39,14 @@ class MUISimpleCard extends StatefulWidget {
   /// The border radius of the card
   final double borderRadius;
 
-  /// Text of the button
-  final String buttonText;
-
-  /// On Tap Function
-  final VoidCallback onButtonPressed;
-
   /// max width of the card, width of the card can not exceed this value
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
+
+  /// List of Flutter Widgets or ModularUI Widgets which can be used as buttons for MUISimpleCard.
+  /// You can provide buttons to this list.
+  final List<Widget>? buttons;
 
   @override
   State<MUISimpleCard> createState() => _MUISimpleCardState();
@@ -85,9 +82,12 @@ class _MUISimpleCardState extends State<MUISimpleCard> {
               style: widget.descriptionStyle,
             ),
             const Spacer(),
-            MUIPrimaryButton(
-              text: widget.buttonText,
-              onPressed: widget.onButtonPressed,
+           Container(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: widget.buttons!,
+              ),
             ),
           ],
         ),
