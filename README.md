@@ -1,5 +1,4 @@
-<p align="center">
-   <img src="https://github.com/opxica/modular-ui/assets/67179751/c4f1045b-0d7a-4228-b663-3e1f8238d59c" alt="ModularUI : Pre-built beautiful flutter widgets Inspired by material-tailwind and shadcn/ui" />
+<img src="https://github.com/opxica/modular-ui/assets/67179751/c4f1045b-0d7a-4228-b663-3e1f8238d59c" alt="ModularUI : Pre-built beautiful flutter widgets Inspired by material-tailwind and shadcn/ui" />
 </p>
 
 <div align="center">
@@ -49,6 +48,25 @@ import 'package:modular_ui/modular_ui.dart';
   </tr>
 </table>
 
+## Carousels
+
+<table>
+  <tr>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/9161bf90-44af-4fc3-aa15-7a01abb59b24" alt="Gif 1"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/fc8813f1-5b41-417e-a9d4-ff92e286b385" alt="Gif 2"></td>
+        <td><img src="https://github.com/opxica/modular-ui/assets/67179751/b1ee6be2-48a0-4384-8993-26b48942a329" alt="Gif 5"></td>
+  
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/86087933-8470-43c3-9545-009487d48233" alt="Gif 4"></td>
+      <td><img src="https://github.com/opxica/modular-ui/assets/67179751/7b60737f-b598-466e-b6b9-9f5b25171b36" alt="Gif 6"></td>
+       <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c7a7d5a3-5522-4d15-ab7c-09903d9715eb" alt="Gif 3"></td>
+   
+  </tr>
+</table>
 
 https://github.com/opxica/modular-ui/assets/71646773/87a3783f-aa4e-4b7b-9ca4-8f29536ddfea
 
