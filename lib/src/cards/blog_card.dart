@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIBlogCard extends StatefulWidget {
   const MUIBlogCard({
@@ -15,6 +16,7 @@ class MUIBlogCard extends StatefulWidget {
     this.elevation,
     this.avatarSpacing,
     this.aspectRatio = 16 / 9,
+    this.maxWidth = 430,
     this.descriptionStyle = const TextStyle(
       fontSize: 16,
       color: Colors.grey,
@@ -83,6 +85,11 @@ class MUIBlogCard extends StatefulWidget {
   /// AspectRatio of Image to be shown
   final double aspectRatio;
 
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
+
   @override
   State<MUIBlogCard> createState() => _MUIBlogCardState();
 }
@@ -98,70 +105,77 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
           borderRadius: const BorderRadius.all(Radius.circular(16)),
           elevation: widget.elevation ?? 5,
           child: IntrinsicHeight(
-            child: Column(
-              children: <Widget>[
-                ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(16),
+            child: SizedBox(
+              width: getScreenWidth(context) <= widget.maxWidth
+                  ? getScreenWidth(context) * 0.88
+                  : widget.maxWidth,
+              child: Column(
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(16),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: widget.aspectRatio,
+                      child: widget.image,
+                    ),
                   ),
-                  child: AspectRatio(
-                    aspectRatio: widget.aspectRatio,
-                    child: widget.image,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, bottom: 20, right: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(widget.title, style: widget.titleStyle),
-                      const SizedBox(height: 12),
-                      Text(widget.description, style: widget.descriptionStyle),
-                      const SizedBox(height: 40),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              /// display list of avatars.
-                              for (int cAvatarImage = 0;
-                                  cAvatarImage <
-                                      widget.circularAvatarImages.length;
-                                  cAvatarImage++)
-                                Align(
-                                  widthFactor: widget.avatarSpacing ?? 0.7,
-                                  child: CircleAvatar(
-                                    radius: widget.avatarRad + 1,
-                                    backgroundColor: Colors.white,
+                  const SizedBox(height: 12),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, bottom: 20, right: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(widget.title, style: widget.titleStyle),
+                        const SizedBox(height: 12),
+                        Text(widget.description,
+                            style: widget.descriptionStyle),
+                        const SizedBox(height: 40),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                /// display list of avatars.
+                                for (int cAvatarImage = 0;
+                                    cAvatarImage <
+                                        widget.circularAvatarImages.length;
+                                    cAvatarImage++)
+                                  Align(
+                                    widthFactor: widget.avatarSpacing ?? 0.7,
                                     child: CircleAvatar(
-                                      radius: widget.avatarRad,
-                                      backgroundImage: NetworkImage(widget
-                                          .circularAvatarImages[cAvatarImage]),
+                                      radius: widget.avatarRad + 1,
+                                      backgroundColor: Colors.white,
+                                      child: CircleAvatar(
+                                        radius: widget.avatarRad,
+                                        backgroundImage: NetworkImage(
+                                            widget.circularAvatarImages[
+                                                cAvatarImage]),
+                                      ),
                                     ),
                                   ),
-                                ),
 
-                              /// Padding only if list of avatar is >= 7
-                              if (widget.circularAvatarImages.length >= 7)
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 7),
-                                  child: TextButton(
-                                    onPressed: widget.onMoreTap,
-                                    style: widget.moreButtonStyle,
-                                    child: const Text('More...'),
+                                /// Padding only if list of avatar is >= 7
+                                if (widget.circularAvatarImages.length >= 7)
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 7),
+                                    child: TextButton(
+                                      onPressed: widget.onMoreTap,
+                                      style: widget.moreButtonStyle,
+                                      child: const Text('More...'),
+                                    ),
                                   ),
-                                ),
-                            ],
-                          ),
-                          Text(widget.date, style: widget.dateStyle),
-                        ],
-                      ),
-                    ],
+                              ],
+                            ),
+                            Text(widget.date, style: widget.dateStyle),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

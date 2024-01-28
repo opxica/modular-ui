@@ -28,13 +28,6 @@ class MUIPricingCard extends StatefulWidget {
     this.items = const [],
     this.borderRadius = 16,
     this.bgColor = Colors.black,
-    this.boxShadows = const [
-      BoxShadow(
-        color: Color.fromARGB(255, 37, 37, 37),
-        blurRadius: 8,
-        offset: Offset(0, 2),
-      ),
-    ],
     this.titleStyle = const TextStyle(
       fontSize: 18,
       color: Colors.white,
@@ -78,9 +71,6 @@ class MUIPricingCard extends StatefulWidget {
   /// Preferrebly a MUI Block Level Button
   final Widget button;
 
-  /// Boxshadow for card
-  final List<BoxShadow>? boxShadows;
-
   @override
   State<MUIPricingCard> createState() => _MUIPricingCardState();
 }
@@ -96,7 +86,13 @@ class _MUIPricingCardState extends State<MUIPricingCard> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
-        boxShadow: widget.boxShadows,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: IntrinsicHeight(
         child: Padding(

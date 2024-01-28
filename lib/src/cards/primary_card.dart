@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/constants/shadows.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIPrimaryCard extends StatefulWidget {
   const MUIPrimaryCard({
@@ -22,13 +23,7 @@ class MUIPrimaryCard extends StatefulWidget {
       fontWeight: FontWeight.bold,
     ),
     this.buttons = const [],
-    this.boxShadows = const [
-      BoxShadow(
-        color: Color.fromARGB(255, 37, 37, 37),
-        blurRadius: 8,
-        offset: Offset(0, 2),
-      ),
-    ],
+    this.maxWidth = 430,
   });
 
   /// The title of the card
@@ -68,8 +63,11 @@ class MUIPrimaryCard extends StatefulWidget {
   /// You can provide buttons to this list.
   final List<Widget>? buttons;
 
-  /// Boxshadow for card
-  final List<BoxShadow>? boxShadows;
+
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
 
   @override
   State<MUIPrimaryCard> createState() => _MUIPrimaryCardState();
@@ -79,10 +77,12 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
-        boxShadow: widget.boxShadows,
       ),
       margin: EdgeInsets.symmetric(
         vertical: widget.verticalMargin,
