@@ -1,4 +1,5 @@
 import 'package:example/widgets/custom_snackbar.dart';
+import 'package:example/widgets/shadow.dart';
 import 'package:example/widgets/text.dart';
 import 'package:modular_ui/modular_ui.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,7 @@ class _ButtonsViewState extends State<ButtonsView> {
           MUIPrimaryButton(
             text: "Primary Button",
             onPressed: () => onButtonPressed("Primary Button"),
+            boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 
@@ -58,7 +60,9 @@ class _ButtonsViewState extends State<ButtonsView> {
             text: "Primary Button",
             onPressed: () => onButtonPressed("Primary Button"),
             leadingIcon: Icons.add,
+            boxShadows: mUILightSmallShadow,
           ),
+
           const SizedBox(height: 16.0),
 
           /// Outlined Button
@@ -79,6 +83,7 @@ class _ButtonsViewState extends State<ButtonsView> {
               await Future.delayed(const Duration(seconds: 2));
               onButtonPressed("Loading Button");
             },
+            boxShadows: mUILightSmallShadow,
             loadingStateText: "loading...",
           ),
           const SizedBox(height: 16.0),
@@ -92,6 +97,7 @@ class _ButtonsViewState extends State<ButtonsView> {
             bgGradient: const LinearGradient(
               colors: [Color(0xFF4b6cb7), Color(0xFF182848)],
             ),
+            boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 
@@ -110,6 +116,7 @@ class _ButtonsViewState extends State<ButtonsView> {
           MUISecondaryButton(
             text: "Secondary Button",
             onPressed: () => onButtonPressed("Secondary Button"),
+            boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 
@@ -129,6 +136,7 @@ class _ButtonsViewState extends State<ButtonsView> {
           MUIPrimaryBlockButton(
             text: "Primary Block Button",
             onPressed: () => onButtonPressed("Primary Block Button"),
+            boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 
@@ -150,6 +158,7 @@ class _ButtonsViewState extends State<ButtonsView> {
               await Future.delayed(const Duration(seconds: 2));
               onButtonPressed("Loading Block Button");
             },
+            boxShadows: mUILightSmallShadow,
             loadingStateText: "loading...",
           ),
           const SizedBox(height: 16.0),
@@ -163,6 +172,7 @@ class _ButtonsViewState extends State<ButtonsView> {
             bgGradient: const LinearGradient(
               colors: [Color(0xFF4b6cb7), Color(0xFF182848)],
             ),
+            boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 
@@ -181,6 +191,7 @@ class _ButtonsViewState extends State<ButtonsView> {
           MUISecondaryBlockButton(
             text: "Secondary Block Button",
             onPressed: () => onButtonPressed("Secondary Block Button"),
+            boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 

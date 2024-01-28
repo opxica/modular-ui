@@ -7,7 +7,6 @@ Widget tabsComponent() {
   ValueNotifier<int> underlinedTabIndexNotifier = ValueNotifier(0);
   ValueNotifier<int> verticalTabIndexNotifier = ValueNotifier(0);
   return Container(
-    color: const Color.fromARGB(255, 248, 250, 252),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
