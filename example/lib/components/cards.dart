@@ -75,9 +75,9 @@ Widget card() {
           onBlogCardTap: () {},
           description:
               "Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
-          image:Image.network(
-              'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
-              fit: BoxFit.cover,
+          image: Image.network(
+            'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
+            fit: BoxFit.cover,
           ),
         ),
       ),
@@ -141,16 +141,10 @@ Widget card() {
         child: MUISignInCard(
           emailController: TextEditingController(),
           passwordController: TextEditingController(),
-          onFirstAuthButtonPressed: () {},
-          onSecondAuthButtonPressed: () {},
           onRegisterNow: () {},
           onSignInPressed: () async {
             await Future.delayed(const Duration(seconds: 2));
           },
-          firstAuthButtonText: 'Apple',
-          secondAuthButtonText: 'Facebook',
-          firstAuthIcon: Icons.apple,
-          secondAuthIcon: Icons.facebook,
         ),
       ),
 
