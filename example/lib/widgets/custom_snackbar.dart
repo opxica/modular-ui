@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 
 class CustomSnackbar extends StatelessWidget {
   const CustomSnackbar({
@@ -117,8 +116,4 @@ class CustomSnackbar extends StatelessWidget {
       ),
     );
   }
-
-  static ColorFilter? _getColorFilter(
-          ui.Color? color, ui.BlendMode colorBlendMode) =>
-      color == null ? null : ui.ColorFilter.mode(color, colorBlendMode);
 }

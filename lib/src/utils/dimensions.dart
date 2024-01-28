@@ -1,4 +1,4 @@
-/// This is a Globalkey Of Type Navigator State, Which Provides Same Key to Entire Widget Tree
+// This is a GlobalKey Of Type Navigator State, Which Provides Same Key to Entire Widget Tree
 
 import 'package:flutter/widgets.dart';
 

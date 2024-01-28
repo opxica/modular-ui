@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/modular_ui.dart';
 
-Widget listtile() {
+Widget listTile() {
   return const Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [

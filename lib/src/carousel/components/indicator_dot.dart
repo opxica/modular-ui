@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 class IndicatorDot extends StatelessWidget {
   final int positionIndex, currentIndex;
-  const IndicatorDot(
-      {Key? key, required this.currentIndex, required this.positionIndex})
-      : super(key: key);
+  const IndicatorDot({
+    super.key,
+    required this.currentIndex,
+    required this.positionIndex,
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(

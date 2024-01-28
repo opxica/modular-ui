@@ -3,6 +3,20 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A Custom List Tile provided by ModularUI
 class MUIPrimaryListTile extends StatefulWidget {
+  const MUIPrimaryListTile({
+    super.key,
+    required this.title,
+    required this.description,
+    this.leading,
+    this.action,
+    this.bgColor = Colors.black,
+    this.maxWidth = 430,
+    this.borderRadius = 10,
+    this.onTitlePressed,
+    this.onDescriptionPressed,
+    this.onPressed,
+  });
+
   /// Background Color of MUI List tile
   final Color bgColor;
 
@@ -24,28 +38,14 @@ class MUIPrimaryListTile extends StatefulWidget {
   /// Function to execute when description is pressed
   final VoidCallback? onDescriptionPressed;
 
-  /// Function to execute when MUI Listile is pressed
+  /// Function to execute when MUI LisTile is pressed
   final VoidCallback? onPressed;
 
-  /// Max Width for MUI Listtile
+  /// Max Width for MUI ListTile
   final double maxWidth;
 
-  /// Border radius of MUI Listtile
+  /// Border radius of MUI ListTile
   final double borderRadius;
-
-  const MUIPrimaryListTile({
-    Key? key,
-    required this.title,
-    required this.description,
-    this.leading,
-    this.action,
-    this.bgColor = Colors.black,
-    this.maxWidth = 430,
-    this.borderRadius = 10,
-    this.onTitlePressed,
-    this.onDescriptionPressed,
-    this.onPressed,
-  }) : super(key: key);
 
   @override
   State<MUIPrimaryListTile> createState() => _MUIPrimaryListTileState();

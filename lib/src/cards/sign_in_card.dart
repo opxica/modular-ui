@@ -4,6 +4,21 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A sign in card with OAuth support provided by ModularUI
 class MUISignInCard extends StatefulWidget {
+  const MUISignInCard({
+    super.key,
+    required this.emailController,
+    required this.passwordController,
+    required this.onSignInPressed,
+    this.bgColor = Colors.black,
+    this.borderColor = Colors.grey,
+    this.accentColor = Colors.white,
+    this.borderWidth = 1.5,
+    this.borderRadius = 12,
+    this.authButtons = const [],
+    this.maxWidth = 430,
+    required this.onRegisterNow,
+  });
+
   /// Text Editing Controller for email
   final TextEditingController emailController;
 
@@ -26,31 +41,7 @@ class MUISignInCard extends StatefulWidget {
   final double borderRadius;
 
   /// Future Function to be passed on sign in, must be an awaited function
-  final Future Function() onSigninPressed;
-
-  /// Function when first auth button is presssed
-  final VoidCallback onFirstAuthButtonPressed;
-
-  /// Function when second auth button is presssed
-  final VoidCallback onSecondAuthButtonPressed;
-
-  /// First auth button text
-  final String firstAuthButtonText;
-
-  /// Second auth button text
-  final String secondAuthButtonText;
-
-  /// Icon for first auth button
-  final IconData firstAuthIcon;
-
-  /// Icon for second auth button
-  final IconData secondAuthIcon;
-
-  /// Auth Button icon color
-  final Color authButtonIconColor;
-
-  /// Auth button text color
-  final Color authButtonTextColor;
+  final Future Function() onSignInPressed;
 
   /// On register now clicked
   final VoidCallback onRegisterNow;
@@ -60,27 +51,10 @@ class MUISignInCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
-  const MUISignInCard({
-    super.key,
-    required this.emailController,
-    required this.passwordController,
-    required this.onSigninPressed,
-    this.bgColor = Colors.black,
-    this.borderColor = Colors.grey,
-    this.accentColor = Colors.white,
-    this.borderWidth = 1.5,
-    this.borderRadius = 12,
-    this.authButtonIconColor = Colors.white,
-    this.authButtonTextColor = Colors.white,
-    this.maxWidth = 430,
-    required this.firstAuthButtonText,
-    required this.secondAuthButtonText,
-    required this.firstAuthIcon,
-    required this.secondAuthIcon,
-    required this.onFirstAuthButtonPressed,
-    required this.onSecondAuthButtonPressed,
-    required this.onRegisterNow,
-  });
+  /// List of Flutter Widgets or ModularUI Widgets which can be used as auth buttons.
+  /// You can provide buttons to this list.
+  final List<Widget>? authButtons;
+  
 
   @override
   State<MUISignInCard> createState() => _MUISignInCardState();
@@ -162,102 +136,51 @@ class _MUISignInCardState extends State<MUISignInCard> {
                   loadingStateTextColor: widget.bgColor,
                   loadingStateText: 'Loading',
                   onPressed: () async {
-                    await widget.onSigninPressed();
+                    await widget.onSignInPressed();
                   }),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: getScreenWidth(context) * 0.02),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: getScreenWidth(context) <= widget.maxWidth
-                        ? getScreenWidth(context) * 0.23
-                        : 95,
-                    child: Divider(
-                      color: widget.accentColor,
-                      thickness: 0.35,
+            if (widget.authButtons!.isNotEmpty)
+              Container(
+                margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SizedBox(
+                      width: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.23
+                          : 95,
+                      child: Divider(
+                        color: widget.accentColor,
+                        thickness: 0.35,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: getScreenHeight(context) * 0.05),
-                  Text(' OR CONTINUE WITH ',
+                    Text(
+                      ' OR CONTINUE WITH ',
                       style: TextStyle(
                         color: widget.accentColor,
                         fontSize: getScreenWidth(context) <= widget.maxWidth
                             ? getScreenWidth(context) * 0.02
                             : 10,
                         fontWeight: FontWeight.w200,
-                      )),
-                  SizedBox(
-                    width: getScreenWidth(context) <= widget.maxWidth
-                        ? getScreenWidth(context) * 0.23
-                        : 95,
-                    child: Divider(
-                      color: widget.accentColor,
-                      thickness: 0.35,
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.23
+                          : 95,
+                      child: Divider(
+                        color: widget.accentColor,
+                        thickness: 0.35,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: Wrap(
-                spacing: 30,
-                children: [
-                  MUIOutlinedButton(
-                    text: widget.firstAuthButtonText,
-                    onPressed: () {
-                      widget.onFirstAuthButtonPressed();
-                    },
-                    borderColor: widget.borderColor,
-                    leadingIcon: widget.firstAuthIcon,
-                    iconColor: widget.authButtonIconColor,
-                    borderRadius: 5,
-                    borderWidth: 1,
-                    textColor: widget.accentColor,
-                    maxHorizontalPadding: 50,
-                  ),
-                  MUIOutlinedButton(
-                    text: widget.secondAuthButtonText,
-                    onPressed: () {
-                      widget.onSecondAuthButtonPressed();
-                    },
-                    borderColor: widget.borderColor,
-                    leadingIcon: widget.secondAuthIcon,
-                    iconColor: widget.authButtonIconColor,
-                    borderRadius: 5,
-                    borderWidth: 1,
-                    textColor: widget.accentColor,
-                    maxHorizontalPadding: 50,
-                  ),
-                  // MUIOutlinedButton(
-                  //   borderColor: widget.borderColor,
-                  //   leadingIcon: widget.firstAuthIcon,
-                  //   iconColor: widget.authButtonIconColor,
-                  //   borderRadius: 5,
-                  //   borderWidth: 1,
-                  //   text: widget.firstAuthButtonText,
-                  //   textColor: widget.accentColor,
-                  //   onTap: () {
-                  //     widget.onFirstAuthButtonPressed();
-                  //   },
-                  // ),
-                  // MUIOutlinedButton(
-                  //   borderColor: widget.borderColor,
-                  //   leadingIcon: widget.secondAuthIcon,
-                  //   iconColor: widget.authButtonIconColor,
-                  //   borderRadius: 5,
-                  //   borderWidth: 1,
-                  //   text: widget.secondAuthButtonText,
-                  //   textColor: widget.accentColor,
-                  //   onTap: () {
-                  //     widget.onSecondAuthButtonPressed();
-                  //   },
-                  // ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: (widget.authButtons!.length == 1)
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.spaceEvenly,
+              children: widget.authButtons!,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

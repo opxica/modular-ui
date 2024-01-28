@@ -5,8 +5,8 @@ import 'package:example/components/cards.dart';
 import 'package:example/components/carousels.dart';
 import 'package:example/components/checkbox.dart';
 import 'package:example/components/footer.dart';
-import 'package:example/components/listtile.dart';
-import 'package:example/components/ratingbar.dart';
+import 'package:example/components/list_tile.dart';
+import 'package:example/components/rating_bar.dart';
 import 'package:example/components/slider.dart';
 import 'package:example/components/switch.dart';
 import 'package:example/components/tabs.dart';
@@ -19,7 +19,7 @@ class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  _HomeState createState() => _HomeState();
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
@@ -64,11 +64,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       },
       {
         'name': 'Rating Bar',
-        'route': ratingbar(),
+        'route': ratingBar(),
       },
       {
         'name': 'List Tile',
-        'route': listtile(),
+        'route': listTile(),
       },
       {
         'name': 'Footer',
@@ -99,6 +99,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.shade200,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,

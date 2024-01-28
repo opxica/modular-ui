@@ -5,24 +5,31 @@ Widget dialog(BuildContext context) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      MUIOutlinedButton(
-          text: "Show Dialog",
-          onPressed: () {
-            MUIPrimaryDialog(
-              buttonBackgroundColor: Colors.white,
-              buttonRadius: 5,
-              buttonBorderWidth: 1,
-              buttonBorderColor: Colors.black,
-              ctaText: "Show Dialog",
-              titleText: "Are you absolutely sure?",
+      MUISecondaryOutlinedButton(
+        text: 'Show Dialog Box',
+        borderColor: Colors.grey.shade300,
+        bgColor: Colors.white,
+        onPressed: () {
+          MUIPrimaryDialog(
+              titleText: 'Alert Dialog',
               contentText:
-                  "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-              primaryCta: "Continue",
-              primaryOnPressed: () => Navigator.pop(context),
-              secondaryOnPressed: () => Navigator.pop(context),
-              secondaryCta: "Cancel",
-            ).showDialogBox(context);
-          })
+                  'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
+              buttonsAlignment: MainAxisAlignment.spaceEvenly,
+              buttons: [
+                MUISecondaryButton(
+                    text: 'Cancel',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+                MUISecondaryOutlinedButton(
+                  text: 'Done',
+                  onPressed: () {},
+                  bgColor: Colors.grey.shade200,
+                  borderColor: Colors.grey.shade300,
+                )
+              ]).showDialogBox(context);
+        },
+      ),
     ],
   );
 }
