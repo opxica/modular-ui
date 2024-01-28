@@ -20,11 +20,10 @@ Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design
 
 #### Installation
 
-Add `modular_ui:` to your `pubspec.yaml` dependencies then run `flutter pub get`
+Run this command in your terminal
 
-```yaml
-dependencies:
-  modular_ui:
+```terminal
+flutter pub add modular_ui
 ```
 
 #### Import
