@@ -4,23 +4,22 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable primary block level button by ModularUI with optional icons.
 class MUIPrimaryBlockButton extends StatefulWidget {
-  const MUIPrimaryBlockButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.bgColor = Colors.black,
-    this.textColor = Colors.white,
-    this.borderRadius = 10,
-    this.hapticsEnabled = false,
-    this.animationDuration = 250,
-    this.widthFactorPressed = 0.95,
-    this.heightFactor = 0.05,
-    this.leadingIcon,
-    this.actionIcon,
-    this.iconColor = Colors.white,
-    this.widthFactor = 0.98,
-    this.boxShadows
-  });
+  const MUIPrimaryBlockButton(
+      {super.key,
+      required this.text,
+      required this.onPressed,
+      this.bgColor = Colors.black,
+      this.textColor = Colors.white,
+      this.borderRadius = 10,
+      this.hapticsEnabled = false,
+      this.animationDuration = 250,
+      this.widthFactorPressed = 0.95,
+      this.heightFactor = 0.05,
+      this.leadingIcon,
+      this.actionIcon,
+      this.iconColor = Colors.white,
+      this.widthFactor = 0.98,
+      this.boxShadows});
 
   /// The Text to display inside the button
   final String text;

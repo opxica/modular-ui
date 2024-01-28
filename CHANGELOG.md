@@ -1,3 +1,6 @@
+## 0.0.3
+  - Dart Formatted 
+
 ## 0.0.2
   - Dart Formatted 
    - lib/constants/colors.dart

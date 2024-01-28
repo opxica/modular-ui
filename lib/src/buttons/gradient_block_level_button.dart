@@ -4,24 +4,23 @@ import 'package:modular_ui/src/utils/dimensions.dart';
 
 /// A customizable gradient block level button by ModularUI with optional icons.
 class MUIGradientBlockButton extends StatefulWidget {
-  const MUIGradientBlockButton(
-      {super.key,
-      required this.text,
-      required this.onPressed,
-      this.bgGradient =
-          const LinearGradient(colors: [Colors.black, Colors.grey]),
-      this.textColor = Colors.white,
-      this.borderRadius = 10,
-      this.hapticsEnabled = false,
-      this.animationDuration = 250,
-      this.widthFactorPressed = 0.95,
-      this.heightFactor = 0.05,
-      this.leadingIcon,
-      this.actionIcon,
-      this.iconColor = Colors.white,
-      this.widthFactor = 0.98,
-      this.boxShadows,
-      });
+  const MUIGradientBlockButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
+    this.textColor = Colors.white,
+    this.borderRadius = 10,
+    this.hapticsEnabled = false,
+    this.animationDuration = 250,
+    this.widthFactorPressed = 0.95,
+    this.heightFactor = 0.05,
+    this.leadingIcon,
+    this.actionIcon,
+    this.iconColor = Colors.white,
+    this.widthFactor = 0.98,
+    this.boxShadows,
+  });
 
   /// The Text to display inside the button
   final String text;
@@ -66,12 +65,10 @@ class MUIGradientBlockButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIGradientBlockButton> createState() =>
-      _MUIGradientBlockButtonState();
+  State<MUIGradientBlockButton> createState() => _MUIGradientBlockButtonState();
 }
 
-class _MUIGradientBlockButtonState
-    extends State<MUIGradientBlockButton> {
+class _MUIGradientBlockButtonState extends State<MUIGradientBlockButton> {
   bool _isGradientBlockLevelButtonPressed = false;
 
   @override
@@ -99,10 +96,9 @@ class _MUIGradientBlockButtonState
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          gradient: widget.bgGradient,
-          boxShadow: widget.boxShadows
-        ),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            gradient: widget.bgGradient,
+            boxShadow: widget.boxShadows),
         width: _isGradientBlockLevelButtonPressed
             ? getScreenWidth(context) * widget.widthFactorPressed
             : getScreenWidth(context) * widget.widthFactor,
