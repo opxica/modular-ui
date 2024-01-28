@@ -14,18 +14,11 @@ class MUISignInCard extends StatefulWidget {
     this.accentColor = Colors.white,
     this.borderWidth = 1.5,
     this.borderRadius = 12,
-    this.authButtonIconColor = Colors.white,
-    this.authButtonTextColor = Colors.white,
+    this.authButtons,
     this.maxWidth = 430,
-    required this.firstAuthButtonText,
-    required this.secondAuthButtonText,
-    required this.firstAuthIcon,
-    required this.secondAuthIcon,
-    required this.onFirstAuthButtonPressed,
-    required this.onSecondAuthButtonPressed,
     required this.onRegisterNow,
   });
-  
+
   /// Text Editing Controller for email
   final TextEditingController emailController;
 
@@ -50,30 +43,6 @@ class MUISignInCard extends StatefulWidget {
   /// Future Function to be passed on sign in, must be an awaited function
   final Future Function() onSignInPressed;
 
-  /// Function when first auth button is pressed
-  final VoidCallback onFirstAuthButtonPressed;
-
-  /// Function when second auth button is pressed
-  final VoidCallback onSecondAuthButtonPressed;
-
-  /// First auth button text
-  final String firstAuthButtonText;
-
-  /// Second auth button text
-  final String secondAuthButtonText;
-
-  /// Icon for first auth button
-  final IconData firstAuthIcon;
-
-  /// Icon for second auth button
-  final IconData secondAuthIcon;
-
-  /// Auth Button icon color
-  final Color authButtonIconColor;
-
-  /// Auth button text color
-  final Color authButtonTextColor;
-
   /// On register now clicked
   final VoidCallback onRegisterNow;
 
@@ -81,6 +50,10 @@ class MUISignInCard extends StatefulWidget {
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
+
+  /// List of Flutter Widgets or ModularUI Widgets which can be used as auth buttons.
+  /// You can provide buttons to this list.
+  final List<Widget>? authButtons;
 
   @override
   State<MUISignInCard> createState() => _MUISignInCardState();
@@ -203,61 +176,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
             ),
             Container(
               alignment: Alignment.center,
-              child: Wrap(
-                spacing: 30,
-                children: [
-                  MUIOutlinedButton(
-                    text: widget.firstAuthButtonText,
-                    onPressed: () {
-                      widget.onFirstAuthButtonPressed();
-                    },
-                    borderColor: widget.borderColor,
-                    leadingIcon: widget.firstAuthIcon,
-                    iconColor: widget.authButtonIconColor,
-                    borderRadius: 5,
-                    borderWidth: 1,
-                    textColor: widget.accentColor,
-                    maxHorizontalPadding: 50,
-                  ),
-                  MUIOutlinedButton(
-                    text: widget.secondAuthButtonText,
-                    onPressed: () {
-                      widget.onSecondAuthButtonPressed();
-                    },
-                    borderColor: widget.borderColor,
-                    leadingIcon: widget.secondAuthIcon,
-                    iconColor: widget.authButtonIconColor,
-                    borderRadius: 5,
-                    borderWidth: 1,
-                    textColor: widget.accentColor,
-                    maxHorizontalPadding: 50,
-                  ),
-                  // MUIOutlinedButton(
-                  //   borderColor: widget.borderColor,
-                  //   leadingIcon: widget.firstAuthIcon,
-                  //   iconColor: widget.authButtonIconColor,
-                  //   borderRadius: 5,
-                  //   borderWidth: 1,
-                  //   text: widget.firstAuthButtonText,
-                  //   textColor: widget.accentColor,
-                  //   onTap: () {
-                  //     widget.onFirstAuthButtonPressed();
-                  //   },
-                  // ),
-                  // MUIOutlinedButton(
-                  //   borderColor: widget.borderColor,
-                  //   leadingIcon: widget.secondAuthIcon,
-                  //   iconColor: widget.authButtonIconColor,
-                  //   borderRadius: 5,
-                  //   borderWidth: 1,
-                  //   text: widget.secondAuthButtonText,
-                  //   textColor: widget.accentColor,
-                  //   onTap: () {
-                  //     widget.onSecondAuthButtonPressed();
-                  //   },
-                  // ),
-                ],
-              ),
+              child: Wrap(spacing: 30, children: widget.authButtons!),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
