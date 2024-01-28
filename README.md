@@ -117,7 +117,9 @@ import 'package:modular_ui/modular_ui.dart';
 ## Our Widget Catalog
 
 <strong>Avatar</strong>
+
 <strong>Breadcrumbs</strong>
+
 <strong>Button</strong>
 
 - Primary Button
@@ -139,15 +141,25 @@ import 'package:modular_ui/modular_ui.dart';
 - Blog Card
 
 <strong>Checkbox</strong>
+
 <strong>Carousel</strong>
+
 <strong>Dialog</strong>
+
 <strong>Footer</strong>
+
 <strong>Input Fields</strong>
+
 <strong>List Tile</strong>
+
 <strong>Radio Button</strong>
+
 <strong>Rating Bar</strong>
+
 <strong>Slider</strong>
+
 <strong>Tab View</strong>
+
 <strong>Switch</strong>
 
 <hr>
