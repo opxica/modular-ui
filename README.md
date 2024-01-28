@@ -31,7 +31,7 @@ Add this line to import the package.
 ```dart 
 import 'package:modular_ui/modular_ui.dart';
 ```
-\
+
 
 ## Modular UI Widgets:
 
@@ -68,17 +68,46 @@ import 'package:modular_ui/modular_ui.dart';
   </tr>
 </table>
 
-https://github.com/opxica/modular-ui/assets/71646773/87a3783f-aa4e-4b7b-9ca4-8f29536ddfea
+## Buttons
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c5ea0cd0-5d7c-423e-a85a-77a76e7f3ffe", height="300", alt="Image 2"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/42f199a6-06a2-4ea8-9042-491db28a11a7", height="300", alt="Image 3"></td>
+   </tr>
+</table>
 
 
+## Tab Bar
 
-https://github.com/opxica/modular-ui/assets/71646773/26d4b963-d562-4780-98ca-35d381b099e0
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/18ed3c7a-44e5-4eb5-8c8a-403185976976" alt="Image 2", height="300"></td>
+  </tr>
+</table>
 
+## Dialog Box
 
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/6537953f-6009-439f-be29-47ba4a6a839c" alt="Image 2", height="300"></td>
+  </tr>
+</table>
 
-https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a02b72f51e
+## Sliders
 
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/fe250daf-c3e4-4d7c-ad76-22887ecd3601" alt="Image 2", height="300"></td>
+  </tr>
+</table>
 
+## Switch 
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/f2b9faa5-e88a-4ba7-95e7-2a611097ccbb" alt="Image 2",  height="300"></td>
+  </tr>
+</table>
 ## Features
 
 -   **Comprehensive Modular-UI Design components:** Build modern and feature-rich interfaces with a wide range of buttons, cards, forms, navigation elements, and more.
