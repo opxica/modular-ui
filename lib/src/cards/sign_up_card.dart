@@ -16,7 +16,7 @@ class MUISignUpCard extends StatefulWidget {
     this.borderWidth = 1.5,
     this.borderRadius = 12,
     this.maxWidth = 430,
-    this.authButtons,
+    this.authButtons = const [],
     required this.onLogInNowPressed,
   });
 
@@ -163,6 +163,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                     }
                   }),
             ),
+            if(widget.authButtons!.isNotEmpty)
             Container(
               margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
               child: Row(

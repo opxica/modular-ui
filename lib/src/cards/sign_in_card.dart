@@ -14,7 +14,7 @@ class MUISignInCard extends StatefulWidget {
     this.accentColor = Colors.white,
     this.borderWidth = 1.5,
     this.borderRadius = 12,
-    this.authButtons,
+    this.authButtons = const [],
     this.maxWidth = 430,
     required this.onRegisterNow,
   });
@@ -138,6 +138,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
                     await widget.onSignInPressed();
                   }),
             ),
+            if(widget.authButtons!.isNotEmpty)
             Container(
               margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
               child: Row(
