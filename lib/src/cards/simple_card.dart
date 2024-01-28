@@ -80,13 +80,13 @@ class _MUISimpleCardState extends State<MUISimpleCard> {
               widget.description,
               style: widget.descriptionStyle,
             ),
+            SizedBox(height: getScreenHeight(context) * 0.02),
             const Spacer(),
-           Container(
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: widget.buttons!,
-              ),
+            Row(
+              mainAxisAlignment: (widget.buttons!.length == 1)
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.spaceEvenly,
+              children: widget.buttons!,
             ),
           ],
         ),

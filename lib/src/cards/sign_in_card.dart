@@ -175,12 +175,11 @@ class _MUISignInCardState extends State<MUISignInCard> {
                   ],
                 ),
               ),
-            Container(
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: widget.authButtons!,
-              ),
+            Row(
+              mainAxisAlignment: (widget.authButtons!.length == 1)
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.spaceEvenly,
+              children: widget.authButtons!,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
