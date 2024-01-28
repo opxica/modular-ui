@@ -158,12 +158,6 @@ Widget card() {
         child: MUISignUpCard(
           emailController: TextEditingController(),
           passwordController: TextEditingController(),
-          onFirstAuthButtonPressed: () {},
-          onSecondAuthButtonPressed: () {},
-          firstAuthButtonText: 'Apple',
-          secondAuthButtonText: 'Facebook',
-          firstAuthIcon: Icons.apple,
-          secondAuthIcon: Icons.facebook,
           confirmPasswordController: TextEditingController(),
           onSignUpPressed: () async {
             await Future.delayed(const Duration(seconds: 2));
