@@ -12,10 +12,29 @@
 </div>
 
 <hr>
-
+<p align="center">
 Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design-inspired component library
+</p>
 
-## Here are some of the examples :
+## How to use
+
+#### Installation
+
+Add `modular_ui:` to your `pubspec.yaml` dependencies then run `flutter pub get`
+
+```yaml
+ dependencies:
+  modular_ui:
+```
+#### Import
+Add this line to import the package.
+
+```dart 
+import 'package:modular_ui/modular_ui.dart';
+```
+\
+
+## Modular UI Widgets:
 
 
 https://github.com/opxica/modular-ui/assets/71646773/87a3783f-aa4e-4b7b-9ca4-8f29536ddfea
@@ -29,30 +48,6 @@ https://github.com/opxica/modular-ui/assets/71646773/26d4b963-d562-4780-98ca-35d
 https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a02b72f51e
 
 
-
-
-
-Calling on all the trendsetting Flutter enthusiasts! ❤️‍🔥 Join forces as we pioneer the creation of the ultimate, expansive, and seamless UI Library for Flutter. Let's make waves together! 🚀
-
-## Setting Up Locally :
-1.  Run `flutter create .` inside the project folder to generate any necessary files
-2.  Go inside project root and run `flutter packages pub global activate --source path .` and export the PATH if necessary or add the path as an Environment Variable.
-3.  Now you can import the local version of modular_ui and test it during your development
-```
-dependencies:
-  modular_ui:
-    path: <replace_with_cloned_repo_location>
-```
-4.  `import 'package:modular_ui/modular_ui.dart';` in your other flutter project.
-
-
-## Design Language :
-ModularUI Design language is inspired by [Material Tailwind](https://www.material-tailwind.com/) and [shadcn/ui](https://ui.shadcn.com/) 
-Our current goal is to make as much components as possible and ship this asap, so we might merge any widget that looks like them or if they are consistent with our theme, obviously the future goal would be to make them perfect and consistent.
-
-## Widget Naming Convention :
-any widget of ModularUI must follow this naming convention : `MUI<widget_name>` e.g. `MUIPrimaryButton`
-MUI stands for ModularUI.
 ## Features
 
 -   **Comprehensive Modular-UI Design components:** Build modern and feature-rich interfaces with a wide range of buttons, cards, forms, navigation elements, and more.
@@ -67,16 +62,10 @@ MUI stands for ModularUI.
 -   **Dark mode support:** Seamlessly adapt your UI to user preferences.
 
 
-## Documentation
-
--   **Comprehensive API documentation** with examples and usage guidelines.
--   **Live demos and tutorials** showcasing component usage and best practices.
-- **UNDER DEVELOPMENT**
 
 ## Contributing
-
-We welcome contributions! Please refer to our contribution guidelines for details.
-Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
+Calling on all the trendsetting Flutter enthusiasts! ❤️‍🔥 Join forces as we pioneer the creation of the ultimate, expansive, and seamless UI Library for Flutter. Let's make waves together! 🚀
+Please refer to our contribution guidelines for details and don't forget to drop a Hi at [discord](https://discord.gg/t9Vweu68) 
 
 ## License
 
