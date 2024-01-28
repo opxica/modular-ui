@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/constants/shadows.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIProfileCard extends StatefulWidget {
-  const MUIProfileCard({
-    super.key,
-    required this.name,
-    required this.imageUrl,
-    required this.designation,
-    this.socialIcons = const [],
-    this.borderRadius = 8,
-    this.bgColor = Colors.white,
-    this.nameStyle = const TextStyle(
-      fontSize: 18,
-      color: Colors.black,
-      fontWeight: FontWeight.bold,
-    ),
-    this.designationStyle = const TextStyle(
-      fontSize: 16,
-      color: Colors.black,
-    ),
-  });
+  const MUIProfileCard(
+      {super.key,
+      required this.name,
+      required this.image,
+      required this.designation,
+      this.socialIcons = const [],
+      this.borderRadius = 8,
+      this.bgColor = Colors.white,
+      this.nameStyle = const TextStyle(
+        fontSize: 18,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      ),
+      this.designationStyle = const TextStyle(
+        fontSize: 16,
+        color: Colors.black,
+      ),
+      this.maxWidth = 430});
 
-  /// Url for profile image
-  final String imageUrl;
+  /// Profile image
+  final Image image;
 
   /// Name of the person
   final String name;
@@ -45,6 +46,11 @@ class MUIProfileCard extends StatefulWidget {
   /// Background color of the card
   final Color bgColor;
 
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
+
   @override
   State<MUIProfileCard> createState() => _MUIProfileCardState();
 }
@@ -55,6 +61,9 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
     return IntrinsicWidth(
       child: Container(
         padding: EdgeInsets.all(widget.borderRadius),
+        width: getScreenWidth(context) <= widget.maxWidth
+            ? getScreenWidth(context) * 0.88
+            : widget.maxWidth,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
@@ -76,10 +85,7 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  child: Image.network(
-                    widget.imageUrl,
-                    fit: BoxFit.cover,
-                  ),
+                  child: widget.image
                 ),
               ),
             ),
