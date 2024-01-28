@@ -18,6 +18,13 @@ class MUISimpleCard extends StatefulWidget {
     this.bgColor = Colors.white,
     this.borderRadius = 8,
     this.buttons = const [],
+    this.boxShadows = const [
+      BoxShadow(
+        color: Color.fromARGB(255, 37, 37, 37),
+        blurRadius: 8,
+        offset: Offset(0, 2),
+      ),
+    ],
   });
 
   /// The title of the card
@@ -47,6 +54,9 @@ class MUISimpleCard extends StatefulWidget {
   /// You can provide buttons to this list.
   final List<Widget>? buttons;
 
+  /// Boxshadow for card
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUISimpleCard> createState() => _MUISimpleCardState();
 }
@@ -62,13 +72,7 @@ class _MUISimpleCardState extends State<MUISimpleCard> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        boxShadow: widget.boxShadows,
       ),
       child: IntrinsicHeight(
         child: Column(

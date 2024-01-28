@@ -8,6 +8,7 @@ class MUISignInCard extends StatefulWidget {
     super.key,
     required this.emailController,
     required this.passwordController,
+    required this.onRegisterNow,
     required this.onSignInPressed,
     this.bgColor = Colors.black,
     this.borderColor = Colors.grey,
@@ -16,7 +17,13 @@ class MUISignInCard extends StatefulWidget {
     this.borderRadius = 12,
     this.authButtons = const [],
     this.maxWidth = 430,
-    required this.onRegisterNow,
+    this.boxShadows = const [
+      BoxShadow(
+        color: Color.fromARGB(255, 37, 37, 37),
+        blurRadius: 8,
+        offset: Offset(0, 2),
+      ),
+    ],
   });
 
   /// Text Editing Controller for email
@@ -55,6 +62,9 @@ class MUISignInCard extends StatefulWidget {
   /// You can provide buttons to this list.
   final List<Widget>? authButtons;
 
+  /// Boxshadow for card
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUISignInCard> createState() => _MUISignInCardState();
 }
@@ -70,6 +80,7 @@ class _MUISignInCardState extends State<MUISignInCard> {
       decoration: BoxDecoration(
         color: widget.bgColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
+        boxShadow: widget.boxShadows,
         border:
             Border.all(color: widget.borderColor, width: widget.borderWidth),
       ),

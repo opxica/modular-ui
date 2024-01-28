@@ -22,6 +22,13 @@ class MUIPrimaryCard extends StatefulWidget {
       fontWeight: FontWeight.bold,
     ),
     this.buttons = const [],
+    this.boxShadows = const [
+      BoxShadow(
+        color: Color.fromARGB(255, 37, 37, 37),
+        blurRadius: 8,
+        offset: Offset(0, 2),
+      ),
+    ],
   });
 
   /// The title of the card
@@ -61,6 +68,9 @@ class MUIPrimaryCard extends StatefulWidget {
   /// You can provide buttons to this list.
   final List<Widget>? buttons;
 
+  /// Boxshadow for card
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUIPrimaryCard> createState() => _MUIPrimaryCardState();
 }
@@ -72,13 +82,7 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.green.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        boxShadow: widget.boxShadows,
       ),
       margin: EdgeInsets.symmetric(
         vertical: widget.verticalMargin,

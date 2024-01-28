@@ -10,14 +10,21 @@ class MUISignUpCard extends StatefulWidget {
     required this.passwordController,
     required this.confirmPasswordController,
     required this.onSignUpPressed,
+    required this.onLogInNowPressed,
     this.bgColor = Colors.black,
     this.borderColor = Colors.grey,
     this.accentColor = Colors.white,
     this.borderWidth = 1.5,
     this.borderRadius = 12,
     this.maxWidth = 430,
+    this.boxShadows = const [
+      BoxShadow(
+        color: Color.fromARGB(255, 37, 37, 37),
+        blurRadius: 8,
+        offset: Offset(0, 2),
+      ),
+    ],
     this.authButtons = const [],
-    required this.onLogInNowPressed,
   });
 
   /// Text Editing Controller for email
@@ -59,6 +66,9 @@ class MUISignUpCard extends StatefulWidget {
   /// You can provide buttons to this list.
   final List<Widget>? authButtons;
 
+  /// Boxshadow for card
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUISignUpCard> createState() => _MUISignUpCardState();
 }
@@ -73,6 +83,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
           : widget.maxWidth,
       decoration: BoxDecoration(
         color: widget.bgColor,
+        boxShadow: widget.boxShadows,
         borderRadius: BorderRadius.circular(widget.borderRadius),
         border:
             Border.all(color: widget.borderColor, width: widget.borderWidth),
@@ -163,42 +174,42 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                     }
                   }),
             ),
-            if(widget.authButtons!.isNotEmpty)
-            Container(
-              margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: getScreenWidth(context) <= widget.maxWidth
-                        ? getScreenWidth(context) * 0.23
-                        : 95,
-                    child: Divider(
-                      color: widget.accentColor,
-                      thickness: 0.35,
-                    ),
-                  ),
-                  Text(' OR CONTINUE WITH ',
-                      style: TextStyle(
+            if (widget.authButtons!.isNotEmpty)
+              Container(
+                margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.23
+                          : 95,
+                      child: Divider(
                         color: widget.accentColor,
-                        fontSize: getScreenWidth(context) <= widget.maxWidth
-                            ? getScreenWidth(context) * 0.02
-                            : 10,
-                        fontWeight: FontWeight.w200,
-                      )),
-                  SizedBox(
-                    width: getScreenWidth(context) <= widget.maxWidth
-                        ? getScreenWidth(context) * 0.23
-                        : 95,
-                    child: Divider(
-                      color: widget.accentColor,
-                      thickness: 0.35,
+                        thickness: 0.35,
+                      ),
                     ),
-                  ),
-                ],
+                    Text(' OR CONTINUE WITH ',
+                        style: TextStyle(
+                          color: widget.accentColor,
+                          fontSize: getScreenWidth(context) <= widget.maxWidth
+                              ? getScreenWidth(context) * 0.02
+                              : 10,
+                          fontWeight: FontWeight.w200,
+                        )),
+                    SizedBox(
+                      width: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.23
+                          : 95,
+                      child: Divider(
+                        color: widget.accentColor,
+                        thickness: 0.35,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-           Row(
+            Row(
               mainAxisAlignment: (widget.authButtons!.length == 1)
                   ? MainAxisAlignment.start
                   : MainAxisAlignment.spaceEvenly,

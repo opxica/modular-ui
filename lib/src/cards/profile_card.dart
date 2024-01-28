@@ -9,6 +9,13 @@ class MUIProfileCard extends StatefulWidget {
       required this.image,
       required this.designation,
       this.socialIcons = const [],
+      this.boxShadows = const [
+        BoxShadow(
+          color: Color.fromARGB(255, 37, 37, 37),
+          blurRadius: 8,
+          offset: Offset(0, 2),
+        ),
+      ],
       this.borderRadius = 8,
       this.bgColor = Colors.white,
       this.nameStyle = const TextStyle(
@@ -51,6 +58,9 @@ class MUIProfileCard extends StatefulWidget {
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
 
+  /// Boxshadow for card
+  final List<BoxShadow>? boxShadows;
+
   @override
   State<MUIProfileCard> createState() => _MUIProfileCardState();
 }
@@ -67,13 +77,7 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           color: widget.bgColor,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          boxShadow: widget.boxShadows,
         ),
         child: Column(
           children: <Widget>[
@@ -84,9 +88,8 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
                   boxShadow: mUILightSmallShadow,
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(widget.borderRadius),
-                  child: widget.image
-                ),
+                    borderRadius: BorderRadius.circular(widget.borderRadius),
+                    child: widget.image),
               ),
             ),
             const SizedBox(height: 16),
