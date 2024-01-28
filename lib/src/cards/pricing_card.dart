@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modular_ui/modular_ui.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 enum MUIPricingDuration { dayily, monthly, yearly }
@@ -16,16 +15,6 @@ class MUIPricingCardItems {
   final String title;
 }
 
-// Widget MUIPricingCardItemListTile(Widget icon, String title) {
-//   return Row(
-//     children: [
-//       icon,
-//       const SizedBox(width: 8),
-//       Text(title),
-//     ],
-//   );
-// }
-
 class MUIPricingCard extends StatefulWidget {
   const MUIPricingCard({
     super.key,
@@ -33,7 +22,7 @@ class MUIPricingCard extends StatefulWidget {
     required this.duration,
     required this.currency,
     required this.amount,
-    required this.onPressed,
+    required this.button,
     this.buttonText = "Buy Now",
     this.maxWidth = 430,
     this.items = const [],
@@ -73,13 +62,14 @@ class MUIPricingCard extends StatefulWidget {
   /// button text
   final String buttonText;
 
-  /// button onpressed
-  final VoidCallback? onPressed;
-
   /// max width of the card, width of the card can not exceed this value
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
+
+  /// Button to show on MUIPricingCard
+  /// Preferrebly a MUI Block Level Button
+  final Widget button;
 
   @override
   State<MUIPricingCard> createState() => _MUIPricingCardState();
@@ -176,12 +166,7 @@ class _MUIPricingCardState extends State<MUIPricingCard> {
                   ),
                 ),
               const SizedBox(height: 12),
-              MUIPrimaryBlockButton(
-                text: "Buy Now",
-                onPressed: () {},
-                bgColor: Colors.white,
-                textColor: widget.bgColor,
-              )
+              widget.button,
             ],
           ),
         ),

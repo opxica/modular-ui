@@ -15,15 +15,8 @@ class MUISignUpCard extends StatefulWidget {
     this.accentColor = Colors.white,
     this.borderWidth = 1.5,
     this.borderRadius = 12,
-    this.authButtonIconColor = Colors.white,
-    this.authButtonTextColor = Colors.white,
     this.maxWidth = 430,
-    required this.firstAuthButtonText,
-    required this.secondAuthButtonText,
-    required this.firstAuthIcon,
-    required this.secondAuthIcon,
-    required this.onFirstAuthButtonPressed,
-    required this.onSecondAuthButtonPressed,
+    this.authButtons = const [],
     required this.onLogInNowPressed,
   });
 
@@ -54,30 +47,6 @@ class MUISignUpCard extends StatefulWidget {
   /// Future Function to be passed on sign up, must be an awaited function
   final Future Function() onSignUpPressed;
 
-  /// Function when first auth button is pressed
-  final VoidCallback onFirstAuthButtonPressed;
-
-  /// Function when second auth button is pressed
-  final VoidCallback onSecondAuthButtonPressed;
-
-  /// First auth button text
-  final String firstAuthButtonText;
-
-  /// Second auth button text
-  final String secondAuthButtonText;
-
-  /// Icon for first auth button
-  final IconData firstAuthIcon;
-
-  /// Icon for second auth button
-  final IconData secondAuthIcon;
-
-  /// Auth Button icon color
-  final Color authButtonIconColor;
-
-  /// Auth button text color
-  final Color authButtonTextColor;
-
   /// On Login now clicked
   final VoidCallback onLogInNowPressed;
 
@@ -85,6 +54,10 @@ class MUISignUpCard extends StatefulWidget {
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
   final double maxWidth;
+
+  /// List of Flutter Widgets or ModularUI Widgets which can be used as auth buttons.
+  /// You can provide buttons to this list.
+  final List<Widget>? authButtons;
 
   @override
   State<MUISignUpCard> createState() => _MUISignUpCardState();
@@ -190,6 +163,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                     }
                   }),
             ),
+            if(widget.authButtons!.isNotEmpty)
             Container(
               margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
               child: Row(
@@ -224,39 +198,11 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                 ],
               ),
             ),
-            Container(
-              alignment: Alignment.center,
-              child: Wrap(
-                spacing: 30,
-                children: [
-                  MUIOutlinedButton(
-                    text: widget.firstAuthButtonText,
-                    onPressed: () {
-                      widget.onFirstAuthButtonPressed();
-                    },
-                    borderColor: widget.borderColor,
-                    leadingIcon: widget.firstAuthIcon,
-                    iconColor: widget.authButtonIconColor,
-                    borderRadius: 5,
-                    borderWidth: 1,
-                    textColor: widget.accentColor,
-                    maxHorizontalPadding: 50,
-                  ),
-                  MUIOutlinedButton(
-                    text: widget.secondAuthButtonText,
-                    onPressed: () {
-                      widget.onSecondAuthButtonPressed();
-                    },
-                    borderColor: widget.borderColor,
-                    leadingIcon: widget.secondAuthIcon,
-                    iconColor: widget.authButtonIconColor,
-                    borderRadius: 5,
-                    borderWidth: 1,
-                    textColor: widget.accentColor,
-                    maxHorizontalPadding: 50,
-                  ),
-                ],
-              ),
+           Row(
+              mainAxisAlignment: (widget.authButtons!.length == 1)
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.spaceEvenly,
+              children: widget.authButtons!,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modular_ui/constants/shadows.dart';
-import 'package:modular_ui/src/buttons/primary_button.dart';
+import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIPrimaryCard extends StatefulWidget {
   const MUIPrimaryCard({
@@ -8,8 +8,6 @@ class MUIPrimaryCard extends StatefulWidget {
     required this.title,
     required this.description,
     required this.image,
-    required this.onButtonPressed,
-    required this.buttonText,
     this.bgColor = Colors.white,
     this.borderRadius = 8,
     this.imageRadius = 8,
@@ -24,6 +22,8 @@ class MUIPrimaryCard extends StatefulWidget {
       fontSize: 24,
       fontWeight: FontWeight.bold,
     ),
+    this.buttons = const [],
+    this.maxWidth = 430,
   });
 
   /// The title of the card
@@ -50,20 +50,24 @@ class MUIPrimaryCard extends StatefulWidget {
   /// Border Radius of the image
   final double imageRadius;
 
-  /// Text of the button
-  final String buttonText;
-
   /// Outer Horizontal Margin for card
   final double horizontalMargin;
 
   /// Outer Vertical Margin for card
   final double verticalMargin;
 
-  /// On Button Function
-  final VoidCallback onButtonPressed;
-
   /// AspectRatio of Image to be shown
   final double aspectRatio;
+
+  /// List of Flutter Widgets or ModularUI Widgets which can be used as buttons for MUIPrimaryCard.
+  /// You can provide buttons to this list.
+  final List<Widget>? buttons;
+
+
+  /// max width of the card, width of the card can not exceed this value
+  /// If the screen width is less than this value then the widget will be responsive to the screen size
+  /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
+  final double maxWidth;
 
   @override
   State<MUIPrimaryCard> createState() => _MUIPrimaryCardState();
@@ -73,16 +77,12 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: getScreenWidth(context) <= widget.maxWidth
+          ? getScreenWidth(context) * 0.88
+          : widget.maxWidth,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.green.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
       ),
       margin: EdgeInsets.symmetric(
         vertical: widget.verticalMargin,
@@ -112,6 +112,7 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                const SizedBox(height: 8),
                 Text(
                   widget.title,
                   style: widget.titleStyle,
@@ -122,9 +123,11 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
                   style: widget.descriptionStyle,
                 ),
                 const SizedBox(height: 8),
-                MUIPrimaryButton(
-                  text: widget.buttonText,
-                  onPressed: widget.onButtonPressed,
+                Row(
+                  mainAxisAlignment: (widget.buttons!.length == 1)
+                      ? MainAxisAlignment.start
+                      : MainAxisAlignment.spaceEvenly,
+                  children: widget.buttons!,
                 ),
               ],
             ),
