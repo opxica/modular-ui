@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modular_ui/src/buttons/primary_button.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUISimpleCard extends StatefulWidget {
