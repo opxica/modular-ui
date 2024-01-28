@@ -1,111 +1,113 @@
+<img src="https://github.com/opxica/modular-ui/assets/67179751/c4f1045b-0d7a-4228-b663-3e1f8238d59c" alt="ModularUI : Pre-built beautiful flutter widgets Inspired by material-tailwind and shadcn/ui" />
+</p>
 
-# ModularUI : Pre-built beautiful flutter widgets Inspired by material-tailwind and shadcn/ui
+<div align="center">
 
+[![Modular UI Badge](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://modularui.site)
+[![Github Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/opxica)
+[![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/modularui)
+[![Discord Badge](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/jEPKuWYt)
+
+</div>
+
+<hr>
+<p align="center">
 Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design-inspired component library
+</p>
 
-Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
+## How to use
 
-See our cards creation [guide](https://utkarshs-organization-1.gitbook.io/simple-guide-to-create-modularui-widgets/)
+#### Installation
 
+Add `modular_ui:` to your `pubspec.yaml` dependencies then run `flutter pub get`
 
-## Here are some of the examples :
-
-
-https://github.com/opxica/modular-ui/assets/71646773/87a3783f-aa4e-4b7b-9ca4-8f29536ddfea
-
-
-
-https://github.com/opxica/modular-ui/assets/71646773/26d4b963-d562-4780-98ca-35d381b099e0
-
-
-
-https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a02b72f51e
-
-
-
-## Current Status of Components/Widgets (might be on development branch)
-
-- [ ] Accordion
-- [ ] Alert Boxes
-- [X] Avatar
-- [X] Breadcrumbs
-- [ ] Button
-  - [x] Primary Button
-  - [x] Secondary Button
-  - [x] Loading Button
-  - [X] Gradient Button
-  - [X] Outlined Button
-  - [X] Secondary Outlined Button
-  - [X] Text Button
-  - [X] Primary Block Level Button
-  - [X] Secondary Block Level Button
-  - [X] Gradient Block Level Button
-  - [X] Loading Block Level Button
-  - [X] Outlined Block Level Button
-  - [X] Secondary Outlined Block Level Button
-  - [X] Text Block Level Button
-  - [ ] Auth Buttons
-- [ ] Card
-  - [X] Simple Card
-  - [ ] Card With Image 
-  - [x] Primary Card
-  - [X] Profile Card
-  - [X] Sign in Card
-  - [X] Sign up Card
-  - [X] Pricing Card
-  - [X] Blog Card
-  - [ ] Blog Card With Background
-  - [ ] Booking Card
-  - [ ] Testimonial Card
-  - [ ] E-commerce Card
-- [X] Checkbox
-- [ ] Chip
-- [ ] Collapse
-- [X] Carousel
-- [X] Dialog
-- [ ] Drawer
-- [X] Footer
-- [ ] Form
-- [X] Input Fields
-  - [X] Primary Input Field
-- [X] List Tile
-- [ ] Navbar
-- [ ] Popover
-- [ ] Progress Bar
-- [X] Radio Button
-- [X] Rating Bar
-- [ ] Select
-- [X] Slider
-- [X] Tab View
-- [X] Switch
-
-## Goals
-- [ ] Ship ModularUI to Pub
-- [ ] Landing Page
-- [ ] A Flutter webapp to test every widget.
-- [ ] CLI tool.
-
-Calling on all the trendsetting Flutter enthusiasts! ❤️‍🔥 Join forces as we pioneer the creation of the ultimate, expansive, and seamless UI Library for Flutter. Let's make waves together! 🚀
-
-## Setting Up Locally :
-1.  Run `flutter create .` inside the project folder to generate any necessary files
-2.  Go inside project root and run `flutter packages pub global activate --source path .` and export the PATH if necessary or add the path as an Environment Variable.
-3.  Now you can import the local version of modular_ui and test it during your development
-```
-dependencies:
+```yaml
+ dependencies:
   modular_ui:
-    path: <replace_with_cloned_repo_location>
 ```
-4.  `import 'package:modular_ui/modular_ui.dart';` in your other flutter project.
+#### Import
+Add this line to import the package.
+
+```dart 
+import 'package:modular_ui/modular_ui.dart';
+```
 
 
-## Design Language :
-ModularUI Design language is inspired by [Material Tailwind](https://www.material-tailwind.com/) and [shadcn/ui](https://ui.shadcn.com/) 
-Our current goal is to make as much components as possible and ship this asap, so we might merge any widget that looks like them or if they are consistent with our theme, obviously the future goal would be to make them perfect and consistent.
+## Modular UI Widgets:
 
-## Widget Naming Convention :
-any widget of ModularUI must follow this naming convention : `MUI<widget_name>` e.g. `MUIPrimaryButton`
-MUI stands for ModularUI.
+## Primary Cards
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c6e15160-6165-49bd-8016-dcce974eb26a" alt="Image 2"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/52810d6a-6d07-41dc-a8ab-e5f7e95859b1" alt="Image 3"></td>
+     <td><img src="https://github.com/opxica/modular-ui/assets/67179751/28564d8c-a360-4d58-9c19-62c83b507673" alt="Image 5"></td>
+       <td><img src="https://github.com/opxica/modular-ui/assets/67179751/dda487f6-c790-47bd-8eba-9fc5c517c3f9" alt="Image 1"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/afe28cac-31f9-4abd-b3c8-9e548291ac14" alt="Image 4"></td>
+    
+  </tr>
+</table>
+
+## Carousels
+
+<table>
+  <tr>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/9161bf90-44af-4fc3-aa15-7a01abb59b24" alt="Gif 1"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/fc8813f1-5b41-417e-a9d4-ff92e286b385" alt="Gif 2"></td>
+        <td><img src="https://github.com/opxica/modular-ui/assets/67179751/b1ee6be2-48a0-4384-8993-26b48942a329" alt="Gif 5"></td>
+  
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/86087933-8470-43c3-9545-009487d48233" alt="Gif 4"></td>
+      <td><img src="https://github.com/opxica/modular-ui/assets/67179751/7b60737f-b598-466e-b6b9-9f5b25171b36" alt="Gif 6"></td>
+       <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c7a7d5a3-5522-4d15-ab7c-09903d9715eb" alt="Gif 3"></td>
+   
+  </tr>
+</table>
+
+## Buttons
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c5ea0cd0-5d7c-423e-a85a-77a76e7f3ffe", height="300", alt="Image 2"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/42f199a6-06a2-4ea8-9042-491db28a11a7", height="300", alt="Image 3"></td>
+   </tr>
+</table>
+
+
+## Tab Bar
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/18ed3c7a-44e5-4eb5-8c8a-403185976976" alt="Image 2", height="300"></td>
+  </tr>
+</table>
+
+## Dialog Box
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/6537953f-6009-439f-be29-47ba4a6a839c" alt="Image 2", height="300"></td>
+  </tr>
+</table>
+
+## Sliders
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/fe250daf-c3e4-4d7c-ad76-22887ecd3601" alt="Image 2", height="300"></td>
+  </tr>
+</table>
+
+## Switch 
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/f2b9faa5-e88a-4ba7-95e7-2a611097ccbb" alt="Image 2",  height="300"></td>
+  </tr>
+</table>
 ## Features
 
 -   **Comprehensive Modular-UI Design components:** Build modern and feature-rich interfaces with a wide range of buttons, cards, forms, navigation elements, and more.
@@ -120,15 +122,10 @@ MUI stands for ModularUI.
 -   **Dark mode support:** Seamlessly adapt your UI to user preferences.
 
 
-## Documentation
-
--   **Comprehensive API documentation** with examples and usage guidelines.
--   **Live demos and tutorials** showcasing component usage and best practices.
-- **UNDER DEVELOPMENT**
 
 ## Contributing
-
-We welcome contributions! Please refer to our contribution guidelines for details.
+Calling on all the trendsetting Flutter enthusiasts! ❤️‍🔥 Join forces as we pioneer the creation of the ultimate, expansive, and seamless UI Library for Flutter. Let's make waves together! 🚀
+Please refer to our contribution guidelines for details and don't forget to drop a Hi at [discord](https://discord.gg/t9Vweu68) 
 
 ## License
 
