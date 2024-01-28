@@ -63,7 +63,6 @@ class MUIPrimaryCard extends StatefulWidget {
   /// You can provide buttons to this list.
   final List<Widget>? buttons;
 
-
   /// max width of the card, width of the card can not exceed this value
   /// If the screen width is less than this value then the widget will be responsive to the screen size
   /// Else if screen width is greater than this maxWidth then the widget width will be equal to maxWidth
@@ -83,6 +82,7 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(widget.borderRadius),
         color: widget.bgColor,
+        boxShadow: mUILightBigShadow,
       ),
       margin: EdgeInsets.symmetric(
         vertical: widget.verticalMargin,
@@ -97,7 +97,7 @@ class _MUIPrimaryCardState extends State<MUIPrimaryCard> {
               child: IntrinsicWidth(
                 child: DecoratedBox(
                   decoration: const BoxDecoration(
-                    boxShadow: mUILightBigShadow,
+                    boxShadow: mUILightSmallShadow,
                   ),
                   child: AspectRatio(
                     aspectRatio: widget.aspectRatio,

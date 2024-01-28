@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modular_ui/constants/colors.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 class MUIBlogCard extends StatefulWidget {
@@ -104,6 +105,7 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
           color: widget.bgColor,
           borderRadius: const BorderRadius.all(Radius.circular(16)),
           elevation: widget.elevation ?? 5,
+          shadowColor: mUIShadowColor,
           child: IntrinsicHeight(
             child: SizedBox(
               width: getScreenWidth(context) <= widget.maxWidth
