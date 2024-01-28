@@ -1,12 +1,19 @@
+<p align="center">
+   <img src="https://github.com/opxica/modular-ui/assets/67179751/c4f1045b-0d7a-4228-b663-3e1f8238d59c" alt="ModularUI : Pre-built beautiful flutter widgets Inspired by material-tailwind and shadcn/ui" />
+</p>
 
-# ModularUI : Pre-built beautiful flutter widgets Inspired by material-tailwind and shadcn/ui
+<div align="center">
+
+[![Modular UI Badge](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://modularui.site)
+[![Github Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/opxica)
+[![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/modularui)
+[![Discord Badge](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/jEPKuWYt)
+
+</div>
+
+<hr>
 
 Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design-inspired component library
-
-Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
-
-See our cards creation [guide](https://utkarshs-organization-1.gitbook.io/simple-guide-to-create-modularui-widgets/)
-
 
 ## Here are some of the examples :
 
@@ -23,67 +30,7 @@ https://github.com/opxica/modular-ui/assets/71646773/da5dfebb-5f0a-42a0-b710-27a
 
 
 
-## Current Status of Components/Widgets (might be on development branch)
 
-- [ ] Accordion
-- [ ] Alert Boxes
-- [X] Avatar
-- [X] Breadcrumbs
-- [ ] Button
-  - [x] Primary Button
-  - [x] Secondary Button
-  - [x] Loading Button
-  - [X] Gradient Button
-  - [X] Outlined Button
-  - [X] Secondary Outlined Button
-  - [X] Text Button
-  - [X] Primary Block Level Button
-  - [X] Secondary Block Level Button
-  - [X] Gradient Block Level Button
-  - [X] Loading Block Level Button
-  - [X] Outlined Block Level Button
-  - [X] Secondary Outlined Block Level Button
-  - [X] Text Block Level Button
-  - [ ] Auth Buttons
-- [ ] Card
-  - [X] Simple Card
-  - [ ] Card With Image 
-  - [x] Primary Card
-  - [X] Profile Card
-  - [X] Sign in Card
-  - [X] Sign up Card
-  - [X] Pricing Card
-  - [X] Blog Card
-  - [ ] Blog Card With Background
-  - [ ] Booking Card
-  - [ ] Testimonial Card
-  - [ ] E-commerce Card
-- [X] Checkbox
-- [ ] Chip
-- [ ] Collapse
-- [X] Carousel
-- [X] Dialog
-- [ ] Drawer
-- [X] Footer
-- [ ] Form
-- [X] Input Fields
-  - [X] Primary Input Field
-- [X] List Tile
-- [ ] Navbar
-- [ ] Popover
-- [ ] Progress Bar
-- [X] Radio Button
-- [X] Rating Bar
-- [ ] Select
-- [X] Slider
-- [X] Tab View
-- [X] Switch
-
-## Goals
-- [ ] Ship ModularUI to Pub
-- [ ] Landing Page
-- [ ] A Flutter webapp to test every widget.
-- [ ] CLI tool.
 
 Calling on all the trendsetting Flutter enthusiasts! ❤️‍🔥 Join forces as we pioneer the creation of the ultimate, expansive, and seamless UI Library for Flutter. Let's make waves together! 🚀
 
@@ -129,6 +76,7 @@ MUI stands for ModularUI.
 ## Contributing
 
 We welcome contributions! Please refer to our contribution guidelines for details.
+Get involved : join our [discord](https://discord.gg/t9Vweu68) :)))
 
 ## License
 
