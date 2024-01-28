@@ -5,7 +5,7 @@ class MUIBlogCard extends StatefulWidget {
     super.key,
     required this.title,
     required this.description,
-    required this.onBlogCardTap,
+    required this.onBlogCardPressed,
     required this.image,
     required this.date,
     this.avatarRad = 16,
@@ -40,7 +40,7 @@ class MUIBlogCard extends StatefulWidget {
   final String description;
 
   /// Used as the callback function when the blog card is tapped with no arguments and returns void.
-  final VoidCallback onBlogCardTap;
+  final VoidCallback onBlogCardPressed;
 
   /// Used as the callback function when the "More"
   /// button on the blog card is tapped. If no value is provided, the "More" button will not be
@@ -92,7 +92,7 @@ class _MUIBlogCardState extends State<MUIBlogCard> {
   Widget build(BuildContext context) {
     return IntrinsicWidth(
       child: GestureDetector(
-        onTap: widget.onBlogCardTap,
+        onTap: widget.onBlogCardPressed,
         child: Material(
           color: widget.bgColor,
           borderRadius: const BorderRadius.all(Radius.circular(16)),
