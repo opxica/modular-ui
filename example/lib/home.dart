@@ -71,10 +71,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         'route': listTile(),
       },
       {
-        'name': 'Footer',
-        'route': footer(),
-      },
-      {
         'name': 'textfield',
         'route': textfield(),
       },
@@ -85,6 +81,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       {
         'name': 'slider',
         'route': slider(),
+      },
+      {
+        'name': 'Footer',
+        'route': footer(),
       },
     ];
     _tabController = TabController(length: components.length, vsync: this);
@@ -99,12 +99,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade200,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text('Modular UI'),
         bottom: TabBar(
+          indicatorColor: Colors.black87,
+          labelColor: Colors.black87,
           isScrollable: true,
           controller: _tabController,
           tabs: components.map((e) => Tab(text: e['name'])).toList(),
