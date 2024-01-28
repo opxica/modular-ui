@@ -10,10 +10,11 @@
 
 </div>
 
-<hr>
 <p align="center">
 Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design-inspired component library
 </p>
+
+<hr>
 
 ## How to use
 
@@ -22,16 +23,19 @@ Craft beautiful, accessible, and responsive Flutter UIs with a Modular-UI Design
 Add `modular_ui:` to your `pubspec.yaml` dependencies then run `flutter pub get`
 
 ```yaml
- dependencies:
+dependencies:
   modular_ui:
 ```
+
 #### Import
+
 Add this line to import the package.
 
-```dart 
+```dart
 import 'package:modular_ui/modular_ui.dart';
 ```
 
+<hr>
 
 ## Modular UI Widgets:
 
@@ -69,13 +73,13 @@ import 'package:modular_ui/modular_ui.dart';
 </table>
 
 ## Buttons
+
 <table>
   <tr>  
     <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c5ea0cd0-5d7c-423e-a85a-77a76e7f3ffe", height="300", alt="Image 2"></td>
     <td><img src="https://github.com/opxica/modular-ui/assets/67179751/42f199a6-06a2-4ea8-9042-491db28a11a7", height="300", alt="Image 3"></td>
    </tr>
 </table>
-
 
 ## Tab Bar
 
@@ -101,42 +105,128 @@ import 'package:modular_ui/modular_ui.dart';
   </tr>
 </table>
 
-## Switch 
+## Switch
 
 <table>
   <tr>  
     <td><img src="https://github.com/opxica/modular-ui/assets/67179751/f2b9faa5-e88a-4ba7-95e7-2a611097ccbb" alt="Image 2",  height="300"></td>
   </tr>
 </table>
+<hr>
+
+## Our Widget Catalog
+
+<strong>Avatar</strong>
+<strong>Breadcrumbs</strong>
+<strong>Button</strong>
+
+- Primary Button
+- Secondary Button
+- Gradient Button
+- Loading Button
+- Outlined Button
+- Text Button
+- Block Level Buttons
+
+<strong>Card</strong>
+
+- Simple Card
+- Primary Card
+- Profile Card
+- Sign in Card
+- Sign up Card
+- Pricing Card
+- Blog Card
+
+<strong>Checkbox</strong>
+<strong>Carousel</strong>
+<strong>Dialog</strong>
+<strong>Footer</strong>
+<strong>Input Fields</strong>
+<strong>List Tile</strong>
+<strong>Radio Button</strong>
+<strong>Rating Bar</strong>
+<strong>Slider</strong>
+<strong>Tab View</strong>
+<strong>Switch</strong>
+
+<hr>
+
+## Code Samples
+
+#### Buttons
+
+Primary Button
+
+```dart
+ MUIPrimaryButton(
+      text: "Primary Button",
+      onPressed: () => onButtonPressed("Primary Button"),
+    ),
+```
+
+####  Cards
+
+Primary Card
+
+```dart
+  MUIPrimaryCard(
+          title: 'UI/UX Review Check',
+          description:
+              'The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona',
+          image: Image.network(
+            'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+            fit: BoxFit.cover,
+          ),
+          buttons: [
+            MUIPrimaryButton(
+              text: 'Read More',
+              onPressed: () {},
+            ),
+          ],
+        ),
+```
+
+####  Carousal
+
+Primary Carousal 
+
+```dart
+  MUICarousel(
+            images: [
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png"
+            ],
+            indicatorType: CarouselIndicatorType.dot,
+            duration: Duration(seconds: 2),
+          ),
+```
+
+For more code smaples, you can head on to your documentaion.
+
+<hr>
+
 ## Features
 
--   **Comprehensive Modular-UI Design components:** Build modern and feature-rich interfaces with a wide range of buttons, cards, forms, navigation elements, and more.
--   **Highly customizable:** Tailor components to your exact needs with extensive styling options.
--   **Responsive design:** Ensure optimal UI experiences across different screen sizes.
--   **Accessibility focus:** Built with accessibility in mind, adhering to best practices.
--   **Lightweight and performant:** Efficiently crafted for smooth user interactions.
+- **Comprehensive Modular-UI Design components:** Build modern and feature-rich interfaces with a wide range of buttons, cards, forms, navigation elements, and more.
+- **Highly customizable:** Tailor components to your exact needs with extensive styling options.
+- **Responsive design:** Ensure optimal UI experiences across different screen sizes.
+- **Accessibility focus:** Built with accessibility in mind, adhering to best practices.
+- **Lightweight and performant:** Efficiently crafted for smooth user interactions.
 
 ## Additional Features
 
--   **Custom themes and color palettes:** Define your own visual style for a cohesive look.
--   **Dark mode support:** Seamlessly adapt your UI to user preferences.
+- **Custom themes and color palettes:** Define your own visual style for a cohesive look.
+- **Dark mode support:** Seamlessly adapt your UI to user preferences.
 
-
+<hr>
 
 ## Contributing
+
 Calling on all the trendsetting Flutter enthusiasts! ❤️‍🔥 Join forces as we pioneer the creation of the ultimate, expansive, and seamless UI Library for Flutter. Let's make waves together! 🚀
-Please refer to our contribution guidelines for details and don't forget to drop a Hi at [discord](https://discord.gg/t9Vweu68) 
+Please refer to our contribution guidelines for details and don't forget to drop a Hi at [discord](https://discord.gg/t9Vweu68)
 
-## License
-
-This project is licensed under the BSD-3.
-
-### Series of events : How we began
-
-While casually scrolling through Twitter, [I](https://twitter.com/twtutkarsh) stumbled upon an intriguing [tweet](https://x.com/luke_pighetti/status/1740122310714007820?s=20) from [Luke](https://twitter.com/luke_pighetti) that sparked a burst of inspiration within me. Fueling my curiosity, I conducted a [Poll](https://x.com/twtutkarsh/status/1740331978392809748?s=20) on Luke's original post, and to my delight, several individuals expressed interest. Emboldened by this positive response, I decided to take the plunge.
-
-Enter [Yash](https://twitter.com/Yash_khattar73), a kindred spirit who shared my enthusiasm. Together, we embraced the challenge with rocket-like enthusiasm 🚀🚀🚀🚀🚀🚀🚀🚀.
-
-Sharing our endeavor on Twitter garnered an impressive reception, surpassing even my own expectations. [Tweet link](https://x.com/twtutkarsh/status/1741548976892186718?s=20)
-
-And now, the moment has arrived—our modular_ui repository is officially public! We're optimistic that it will find a welcoming home among Flutter developers, paving the way for a custom UI library tailored for the Flutter community.
+<hr>
