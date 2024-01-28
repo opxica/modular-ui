@@ -36,6 +36,19 @@ import 'package:modular_ui/modular_ui.dart';
 
 ## Modular UI Widgets:
 
+## Primary Cards
+
+<table>
+  <tr>  
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/c6e15160-6165-49bd-8016-dcce974eb26a" alt="Image 2"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/52810d6a-6d07-41dc-a8ab-e5f7e95859b1" alt="Image 3"></td>
+     <td><img src="https://github.com/opxica/modular-ui/assets/67179751/28564d8c-a360-4d58-9c19-62c83b507673" alt="Image 5"></td>
+       <td><img src="https://github.com/opxica/modular-ui/assets/67179751/dda487f6-c790-47bd-8eba-9fc5c517c3f9" alt="Image 1"></td>
+    <td><img src="https://github.com/opxica/modular-ui/assets/67179751/afe28cac-31f9-4abd-b3c8-9e548291ac14" alt="Image 4"></td>
+    
+  </tr>
+</table>
+
 
 https://github.com/opxica/modular-ui/assets/71646773/87a3783f-aa4e-4b7b-9ca4-8f29536ddfea
 
