@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modular_ui/modular_ui.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
 enum MUIPricingDuration { dayily, monthly, yearly }
