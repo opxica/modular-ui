@@ -19,6 +19,8 @@ class MUIPrimaryInputField extends StatefulWidget {
     this.isObscure = false,
     this.suffixIcon,
     this.prefixIcon,
+    this.suffixIconOnPressed,
+    this.prefixIconOnPressed,
   });
 
   /// A double value which gets multiplied with current screen width determines the width of text field
@@ -58,10 +60,16 @@ class MUIPrimaryInputField extends StatefulWidget {
   final Color cursorColor;
 
   /// Icon for suffix icon in textfield
-  final Widget? suffixIcon;
+  final Icon? suffixIcon;
+
+  /// Function for suffixIcon
+  final VoidCallback? suffixIconOnPressed;
 
   /// Icon for prefix icon in textfield
-  final Widget? prefixIcon;
+  final Icon? prefixIcon;
+
+  /// Function for prefixIcon
+  final VoidCallback? prefixIconOnPressed;
 
   @override
   State<MUIPrimaryInputField> createState() => _MUIPrimaryInputField();
@@ -80,8 +88,16 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
         style: widget.textStyle,
         obscureText: widget.isObscure,
         decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon,
-          prefixIcon: widget.prefixIcon,
+          suffixIcon: widget.suffixIcon != null
+              ? IconButton(
+                  onPressed: widget.suffixIconOnPressed,
+                  icon: widget.suffixIcon!)
+              : null,
+          prefixIcon: widget.prefixIcon != null
+              ? IconButton(
+                  onPressed: widget.prefixIconOnPressed,
+                  icon: widget.prefixIcon!)
+              : null,
           filled: true,
           fillColor: widget.filledColor,
           hintText: widget.hintText,
