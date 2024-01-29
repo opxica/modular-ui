@@ -84,9 +84,8 @@ class _MUIProfileCardState extends State<MUIProfileCard> {
                   boxShadow: mUILightSmallShadow,
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(widget.borderRadius),
-                  child: widget.image
-                ),
+                    borderRadius: BorderRadius.circular(widget.borderRadius),
+                    child: widget.image),
               ),
             ),
             const SizedBox(height: 16),

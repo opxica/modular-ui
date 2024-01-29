@@ -163,42 +163,42 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                     }
                   }),
             ),
-            if(widget.authButtons!.isNotEmpty)
-            Container(
-              margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: getScreenWidth(context) <= widget.maxWidth
-                        ? getScreenWidth(context) * 0.23
-                        : 95,
-                    child: Divider(
-                      color: widget.accentColor,
-                      thickness: 0.35,
-                    ),
-                  ),
-                  Text(' OR CONTINUE WITH ',
-                      style: TextStyle(
+            if (widget.authButtons!.isNotEmpty)
+              Container(
+                margin: EdgeInsets.all(getScreenWidth(context) * 0.02),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.23
+                          : 95,
+                      child: Divider(
                         color: widget.accentColor,
-                        fontSize: getScreenWidth(context) <= widget.maxWidth
-                            ? getScreenWidth(context) * 0.02
-                            : 10,
-                        fontWeight: FontWeight.w200,
-                      )),
-                  SizedBox(
-                    width: getScreenWidth(context) <= widget.maxWidth
-                        ? getScreenWidth(context) * 0.23
-                        : 95,
-                    child: Divider(
-                      color: widget.accentColor,
-                      thickness: 0.35,
+                        thickness: 0.35,
+                      ),
                     ),
-                  ),
-                ],
+                    Text(' OR CONTINUE WITH ',
+                        style: TextStyle(
+                          color: widget.accentColor,
+                          fontSize: getScreenWidth(context) <= widget.maxWidth
+                              ? getScreenWidth(context) * 0.02
+                              : 10,
+                          fontWeight: FontWeight.w200,
+                        )),
+                    SizedBox(
+                      width: getScreenWidth(context) <= widget.maxWidth
+                          ? getScreenWidth(context) * 0.23
+                          : 95,
+                      child: Divider(
+                        color: widget.accentColor,
+                        thickness: 0.35,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-           Row(
+            Row(
               mainAxisAlignment: (widget.authButtons!.length == 1)
                   ? MainAxisAlignment.start
                   : MainAxisAlignment.spaceEvenly,

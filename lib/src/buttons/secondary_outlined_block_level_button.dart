@@ -107,7 +107,9 @@ class _MUISecondaryOutlinedBlockLevelButtonState
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: _isOutlinedBlockLevelButtonPressed ? widget.tappedBgColor : widget.bgColor,
+          color: _isOutlinedBlockLevelButtonPressed
+              ? widget.tappedBgColor
+              : widget.bgColor,
           boxShadow: widget.boxShadows,
           border: Border.all(
             color: _isOutlinedBlockLevelButtonPressed

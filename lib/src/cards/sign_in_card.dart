@@ -54,7 +54,6 @@ class MUISignInCard extends StatefulWidget {
   /// List of Flutter Widgets or ModularUI Widgets which can be used as auth buttons.
   /// You can provide buttons to this list.
   final List<Widget>? authButtons;
-  
 
   @override
   State<MUISignInCard> createState() => _MUISignInCardState();

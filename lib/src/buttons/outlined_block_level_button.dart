@@ -73,12 +73,10 @@ class MUIOutlinedBlockButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIOutlinedBlockButton> createState() =>
-      _MUIOutlinedBlockButtonState();
+  State<MUIOutlinedBlockButton> createState() => _MUIOutlinedBlockButtonState();
 }
 
-class _MUIOutlinedBlockButtonState
-    extends State<MUIOutlinedBlockButton> {
+class _MUIOutlinedBlockButtonState extends State<MUIOutlinedBlockButton> {
   bool _isOutlinedBlockLevelButtonPressed = false;
 
   @override

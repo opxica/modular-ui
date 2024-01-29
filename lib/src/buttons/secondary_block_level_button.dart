@@ -65,7 +65,8 @@ class MUISecondaryBlockButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUISecondaryBlockButton> createState() => _MUISecondaryBlockButtonState();
+  State<MUISecondaryBlockButton> createState() =>
+      _MUISecondaryBlockButtonState();
 }
 
 class _MUISecondaryBlockButtonState extends State<MUISecondaryBlockButton> {
@@ -96,12 +97,11 @@ class _MUISecondaryBlockButtonState extends State<MUISecondaryBlockButton> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: _isSecondaryBlockLevelButtonPressed
-              ? widget.tappedBgColor
-              : widget.bgColor,
-          boxShadow: widget.boxShadows
-        ),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            color: _isSecondaryBlockLevelButtonPressed
+                ? widget.tappedBgColor
+                : widget.bgColor,
+            boxShadow: widget.boxShadows),
         width: getScreenWidth(context) * widget.widthFactor,
         height: getScreenHeight(context) * widget.heightFactor,
         child: Center(

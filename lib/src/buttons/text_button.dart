@@ -19,7 +19,7 @@ class MUITextButton extends StatefulWidget {
     this.actionIcon,
     this.iconColor = Colors.black,
   });
-  
+
   /// The Text to display inside the button
   final String text;
 
@@ -103,7 +103,7 @@ class _MUITextButtonState extends State<MUITextButton> {
             horizontal: 10,
             vertical: 8,
           ),
-           EdgeInsets.symmetric(
+          EdgeInsets.symmetric(
             horizontal: widget.maxHorizontalPadding,
             vertical: 16,
           ),

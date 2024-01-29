@@ -1,4 +1,1 @@
-enum CarouselButtonType { 
-  iconOnly, 
-  rounded
-}
+enum CarouselButtonType { iconOnly, rounded }

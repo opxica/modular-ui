@@ -56,13 +56,12 @@ class MUIRadioButton extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: Colors.black,
-          width: 1,
-        ),
-        boxShadow: boxShadows
-      ),
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: Colors.black,
+            width: 1,
+          ),
+          boxShadow: boxShadows),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
