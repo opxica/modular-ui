@@ -216,7 +216,7 @@ Primary Carousal
           ),
 ```
 
-For more code smaples, you can head on to your documentaion.
+For more code samples, you can head on to our documentaion (under construction).
 
 <hr>
 
