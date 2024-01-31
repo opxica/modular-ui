@@ -88,14 +88,18 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
         style: widget.textStyle,
         obscureText: widget.isObscure,
         decoration: InputDecoration(
-          suffixIcon: IconButton(
-            onPressed: widget.suffixIconOnPressed,
-            icon: Icon(widget.suffixIcon),
-          ),
-          prefixIcon: IconButton(
-            onPressed: widget.prefixIconOnPressed,
-            icon: Icon(widget.prefixIcon),
-          ),
+          suffixIcon: widget.suffixIcon == null
+              ? null
+              : IconButton(
+                  onPressed: widget.suffixIconOnPressed,
+                  icon: Icon(widget.suffixIcon),
+                ),
+          prefixIcon: widget.prefixIcon == null
+              ? null
+              : IconButton(
+                  onPressed: widget.prefixIconOnPressed,
+                  icon: Icon(widget.prefixIcon),
+                ),
           filled: true,
           fillColor: widget.filledColor,
           hintText: widget.hintText,
