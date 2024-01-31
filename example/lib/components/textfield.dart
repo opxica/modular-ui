@@ -12,6 +12,8 @@ Widget textfield() {
             hintText: "Enter your name",
             controller: TextEditingController(),
             filledColor: Colors.white,
+            suffixIcon: Icons.person,
+            // prefixIcon: Icons.person,
           ),
         ],
       ),
