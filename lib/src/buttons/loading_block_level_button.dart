@@ -76,12 +76,10 @@ class MUILoadingBlockButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUILoadingBlockButton> createState() =>
-      _MUILoadingBlockButtonState();
+  State<MUILoadingBlockButton> createState() => _MUILoadingBlockButtonState();
 }
 
-class _MUILoadingBlockButtonState
-    extends State<MUILoadingBlockButton> {
+class _MUILoadingBlockButtonState extends State<MUILoadingBlockButton> {
   bool _isLoadingBlockLevelButtonPressed = false;
 
   void _startLoading() {

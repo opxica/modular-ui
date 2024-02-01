@@ -4,8 +4,7 @@ import 'package:flutter/widgets.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-
-///  This acts as Global Function To Get Screen Width 
+///  This acts as Global Function To Get Screen Width
 double getScreenWidth(BuildContext context) {
   return MediaQuery.of(context).size.width;
 }

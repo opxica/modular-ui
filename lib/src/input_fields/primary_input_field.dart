@@ -60,15 +60,15 @@ class MUIPrimaryInputField extends StatefulWidget {
   final Color cursorColor;
 
   /// Icon for suffix icon in textfield
-  final IconData? suffixIcon;
+  final Icon? suffixIcon;
 
-  /// Function for suffix icon if required
+  /// Function for suffixIcon
   final VoidCallback? suffixIconOnPressed;
 
   /// Icon for prefix icon in textfield
-  final IconData? prefixIcon;
+  final Icon? prefixIcon;
 
-  /// Function for prefix icon if required
+  /// Function for prefixIcon
   final VoidCallback? prefixIconOnPressed;
 
   @override
@@ -88,18 +88,16 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
         style: widget.textStyle,
         obscureText: widget.isObscure,
         decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon == null
-              ? null
-              : IconButton(
+          suffixIcon: widget.suffixIcon != null
+              ? IconButton(
                   onPressed: widget.suffixIconOnPressed,
-                  icon: Icon(widget.suffixIcon),
-                ),
-          prefixIcon: widget.prefixIcon == null
-              ? null
-              : IconButton(
+                  icon: widget.suffixIcon!)
+              : null,
+          prefixIcon: widget.prefixIcon != null
+              ? IconButton(
                   onPressed: widget.prefixIconOnPressed,
-                  icon: Icon(widget.prefixIcon),
-                ),
+                  icon: widget.prefixIcon!)
+              : null,
           filled: true,
           fillColor: widget.filledColor,
           hintText: widget.hintText,
