@@ -90,12 +90,16 @@ class _MUIPrimaryInputField extends State<MUIPrimaryInputField> {
         decoration: InputDecoration(
           suffixIcon: widget.suffixIcon != null
               ? IconButton(
-                  onPressed: widget.suffixIconOnPressed,
+                  onPressed: () {
+                    widget.suffixIconOnPressed!();
+                  },
                   icon: widget.suffixIcon!)
               : null,
           prefixIcon: widget.prefixIcon != null
               ? IconButton(
-                  onPressed: widget.prefixIconOnPressed,
+                  onPressed: () {
+                    widget.prefixIconOnPressed!();
+                  },
                   icon: widget.prefixIcon!)
               : null,
           filled: true,
