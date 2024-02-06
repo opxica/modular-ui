@@ -1,8 +1,11 @@
+## 0.0.5
+  - Readme updated
+
 ## 0.0.4
   - Fix : MUIInputField  
 
 ## 0.0.3
-  - Dart Formatted 
+  - Dart Formatted
 
 ## 0.0.2
   - Dart Formatted 

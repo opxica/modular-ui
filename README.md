@@ -233,7 +233,7 @@ Primary Carousal
           ),
 ```
 
-For more code samples, you can head on to our documentaion (under construction).
+For more code samples, you can head on to our documentaion at . https://modularui.site
 
 <hr>
 
