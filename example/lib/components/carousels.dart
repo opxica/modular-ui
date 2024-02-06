@@ -90,7 +90,7 @@ class __CarouselsState extends State<_Carousels> {
           const SizedBox(height: 15),
           text("Parallex Carousel and line Indicator"),
           const SizedBox(height: 5),
-          const MUIParallexCarousal(
+          const MUIParallexCarousel(
             images: [
               "https://github.com/shadcn.png",
               "https://github.com/shadcn.png",

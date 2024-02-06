@@ -4,8 +4,8 @@ import "package:modular_ui/modular_ui.dart";
 import "package:modular_ui/src/carousel/components/indicator_dot.dart";
 import "package:modular_ui/src/carousel/components/indicator_line.dart";
 
-class MUIParallexCarousal extends StatefulWidget {
-  const MUIParallexCarousal(
+class MUIParallexCarousel extends StatefulWidget {
+  const MUIParallexCarousel(
       {super.key,
       required this.images,
       this.height = 200,
@@ -56,10 +56,10 @@ class MUIParallexCarousal extends StatefulWidget {
   /// Max Width for Carousel ; default: 430
   final double? maxWidth;
   @override
-  State<MUIParallexCarousal> createState() => _MUIParallexCarousalState();
+  State<MUIParallexCarousel> createState() => _MUIParallexCarouselState();
 }
 
-class _MUIParallexCarousalState extends State<MUIParallexCarousal> {
+class _MUIParallexCarouselState extends State<MUIParallexCarousel> {
   late PageController _pageController;
   int currentIndex = 0;
 
