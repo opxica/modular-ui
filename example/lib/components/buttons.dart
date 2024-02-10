@@ -1,3 +1,4 @@
+import 'package:example/widgets/collapsible_unit.dart';
 import 'package:example/widgets/custom_snackbar.dart';
 import 'package:example/widgets/shadow.dart';
 import 'package:example/widgets/text.dart';
@@ -19,6 +20,7 @@ class ButtonsView extends StatefulWidget {
 
 class _ButtonsViewState extends State<ButtonsView> {
   bool radioButton = false;
+  bool isCollapsible = false;
 
   void onButtonPressed(String button) {
     final snackBar = SnackBar(
@@ -130,6 +132,29 @@ class _ButtonsViewState extends State<ButtonsView> {
           ),
           const SizedBox(height: 16.0),
 
+          // Collapsible Button
+          text("Secondary Outlined Button"),
+          const SizedBox(height: 6),
+          MUISecondaryOutlinedButton(
+            bgColor: Colors.white,
+            text: "Secondary Outlined Button",
+            onPressed: () => onButtonPressed("Secondary Outline Button"),
+          ),
+          const SizedBox(height: 16.0),
+
+          text("Collapsible Button"),
+          const SizedBox(height: 6),
+          MUICollapsibleButton(
+            actionIcon:
+                isCollapsible ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+            collapsibleChild: const CollapsibleUnit(),
+            text: 'Collapsible Button',
+            onPressed: () {
+              isCollapsible = !isCollapsible;
+            },
+          ),
+          const SizedBox(height: 16.0),
+
           /// Primary Block Button
           text("Primary Block Button"),
           const SizedBox(height: 6),
@@ -203,15 +228,6 @@ class _ButtonsViewState extends State<ButtonsView> {
             onPressed: () => onButtonPressed("Secondary Outlined Block Button"),
           ),
           const SizedBox(height: 16.0),
-          const MUICollapsableButton(
-            collapsibleHeight: 200,
-            collapsibleWidth: 100,
-            collapsibleChild: Center(
-              child: FlutterLogo(size: 50),
-            ),
-          ),
-          const SizedBox(height: 16.0),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
