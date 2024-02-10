@@ -1,8 +1,8 @@
 import 'package:example/widgets/custom_snackbar.dart';
 import 'package:example/widgets/shadow.dart';
 import 'package:example/widgets/text.dart';
-import 'package:modular_ui/modular_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:modular_ui/modular_ui.dart';
 
 Widget button() {
   return const ButtonsView();
@@ -201,6 +201,14 @@ class _ButtonsViewState extends State<ButtonsView> {
           MUISecondaryOutlinedBlockButton(
             text: "Secondary Outlined Block Button",
             onPressed: () => onButtonPressed("Secondary Outlined Block Button"),
+          ),
+          const SizedBox(height: 16.0),
+          const MUICollapsableButton(
+            collapsibleHeight: 200,
+            collapsibleWidth: 100,
+            collapsibleChild: Center(
+              child: FlutterLogo(size: 50),
+            ),
           ),
           const SizedBox(height: 16.0),
 
