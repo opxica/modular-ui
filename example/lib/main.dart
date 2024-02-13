@@ -1,3 +1,4 @@
+import 'package:example/components/dropdowns.dart';
 import 'package:flutter/material.dart';
 import 'package:example/components/avatar.dart';
 import 'package:example/components/breadcrumbs.dart';
@@ -74,6 +75,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       {
         'name': 'Dialog',
         'route': dialog(context),
+      },
+      {
+        'name': 'Dropdown',
+        'route': dropdown(),
       },
       {
         'name': 'Checkbox',
