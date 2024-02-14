@@ -19,7 +19,7 @@ export 'src/buttons/secondary_button.dart';
 export 'src/buttons/secondary_block_level_button.dart';
 export 'src/buttons/secondary_outlined_button.dart';
 export 'src/buttons/secondary_outlined_block_level_button.dart';
-
+export 'src/buttons/collapsible_button.dart';
 /// Cards
 export 'src/cards/blog_card.dart';
 export 'src/cards/primary_card.dart';
