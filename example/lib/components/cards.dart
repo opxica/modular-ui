@@ -100,9 +100,9 @@ Widget card() {
           title: "Standard",
           button: MUILoadingBlockButton(
               bgColor: Colors.white,
-              textColor: Colors.black,
+              textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               loadingStateText: 'Purchasing',
-              loadingStateTextColor: Colors.black,
+              loadingStateTextStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               text: 'Buy Now',
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable primary button by ModularUI with optional icons.
-class MUIPrimaryButton extends StatefulWidget {
-  const MUIPrimaryButton({
+/// A customizable animated button by ModularUI with optional icons.
+class MUIAnimatedButton extends StatefulWidget {
+  const MUIAnimatedButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.bgColor = Colors.black,
-    this.textColor = Colors.white,
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
@@ -27,13 +27,13 @@ class MUIPrimaryButton extends StatefulWidget {
   /// The Text to display inside the button.
   final String text;
 
-  /// Background Color of The Primary Button, default: black.
+  /// Background Color of The Animated Button, default: black.
   final Color bgColor;
 
-  /// Text Color of the Primary Button, default: white.
-  final Color textColor;
+  /// Text Style of the Animated Button, default: white.
+  final TextStyle textStyle;
 
-  /// Border Radius for Primary Button, default: 10.
+  /// Border Radius for Animated Button, default: 10.
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms.
@@ -74,18 +74,18 @@ class MUIPrimaryButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIPrimaryButton> createState() => _PrimaryButtonState();
+  State<MUIAnimatedButton> createState() => _PrimaryButtonState();
 }
 
-class _PrimaryButtonState extends State<MUIPrimaryButton> {
-  bool _isPrimaryButtonPressed = false;
+class _PrimaryButtonState extends State<MUIAnimatedButton> {
+  bool _isAnimatedButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isPrimaryButtonPressed = true;
+          _isAnimatedButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -93,13 +93,13 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isPrimaryButtonPressed = false;
+          _isAnimatedButtonPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          _isPrimaryButtonPressed = false;
+          _isAnimatedButtonPressed = false;
         });
       },
       child: AnimatedContainer(
@@ -110,12 +110,8 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
           boxShadow: widget.boxShadows,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: _isPrimaryButtonPressed
-              ? getScreenWidth(context) * widget.widthFactorPressed
-              : getScreenWidth(context) * widget.widthFactorUnpressed,
-          vertical: _isPrimaryButtonPressed
-              ? getScreenWidth(context) * widget.heightFactorPressed
-              : getScreenWidth(context) * widget.heightFactorUnPressed,
+          horizontal: _isAnimatedButtonPressed ? getScreenWidth(context) * widget.widthFactorPressed : getScreenWidth(context) * widget.widthFactorUnpressed,
+          vertical: _isAnimatedButtonPressed ? getScreenWidth(context) * widget.heightFactorPressed : getScreenWidth(context) * widget.heightFactorUnPressed,
         ).clamp(
           const EdgeInsets.symmetric(
             horizontal: 10,
@@ -136,13 +132,7 @@ class _PrimaryButtonState extends State<MUIPrimaryButton> {
                 size: 12,
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
-            Text(
-              widget.text,
-              style: TextStyle(
-                color: widget.textColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text(widget.text, style: widget.textStyle),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)
               Icon(

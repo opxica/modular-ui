@@ -4,21 +4,21 @@ library modular_ui;
 export 'src/breadcrumbs/breadcrumbs.dart';
 
 /// Buttons
-export 'src/buttons/gradient_block_level_button.dart';
-export 'src/buttons/gradient_button.dart';
-export 'src/buttons/loading_block_level_button.dart';
-export 'src/buttons/loading_button.dart';
-export 'src/buttons/outlined_block_level_button.dart';
-export 'src/buttons/outlined_button.dart';
-export 'src/buttons/primary_block_level_button.dart';
-export 'src/buttons/primary_button.dart';
-export 'src/buttons/text_block_level_button.dart';
-export 'src/buttons/text_button.dart';
-export 'src/buttons/radio_button.dart';
-export 'src/buttons/secondary_button.dart';
-export 'src/buttons/secondary_block_level_button.dart';
-export 'src/buttons/secondary_outlined_button.dart';
-export 'src/buttons/secondary_outlined_block_level_button.dart';
+export 'src/buttons/gradient/gradient_block_level_button.dart';
+export 'src/buttons/gradient/gradient_button.dart';
+export 'src/buttons/loading/loading_block_level_button.dart';
+export 'src/buttons/loading/loading_button.dart';
+export 'src/buttons/outlined/outlined_block_level_button.dart';
+export 'src/buttons/outlined/outlined_button.dart';
+export 'src/buttons/animated/animated_block_level_button.dart';
+export 'src/buttons/animated/animated_button.dart';
+export 'src/buttons/text/text_block_level_button.dart';
+export 'src/buttons/text/text_button.dart';
+export 'src/buttons/radio/radio_button.dart';
+export 'src/buttons/primary/primary_button.dart';
+export 'src/buttons/primary/primary_block_level_button.dart';
+export 'src/buttons/secondary/secondary_button.dart';
+export 'src/buttons/secondary/secondary_block_level_button.dart';
 
 /// Cards
 export 'src/cards/blog_card.dart';

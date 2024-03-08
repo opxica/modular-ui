@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUIOutlinedButton extends StatefulWidget {
-  const MUIOutlinedButton({
+class MUISecondaryButton extends StatefulWidget {
+  const MUISecondaryButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = Colors.transparent,
-    this.borderColor = Colors.black,
-    this.borderWidth = 2,
-    this.textColor = Colors.black,
+    required this.bgColor,
+    this.borderColor = Colors.grey,
+    this.borderWidth = 1.5,
+    this.textStyle = const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
-    this.widthFactorUnpressed = 0.04,
-    this.widthFactorPressed = 0.035,
-    this.heightFactorUnPressed = 0.03,
-    this.heightFactorPressed = 0.03,
     this.maxHorizontalPadding = 50,
     this.leadingIcon,
     this.actionIcon,
@@ -28,19 +23,19 @@ class MUIOutlinedButton extends StatefulWidget {
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Outlined Button, default : transparent
-  final Color bgColor;
+  /// Text Color of the Secondary  Button, default : black
+  final TextStyle textStyle;
 
-  /// Text Color of the Outlined Button, default : black
-  final Color textColor;
-
-  /// Border Color for the outlined Button
+  /// Border Color for the Button also equals to background color when button is tapped
   final Color borderColor;
 
-  /// Border width, default : 2
+  /// Background color of secondary button
+  final Color bgColor;
+
+  /// Border width, default : 1.5
   final double borderWidth;
 
-  /// Border Radius for Outlined Button, default : 10
+  /// Border Radius for Secondary  Button, default : 10
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default : 250 ms
@@ -48,18 +43,6 @@ class MUIOutlinedButton extends StatefulWidget {
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
-
-  /// A double value which gets multiplied by the current screen width when button is not pressed
-  final double widthFactorUnpressed;
-
-  /// A double value which gets multiplied by the current screen width when button is pressed
-  final double widthFactorPressed;
-
-  /// A double value which gets multiplied by the current screen height when button is  pressed
-  final double heightFactorPressed;
-
-  /// A double value which gets multiplied by the current screen height when button is not pressed
-  final double heightFactorUnPressed;
 
   /// A double value which determines maximum horizontal padding a button can accumulate
   /// Play with this value if you want to use the button on a larger screen size
@@ -81,17 +64,17 @@ class MUIOutlinedButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUIOutlinedButton> createState() => _MUIOutlinedButtonState();
+  State<MUISecondaryButton> createState() => _MUISecondaryButtonState();
 }
 
-class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
-  bool _isOutlinedButtonPressed = false;
+class _MUISecondaryButtonState extends State<MUISecondaryButton> {
+  bool _isSecondaryButtonPressed = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isOutlinedButtonPressed = true;
+          _isSecondaryButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -99,45 +82,27 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isOutlinedButtonPressed = false;
+          _isSecondaryButtonPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          _isOutlinedButtonPressed = false;
+          _isSecondaryButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: widget.bgColor,
+          color: _isSecondaryButtonPressed ? widget.borderColor : widget.bgColor,
           boxShadow: widget.boxShadows,
           border: Border.all(
-            color: _isOutlinedButtonPressed
-                ? Colors.transparent
-                : widget.borderColor,
+            color: widget.borderColor,
             width: widget.borderWidth,
           ),
         ),
-        padding: EdgeInsets.symmetric(
-          horizontal: _isOutlinedButtonPressed
-              ? getScreenWidth(context) * widget.widthFactorPressed
-              : getScreenWidth(context) * widget.widthFactorUnpressed,
-          vertical: _isOutlinedButtonPressed
-              ? getScreenWidth(context) * widget.heightFactorPressed
-              : getScreenWidth(context) * widget.heightFactorUnPressed,
-        ).clamp(
-          const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 8,
-          ),
-          EdgeInsets.symmetric(
-            horizontal: widget.maxHorizontalPadding,
-            vertical: 16,
-          ),
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -151,8 +116,7 @@ class _MUIOutlinedButtonState extends State<MUIOutlinedButton> {
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
             Text(
               widget.text,
-              style: TextStyle(
-                  color: widget.textColor, fontWeight: FontWeight.bold),
+              style: widget.textStyle
             ),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)

@@ -68,14 +68,11 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(25),
-      width: getScreenWidth(context) <= widget.maxWidth
-          ? getScreenWidth(context) * 0.88
-          : widget.maxWidth,
+      width: getScreenWidth(context) <= widget.maxWidth ? getScreenWidth(context) * 0.88 : widget.maxWidth,
       decoration: BoxDecoration(
         color: widget.bgColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
-        border:
-            Border.all(color: widget.borderColor, width: widget.borderWidth),
+        border: Border.all(color: widget.borderColor, width: widget.borderWidth),
       ),
       child: IntrinsicHeight(
         child: Column(
@@ -84,20 +81,11 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
           children: [
             Text(
               'Sign up',
-              style: TextStyle(
-                  color: widget.accentColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: getScreenWidth(context) <= widget.maxWidth
-                      ? getScreenWidth(context) * 0.08
-                      : 32),
+              style: TextStyle(color: widget.accentColor, fontWeight: FontWeight.bold, fontSize: getScreenWidth(context) <= widget.maxWidth ? getScreenWidth(context) * 0.08 : 32),
             ),
-            Text('Enter your email & password to sign up',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.w300)),
+            Text('Enter your email & password to sign up', style: TextStyle(color: widget.accentColor, fontWeight: FontWeight.w300)),
             SizedBox(height: getScreenHeight(context) * 0.03),
-            Text(' Email',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            Text(' Email', style: TextStyle(color: widget.accentColor, fontWeight: FontWeight.bold)),
             SizedBox(height: getScreenHeight(context) * 0.01),
             MUIPrimaryInputField(
               isObscure: false,
@@ -107,15 +95,12 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
               disabledBorderColor: widget.borderColor,
               borderWidth: 1,
               borderRadius: 10,
-              textStyle: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.w300),
+              textStyle: TextStyle(color: widget.accentColor, fontWeight: FontWeight.w300),
               controller: widget.emailController,
               filledColor: widget.bgColor,
             ),
             SizedBox(height: getScreenHeight(context) * 0.02),
-            Text(' Password',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            Text(' Password', style: TextStyle(color: widget.accentColor, fontWeight: FontWeight.bold)),
             SizedBox(height: getScreenHeight(context) * 0.01),
             MUIPrimaryInputField(
               isObscure: true,
@@ -125,15 +110,12 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
               disabledBorderColor: widget.borderColor,
               borderWidth: 1,
               borderRadius: 10,
-              textStyle: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.w300),
+              textStyle: TextStyle(color: widget.accentColor, fontWeight: FontWeight.w300),
               controller: widget.passwordController,
               filledColor: widget.bgColor,
             ),
             SizedBox(height: getScreenHeight(context) * 0.02),
-            Text(' Confirm Password',
-                style: TextStyle(
-                    color: widget.accentColor, fontWeight: FontWeight.bold)),
+            Text(' Confirm Password', style: TextStyle(color: widget.accentColor, fontWeight: FontWeight.bold)),
             SizedBox(height: getScreenHeight(context) * 0.01),
             MUIPrimaryInputField(
               isObscure: true,
@@ -143,8 +125,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
               disabledBorderColor: widget.borderColor,
               borderWidth: 1,
               borderRadius: 10,
-              textStyle: TextStyle(
-                  color: widget.accentColor, fontWeight: FontWeight.w300),
+              textStyle: TextStyle(color: widget.accentColor, fontWeight: FontWeight.w300),
               controller: widget.confirmPasswordController,
               filledColor: widget.bgColor,
             ),
@@ -153,12 +134,11 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
               child: MUILoadingBlockButton(
                   text: 'Sign up',
                   bgColor: widget.accentColor,
-                  textColor: widget.bgColor,
-                  loadingStateTextColor: widget.bgColor,
+                  textStyle: TextStyle(color: widget.bgColor, fontWeight: FontWeight.bold),
+                  loadingStateTextStyle: TextStyle(color: widget.bgColor, fontWeight: FontWeight.bold),
                   loadingStateText: 'Loading',
                   onPressed: () async {
-                    if (widget.passwordController.text ==
-                        widget.confirmPasswordController.text) {
+                    if (widget.passwordController.text == widget.confirmPasswordController.text) {
                       await widget.onSignUpPressed();
                     }
                   }),
@@ -170,9 +150,7 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: getScreenWidth(context) <= widget.maxWidth
-                          ? getScreenWidth(context) * 0.23
-                          : 95,
+                      width: getScreenWidth(context) <= widget.maxWidth ? getScreenWidth(context) * 0.23 : 95,
                       child: Divider(
                         color: widget.accentColor,
                         thickness: 0.35,
@@ -181,15 +159,11 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                     Text(' OR CONTINUE WITH ',
                         style: TextStyle(
                           color: widget.accentColor,
-                          fontSize: getScreenWidth(context) <= widget.maxWidth
-                              ? getScreenWidth(context) * 0.02
-                              : 10,
+                          fontSize: getScreenWidth(context) <= widget.maxWidth ? getScreenWidth(context) * 0.02 : 10,
                           fontWeight: FontWeight.w200,
                         )),
                     SizedBox(
-                      width: getScreenWidth(context) <= widget.maxWidth
-                          ? getScreenWidth(context) * 0.23
-                          : 95,
+                      width: getScreenWidth(context) <= widget.maxWidth ? getScreenWidth(context) * 0.23 : 95,
                       child: Divider(
                         color: widget.accentColor,
                         thickness: 0.35,
@@ -199,23 +173,18 @@ class _MUISignUpCardState extends State<MUISignUpCard> {
                 ),
               ),
             Row(
-              mainAxisAlignment: (widget.authButtons!.length == 1)
-                  ? MainAxisAlignment.start
-                  : MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: (widget.authButtons!.length == 1) ? MainAxisAlignment.start : MainAxisAlignment.spaceEvenly,
               children: widget.authButtons!,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Already have an account ? ",
-                    style: TextStyle(color: widget.accentColor, fontSize: 11)),
+                Text("Already have an account ? ", style: TextStyle(color: widget.accentColor, fontSize: 11)),
                 TextButton(
                     onPressed: () {
                       widget.onLogInNowPressed();
                     },
-                    child: Text('Login now',
-                        style:
-                            TextStyle(color: widget.borderColor, fontSize: 11)))
+                    child: Text('Login now', style: TextStyle(color: widget.borderColor, fontSize: 11)))
               ],
             )
           ],

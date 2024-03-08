@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// A customizable Secondary button by ModularUI with optional icons.
-class MUISecondaryButton extends StatefulWidget {
-  const MUISecondaryButton({
+/// A customizable Primary button by ModularUI with optional icons.
+class MUIPrimaryButton extends StatefulWidget {
+  const MUIPrimaryButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.boxShadows,
     this.bgColor = const Color(0xff212123),
     this.tappedBgColor = const Color.fromARGB(255, 22, 22, 24),
-    this.textColor = Colors.white,
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
@@ -22,16 +22,16 @@ class MUISecondaryButton extends StatefulWidget {
   /// The Text to display inside the button.
   final String text;
 
-  /// Background Color of The Secondary Button
+  /// Background Color of The Primary Button
   final Color bgColor;
 
-  /// Background Color of The Secondary Button when tapped.
+  /// Background Color of The Primary Button when tapped.
   final Color tappedBgColor;
 
-  /// Text Color of the Secondary Button, default: white.
-  final Color textColor;
+  /// Text Style of the Primary Button, default: white.
+  final TextStyle textStyle;
 
-  /// Border Radius for Secondary Button, default: 10.
+  /// Border Radius for Primary Button, default: 10.
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms.
@@ -56,18 +56,18 @@ class MUISecondaryButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUISecondaryButton> createState() => _MUISecondaryButtonState();
+  State<MUIPrimaryButton> createState() => _MUIPrimaryButtonState();
 }
 
-class _MUISecondaryButtonState extends State<MUISecondaryButton> {
-  bool _isSecondaryButtonPressed = false;
+class _MUIPrimaryButtonState extends State<MUIPrimaryButton> {
+  bool _isPrimaryButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isSecondaryButtonPressed = true;
+          _isPrimaryButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -75,23 +75,18 @@ class _MUISecondaryButtonState extends State<MUISecondaryButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isSecondaryButtonPressed = false;
+          _isPrimaryButtonPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          _isSecondaryButtonPressed = false;
+          _isPrimaryButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
-            color: _isSecondaryButtonPressed
-                ? widget.tappedBgColor
-                : widget.bgColor,
-            boxShadow: widget.boxShadows),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(widget.borderRadius), color: _isPrimaryButtonPressed ? widget.tappedBgColor : widget.bgColor, boxShadow: widget.boxShadows),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -103,13 +98,7 @@ class _MUISecondaryButtonState extends State<MUISecondaryButton> {
                 size: 12,
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
-            Text(
-              widget.text,
-              style: TextStyle(
-                color: widget.textColor,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Text(widget.text, style: widget.textStyle),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)
               Icon(

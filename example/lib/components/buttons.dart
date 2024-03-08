@@ -115,18 +115,19 @@ class _ButtonsViewState extends State<ButtonsView> {
           const SizedBox(height: 6),
           MUISecondaryButton(
             text: "Secondary Button",
+             bgColor: Colors.white,
             onPressed: () => onButtonPressed("Secondary Button"),
             boxShadows: mUILightSmallShadow,
           ),
           const SizedBox(height: 16.0),
 
-          /// Secondary Outlined Button
-          text("Secondary Outlined Button"),
+          /// Secondary Block Button
+          text("Secondary Block Button"),
           const SizedBox(height: 6),
-          MUISecondaryOutlinedButton(
+          MUISecondaryBlockButton(
             bgColor: Colors.white,
-            text: "Secondary Outlined Button",
-            onPressed: () => onButtonPressed("Secondary Outline Button"),
+            text: "Secondary Block Button",
+            onPressed: () => onButtonPressed("Secondary Block Button"),
           ),
           const SizedBox(height: 16.0),
 
@@ -185,22 +186,13 @@ class _ButtonsViewState extends State<ButtonsView> {
           ),
           const SizedBox(height: 16.0),
 
-          /// Secondary Block Button
-          text("Secondary Block Button"),
-          const SizedBox(height: 6),
-          MUISecondaryBlockButton(
-            text: "Secondary Block Button",
-            onPressed: () => onButtonPressed("Secondary Block Button"),
-            boxShadows: mUILightSmallShadow,
-          ),
-          const SizedBox(height: 16.0),
 
-          /// Secondary Outlined Block Button
-          text("Secondary Outlined Block Button"),
+          /// Animated Block Level Button
+          text("Animated Block Button"),
           const SizedBox(height: 6),
-          MUISecondaryOutlinedBlockButton(
-            text: "Secondary Outlined Block Button",
-            onPressed: () => onButtonPressed("Secondary Outlined Block Button"),
+          MUIAnimatedBlockButton(
+            text: "Animated Block Button",
+            onPressed: () => onButtonPressed("Animated Block Button"),
           ),
           const SizedBox(height: 16.0),
 

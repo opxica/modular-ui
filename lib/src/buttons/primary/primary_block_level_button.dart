@@ -2,47 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable secondary outlined block level button by ModularUI with optional icons.
-class MUISecondaryOutlinedBlockButton extends StatefulWidget {
-  const MUISecondaryOutlinedBlockButton({
+/// A customizable primary block level button by ModularUI with optional icons.
+class MUIPrimaryBlockButton extends StatefulWidget {
+  const MUIPrimaryBlockButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = Colors.transparent,
-    this.textColor = Colors.black,
-    this.borderColor = Colors.grey,
-    this.tappedBgColor = Colors.grey,
-    this.borderWidth = 2,
+    this.bgColor = const Color(0xff212123),
+    this.tappedBgColor = const Color.fromARGB(255, 22, 22, 24),
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    this.boxShadows,
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
     this.heightFactor = 0.05,
     this.leadingIcon,
     this.actionIcon,
-    this.iconColor = Colors.black,
+    this.iconColor = Colors.white,
     this.widthFactor = 0.98,
-    this.boxShadows,
   });
 
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Outlined Block Button
+  /// Background Color of The Primary Block Button
   final Color bgColor;
 
-  /// Background Color of The Outlined Block Button
+  /// Background Color of The Primary Block Button when tapped
   final Color tappedBgColor;
 
-  /// Text Color of the Outlined Block Button
-  final Color textColor;
+  /// Text Style of the Primary Block Button, default: white
+  final TextStyle textStyle;
 
-  /// Border Color for the outlined Button
-  final Color borderColor;
-
-  /// Border width, default: 2
-  final double borderWidth;
-
-  /// Border Radius for Outlined Block Button, default: 10
+  /// Border Radius for Primary Block Button, default: 10
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
@@ -57,36 +49,34 @@ class MUISecondaryOutlinedBlockButton extends StatefulWidget {
   /// A double value which gets multiplied with current screen width when button is not pressed
   final double widthFactor;
 
-  /// On Pressed Function
-  final VoidCallback onPressed;
-
   /// Optional leading icon for the button.
   final IconData? leadingIcon;
 
   /// Optional action icon for the button.
   final IconData? actionIcon;
 
-  /// Icon color for both leading and action icons, default: black.
+  /// Icon color for both leading and action icons, default: white.
   final Color iconColor;
+
+  /// On Pressed Function
+  final VoidCallback onPressed;
 
   /// Box shadows for button
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUISecondaryOutlinedBlockButton> createState() =>
-      _MUISecondaryOutlinedBlockLevelButtonState();
+  State<MUIPrimaryBlockButton> createState() => _MUIPrimaryBlockButtonState();
 }
 
-class _MUISecondaryOutlinedBlockLevelButtonState
-    extends State<MUISecondaryOutlinedBlockButton> {
-  bool _isOutlinedBlockLevelButtonPressed = false;
+class _MUIPrimaryBlockButtonState extends State<MUIPrimaryBlockButton> {
+  bool _isPrimaryBlockLevelButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isOutlinedBlockLevelButtonPressed = true;
+          _isPrimaryBlockLevelButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -94,30 +84,19 @@ class _MUISecondaryOutlinedBlockLevelButtonState
       },
       onTapUp: (_) {
         setState(() {
-          _isOutlinedBlockLevelButtonPressed = false;
+          _isPrimaryBlockLevelButtonPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          _isOutlinedBlockLevelButtonPressed = false;
+          _isPrimaryBlockLevelButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: _isOutlinedBlockLevelButtonPressed
-              ? widget.tappedBgColor
-              : widget.bgColor,
-          boxShadow: widget.boxShadows,
-          border: Border.all(
-            color: _isOutlinedBlockLevelButtonPressed
-                ? widget.tappedBgColor
-                : widget.borderColor,
-            width: widget.borderWidth,
-          ),
-        ),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(widget.borderRadius), color: _isPrimaryBlockLevelButtonPressed ? widget.tappedBgColor : widget.bgColor, boxShadow: widget.boxShadows),
         width: getScreenWidth(context) * widget.widthFactor,
         height: getScreenHeight(context) * widget.heightFactor,
         child: Center(
@@ -128,23 +107,15 @@ class _MUISecondaryOutlinedBlockLevelButtonState
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
-                  // size: getScreenWidth(context) * 0.05,
                   size: 12,
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
-              Text(
-                widget.text,
-                style: TextStyle(
-                  color: widget.textColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text(widget.text, style: widget.textStyle),
               SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
               if (widget.actionIcon != null)
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
-                  // size: getScreenWidth(context) * 0.05,
                   size: 12,
                 ),
             ],

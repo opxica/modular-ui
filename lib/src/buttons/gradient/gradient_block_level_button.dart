@@ -2,39 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-/// A customizable secondary block level button by ModularUI with optional icons.
-class MUISecondaryBlockButton extends StatefulWidget {
-  const MUISecondaryBlockButton({
+/// A customizable gradient block level button by ModularUI with optional icons.
+class MUIGradientBlockButton extends StatefulWidget {
+  const MUIGradientBlockButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = const Color(0xff212123),
-    this.tappedBgColor = const Color.fromARGB(255, 22, 22, 24),
-    this.textColor = Colors.white,
-    this.boxShadows,
+    this.bgGradient = const LinearGradient(colors: [Colors.black, Colors.grey]),
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
+    this.widthFactorPressed = 0.95,
     this.heightFactor = 0.05,
     this.leadingIcon,
     this.actionIcon,
     this.iconColor = Colors.white,
     this.widthFactor = 0.98,
+    this.boxShadows,
   });
 
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color of The Secondary Block Button
-  final Color bgColor;
+  /// Background Gradient of The Gradient Block Button, default: Black and grey
+  final Gradient bgGradient;
 
-  /// Background Color of The Secondary Block Button when tapped
-  final Color tappedBgColor;
+  /// Text Color of the Gradient Block Button, default: white
+  final TextStyle textStyle;
 
-  /// Text Color of the Secondary Block Button, default: white
-  final Color textColor;
-
-  /// Border Radius for Secondary Block Button, default: 10
+  /// Border Radius for Gradient Block Button, default: 10
   final double borderRadius;
 
   /// Animation Duration in Milliseconds, default: 250 ms
@@ -42,6 +39,9 @@ class MUISecondaryBlockButton extends StatefulWidget {
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
+
+  /// A double value which gets multiplied by the current screen width when button is pressed
+  final double widthFactorPressed;
 
   /// A double value which gets multiplied by the current screen height determines the height of the button
   final double heightFactor;
@@ -65,19 +65,18 @@ class MUISecondaryBlockButton extends StatefulWidget {
   final List<BoxShadow>? boxShadows;
 
   @override
-  State<MUISecondaryBlockButton> createState() =>
-      _MUISecondaryBlockButtonState();
+  State<MUIGradientBlockButton> createState() => _MUIGradientBlockButtonState();
 }
 
-class _MUISecondaryBlockButtonState extends State<MUISecondaryBlockButton> {
-  bool _isSecondaryBlockLevelButtonPressed = false;
+class _MUIGradientBlockButtonState extends State<MUIGradientBlockButton> {
+  bool _isGradientBlockLevelButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isSecondaryBlockLevelButtonPressed = true;
+          _isGradientBlockLevelButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -85,24 +84,19 @@ class _MUISecondaryBlockButtonState extends State<MUISecondaryBlockButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isSecondaryBlockLevelButtonPressed = false;
+          _isGradientBlockLevelButtonPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          _isSecondaryBlockLevelButtonPressed = false;
+          _isGradientBlockLevelButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
-            color: _isSecondaryBlockLevelButtonPressed
-                ? widget.tappedBgColor
-                : widget.bgColor,
-            boxShadow: widget.boxShadows),
-        width: getScreenWidth(context) * widget.widthFactor,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(widget.borderRadius), gradient: widget.bgGradient, boxShadow: widget.boxShadows),
+        width: _isGradientBlockLevelButtonPressed ? getScreenWidth(context) * widget.widthFactorPressed : getScreenWidth(context) * widget.widthFactor,
         height: getScreenHeight(context) * widget.heightFactor,
         child: Center(
           child: Row(
@@ -112,21 +106,17 @@ class _MUISecondaryBlockButtonState extends State<MUISecondaryBlockButton> {
                 Icon(
                   widget.leadingIcon,
                   color: widget.iconColor,
+                  // size: getScreenWidth(context) * 0.05,
                   size: 12,
                 ),
               SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
-              Text(
-                widget.text,
-                style: TextStyle(
-                  color: widget.textColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text(widget.text, style: widget.textStyle),
               SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
               if (widget.actionIcon != null)
                 Icon(
                   widget.actionIcon,
                   color: widget.iconColor,
+                  // size: getScreenWidth(context) * 0.05,
                   size: 12,
                 ),
             ],
