@@ -1,4 +1,4 @@
-import 'package:example/components/dropdowns.dart';
+import 'package:example/components/select.dart';
 import 'package:flutter/material.dart';
 import 'package:example/components/avatar.dart';
 import 'package:example/components/breadcrumbs.dart';

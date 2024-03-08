@@ -41,9 +41,9 @@ export 'src/checkbox/checkbox.dart';
 /// Dialogs
 export 'src/dialog/primary_dialog.dart';
 
-/// Dropdowns
-export 'src/dropdowns/mui_map_dropdown.dart';
-export 'src/dropdowns/mui_primary_dropdown.dart';
+/// Selects
+export 'src/select/select_from_map.dart';
+export 'src/select/select_from_string.dart';
 
 
 /// Footers
