@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-/// This is a Dropdown widget implementation of Modular UI
-/// It take a list of Map<String,dynamic> as dropdown items
-/// This dropdown can be easily implemented in with external APIs
-class MUIMapDropDown extends StatefulWidget {
-  const MUIMapDropDown({
+/// This is a Select widget implementation of Modular UI
+/// It take a list of Map<String,dynamic> as select items
+/// This select widget can be easily implemented in with external APIs
+class MUISelectFromMapList extends StatefulWidget {
+  const MUISelectFromMapList({
     super.key,
     required this.items,
     this.tooltip,
@@ -22,7 +22,7 @@ class MUIMapDropDown extends StatefulWidget {
     required this.mapKey,
   });
 
-  /// List of Map<String,dynamic> to be shown in the MUIPrimaryDropDown
+  /// List of Map<String,dynamic> to be shown in the MUISelectFromMapList
   final List<Map<String, dynamic>> items;
 
   /// Text that describes the action that will occur when the button is pressed.
@@ -34,10 +34,10 @@ class MUIMapDropDown extends StatefulWidget {
   /// This is a vertical offset value which determines the vertical position of the menu.
   final double? offset;
 
-  /// Width of Button that opens the dropdown
+  /// Width of Button that opens the select
   final double? width;
 
-  /// Hintext to be shown in the dropdown
+  /// Hintext to be shown in the select
   ///
   /// Default value is null.
   final String? hintText;
@@ -45,22 +45,22 @@ class MUIMapDropDown extends StatefulWidget {
   /// Text style for hintText
   final TextStyle? hintStyle;
 
-  /// Textstyle of dropdown items
+  /// Textstyle of select items
   final TextStyle? textStyle;
 
-  /// Background color of the dropdown
+  /// Background color of the select
   final Color? dropdownBackgroundColor;
 
-  /// Border color of the dropdown
+  /// Border color of the select
   final Color? dropdownBorderColor;
 
-  /// Border radius of dropdown button and menu
+  /// Border radius of select button and menu
   final double? borderRadius;
 
-  /// Item height for dropdown menu items.
+  /// Item height for select menu items.
   final double? itemHeight;
 
-  /// Icon to be shown in the dropdown
+  /// Icon to be shown in the select
   final Icon? hintIcon;
 
   /// Function to be called when an item is selected
@@ -70,10 +70,10 @@ class MUIMapDropDown extends StatefulWidget {
   final String mapKey;
 
   @override
-  State<MUIMapDropDown> createState() => _DropDownWidgetState();
+  State<MUISelectFromMapList> createState() => _MUISelectFromMapListState();
 }
 
-class _DropDownWidgetState extends State<MUIMapDropDown> {
+class _MUISelectFromMapListState extends State<MUISelectFromMapList> {
   late int _selectedIndex;
 
   @override

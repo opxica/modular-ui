@@ -8,9 +8,9 @@ class MUILoadingButton extends StatefulWidget {
     required this.onPressed,
     this.loadingStateText = '',
     this.bgColor = Colors.black,
-    this.textColor = Colors.white,
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.loadingStateBackgroundColor = Colors.grey,
-    this.loadingStateTextColor = Colors.white,
+    this.loadingStateTextStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.animationDuration = 250,
     this.hapticsEnabled = false,
@@ -37,14 +37,14 @@ class MUILoadingButton extends StatefulWidget {
   /// Background color of the loading button
   final Color bgColor;
 
-  /// Text color of the loading button
-  final Color textColor;
+  /// Text Style of the loading button
+  final TextStyle textStyle;
 
   /// Background Color when the button is in the loading state
   final Color loadingStateBackgroundColor;
 
-  /// Text Color when the button is in the loading state
-  final Color loadingStateTextColor;
+  /// Text Style when the button is in the loading state
+  final TextStyle loadingStateTextStyle;
 
   /// Border radius, default value is 10
   final double borderRadius;
@@ -154,7 +154,7 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                     SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
                     Text(
                       widget.text,
-                      style: TextStyle(color: widget.textColor),
+                      style: widget.textStyle
                     ),
                     SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
                     if (widget.actionIcon != null)
@@ -174,12 +174,12 @@ class _MUILoadingButtonState extends State<MUILoadingButton> {
                       width: 18,
                       height: 18,
                       child: CircularProgressIndicator(
-                        color: widget.loadingStateTextColor,
+                        color: widget.loadingStateTextStyle.color,
                       ),
                     ),
                     Text(
                       widget.loadingStateText,
-                      style: TextStyle(color: widget.loadingStateTextColor),
+                      style: widget.loadingStateTextStyle
                     )
                   ],
                 ),

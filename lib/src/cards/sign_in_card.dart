@@ -131,8 +131,8 @@ class _MUISignInCardState extends State<MUISignInCard> {
               child: MUILoadingBlockButton(
                   text: 'Sign in',
                   bgColor: widget.accentColor,
-                  textColor: widget.bgColor,
-                  loadingStateTextColor: widget.bgColor,
+                  textStyle: TextStyle(color: widget.bgColor, fontWeight: FontWeight.bold),
+                  loadingStateTextStyle: TextStyle(color: widget.bgColor, fontWeight: FontWeight.bold),
                   loadingStateText: 'Loading',
                   onPressed: () async {
                     await widget.onSignInPressed();

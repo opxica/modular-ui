@@ -2,47 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modular_ui/src/utils/dimensions.dart';
 
-class MUITextButton extends StatefulWidget {
-  const MUITextButton({
+class MUIGradientButton extends StatefulWidget {
+  const MUIGradientButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = Colors.grey,
-    this.textColor = Colors.black,
+    this.bgGradient = const LinearGradient(colors: [Colors.black, Color.fromARGB(255, 61, 61, 61)]),
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.hapticsEnabled = false,
     this.animationDuration = 250,
-    this.widthFactor = 0.04,
-    this.heightFactor = 0.03,
+    this.widthFactorUnpressed = 0.04,
+    this.widthFactorPressed = 0.035,
+    this.heightFactorUnPressed = 0.03,
+    this.heightFactorPressed = 0.03,
     this.maxHorizontalPadding = 70,
     this.leadingIcon,
     this.actionIcon,
-    this.iconColor = Colors.black,
+    this.iconColor = Colors.white,
+    this.boxShadows,
   });
 
   /// The Text to display inside the button
   final String text;
 
-  /// Background Color when the text button is pressed, default: grey
-  final Color bgColor;
+  /// Background Gradient of The Gradient Button, default : black and grey
+  final Gradient bgGradient;
 
-  /// Text Color of the Text Button, default: black
-  final Color textColor;
+  /// Text Style of the Gradient Button, default : white
+  final TextStyle textStyle;
 
-  /// Border Radius for Text Button, default: 10
+  /// Border Radius for Gradient Button, default : 10
   final double borderRadius;
 
-  /// Animation Duration in Milliseconds, default: 250 ms
+  /// Animation Duration in Milliseconds, default : 250 ms
   final int animationDuration;
 
   /// Enables Light Haptic Feedback
   final bool hapticsEnabled;
 
-  /// A double value which gets multiplied by the current screen width when button is pressed
-  final double widthFactor;
+  /// A double value which gets multiplied by the current screen width when button is not pressed
+  final double widthFactorUnpressed;
 
-  /// A double value which gets multiplied by the current screen height when button is pressed
-  final double heightFactor;
+  /// A double value which gets multiplied by the current screen width when button is pressed
+  final double widthFactorPressed;
+
+  /// A double value which gets multiplied by the current screen height when button is  pressed
+  final double heightFactorPressed;
+
+  /// A double value which gets multiplied by the current screen height when button is not pressed
+  final double heightFactorUnPressed;
 
   /// A double value which determines maximum horizontal padding a button can accumulate
   /// Play with this value if you want to use the button on a larger screen size
@@ -60,19 +69,22 @@ class MUITextButton extends StatefulWidget {
   /// On Pressed Function
   final VoidCallback onPressed;
 
+  /// Box shadows for button
+  final List<BoxShadow>? boxShadows;
+
   @override
-  State<MUITextButton> createState() => _MUITextButtonState();
+  State<MUIGradientButton> createState() => _MUIGradientButtonState();
 }
 
-class _MUITextButtonState extends State<MUITextButton> {
-  bool _isTextButtonPressed = false;
+class _MUIGradientButtonState extends State<MUIGradientButton> {
+  bool _isGradientButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
         setState(() {
-          _isTextButtonPressed = true;
+          _isGradientButtonPressed = true;
         });
         if (widget.hapticsEnabled) {
           HapticFeedback.lightImpact();
@@ -80,24 +92,25 @@ class _MUITextButtonState extends State<MUITextButton> {
       },
       onTapUp: (_) {
         setState(() {
-          _isTextButtonPressed = false;
+          _isGradientButtonPressed = false;
         });
         widget.onPressed();
       },
       onTapCancel: () {
         setState(() {
-          _isTextButtonPressed = false;
+          _isGradientButtonPressed = false;
         });
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: _isTextButtonPressed ? widget.bgColor : Colors.transparent,
+          gradient: widget.bgGradient,
+          boxShadow: widget.boxShadows,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: getScreenWidth(context) * widget.widthFactor,
-          vertical: getScreenWidth(context) * widget.heightFactor,
+          horizontal: _isGradientButtonPressed ? getScreenWidth(context) * widget.widthFactorPressed : getScreenWidth(context) * widget.widthFactorUnpressed,
+          vertical: _isGradientButtonPressed ? getScreenWidth(context) * widget.heightFactorPressed : getScreenWidth(context) * widget.heightFactorUnPressed,
         ).clamp(
           const EdgeInsets.symmetric(
             horizontal: 10,
@@ -119,13 +132,7 @@ class _MUITextButtonState extends State<MUITextButton> {
                 size: 12,
               ),
             SizedBox(width: widget.leadingIcon != null ? 8.0 : 0.0),
-            Text(
-              widget.text,
-              style: TextStyle(
-                color: widget.textColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text(widget.text, style: widget.textStyle),
             SizedBox(width: widget.actionIcon != null ? 8.0 : 0.0),
             if (widget.actionIcon != null)
               Icon(

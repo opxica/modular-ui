@@ -9,9 +9,9 @@ class MUILoadingBlockButton extends StatefulWidget {
     required this.onPressed,
     this.loadingStateText = '',
     this.bgColor = Colors.black,
-    this.textColor = Colors.white,
+    this.textStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.loadingStateBackgroundColor = Colors.grey,
-    this.loadingStateTextColor = Colors.white,
+    this.loadingStateTextStyle = const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     this.borderRadius = 10,
     this.animationDuration = 250,
     this.hapticsEnabled = false,
@@ -36,14 +36,14 @@ class MUILoadingBlockButton extends StatefulWidget {
   /// Background Color when the button is in the loading state
   final Color loadingStateBackgroundColor;
 
-  /// Text Color when the button is in the loading state
-  final Color loadingStateTextColor;
+  /// Text Style when the button is in the loading state
+  final TextStyle loadingStateTextStyle;
 
   /// Background Color of The Loading Block Button, default: Black
   final Color bgColor;
 
-  /// Text Color of the Loading Block Button, default: white
-  final Color textColor;
+  /// Text Style of the Loading Block Button, default: white
+  final TextStyle textStyle;
 
   /// Border Radius for Loading Block Button, default: 10
   final double borderRadius;
@@ -109,14 +109,10 @@ class _MUILoadingBlockButtonState extends State<MUILoadingBlockButton> {
         duration: Duration(milliseconds: widget.animationDuration),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
-          color: !_isLoadingBlockLevelButtonPressed
-              ? widget.bgColor
-              : widget.loadingStateBackgroundColor,
+          color: !_isLoadingBlockLevelButtonPressed ? widget.bgColor : widget.loadingStateBackgroundColor,
           boxShadow: widget.boxShadows,
         ),
-        width: _isLoadingBlockLevelButtonPressed
-            ? getScreenWidth(context) * widget.widthFactorPressed
-            : getScreenWidth(context) * widget.widthFactor,
+        width: _isLoadingBlockLevelButtonPressed ? getScreenWidth(context) * widget.widthFactorPressed : getScreenWidth(context) * widget.widthFactor,
         height: getScreenHeight(context) * widget.heightFactor,
         child: Center(
           child: Row(
@@ -132,10 +128,7 @@ class _MUILoadingBlockButtonState extends State<MUILoadingBlockButton> {
               AnimatedContainer(
                 duration: const Duration(milliseconds: 250),
                 child: !_isLoadingBlockLevelButtonPressed
-                    ? Text(
-                        widget.text,
-                        style: TextStyle(color: widget.textColor),
-                      )
+                    ? Text(widget.text, style: widget.textStyle)
                     : Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -143,15 +136,9 @@ class _MUILoadingBlockButtonState extends State<MUILoadingBlockButton> {
                             margin: const EdgeInsets.symmetric(horizontal: 18),
                             width: 18,
                             height: 18,
-                            child: CircularProgressIndicator(
-                              color: widget.loadingStateTextColor,
-                            ),
+                            child: CircularProgressIndicator(color: widget.loadingStateTextStyle.color),
                           ),
-                          Text(
-                            widget.loadingStateText,
-                            style:
-                                TextStyle(color: widget.loadingStateTextColor),
-                          )
+                          Text(widget.loadingStateText, style: widget.loadingStateTextStyle)
                         ],
                       ),
               ),

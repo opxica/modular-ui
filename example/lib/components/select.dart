@@ -32,7 +32,7 @@ class _DropdownViewState extends State<DropdownView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            MUIPrimaryDropDown(
+            MUISelectFromStringList(
               onItemSelected: (item) {
                 setState(() {
                   selectedString = item;
@@ -48,7 +48,7 @@ class _DropdownViewState extends State<DropdownView> {
               hintText: 'Select String',
               hintStyle: TextStyle(color: Colors.grey.shade300),
             ),
-             MUIMapDropDown(
+             MUISelectFromMapList(
               mapKey: 'display',
               onItemSelected: (item) {
                 setState(() {

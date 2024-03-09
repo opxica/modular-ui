@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// This is a Dropdown widget implementation of Modular UI
+/// This is a Select widget implementation of Modular UI
 /// It take a list of string as dropdown items
-class MUIPrimaryDropDown extends StatefulWidget {
-  const MUIPrimaryDropDown({
+class MUISelectFromStringList extends StatefulWidget {
+  const MUISelectFromStringList({
     super.key,
     required this.items,
     this.tooltip,
@@ -20,7 +20,7 @@ class MUIPrimaryDropDown extends StatefulWidget {
     required this.onItemSelected,
   });
 
-  /// List of strings to be shown in the MUIPrimaryDropDown
+  /// List of strings to be shown in the MUIPrimaryDropDow
   final List<String> items;
 
   /// Text that describes the action that will occur when the button is pressed.
@@ -36,7 +36,7 @@ class MUIPrimaryDropDown extends StatefulWidget {
   final double? width;
 
   /// Hintext to be shown in the dropdown
-  /// 
+  ///
   /// Default value is null.
   final String? hintText;
 
@@ -65,10 +65,10 @@ class MUIPrimaryDropDown extends StatefulWidget {
   final Function(dynamic) onItemSelected;
 
   @override
-  State<MUIPrimaryDropDown> createState() => _MUIPrimaryDropDownState();
+  State<MUISelectFromStringList> createState() => _MUISelectFromStringState();
 }
 
-class _MUIPrimaryDropDownState extends State<MUIPrimaryDropDown> {
+class _MUISelectFromStringState extends State<MUISelectFromStringList> {
   @override
   void initState() {
     super.initState();
@@ -113,7 +113,6 @@ class _MUIPrimaryDropDownState extends State<MUIPrimaryDropDown> {
             widget.items.length,
             (index) => PopupMenuItem<int>(
               height: widget.itemHeight!,
-              
               value: index,
               child: Text(
                 widget.items[index],
